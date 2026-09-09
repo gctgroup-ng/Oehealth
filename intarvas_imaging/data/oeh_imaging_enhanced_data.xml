@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Sample Imaging Protocols -->
+        <record id="protocol_chest_xray" model="oeh.medical.imaging.protocol">
+            <field name="name">Chest X-Ray Standard</field>
+            <field name="code">CXR_STD</field>
+            <field name="modality">xr</field>
+            <field name="body_region">chest</field>
+            <field name="contrast_required" eval="False"/>
+            <field name="preparation_instructions">No special preparation required. Remove all metallic objects from chest area.</field>
+            <field name="positioning_instructions">Patient standing upright, hands on hips, deep inspiration. PA and lateral views.</field>
+            <field name="acquisition_instructions">Standard PA and lateral chest radiographs. Ensure full lung field coverage.</field>
+            <field name="average_duration_minutes">10</field>
+            <field name="acquisition_parameters">{"kVp": "120", "mAs": "3-5", "grid": "yes", "distance": "6 feet"}</field>
+        </record>
+
+        <record id="protocol_ct_head" model="oeh.medical.imaging.protocol">
+            <field name="name">CT Head without Contrast</field>
+            <field name="code">CT_HEAD_NC</field>
+            <field name="modality">ct</field>
+            <field name="body_region">head_neck</field>
+            <field name="contrast_required" eval="False"/>
+            <field name="preparation_instructions">Remove all metallic objects from head area. No eating 2 hours before scan if contrast may be needed.</field>
+            <field name="positioning_instructions">Patient supine, head first. Head secured in head holder.</field>
+            <field name="acquisition_instructions">Axial images from skull base to vertex. Slice thickness 5mm.</field>
+            <field name="average_duration_minutes">15</field>
+            <field name="acquisition_parameters">{"kVp": "120", "mAs": "250", "slice_thickness": "5mm", "reconstruction": "standard"}</field>
+        </record>
+
+        <record id="protocol_ct_abdomen_contrast" model="oeh.medical.imaging.protocol">
+            <field name="name">CT Abdomen and Pelvis with IV Contrast</field>
+            <field name="code">CT_ABD_IV</field>
+            <field name="modality">ct</field>
+            <field name="body_region">abdomen</field>
+            <field name="contrast_required" eval="True"/>
+            <field name="contrast_type">iv</field>
+            <field name="contrast_volume">100</field>
+            <field name="contrast_delay">70</field>
+            <field name="preparation_instructions">NPO 4 hours before exam. Drink oral contrast 2 hours and 1 hour before exam. Check creatinine levels.</field>
+            <field name="positioning_instructions">Patient supine, arms above head. Scan from diaphragm to pubic symphysis.</field>
+            <field name="acquisition_instructions">Pre-contrast, arterial phase (25s delay), portal venous phase (70s delay).</field>
+            <field name="average_duration_minutes">30</field>
+            <field name="acquisition_parameters">{"kVp": "120", "mAs": "200", "slice_thickness": "3mm", "reconstruction": "soft tissue"}</field>
+        </record>
+
+        <!-- Sample Reporting Templates -->
+        <record id="template_chest_xray" model="oeh.medical.radiology.template">
+            <field name="name">Chest X-Ray Report Template</field>
+            <field name="code">TPL_CXR</field>
+            <field name="modality">xr</field>
+            <field name="technique_template">PA and lateral chest radiographs were obtained.</field>
+            <field name="findings_template">LUNGS: 
+PLEURA:
+HEART:
+MEDIASTINUM:
+BONES:
+SOFT TISSUES:</field>
+            <field name="impression_template">1. [Primary finding]
+2. [Additional findings]</field>
+        </record>
+
+        <record id="template_ct_head" model="oeh.medical.radiology.template">
+            <field name="name">CT Head Report Template</field>
+            <field name="code">TPL_CT_HEAD</field>
+            <field name="modality">ct</field>
+            <field name="technique_template">Axial CT images of the head were obtained without intravenous contrast.</field>
+            <field name="findings_template">BRAIN PARENCHYMA:
+VENTRICULAR SYSTEM:
+EXTRA-AXIAL SPACES:
+SKULL AND SCALP:
+ORBITS:
+PARANASAL SINUSES:</field>
+            <field name="impression_template">1. [Primary finding]
+2. [Additional findings]</field>
+        </record>
+    </data>
+</odoo>

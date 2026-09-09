@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Patient Profile Page - Backup/Alternative Implementation -->
+    <template id="patient_profile_backup" name="Patient Profile Backup">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="container">
+                <h1>Patient Profile - Backup Template</h1>
+                <p>This is a backup/alternative implementation of the patient profile page.</p>
+                <p>The original template had structural issues and has been simplified.</p>
+                <!-- TODO: Implement proper patient profile form here -->
+            </div>
+        </t>
+    </template>
+</odoo>

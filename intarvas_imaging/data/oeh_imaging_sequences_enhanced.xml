@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Accession Number Sequence -->
+        <record id="seq_oeh_medical_imaging_accession" model="ir.sequence">
+            <field name="name">Medical Imaging Accession Number</field>
+            <field name="code">oeh.medical.imaging.accession</field>
+            <field name="prefix">ACC</field>
+            <field name="suffix"></field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Protocol Code Sequence -->
+        <record id="seq_oeh_medical_imaging_protocol" model="ir.sequence">
+            <field name="name">Medical Imaging Protocol</field>
+            <field name="code">oeh.medical.imaging.protocol</field>
+            <field name="prefix">PROT</field>
+            <field name="suffix"></field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Template Code Sequence -->
+        <record id="seq_oeh_medical_radiology_template" model="ir.sequence">
+            <field name="name">Radiology Report Template</field>
+            <field name="code">oeh.medical.radiology.template</field>
+            <field name="prefix">TPL</field>
+            <field name="suffix"></field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

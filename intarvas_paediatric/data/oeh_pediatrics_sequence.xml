@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Pediatrics Management -->
+
+        <record id="seq_oeh_medical_pediatrics_newborn" model="ir.sequence">
+            <field name="name">Newborns</field>
+            <field name="code">oeh.medical.pediatrics.newborn</field>
+            <field name="prefix">NB/%(day)s-%(month)s-%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="seq_oeh_medical_pediatrics_pcs" model="ir.sequence">
+            <field name="name">Pediatric Symptom Checklists</field>
+            <field name="code">oeh.medical.pediatrics.psc</field>
+            <field name="prefix">PCS</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</openerp>

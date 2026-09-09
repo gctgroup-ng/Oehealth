@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Minimal Invoice View for iframe embedding -->
+    <template id="invoice_minimal_view" name="Invoice Minimal View">
+        <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <title>Invoice <t t-esc="invoice.name"/></title>
+                
+                <!-- Bootstrap CSS -->
+                <link href="/web/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+                
+                <!-- Font Awesome -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+                
+                <style>
+                    body {
+                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                        margin: 0;
+                        padding: 20px;
+                        background: #fff;
+                        line-height: 1.5;
+                    }
+                    
+                    .invoice-container {
+                        max-width: 800px;
+                        margin: 0 auto;
+                    }
+                    
+                    .invoice-header {
+                        border-bottom: 2px solid #e9ecef;
+                        padding-bottom: 20px;
+                        margin-bottom: 30px;
+                    }
+                    
+                    .invoice-title {
+                        font-size: 1.8rem;
+                        font-weight: 600;
+                        margin-bottom: 10px;
+                        color: #333;
+                    }
+                    
+                    .invoice-meta {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                    }
+                    
+                    .invoice-details, .customer-details {
+                        flex: 1;
+                        min-width: 250px;
+                    }
+                    
+                    .detail-group h5 {
+                        font-weight: 600;
+                        margin-bottom: 8px;
+                        color: #495057;
+                    }
+                    
+                    .detail-item {
+                        margin-bottom: 4px;
+                        color: #666;
+                    }
+                    
+                    .detail-label {
+                        font-weight: 500;
+                        margin-right: 8px;
+                    }
+                    
+                    .invoice-lines {
+                        margin: 30px 0;
+                    }
+                    
+                    .table {
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                        border-radius: 8px;
+                        overflow: hidden;
+                    }
+                    
+                    .table thead {
+                        background: #f8f9fa;
+                    }
+                    
+                    .table th {
+                        font-weight: 600;
+                        border-top: none;
+                        padding: 12px;
+                    }
+                    
+                    .table td {
+                        padding: 12px;
+                        vertical-align: middle;
+                    }
+                    
+                    .invoice-totals {
+                        background: #f8f9fa;
+                        padding: 20px;
+                        border-radius: 8px;
+                        margin: 30px 0;
+                    }
+                    
+                    .total-row {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 8px;
+                        padding: 4px 0;
+                    }
+                    
+                    .total-row.final {
+                        border-top: 2px solid #dee2e6;
+                        padding-top: 12px;
+                        margin-top: 12px;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                    }
+                    
+                    .amount {
+                        font-weight: 500;
+                    }
+                    
+                    .payment-section {
+                        background: #f8f9fa;
+                        padding: 25px;
+                        border-radius: 8px;
+                        margin-top: 30px;
+                    }
+                    
+                    .payment-title {
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                        color: #333;
+                    }
+                    
+                    .btn-pay {
+                        background: #007bff;
+                        color: white;
+                        border: none;
+                        padding: 12px 24px;
+                        border-radius: 6px;
+                        font-weight: 500;
+                        text-decoration: none;
+                        display: inline-block;
+                        transition: background 0.2s;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        font-family: inherit;
+                    }
+                    
+                    .btn-pay:hover {
+                        background: #0056b3;
+                        color: white;
+                        text-decoration: none;
+                        transform: translateY(-1px);
+                        box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+                    }
+                    
+                    .btn-pay:active {
+                        transform: translateY(0);
+                    }
+                    
+                    .payment-methods {
+                        margin-top: 20px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                    }
+                    
+                    .payment-methods-info {
+                        background: #f8f9fa;
+                        padding: 15px;
+                        border-radius: 8px;
+                        margin-top: 15px;
+                    }
+                    
+                    .configured-providers {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        margin-top: 10px;
+                    }
+                    
+                    .provider-info {
+                        background: white;
+                        border: 1px solid #dee2e6;
+                        padding: 8px 12px;
+                        border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    
+                    .provider-logo {
+                        max-width: 60px;
+                        max-height: 30px;
+                        object-fit: contain;
+                    }
+                    
+                    .provider-name {
+                        font-size: 0.9rem;
+                        color: #333;
+                        font-weight: 500;
+                    }
+                    
+                    .payment-methods-info h6 {
+                        margin-bottom: 8px;
+                        color: #495057;
+                        font-weight: 600;
+                    }
+                    
+                    @media (max-width: 768px) {
+                        body {
+                            padding: 10px;
+                        }
+                        
+                        .invoice-meta {
+                            flex-direction: column;
+                        }
+                        
+                        .invoice-title {
+                            font-size: 1.5rem;
+                        }
+                        
+                        .table {
+                            font-size: 0.9rem;
+                        }
+                        
+                        .payment-methods {
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="invoice-container">
+                    <!-- Invoice Header -->
+                    <div class="invoice-header">
+                        <div class="invoice-title">
+                            <i class="fas fa-file-invoice me-2"></i>Invoice <t t-esc="invoice.name"/>
+                        </div>
+                        
+                        <div class="invoice-meta">
+                            <div class="invoice-details">
+                                <div class="detail-group">
+                                    <h5>Invoice Details</h5>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Date:</span>
+                                        <span t-esc="invoice.invoice_date.strftime('%B %d, %Y')" t-if="invoice.invoice_date"/>
+                                    </div>
+                                    <div class="detail-item" t-if="invoice.invoice_date_due">
+                                        <span class="detail-label">Due Date:</span>
+                                        <span t-esc="invoice.invoice_date_due.strftime('%B %d, %Y')"/>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Status:</span>
+                                        <span class="badge bg-warning" t-if="invoice.payment_state == 'not_paid'">Unpaid</span>
+                                        <span class="badge bg-info" t-if="invoice.payment_state == 'partial'">Partially Paid</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="customer-details">
+                                <div class="detail-group">
+                                    <h5>Bill To</h5>
+                                    <div class="detail-item">
+                                        <strong t-esc="invoice.partner_id.name"/>
+                                    </div>
+                                    <div class="detail-item" t-if="invoice.partner_id.street">
+                                        <span t-esc="invoice.partner_id.street"/>
+                                    </div>
+                                    <div class="detail-item" t-if="invoice.partner_id.city">
+                                        <span t-esc="invoice.partner_id.city"/><t t-if="invoice.partner_id.state_id">, <span t-esc="invoice.partner_id.state_id.name"/></t>
+                                    </div>
+                                    <div class="detail-item" t-if="invoice.partner_id.email">
+                                        <span t-esc="invoice.partner_id.email"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Invoice Lines -->
+                    <div class="invoice-lines">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th class="text-end">Quantity</th>
+                                    <th class="text-end">Unit Price</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="invoice.invoice_line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <strong t-esc="line.name"/>
+                                            <div t-if="line.product_id" class="text-muted small">
+                                                Product: <span t-esc="line.product_id.name"/>
+                                            </div>
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-esc="'{:.2f}'.format(line.quantity)"/>
+                                        </td>
+                                        <td class="text-end">
+                                            $<span t-esc="'{:.2f}'.format(line.price_unit)"/>
+                                        </td>
+                                        <td class="text-end">
+                                            <span class="amount">$<span t-esc="'{:.2f}'.format(line.price_subtotal)"/></span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Invoice Totals -->
+                    <div class="invoice-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span class="amount">$<span t-esc="'{:.2f}'.format(invoice.amount_untaxed)"/></span>
+                        </div>
+                        <t t-if="invoice.amount_tax > 0">
+                            <div class="total-row">
+                                <span>Tax:</span>
+                                <span class="amount">$<span t-esc="'{:.2f}'.format(invoice.amount_tax)"/></span>
+                            </div>
+                        </t>
+                        <div class="total-row final">
+                            <span>Total Due:</span>
+                            <span class="amount text-primary">$<span t-esc="'{:.2f}'.format(invoice.amount_residual)"/></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Section -->
+                    <div class="payment-section">
+                        <div class="payment-title">
+                            <i class="fas fa-credit-card me-2"></i>Payment Options
+                        </div>
+                        
+                        <p class="text-muted mb-3">Choose your preferred payment method to complete the payment securely.</p>
+                        
+                        <!-- Direct link to Odoo's invoice payment -->
+                        <div class="payment-actions mb-3">
+                            <button onclick="payInvoice()" class="btn-pay">
+                                <i class="fas fa-credit-card me-2"></i>Pay Now - $<span t-esc="'{:.2f}'.format(invoice.amount_residual)"/>
+                            </button>
+                        </div>
+                        
+                        <script>
+                            <![CDATA[
+                            function payInvoice() {
+                                const paymentUrl = '/my/invoices/]]><t t-esc="invoice.id"/><![CDATA[?access_token=]]><t t-esc="access_token"/><![CDATA[';
+                                
+                                // Try to communicate with parent window
+                                try {
+                                    if (window.parent && window.parent !== window) {
+                                        window.parent.location.href = paymentUrl;
+                                    } else {
+                                        window.open(paymentUrl, '_blank');
+                                    }
+                                } catch (e) {
+                                    // Fallback: open in new window
+                                    window.open(paymentUrl, '_blank');
+                                }
+                            }
+                            ]]>
+                        </script>
+                        
+                        <!-- Show configured payment providers -->
+                        <t t-if="acquirers">
+                            <div class="payment-methods-info">
+                                <h6 class="mb-2">Available Payment Methods:</h6>
+                                <div class="configured-providers">
+                                    <t t-foreach="acquirers" t-as="acquirer">
+                                        <div class="provider-info" t-if="acquirer.state == 'enabled'">
+                                            <img t-if="acquirer.image_128" 
+                                                 t-att-src="image_data_uri(acquirer.image_128)"
+                                                 t-att-alt="acquirer.name"
+                                                 class="provider-logo"/>
+                                            <span t-else="" class="provider-name" t-esc="acquirer.name"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                No payment methods are currently configured. Please contact support.
+                            </div>
+                        </t>
+                        
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                <i class="fas fa-shield-alt me-1"></i>
+                                Your payment information is encrypted and secure. We use industry-standard SSL encryption.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bootstrap JS -->
+                <script src="/web/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+            </body>
+        </html>
+    </template>
+</odoo>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Lab Test Templates Data -->
+
+        <!-- Basic Checkup Lab Template -->
+        <record id="lab_template_basic_checkup" model="oeh.medical.lab.test.template">
+            <field name="name">Basic Checkup Package</field>
+            <field name="description">Standard lab tests for routine health checkup</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_basic_checkup_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_basic_checkup"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_completebloodcount0"/>  <!-- CBC -->
+            <field name="urgency">a</field>
+            <field name="info">Complete Blood Count for routine screening</field>
+        </record>
+
+        <record id="lab_template_basic_checkup_line2" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_basic_checkup"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_urineanalysis0"/>  <!-- Urine Analysis -->
+            <field name="urgency">a</field>
+            <field name="info">Urine Analysis for kidney function assessment</field>
+        </record>
+
+        <!-- Liver Function Template -->
+        <record id="lab_template_liver_function" model="oeh.medical.lab.test.template">
+            <field name="name">Liver Function Assessment</field>
+            <field name="description">Lab tests for liver function evaluation</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_liver_function_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_liver_function"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_liverfunctiontest0"/>  <!-- LFT -->
+            <field name="urgency">a</field>
+            <field name="info">Liver Function Test - fasting may be required</field>
+        </record>
+
+        <!-- Kidney Function Template -->
+        <record id="lab_template_kidney_function" model="oeh.medical.lab.test.template">
+            <field name="name">Kidney Function Assessment</field>
+            <field name="description">Lab tests for kidney function evaluation</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_kidney_function_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_kidney_function"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_renalfunctiontest0"/>  <!-- RFT -->
+            <field name="urgency">a</field>
+            <field name="info">Renal Function Test for kidney health assessment</field>
+        </record>
+
+        <!-- Viral Fever/Dengue Workup Template -->
+        <record id="lab_template_viral_fever" model="oeh.medical.lab.test.template">
+            <field name="name">Viral Fever/Dengue Workup</field>
+            <field name="description">Comprehensive lab tests for viral fever, dengue, and similar conditions</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_viral_fever_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_viral_fever"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_completebloodcount0"/>  <!-- CBC -->
+            <field name="urgency">b</field>
+            <field name="info">CBC with platelet count for viral infection and dengue detection</field>
+        </record>
+
+        <record id="lab_template_viral_fever_line2" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_viral_fever"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_peripheralsmearexamination0"/>  <!-- Peripheral Smear -->
+            <field name="urgency">a</field>
+            <field name="info">Peripheral smear for atypical lymphocytes and platelet morphology</field>
+        </record>
+
+        <record id="lab_template_viral_fever_line3" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_viral_fever"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_haematology0"/>  <!-- Haematology -->
+            <field name="urgency">a</field>
+            <field name="info">Detailed hematological analysis for viral markers</field>
+        </record>
+
+        <record id="lab_template_viral_fever_line4" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_viral_fever"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_liverfunctiontest0"/>  <!-- LFT -->
+            <field name="urgency">a</field>
+            <field name="info">Liver function test as dengue can affect liver enzymes</field>
+        </record>
+
+        <!-- Infection/Fever Workup Template -->
+        <record id="lab_template_infection" model="oeh.medical.lab.test.template">
+            <field name="name">Bacterial Infection Workup</field>
+            <field name="description">Lab tests for suspected bacterial infections</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_infection_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_infection"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_completebloodcount0"/>  <!-- CBC -->
+            <field name="urgency">b</field>
+            <field name="info">CBC with differential for bacterial infection markers</field>
+        </record>
+
+        <record id="lab_template_infection_line2" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_infection"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_urineanalysis0"/>  <!-- Urine Analysis -->
+            <field name="urgency">a</field>
+            <field name="info">Urine Analysis to rule out UTI</field>
+        </record>
+
+        <record id="lab_template_infection_line3" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_infection"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_stoolexamination0"/>  <!-- Stool Examination -->
+            <field name="urgency">a</field>
+            <field name="info">Stool examination for gastrointestinal infections</field>
+        </record>
+
+        <!-- Blood Analysis Template -->
+        <record id="lab_template_blood_analysis" model="oeh.medical.lab.test.template">
+            <field name="name">Comprehensive Blood Analysis</field>
+            <field name="description">Comprehensive blood work including haematology</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_blood_analysis_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_blood_analysis"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_haematology0"/>  <!-- Haematology -->
+            <field name="urgency">a</field>
+            <field name="info">Complete haematological analysis</field>
+        </record>
+
+        <!-- Corona/COVID-19 Screening Template -->
+        <record id="lab_template_corona" model="oeh.medical.lab.test.template">
+            <field name="name">Corona/COVID-19 Screening</field>
+            <field name="description">Lab tests for COVID-19 and respiratory infection screening</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_corona_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_corona"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_completebloodcount0"/>  <!-- CBC -->
+            <field name="urgency">b</field>
+            <field name="info">CBC to check lymphocyte count and inflammatory markers</field>
+        </record>
+
+        <record id="lab_template_corona_line2" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_corona"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_haematology0"/>  <!-- Haematology -->
+            <field name="urgency">a</field>
+            <field name="info">D-Dimer, ESR, CRP for COVID-19 severity assessment</field>
+        </record>
+
+        <record id="lab_template_corona_line3" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_corona"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_renalfunctiontest0"/>  <!-- RFT -->
+            <field name="urgency">a</field>
+            <field name="info">Kidney function monitoring for COVID-19 complications</field>
+        </record>
+
+        <!-- Endocrine Function Template -->
+        <record id="lab_template_endocrine" model="oeh.medical.lab.test.template">
+            <field name="name">Endocrine Function Tests</field>
+            <field name="description">Lab tests for endocrine system evaluation</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="lab_template_endocrine_line1" model="oeh.medical.lab.test.template.line">
+            <field name="template_id" ref="lab_template_endocrine"/>
+            <field name="test_type_id" ref="intarvas_lab.lab_test_endocrinology0"/>  <!-- Endocrinology -->
+            <field name="urgency">a</field>
+            <field name="info">Comprehensive endocrine function assessment</field>
+        </record>
+
+    </data>
+</odoo>

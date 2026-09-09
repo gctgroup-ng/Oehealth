@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="patient_profile_form" name="Patient Portal Dialog">
+		<div id="patient_img_remove_dialog" class="modal fade">
+			<br/>
+            <div class="modal-dialog modal-content" style="border:none; max-height:250px;max-width:300px;">
+                <div class="modal-body" id="pop_html">
+                    <a href="#" class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right mr15" data-dismiss="modal" style="font-size:30px">×</a>
+                    <br/>
+                    <h6 style="text-align:center; font-size 24px; font-weight:bold" class="o_default_snippet_text">Are you sure?</h6>
+                    <br/>
+
+                    <form action="/patient/portal/remove/img">
+                        <div align="center">
+                            <input type="hidden" name="partner_id" t-att-value="patient.partner_id.id"/>
+                        </div>
+                        <div align="center" style="margin-top:15px">
+                            <input type="submit" value="Yes" class="btn btn-default btn-primary pull-center mb32"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="patient_img_upload_dialog" class="modal fade">
+            <br/>
+            <div class="modal-dialog modal-content" style="border:none; max-height:300px;max-width:550px;">
+                <div class="modal-body" id="pop_html">
+                    <a href="#" class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right mr15" data-dismiss="modal" style="font-size:30px">×</a>
+                    <br/>
+                    <h6 style="text-align:center; font-size 24px; font-weight:bold" class="o_default_snippet_text">Change</h6>
+                    <br/>
+
+                    <form action="/patient/portal/update/img" method="post" enctype="multipart/form-data">
+                        <div align="center">
+                            <input type="hidden" name="patient"  t-att-value="patient.id"/>
+                            <input type="hidden" name="partner_id"  t-att-value="patient.partner_id.id"/>
+                            <input type="file" name="attachment" class="file" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true"/>
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="import_id"/>
+                        </div>
+                        <div align="center" style="margin-top:15px">
+                            <input type="submit" value="Submit" class="btn btn-default btn-primary pull-center mb32"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_oeh_medical_patient_imaging_document">
+    <t t-call="web.external_layout">
+        <div class="page">
+            
+            <div class="text-center">
+                <h3><strong>RADIOLOGY REPORT</strong></h3>
+                <br/>
+                <p><strong>Medical Imaging Study</strong></p>
+            </div>
+            
+            <br/><br/>
+
+            <!-- Patient Information Header -->
+            <table style="border: 1px solid #ddd; background-color: #f9f9f9; width: 100%; padding: 10px;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>Patient Name:</strong> <span t-field="o.patient.name"/><br/><br/>
+                        <strong>Test #:</strong> <span t-field="o.name"/>
+                    </td>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>Study Date:</strong> <span t-field="o.date_requested"/><br/><br/>
+                        <strong>Test Type:</strong> <span t-field="o.test_type.name"/>
+                    </td>
+                </tr>
+            </table>
+            
+            <br/><br/>
+
+            <!-- Clinical Information -->
+            <div>
+                <strong>Referring Physician:</strong> <span t-field="o.requestor"/><br/><br/>
+                <div t-if="o.clinical_indication">
+                    <strong>Clinical Indication:</strong> <span t-field="o.clinical_indication"/><br/>
+                </div>
+            </div>
+
+            <br/>
+            <hr/>
+            <br/>
+
+            <!-- Report Sections -->
+            <div>
+                <!-- Technique Section -->
+                <div t-if="o.technique">
+                    <h5><strong>TECHNIQUE:</strong></h5>
+                    <div style="margin-left: 20px;">
+                        <span t-field="o.technique"/>
+                    </div>
+                    <br/><br/>
+                </div>
+
+                <!-- Findings Section -->
+                <div>
+                    <h5><strong>FINDINGS:</strong></h5>
+                    <div style="margin-left: 20px;">
+                        <span t-if="o.analysis" t-field="o.analysis"/>
+                        <span t-if="not o.analysis"><em>[Detailed findings to be documented here]</em></span>
+                    </div>
+                    <br/><br/>
+                </div>
+
+                <!-- Impression Section -->
+                <div>
+                    <h5><strong>IMPRESSION:</strong></h5>
+                    <div style="margin-left: 20px;">
+                        <span t-if="o.impression" t-field="o.impression"/>
+                        <span t-if="o.conclusion and not o.impression" t-field="o.conclusion"/>
+                        <span t-if="not o.impression and not o.conclusion"><em>[Clinical impression to be documented here]</em></span>
+                    </div>
+                    <br/><br/>
+                </div>
+
+                <!-- Recommendations Section -->
+                <div t-if="o.recommendations">
+                    <h5><strong>RECOMMENDATIONS:</strong></h5>
+                    <div style="margin-left: 20px;">
+                        <span t-field="o.recommendations"/>
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+
+            <hr/>
+            <br/>
+
+            <!-- Report Authorization -->
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <span t-if="o.primary_reader"><strong>Dictated by:</strong> <span t-field="o.primary_reader"/></span>
+                    </td>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>Report Status:</strong> <span t-field="o.state"/><br/>
+                        <span t-if="o.date_analysis"><strong>Report Date:</strong> <span t-field="o.date_analysis"/></span>
+                    </td>
+                </tr>
+            </table>
+
+            <br/><br/>
+
+            <!-- Medical Images Section -->
+            <div t-if="o.image1 or o.image2 or o.image3">
+                <hr/>
+                <br/>
+                <h5><strong>MEDICAL IMAGES:</strong></h5>
+                <br/>
+                
+                <div t-if="o.image1" class="text-center">
+                    <strong>Image 1</strong><br/><br/>
+                    <img t-att-src="image_data_uri(o.image1)" style="max-width: 100%; max-height: 400px; border: 1px solid #ddd; padding: 5px;"/>
+                    <br/><br/><br/>
+                </div>
+                
+                <div t-if="o.image2" class="text-center">
+                    <strong>Image 2</strong><br/><br/>
+                    <img t-att-src="image_data_uri(o.image2)" style="max-width: 100%; max-height: 400px; border: 1px solid #ddd; padding: 5px;"/>
+                    <br/><br/><br/>
+                </div>
+                
+                <div t-if="o.image3" class="text-center">
+                    <strong>Image 3</strong><br/><br/>
+                    <img t-att-src="image_data_uri(o.image3)" style="max-width: 100%; max-height: 400px; border: 1px solid #ddd; padding: 5px;"/>
+                    <br/><br/>
+                </div>
+            </div>
+            
+            <br/>
+            <hr/>
+            <br/>
+            <div class="text-center">
+                <strong>*** END OF REPORT ***</strong>
+            </div>
+
+        </div>
+   </t>
+</template>
+<template id="report_oeh_medical_patient_imaging">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="intarvas_imaging.report_oeh_medical_patient_imaging_document" t-lang="o.patient.partner_id.lang if o.patient.partner_id and o.patient.partner_id.lang else 'en_US'"/>
+        </t>
+    </t>
+</template>
+</odoo>

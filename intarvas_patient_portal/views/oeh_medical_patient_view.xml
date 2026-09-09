@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- Request Authorization VIEWS -->
+    <record model="ir.ui.view" id="oeh_medical_request_authorization_view">
+        <field name="name">Request Authorization</field>
+        <field name="model">oeh.medical.patient.request.authorization</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Request Authorization">
+                <header>
+                    <button name="action_send" invisible="state!='draft'" class="btn-primary" type="object" string="Send"/>
+                    <button name="action_approve" invisible="state!='sent'" class="btn-primary" type="object" string="Approve"/>
+                    <button name="action_reject" invisible="state!='sent'" class="btn-secondary" type="object" string="Reject"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,approve,reject"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="details"/>
+                        </group>
+                        <group>
+                            <field name="patient"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="oeh_medical_request_authorization_tree_view">
+        <field name="name">Request Authorization</field>
+        <field name="model">oeh.medical.patient.request.authorization</field>
+<!--        <field name="type">tree</field>-->
+        <field name="arch" type="xml">
+            <list string='Request Authorization'>
+                <field name="name"/>
+                <field name="details"/>
+                <field name="patient"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="oeh_medical_request_authorization_action_tree" model="ir.actions.act_window">
+        <field name="name">Request Authorization</field>
+        <field name="res_model">oeh.medical.patient.request.authorization</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to add a new Request Authorization records.
+          </p>
+        </field>
+    </record>
+    </data>
+</odoo>

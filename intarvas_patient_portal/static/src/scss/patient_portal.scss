@@ -1,0 +1,482 @@
+// Modern Patient Portal Styles - Original Beautiful Design
+// =======================================================
+
+// Color Variables
+:root {
+  --patient-primary: #4f46e5;
+  --patient-primary-light: #8b5cf6;
+  --patient-secondary: #0ea5e9;
+  --patient-success: #10b981;
+  --patient-warning: #f59e0b;
+  --patient-error: #ef4444;
+  --patient-white: #ffffff;
+  --patient-gray-50: #f9fafb;
+  --patient-gray-100: #f3f4f6;
+  --patient-gray-200: #e5e7eb;
+  --patient-gray-300: #d1d5db;
+  --patient-gray-400: #9ca3af;
+  --patient-gray-500: #6b7280;
+  --patient-gray-600: #4b5563;
+  --patient-gray-700: #374151;
+  --patient-gray-800: #1f2937;
+  --patient-gray-900: #111827;
+  --patient-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --patient-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --patient-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --patient-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --patient-radius: 8px;
+  --patient-radius-lg: 12px;
+}
+
+// Global Reset for Patient Portal
+.patient-portal-wrapper {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--patient-gray-50) 0%, var(--patient-white) 100%);
+  color: var(--patient-gray-700);
+  line-height: 1.6;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  // Override Odoo's default styles within patient portal
+  .btn, .form-control, .card {
+    border-radius: var(--patient-radius) !important;
+  }
+}
+
+// Top Navigation Bar
+.patient-navbar {
+  background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+  box-shadow: var(--patient-shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--patient-white);
+    font-size: 1.3rem; // Reduced from 1.5rem
+    font-weight: 700;
+    text-decoration: none;
+
+    i {
+      font-size: 1.5rem; // Reduced from 1.8rem
+      color: var(--patient-white);
+      margin-right: 0.5rem;
+    }
+  }
+
+  .navbar-user {
+    .user-info {
+      .btn-link {
+        color: var(--patient-white);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: var(--patient-radius);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        transition: all 0.3s ease;
+        font-size: 0.9rem; // Smaller font
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          transform: translateY(-1px);
+        }
+
+        .user-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .user-name {
+          font-weight: 600;
+          font-size: 0.9rem; // Smaller font
+        }
+      }
+    }
+  }
+}
+
+// Sidebar Navigation
+.patient-sidebar {
+  background: var(--patient-white);
+  border-radius: var(--patient-radius-lg);
+  box-shadow: var(--patient-shadow-lg);
+  padding: 1.5rem 0;
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+
+  .nav-item {
+    margin: 0;
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      padding: 0.875rem 1.5rem;
+      color: var(--patient-gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem; // Smaller font size
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      border-radius: 0;
+      position: relative;
+
+      i {
+        width: 20px;
+        font-size: 1rem; // Smaller icon
+        margin-right: 0.875rem;
+        color: var(--patient-gray-400);
+        transition: all 0.3s ease;
+      }
+
+      span {
+        flex: 1;
+        font-size: 0.9rem; // Smaller text
+      }
+
+      &:hover {
+        background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+        color: var(--patient-white);
+        transform: translateX(4px);
+        box-shadow: var(--patient-shadow);
+
+        i {
+          color: var(--patient-white);
+          transform: scale(1.1);
+        }
+      }
+
+      &.active {
+        background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+        color: var(--patient-white);
+        font-weight: 600;
+
+        i {
+          color: var(--patient-white);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: var(--patient-white);
+        }
+      }
+    }
+  }
+}
+
+// Main Content Layout
+.patient-main-content {
+  padding: 1.5rem;
+  flex: 1;
+
+  .welcome-header {
+    background: var(--patient-white);
+    border-radius: var(--patient-radius-lg);
+    padding: 1.5rem; // Reduced padding
+    margin-bottom: 1.5rem;
+    box-shadow: var(--patient-shadow-lg);
+    border: 1px solid var(--patient-gray-200);
+
+    .welcome-title {
+      font-size: 1.8rem; // Reduced from 2.5rem
+      font-weight: 600;
+      color: var(--patient-gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome-subtitle {
+      font-size: 1rem; // Reduced from 1.1rem  
+      color: var(--patient-gray-500);
+      line-height: 1.6;
+    }
+  }
+}
+
+// Quick Actions Grid
+.quick-actions {
+  .section-title {
+    font-size: 1.3rem; // Smaller heading
+    font-weight: 700;
+    color: var(--patient-gray-900);
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 3rem;
+      height: 3px;
+      background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+      border-radius: 2px;
+    }
+  }
+
+  .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .action-card {
+    background: var(--patient-white);
+    border-radius: var(--patient-radius-lg);
+    padding: 1.5rem; // Reduced padding
+    box-shadow: var(--patient-shadow);
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--patient-shadow-lg);
+      border-color: var(--patient-primary);
+    }
+
+    .action-icon {
+      width: 60px; // Smaller icon container
+      height: 60px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+
+      i {
+        font-size: 1.5rem; // Smaller icon
+        color: var(--patient-white);
+      }
+    }
+
+    .action-title {
+      font-size: 1.1rem; // Reduced from 1.25rem
+      font-weight: 600;
+      color: var(--patient-gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .action-description {
+      font-size: 0.875rem; // Smaller description
+      color: var(--patient-gray-500);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+      color: var(--patient-white);
+      border: none;
+      padding: 0.625rem 1.5rem; // Smaller button
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.875rem; // Smaller button text
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        color: var(--patient-white);
+      }
+    }
+  }
+}
+
+// Cards and Components
+.card {
+  border-radius: var(--patient-radius-lg);
+  border: 1px solid var(--patient-gray-200);
+  box-shadow: var(--patient-shadow);
+  
+  .card-header {
+    background: var(--patient-gray-50);
+    border-radius: var(--patient-radius-lg) var(--patient-radius-lg) 0 0;
+    border-bottom: 1px solid var(--patient-gray-200);
+    font-size: 0.9rem; // Smaller card headers
+  }
+
+  .card-body {
+    font-size: 0.9rem; // Smaller card content
+  }
+}
+
+// Enhanced Buttons
+.btn {
+  border-radius: var(--patient-radius);
+  font-weight: 500;
+  font-size: 0.875rem; // Smaller buttons
+  transition: all 0.3s ease;
+
+  &.btn-primary {
+    background: linear-gradient(135deg, var(--patient-primary) 0%, var(--patient-primary-light) 100%);
+    border: none;
+
+    &:hover {
+      background: linear-gradient(135deg, var(--patient-primary-light) 0%, var(--patient-primary) 100%);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Icon Fixes - Critical for proper display
+.fa, .fas, .far, .fab {
+  font-family: "Font Awesome 5 Free" !important;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fas {
+  font-weight: 900 !important;
+}
+
+.far {
+  font-weight: 400 !important;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands" !important;
+  font-weight: 400 !important;
+}
+
+// Prescription Detail Page Specific Styles - Compact Layout
+.patient-portal-wrapper {
+  .welcome-section {
+    padding: 1rem;
+    margin-bottom: 1rem !important;
+    
+    .welcome-title {
+      font-size: 1.5rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+    
+    .welcome-subtitle {
+      font-size: 0.9rem !important;
+      margin-bottom: 0 !important;
+    }
+  }
+  
+  .action-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    
+    .section-title {
+      font-size: 1.1rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+    
+    .form-label {
+      font-size: 0.85rem !important;
+      margin-bottom: 0.25rem !important;
+      color: var(--patient-gray-600);
+      font-weight: 600;
+    }
+    
+    .info-value {
+      margin-bottom: 0.75rem !important;
+      font-size: 0.9rem !important;
+      line-height: 1.4;
+    }
+  }
+  
+  .medicine-card {
+    padding: 0.75rem !important;
+    border: 1px solid var(--patient-gray-200);
+    border-radius: var(--patient-radius);
+    background: var(--patient-gray-50);
+    margin-bottom: 0.75rem !important;
+    
+    .form-label {
+      font-size: 0.8rem !important;
+      margin-bottom: 0.25rem !important;
+      color: var(--patient-gray-600);
+      font-weight: 600;
+    }
+    
+    .info-value {
+      margin-bottom: 0.5rem !important;
+      
+      h5 {
+        font-size: 1rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+      
+      small {
+        font-size: 0.8rem !important;
+      }
+    }
+    
+    .alert {
+      margin-bottom: 0.5rem !important;
+      padding: 0.5rem 0.75rem !important;
+      font-size: 0.85rem !important;
+    }
+  }
+  
+  // Row spacing adjustments
+  .row {
+    &.g-3 {
+      --bs-gutter-y: 1rem;
+      --bs-gutter-x: 1rem;
+    }
+    
+    &.g-2 {
+      --bs-gutter-y: 0.5rem;
+      --bs-gutter-x: 0.5rem;
+    }
+  }
+  
+  // Column spacing for prescription details
+  .col-md-6, .col-md-4, .col-md-8, .col-md-3, .col-12 {
+    margin-bottom: 0.5rem;
+  }
+  
+  // Sticky sidebar adjustments
+  .sticky-top {
+    top: 100px !important;
+  }
+  
+  // Section subtitle styling
+  .section-subtitle {
+    font-size: 1rem !important;
+    color: var(--patient-primary) !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid var(--patient-gray-200) !important;
+  }
+  
+  // Prescribed medicines section styling
+  .prescribed-medicines-section {
+    padding-top: 1rem !important;
+    border-top: 1px solid var(--patient-gray-200) !important;
+    margin-top: 0.5rem !important;
+  }
+}

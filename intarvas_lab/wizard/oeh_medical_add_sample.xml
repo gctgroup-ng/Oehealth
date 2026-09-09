@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="add_sample_ids">
+            <field name="name">Lab Samples Wizard</field>
+            <field name="model">oeh.medical.samples.wizard</field>
+            <field name="arch" type="xml">
+                <form string='Lab Samples' editable="bottom">
+                    <sheet>
+                        <group>
+                            <field name="sample_type"/>
+                            <field name="comments"/>
+                            <field name="samples_ids" string='Lab Tests' widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_submit" type="object" class="oe_highlight" string="Submit"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="oeh_medical_lab_wizard_action_tree" model="ir.actions.act_window">
+            <field name="name">Lab Sample</field>
+            <field name="res_model">oeh.medical.samples.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new sample type
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

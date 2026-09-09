@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Patient Profile Page -->
+    <template id="patient_profile" name="Patient Profile">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'profile'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <h1 class="welcome-title">
+                    <i class="fas fa-user-edit me-3"></i>My Profile
+                </h1>
+                <p class="welcome-subtitle">Keep your personal and contact information up to date</p>
+            </div>
+
+            <t t-if="request.params.get('success')">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Profile updated successfully!
+                </div>
+            </t>
+
+            <t t-if="request.params.get('error')">
+                <div class="alert alert-danger-gradient mb-4">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    An error occurred while updating your profile.
+                </div>
+            </t>
+
+            <form method="post" class="patient-form">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                
+                <div class="row g-4">
+                    <!-- Personal Information Card -->
+                    <div class="col-md-8">
+                        <div class="action-card">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-user me-2"></i>Personal Information
+                            </h3>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control patient-form-control" id="name" name="name" t-att-value="patient.name" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control patient-form-control" id="email" name="email" t-att-value="patient.email" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control patient-form-control" id="phone" name="phone" t-att-value="patient.phone"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="dob" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control patient-form-control" id="dob" name="dob" t-att-value="patient.dob"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select class="form-control patient-form-control" id="gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male" t-att-selected="'selected' if patient.sex == 'Male' else None">Male</option>
+                                        <option value="Female" t-att-selected="'selected' if patient.sex == 'Female' else None">Female</option>
+                                        <option value="Other" t-att-selected="'selected' if patient.sex == 'Other' else None">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Picture Card -->
+                    <div class="col-md-4">
+                        <div class="action-card text-center">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-camera me-2"></i>Profile Picture
+                            </h3>
+                            
+                            <div class="text-center mb-4">
+                                <t t-if="patient.image_1920">
+                                    <img t-attf-src="/web/image?model=oeh.medical.patient&amp;id={{patient.id}}&amp;field=image_1920&amp;unique={{patient.write_date}}"
+                                         alt="Profile Picture" 
+                                         style="width: 150px; height: 150px; border-radius: 75px; object-fit: cover; border: 3px solid #ddd; display: block; margin: 0 auto;"/>
+                                </t>
+                                <t t-else="">
+                                    <img src="/web/static/img/user_menu_avatar.png" 
+                                         alt="Default Profile Picture" 
+                                         style="width: 150px; height: 150px; border-radius: 75px; object-fit: cover; border: 3px solid #ddd; display: block; margin: 0 auto;"/>
+                                </t>
+                            </div>
+                            
+                            <div class="profile-actions">
+                                <input type="file" id="profile-photo-upload" name="profile_photo" accept="image/*" style="display: none;"/>
+                                <button type="button" class="btn btn-outline-primary btn-outline-primary-rounded mb-2" onclick="document.getElementById('profile-photo-upload').click();">
+                                    <i class="fas fa-camera me-2"></i>Upload Photo
+                                </button>
+                                <br/>
+                                <button t-if="patient.image_1920" type="button" class="btn btn-outline-danger btn-outline-danger-rounded" onclick="removeProfilePhoto();">
+                                    <i class="fas fa-trash me-2"></i>Remove Photo
+                                </button>
+                            </div>
+                            
+                            <script>
+                                <![CDATA[
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const fileInput = document.getElementById('profile-photo-upload');
+                                    if (fileInput) {
+                                        fileInput.addEventListener('change', function(e) {
+                                            if (this.files && this.files[0]) {
+                                                uploadProfilePhoto(this.files[0]);
+                                            }
+                                        });
+                                    }
+                                });
+
+                                function uploadProfilePhoto(file) {
+                                    const formData = new FormData();
+                                    formData.append('profile_photo', file);
+                                    formData.append('csrf_token', document.querySelector('input[name="csrf_token"]').value);
+                                    
+                                    const uploadBtn = document.querySelector('.btn:has(.fa-camera)');
+                                    if (uploadBtn) {
+                                        uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Uploading...';
+                                        uploadBtn.disabled = true;
+                                    }
+                                    
+                                    fetch('/patient/portal/profile/upload-photo', {
+                                        method: 'POST',
+                                        body: formData
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            location.reload();
+                                        } else {
+                                            alert('Error uploading photo: ' + (data.error || 'Unknown error'));
+                                            if (uploadBtn) {
+                                                uploadBtn.innerHTML = '<i class="fas fa-camera me-2"></i>Upload Photo';
+                                                uploadBtn.disabled = false;
+                                            }
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert('Error uploading photo. Please try again.');
+                                        if (uploadBtn) {
+                                            uploadBtn.innerHTML = '<i class="fas fa-camera me-2"></i>Upload Photo';
+                                            uploadBtn.disabled = false;
+                                        }
+                                    });
+                                }
+
+                                function removeProfilePhoto() {
+                                    if (confirm('Are you sure you want to remove your profile photo?')) {
+                                        const removeBtn = document.querySelector('.btn:has(.fa-trash)');
+                                        if (removeBtn) {
+                                            removeBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Removing...';
+                                            removeBtn.disabled = true;
+                                        }
+                                        
+                                        fetch('/patient/portal/profile/remove-photo', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: JSON.stringify({
+                                                csrf_token: document.querySelector('input[name="csrf_token"]').value
+                                            })
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                location.reload();
+                                            } else {
+                                                alert('Error removing photo: ' + (data.error || 'Unknown error'));
+                                                if (removeBtn) {
+                                                    removeBtn.innerHTML = '<i class="fas fa-trash me-2"></i>Remove Photo';
+                                                    removeBtn.disabled = false;
+                                                }
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            alert('Error removing photo. Please try again.');
+                                            if (removeBtn) {
+                                                removeBtn.innerHTML = '<i class="fas fa-trash me-2"></i>Remove Photo';
+                                                removeBtn.disabled = false;
+                                            }
+                                        });
+                                    }
+                                }
+                                ]]>
+                            </script>
+                            
+                            <style>
+                                .profile-actions {
+                                    text-align: center;
+                                    margin-top: 15px;
+                                }
+                                .profile-actions .btn {
+                                    margin: 5px;
+                                    min-width: 120px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+
+                    <!-- Address Information Card -->
+                    <div class="col-md-12">
+                        <div class="action-card">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-map-marker-alt me-2"></i>Address Information
+                            </h3>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="street" class="form-label">Street Address</label>
+                                    <input type="text" class="form-control patient-form-control" id="street" name="street" t-att-value="patient.street"/>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="street2" class="form-label">Street Address 2</label>
+                                    <input type="text" class="form-control patient-form-control" id="street2" name="street2" t-att-value="patient.street2"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control patient-form-control" id="city" name="city" t-att-value="patient.city"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="zip" class="form-label">Postal Code</label>
+                                    <input type="text" class="form-control patient-form-control" id="zip" name="zip" t-att-value="patient.zip"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="country_id" class="form-label">Country</label>
+                                    <select class="form-control patient-form-control" id="country_id" name="country_id">
+                                        <option value="">Select Country</option>
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country.id" t-att-selected="'selected' if patient.country_id.id == country.id else None">
+                                                <t t-esc="country.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="state_id" class="form-label">State/Province</label>
+                                    <select class="form-control patient-form-control" id="state_id" name="state_id">
+                                        <option value="">Select State</option>
+                                        <t t-foreach="states" t-as="state">
+                                            <option t-att-value="state.id" t-att-selected="'selected' if patient.state_id.id == state.id else None">
+                                                <t t-esc="state.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-large-padding me-3">
+                        <i class="fas fa-save me-2"></i>Update Profile
+                    </button>
+                    <a href="/patient/portal" class="btn btn-secondary" style="padding: 0.75rem 2.5rem;">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Portal
+                    </a>
+                </div>
+            </form>
+        </t>
+    </template>
+
+    <!-- Patient Appointments Page -->
+    <template id="patient_appointments" name="Patient Appointments">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'appointments'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="welcome-title">
+                            <i class="fas fa-calendar-check me-3"></i>My Appointments
+                        </h1>
+                        <p class="welcome-subtitle">View and manage your healthcare appointments</p>
+                    </div>
+                    <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Book New Appointment
+                    </a>
+                </div>
+            </div>
+
+            <t t-if="request.params.get('success') == 'appointment_created'">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment booked successfully!
+                </div>
+            </t>
+            
+            <t t-if="request.params.get('success') == 'appointment_cancelled'">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment cancelled successfully!
+                </div>
+            </t>
+            
+            <t t-if="request.params.get('success') == 'appointment_rescheduled'">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment rescheduled successfully!
+                </div>
+            </t>
+            
+            <t t-if="request.params.get('error')">
+                <div class="alert alert-danger-gradient mb-4">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <t t-if="request.params.get('error') == 'appointment_not_found'">
+                        Appointment not found or you don't have permission to modify it.
+                    </t>
+                    <t t-elif="request.params.get('error') == 'cancellation_failed'">
+                        Failed to cancel appointment. Please try again or contact support.
+                    </t>
+                    <t t-else="">
+                        An error occurred. Please try again.
+                    </t>
+                </div>
+            </t>
+
+            <!-- Upcoming Appointments -->
+            <t t-if="upcoming_appointments">
+                <div class="recent-activity mb-4">
+                    <h2 class="section-title section-title-upcoming">
+                        <i class="fas fa-clock me-2"></i>Upcoming Appointments
+                    </h2>
+                    <div class="activity-list">
+                        <t t-foreach="upcoming_appointments" t-as="appointment">
+                            <div class="activity-item d-flex">
+                                <div class="activity-icon upcoming me-3">
+                                    <t t-if="appointment.doctor and appointment.doctor.image_128">
+                                        <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()"
+                                             class="profile-picture-img"/>
+                                    </t>
+                                    <t t-else="">
+                                        <i class="fas fa-clock"></i>
+                                    </t>
+                                </div>
+                                <div class="activity-content flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <h4>
+                                            <span class="appointment-number me-2" style="font-size: 0.85em; color: #667eea; font-weight: 600;">
+                                                <t t-esc="appointment.name"/>
+                                            </span>
+                                            <t t-if="appointment.doctor">
+                                                <t t-esc="appointment.doctor.formatted_name"/>
+                                                <t t-if="appointment.doctor.degree_id">
+                                                    <small style="color: #667eea; font-weight: 500;"> (
+                                                        <t t-foreach="appointment.doctor.degree_id" t-as="degree">
+                                                            <t t-esc="degree.name"/><t t-if="not degree_last">, </t>
+                                                        </t>)
+                                                    </small>
+                                                </t>
+                                                <t t-if="appointment.doctor.speciality">
+                                                    <small style="color: #6b7280; font-weight: normal;"> - <t t-esc="appointment.doctor.speciality.name"/></small>
+                                                </t>
+                                            </t>
+                                            <t t-else="">General Appointment</t>
+                                        </h4>
+                                        <a t-att-href="'/patient/portal/appointment/' + str(appointment.id)" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-eye me-1"></i>View Details
+                                        </a>
+                                    </div>
+                                    <p class="activity-detail">
+                                        <strong>Date:</strong> <t t-esc="appointment.appointment_date.strftime('%B %d, %Y at %I:%M %p')"/>
+                                    </p>
+                                    <t t-if="appointment.institution">
+                                        <p class="activity-detail">
+                                            <strong>Location:</strong> <t t-esc="appointment.institution.name"/>
+                                        </p>
+                                    </t>
+                                    <t t-if="appointment.reason">
+                                        <p class="activity-detail-italic">
+                                            <strong>Reason:</strong> <t t-esc="appointment.reason"/>
+                                        </p>
+                                    </t>
+                                    <!-- Action Buttons -->
+                                    <div class="mt-3">
+                                        <a t-att-href="'/patient/portal/appointment/' + str(appointment.id) + '/reschedule'" class="btn btn-outline-primary btn-sm me-2">
+                                            <i class="fas fa-edit me-1"></i>Reschedule
+                                        </a>
+                                        <form method="post" t-att-action="'/patient/portal/appointment/' + str(appointment.id) + '/cancel'" style="display: inline;" onsubmit="return confirm('Are you sure you want to cancel this appointment?')">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                <i class="fas fa-times me-1"></i>Cancel
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <span class="badge" t-att-class="'badge-gradient-' + appointment.state.lower() if appointment.state else 'badge-gradient-upcoming'">
+                                        <i class="fas fa-clock me-1"></i>
+                                        <t t-esc="appointment.state.title() if appointment.state else 'Upcoming'"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+            <!-- Past Appointments -->
+            <t t-if="past_appointments">
+                <div class="recent-activity">
+                    <h2 class="section-title section-title-completed">
+                        <i class="fas fa-history me-2"></i>Past Appointments
+                    </h2>
+                    <div class="activity-list">
+                        <t t-foreach="past_appointments" t-as="appointment">
+                            <div class="activity-item d-flex">
+                                <div class="activity-icon completed me-3">
+                                    <t t-if="appointment.doctor and appointment.doctor.image_128">
+                                        <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()"
+                                             class="profile-picture-img"/>
+                                    </t>
+                                    <t t-else="">
+                                        <i class="fas fa-check-circle"></i>
+                                    </t>
+                                </div>
+                                <div class="activity-content flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <h4>
+                                            <span class="appointment-number me-2" style="font-size: 0.85em; color: #667eea; font-weight: 600;">
+                                                <t t-esc="appointment.name"/>
+                                            </span>
+                                            <t t-if="appointment.doctor">
+                                                <t t-esc="appointment.doctor.formatted_name"/>
+                                                <t t-if="appointment.doctor.degree_id">
+                                                    <small style="color: #667eea; font-weight: 500;"> (
+                                                        <t t-foreach="appointment.doctor.degree_id" t-as="degree">
+                                                            <t t-esc="degree.name"/><t t-if="not degree_last">, </t>
+                                                        </t>)
+                                                    </small>
+                                                </t>
+                                                <t t-if="appointment.doctor.speciality">
+                                                    <small style="color: #6b7280; font-weight: normal;"> - <t t-esc="appointment.doctor.speciality.name"/></small>
+                                                </t>
+                                            </t>
+                                            <t t-else="">General Appointment</t>
+                                        </h4>
+                                        <a t-att-href="'/patient/portal/appointment/' + str(appointment.id)" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-eye me-1"></i>View Details
+                                        </a>
+                                    </div>
+                                    <p class="activity-detail">
+                                        <strong>Date:</strong> <t t-esc="appointment.appointment_date.strftime('%B %d, %Y')"/>
+                                    </p>
+                                    <t t-if="appointment.institution">
+                                        <p class="activity-detail">
+                                            <strong>Location:</strong> <t t-esc="appointment.institution.name"/>
+                                        </p>
+                                    </t>
+                                    <t t-if="appointment.reason">
+                                        <p class="activity-detail-italic">
+                                            <strong>Reason:</strong> <t t-esc="appointment.reason"/>
+                                        </p>
+                                    </t>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <span class="badge" t-att-class="'badge-gradient-' + appointment.state.lower() if appointment.state else 'badge-gradient-completed'">
+                                        <i class="fas fa-clock me-1"></i>
+                                        <t t-esc="appointment.state.title() if appointment.state else 'Completed'"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+            <!-- No Appointments -->
+            <t t-if="not upcoming_appointments and not today_appointments and not past_appointments">
+                <div class="text-center py-5">
+                    <div class="action-icon mb-4 icon-4x-auto">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3 class="text-center-mb-1">No Appointments Found</h3>
+                    <p class="text-center-mb-2">You don't have any appointments scheduled yet.</p>
+                    <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Book Your First Appointment
+                    </a>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- New Appointment Form -->
+    <template id="new_appointment" name="Book New Appointment">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <h1 class="welcome-title">
+                    <i class="fas fa-calendar-plus me-3"></i>Book New Appointment
+                </h1>
+                <p class="welcome-subtitle">Schedule your next healthcare visit</p>
+            </div>
+
+            <t t-if="request.params.get('error')">
+                <div class="alert alert-danger-gradient mb-4">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    An error occurred while booking your appointment. Please try again.
+                </div>
+            </t>
+
+            <form method="post" class="patient-form" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="action-card">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-calendar-check me-2"></i>Appointment Details
+                            </h3>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="doctor" class="form-label">Select Doctor</label>
+                                    <select class="form-control patient-form-control" id="doctor" name="doctor">
+                                        <option value="">Select a Doctor</option>
+                                        <t t-foreach="doctors" t-as="doctor">
+                                            <option t-att-value="doctor.id">
+                                                <t t-esc="doctor.formatted_name"/>
+                                                <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality"/></t>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="institution" class="form-label">Healthcare Facility</label>
+                                    <select class="form-control patient-form-control" id="institution" name="institution">
+                                        <option value="">Select Facility</option>
+                                        <t t-foreach="institutions" t-as="institution">
+                                            <option t-att-value="institution.id">
+                                                <t t-esc="institution.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="appointment_date" class="form-label">Preferred Date &amp; Time *</label>
+                                    <input type="datetime-local" class="form-control patient-form-control" id="appointment_date" name="appointment_date" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="duration" class="form-label">Priority</label>
+                                    <select class="form-control patient-form-control" id="priority" name="priority">
+                                        <option value="Normal" selected="selected">Normal</option>
+                                        <option value="Urgent">Urgent</option>
+                                        <option value="Medical Emergency">Medical Emergency</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="reason" class="form-label">Reason for Visit</label>
+                                    <textarea class="form-control patient-form-control" id="reason" name="reason" rows="4" placeholder="Please describe the reason for your appointment..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="appointment_files" class="form-label">Upload Documents/Files (Optional)</label>
+                                    <div class="file-upload-area">
+                                        <input type="file" class="form-control patient-form-control" id="appointment_files" name="appointment_files" multiple="multiple" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt"/>
+                                        <div class="file-upload-help">
+                                            <small class="text-muted">
+                                                <i class="fas fa-info-circle me-1"></i>
+                                                You can upload medical reports, prescriptions, or any relevant documents (PDF, DOC, Images). Maximum 10MB per file.
+                                            </small>
+                                        </div>
+                                        <div id="file-preview-container" class="mt-3" style="display: none;">
+                                            <h6>Selected Files:</h6>
+                                            <div id="file-preview-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="action-card">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-info-circle me-2"></i>Appointment Summary
+                            </h3>
+                            <div class="summary-content">
+                                <div class="mb-3">
+                                    <strong>Patient:</strong>
+                                    <span t-esc="patient.name"/>
+                                </div>
+                                <div class="mb-3">
+                                    <strong>Contact:</strong>
+                                    <span t-esc="patient.email"/>
+                                </div>
+                                <div class="alert alert-info-gradient">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>Note:</strong> Your appointment request will be reviewed and confirmed by our staff. You will receive a confirmation email within 24 hours.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-large-padding me-3">
+                        <i class="fas fa-calendar-plus me-2"></i>Book Appointment
+                    </button>
+                    <a href="/patient/portal/appointments" class="btn btn-secondary btn-large-padding">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Appointments
+                    </a>
+                </div>
+            </form>
+        </t>
+    </template>
+
+    <!-- Appointment Detail Page -->
+    <template id="appointment_detail" name="Appointment Detail">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'appointments'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-3">
+                <h1 class="welcome-title mb-2">
+                    <i class="fas fa-calendar-check me-3"></i>Appointment Details
+                </h1>
+                <p class="welcome-subtitle mb-0">View your appointment information</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="back-button-container mb-3 d-flex gap-3">
+                <a href="/patient/portal/appointments" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Appointments
+                </a>
+                <t t-if="appointment.state in ['Scheduled', 'Accepted']">
+                    <a t-att-href="'/patient/portal/appointment/' + str(appointment.id) + '/reschedule'" 
+                       class="btn btn-warning">
+                        <i class="fas fa-calendar-edit me-2"></i>Reschedule
+                    </a>
+                    <form method="post" t-att-action="'/patient/portal/appointment/' + str(appointment.id) + '/cancel'" 
+                          style="display: inline-block;" onsubmit="return confirm('Are you sure you want to cancel this appointment?')">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-times me-2"></i>Cancel Appointment
+                        </button>
+                    </form>
+                </t>
+            </div>
+
+            <div class="row g-3">
+                <!-- Main Appointment Details -->
+                <div class="col-12">
+                    <div class="action-card">
+                        <h3 class="section-title mb-4">
+                            <i class="fas fa-calendar-alt me-2"></i>Appointment Information
+                        </h3>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Appointment Number</label>
+                                <div class="info-value">
+                                    <span t-esc="appointment.name"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Status</label>
+                                <div class="info-value">
+                                    <span class="badge" t-att-class="'badge-' + ('success' if appointment.state in ['Completed', 'Accepted'] else 'info' if appointment.state == 'Scheduled' else 'warning' if appointment.state == 'Invoiced' else 'danger')">
+                                        <t t-esc="appointment.state"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Date &amp; Time</label>
+                                <div class="info-value">
+                                    <i class="fas fa-calendar me-2"></i>
+                                    <t t-esc="appointment.appointment_date.strftime('%B %d, %Y at %I:%M %p')"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Duration</label>
+                                <div class="info-value">
+                                    <i class="fas fa-clock me-2"></i>
+                                    <t t-esc="appointment.duration"/> hours
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Doctor</label>
+                                <div class="info-value">
+                                    <t t-if="appointment.doctor">
+                                        <t t-if="appointment.doctor.image_128">
+                                            <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()" 
+                                                 style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.75rem; border: 2px solid #667eea;"/>
+                                        </t>
+                                        <t t-else="">
+                                            <div style="width: 40px; height: 40px; border-radius: 50%; background: #667eea; color: white; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                                                <i class="fas fa-user-md"></i>
+                                            </div>
+                                        </t>
+                                        <div>
+                                            <t t-esc="appointment.doctor.formatted_name"/>
+                                            <t t-if="appointment.doctor.degree_id">
+                                                <small style="color: #667eea; font-weight: 500;"> (
+                                                    <t t-foreach="appointment.doctor.degree_id" t-as="degree">
+                                                        <t t-esc="degree.name"/><t t-if="not degree_last">, </t>
+                                                    </t>)
+                                                </small>
+                                            </t>
+                                            <t t-if="appointment.doctor.speciality">
+                                                <small style="color: #6b7280; display: block;"> - <t t-esc="appointment.doctor.speciality.name"/></small>
+                                            </t>
+                                        </div>
+                                    </t>
+                                    <t t-else="">Not assigned</t>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Healthcare Facility</label>
+                                <div class="info-value">
+                                    <t t-if="appointment.institution"><t t-esc="appointment.institution.name"/></t>
+                                    <t t-else="">Not specified</t>
+                                </div>
+                            </div>
+                            <div class="col-12" t-if="appointment.reason">
+                                <label class="form-label">Reason for Visit</label>
+                                <div class="info-value">
+                                    <t t-esc="appointment.reason"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vitals Information -->
+                    <div class="action-card mt-4" t-if="appointment.height or appointment.weight or appointment.bpm or appointment.temperature or appointment.spo2">
+                        <h3 class="section-title mb-4">
+                            <i class="fas fa-heartbeat me-2"></i>Vitals Information
+                        </h3>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-4" t-if="appointment.height">
+                                <div class="vital-card">
+                                    <div class="vital-icon">
+                                        <i class="fas fa-arrows-alt-v"></i>
+                                    </div>
+                                    <div class="vital-info">
+                                        <label>Height</label>
+                                        <div class="vital-value"><t t-esc="appointment.height"/> cm</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" t-if="appointment.weight">
+                                <div class="vital-card">
+                                    <div class="vital-icon">
+                                        <i class="fas fa-weight"></i>
+                                    </div>
+                                    <div class="vital-info">
+                                        <label>Weight</label>
+                                        <div class="vital-value"><t t-esc="appointment.weight"/> kg</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" t-if="appointment.bmi">
+                                <div class="vital-card">
+                                    <div class="vital-icon">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <div class="vital-info">
+                                        <label>BMI</label>
+                                        <div class="vital-value"><t t-esc="'{:.2f}'.format(appointment.bmi)" t-if="appointment.bmi"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" t-if="appointment.bpm">
+                                <div class="vital-card">
+                                    <div class="vital-icon">
+                                        <i class="fas fa-heartbeat"></i>
+                                    </div>
+                                    <div class="vital-info">
+                                        <label>Heart Rate</label>
+                                        <div class="vital-value"><t t-esc="appointment.bpm"/> bpm</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" t-if="appointment.temperature">
+                                <div class="vital-card">
+                                    <div class="vital-icon">
+                                        <i class="fas fa-thermometer-half"></i>
+                                    </div>
+                                    <div class="vital-info">
+                                        <label>Temperature</label>
+                                        <div class="vital-value"><t t-esc="appointment.temperature"/>°C</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" t-if="appointment.spo2">
+                                <div class="vital-card">
+                                    <div class="vital-icon">
+                                        <i class="fas fa-lungs"></i>
+                                    </div>
+                                    <div class="vital-info">
+                                        <label>SpO2</label>
+                                        <div class="vital-value"><t t-esc="appointment.spo2"/>%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+    <!-- Patient Appointments Calendar Page -->
+    <template id="patient_appointments_calendar" name="Patient Appointments Calendar">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'appointments'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="welcome-title">
+                            <i class="fas fa-calendar-alt me-3"></i>Appointment Calendar
+                        </h1>
+                        <p class="welcome-subtitle">Interactive calendar view of your appointments</p>
+                    </div>
+                    <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Book New Appointment
+                    </a>
+                </div>
+            </div>
+
+            <!-- Success/Error Messages -->
+            <t t-if="request.params.get('success') == 'appointment_created'">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment booked successfully!
+                </div>
+            </t>
+            
+            <t t-if="request.params.get('success') == 'appointment_cancelled'">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment cancelled successfully!
+                </div>
+            </t>
+            
+            <t t-if="request.params.get('success') == 'appointment_rescheduled'">
+                <div class="alert alert-success-gradient mb-4">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment rescheduled successfully!
+                </div>
+            </t>
+            
+            <t t-if="request.params.get('error')">
+                <div class="alert alert-danger-gradient mb-4">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <t t-if="request.params.get('error') == 'appointment_not_found'">
+                        Appointment not found or you don't have permission to modify it.
+                    </t>
+                    <t t-elif="request.params.get('error') == 'cancellation_failed'">
+                        Failed to cancel appointment. Please try again or contact support.
+                    </t>
+                    <t t-else="">
+                        An error occurred. Please try again.
+                    </t>
+                </div>
+            </t>
+
+            <!-- Filters and Navigation -->
+            <div class="action-card filters-section mb-4">
+                <div class="row g-3 align-items-end">
+                    <!-- Date Picker for Direct Navigation -->
+                    <div class="col-md-4 filter-group">
+                        <label for="date_picker" class="form-label">Jump to Date</label>
+                        <input type="date" class="form-control patient-form-control" id="date_picker" 
+                               t-att-value="current_date.strftime('%Y-%m-%d')" 
+                               t-att-min="start_date.strftime('%Y-%m-%d')"
+                               t-att-max="end_date.strftime('%Y-%m-%d')"
+                               onchange="window.location.href='/patient/portal/appointments?date=' + this.value"/>
+                    </div>
+                    
+                    <!-- Doctor Filter -->
+                    <div class="col-md-4 filter-group">
+                        <label for="doctor_filter" class="form-label">Filter by Doctor</label>
+                        <select class="form-control patient-form-control" id="doctor_filter" 
+                                onchange="updateFilters()">
+                            <option value="">All Doctors</option>
+                            <t t-foreach="doctors" t-as="doctor">
+                                <option t-att-value="doctor.id" 
+                                        t-att-selected="'selected' if selected_doctor == doctor.id else None">
+                                    <t t-esc="doctor.formatted_name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    
+                    <!-- Status Filter -->
+                    <div class="col-md-4 filter-group">
+                        <label for="status_filter" class="form-label">Filter by Status</label>
+                        <select class="form-control patient-form-control" id="status_filter" 
+                                onchange="updateFilters()">
+                            <option value="">All Status</option>
+                            <option value="Scheduled" t-att-selected="'selected' if selected_status == 'Scheduled' else None">Scheduled</option>
+                            <option value="Accepted" t-att-selected="'selected' if selected_status == 'Accepted' else None">Accepted</option>
+                            <option value="Completed" t-att-selected="'selected' if selected_status == 'Completed' else None">Completed</option>
+                            <option value="Cancelled" t-att-selected="'selected' if selected_status == 'Cancelled' else None">Cancelled</option>
+                        </select>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Horizontal Date Bar -->
+            <div class="action-card">
+                <h3 class="section-title mb-4">
+                    <i class="fas fa-calendar me-2"></i>
+                    Choose Date
+                </h3>
+                
+                <!-- Date Bar Container with Navigation -->
+                <div class="date-bar-container">
+                    <!-- Previous Navigation -->
+                    <button class="date-nav-btn date-nav-prev" onclick="navigateDateBar(-1)" title="Previous Date">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <!-- Horizontal Date Picker -->
+                    <div class="horizontal-date-bar" id="horizontal-date-bar">
+                        <t t-foreach="date_bar" t-as="date_item">
+                            <t t-set="date_appointments" t-value="[apt for apt in month_appointments if apt.appointment_date.date().strftime('%Y-%m-%d') == date_item['date_string']]"/>
+                            <div class="date-item" 
+                                 t-att-class="'date-item-selected' if date_item['is_selected'] else ''"
+                                 t-att-data-date="date_item['date_string']"
+                                 onclick="selectHorizontalDate(this)">
+                                <div class="date-day-name" t-esc="date_item['day_name']"/>
+                                <div class="date-day-number" t-esc="date_item['day_number']"/>
+                                <t t-if="date_appointments">
+                                    <div class="date-appointment-indicator">
+                                        <span class="appointment-count" t-esc="len(date_appointments)"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+                    
+                    <!-- Next Navigation -->
+                    <button class="date-nav-btn date-nav-next" onclick="navigateDateBar(1)" title="Next Date">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+            </div>
+
+
+            <!-- Show appointments for selected date when page loads with selected_date parameter -->
+            <t t-if="request.params.get('selected_date') and selected_date_appointments">
+                <div class="action-card mt-4 selected-date-section server-rendered-appointments" style="display: none;">
+                    <h3 class="section-title mb-4">
+                        <i class="fas fa-calendar-day me-2"></i>
+                        Appointments for <t t-esc="selected_display_date.strftime('%B %d, %Y')"/>
+                    </h3>
+                    <div class="activity-list">
+                        <t t-foreach="selected_date_appointments" t-as="appointment">
+                            <div class="activity-item d-flex">
+                                <div class="activity-icon" t-att-class="'upcoming' if appointment.appointment_date > current_datetime else 'completed'">
+                                    <t t-if="appointment.doctor and appointment.doctor.image_128">
+                                        <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()"
+                                             class="profile-picture-img"/>
+                                    </t>
+                                    <t t-else="">
+                                        <i t-att-class="'fas fa-clock' if appointment.appointment_date > current_datetime else 'fas fa-check-circle'"></i>
+                                    </t>
+                                </div>
+                                <div class="appointment-card-content flex-grow-1">
+                                    <div class="appointment-info">
+                                        <div class="appointment-doctor">
+                                            <t t-if="appointment.doctor">
+                                                <t t-esc="appointment.doctor.formatted_name"/>
+                                                <t t-if="appointment.doctor.degree_id">
+                                                    <small style="color: #667eea; font-weight: 500;"> (
+                                                        <t t-foreach="appointment.doctor.degree_id" t-as="degree">
+                                                            <t t-esc="degree.name"/><t t-if="not degree_last">, </t>
+                                                        </t>)
+                                                    </small>
+                                                </t>
+                                                <t t-if="appointment.doctor.speciality">
+                                                    <small style="color: #6b7280;"> - <t t-esc="appointment.doctor.speciality.name"/></small>
+                                                </t>
+                                            </t>
+                                            <t t-else="">General Appointment</t>
+                                        </div>
+                                        <div class="appointment-id">
+                                            <t t-esc="appointment.name"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="appointment-meta">
+                                        <div class="appointment-detail">
+                                            <i class="fas fa-clock"></i>
+                                            <span><t t-esc="appointment.appointment_date.strftime('%I:%M %p')"/></span>
+                                        </div>
+                                        <t t-if="appointment.institution">
+                                            <div class="appointment-detail">
+                                                <i class="fas fa-hospital"></i>
+                                                <span><t t-esc="appointment.institution.name"/></span>
+                                            </div>
+                                        </t>
+                                        <div class="appointment-detail">
+                                            <i class="fas fa-calendar-day"></i>
+                                            <span><t t-esc="appointment.appointment_date.strftime('%B %d, %Y')"/></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="appointment-status">
+                                        <span class="badge" t-att-class="'badge-gradient-' + appointment.state.lower() if appointment.state else 'badge-gradient-upcoming'">
+                                            <t t-esc="appointment.state.title() if appointment.state else 'Upcoming'"/>
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="appointment-actions">
+                                        <a t-att-href="'/patient/portal/appointment/' + str(appointment.id)" class="btn btn-primary btn-compact">
+                                            View
+                                        </a>
+                                        <t t-if="appointment.state in ['Scheduled', 'Accepted'] and appointment.appointment_date > current_datetime">
+                                            <a t-att-href="'/patient/portal/appointment/' + str(appointment.id) + '/reschedule'" class="btn btn-outline-primary btn-compact">
+                                                Edit
+                                            </a>
+                                            <form method="post" t-att-action="'/patient/portal/appointment/' + str(appointment.id) + '/cancel'" style="display: inline;" onsubmit="return confirm('Are you sure you want to cancel this appointment?')">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <button type="submit" class="btn btn-outline-danger btn-compact">
+                                                    Cancel
+                                                </button>
+                                            </form>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+            
+            <!-- Show no appointments message for selected date -->
+            <t t-if="request.params.get('selected_date') and not selected_date_appointments">
+                <div class="action-card mt-4 selected-date-section server-rendered-appointments" style="display: none;">
+                    <h3 class="section-title mb-4">
+                        <i class="fas fa-calendar-day me-2"></i>
+                        Appointments for <t t-esc="selected_display_date.strftime('%B %d, %Y')"/>
+                    </h3>
+                    <div class="text-center py-4">
+                        <div class="action-icon mb-3" style="font-size: 3rem; color: #dee2e6;">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <h5>No appointments on this date</h5>
+                        <p class="text-muted">You don't have any appointments scheduled for this date.</p>
+                        <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Book New Appointment
+                        </a>
+                    </div>
+                </div>
+            </t>
+
+            <!-- Dynamic Appointments Section (AJAX loaded) -->
+            <div id="selected-date-appointments" class="action-card mt-4 selected-date-section" style="display: none;">
+                <!-- Appointments will be loaded here via AJAX -->
+            </div>
+
+            <!-- No appointments message -->
+            <t t-if="not appointments_by_date and not selected_date_appointments">
+                <div class="text-center py-5">
+                    <div class="action-icon mb-4 icon-4x-auto">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3 class="text-center-mb-1">No Appointments Found</h3>
+                    <p class="text-center-mb-2">You don't have any appointments in the selected date range.</p>
+                    <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Book Your First Appointment
+                    </a>
+                </div>
+            </t>
+
+            <!-- Global JavaScript Functions -->
+            <script type="text/javascript">
+                <![CDATA[
+                // Simple global functions for onclick handlers
+                window.selectHorizontalDate = function(dateElement) {
+                    // Prevent multiple selections - check if already selected
+                    if (dateElement.classList.contains('date-item-selected')) {
+                        return; // Do nothing if already selected
+                    }
+                    
+                    // Remove ALL previous selections first
+                    document.querySelectorAll('.date-item-selected').forEach(el => {
+                        el.classList.remove('date-item-selected');
+                    });
+                    
+                    // Add selection to clicked date only
+                    dateElement.classList.add('date-item-selected');
+                    
+                    const selectedDate = dateElement.getAttribute('data-date');
+                    const selectedDateObj = new Date(selectedDate + 'T00:00:00');
+                    const formattedDate = selectedDateObj.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    
+                    // Update selected date title
+                    const titleElement = document.getElementById('selected-date-title');
+                    if (titleElement) {
+                        titleElement.textContent = formattedDate;
+                    }
+                    
+                    // Show the selected date appointments section
+                    const selectedSection = document.getElementById('selected-date-appointments');
+                    if (selectedSection) {
+                        selectedSection.style.display = 'block';
+                        selectedSection.classList.add('selected-date-section');
+                        
+                        // Scroll to the section
+                        setTimeout(() => {
+                            selectedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    }
+                    
+                    // Load appointments for the selected date
+                    loadAppointmentsForDate(selectedDate);
+                }
+                
+                window.navigateDateBar = function(dayOffset) {
+                    // Prevent multiple clicks
+                    if (window.navigating) return;
+                    window.navigating = true;
+                    
+                    try {
+                        const currentUrl = new URL(window.location);
+                        let currentDate;
+                        
+                        // Get current date from URL or use today
+                        if (currentUrl.searchParams.has('date')) {
+                            currentDate = new Date(currentUrl.searchParams.get('date'));
+                        } else {
+                            currentDate = new Date();
+                        }
+                        
+                        // Calculate new date
+                        const newDate = new Date(currentDate);
+                        newDate.setDate(currentDate.getDate() + dayOffset);
+                        
+                        // Update URL and navigate
+                        const newUrl = new URL(window.location.pathname, window.location.origin);
+                        newUrl.searchParams.set('date', newDate.toISOString().split('T')[0]);
+                        
+                        // Preserve filters
+                        const doctorFilter = document.getElementById('doctor_filter') ? document.getElementById('doctor_filter').value : '';
+                        const statusFilter = document.getElementById('status_filter') ? document.getElementById('status_filter').value : '';
+                        
+                        if (doctorFilter) newUrl.searchParams.set('doctor', doctorFilter);
+                        if (statusFilter) newUrl.searchParams.set('status', statusFilter);
+                        
+                        // Remove selected_date to avoid conflicts
+                        newUrl.searchParams.delete('selected_date');
+                        
+                        // Navigate without jumping using replace
+                        window.location.replace(newUrl.toString());
+                    } catch (e) {
+                        console.error('Navigation error:', e);
+                        window.navigating = false;
+                    }
+                }
+                
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Initialize calendar functionality
+                    initializeCalendar();
+                    
+                    // Clear any existing selections first
+                    document.querySelectorAll('.date-item-selected').forEach(el => {
+                        el.classList.remove('date-item-selected');
+                    });
+                    
+                    // Only highlight today's date if no specific date is already selected from URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const selectedDateParam = urlParams.get('selected_date');
+                    
+                    if (!selectedDateParam) {
+                        const today = new Date().toISOString().split('T')[0];
+                        const todayElement = document.querySelector(`[data-date="${today}"]`);
+                        if (todayElement) {
+                            todayElement.classList.add('date-item-selected');
+                            // Auto-load appointments for today
+                            setTimeout(() => {
+                                loadAppointmentsForDate(today);
+                            }, 100);
+                        }
+                    } else {
+                        // Highlight the selected date from URL without triggering reload
+                        const selectedElement = document.querySelector(`[data-date="${selectedDateParam}"]`);
+                        if (selectedElement) {
+                            selectedElement.classList.add('date-item-selected');
+                        }
+                    }
+                });
+                
+                function initializeCalendar() {
+                    // Add click event listeners to date items
+                    document.querySelectorAll('.date-item').forEach(dateElement => {
+                        dateElement.addEventListener('click', function() {
+                            selectHorizontalDate(this);
+                        });
+                    });
+                }
+                
+                // Global function for loading appointments by date
+                window.loadAppointmentsForDate = function(date) {
+                    // Show loading state
+                    showLoadingForDate(date);
+                    
+                    // Update browser URL without reloading
+                    const url = new URL(window.location);
+                    url.searchParams.set('selected_date', date);
+                    
+                    // Preserve existing filters
+                    const doctorFilter = document.getElementById('doctor_filter') ? document.getElementById('doctor_filter').value : '';
+                    const statusFilter = document.getElementById('status_filter') ? document.getElementById('status_filter').value : '';
+                    
+                    if (doctorFilter) url.searchParams.set('doctor', doctorFilter);
+                    if (statusFilter) url.searchParams.set('status', statusFilter);
+                    
+                    window.history.pushState({}, '', url.toString());
+                    
+                    // Make AJAX request to load appointments for the selected date
+                    fetch(`/patient/portal/appointments/ajax?selected_date=${date}&amp;doctor=${doctorFilter}&amp;status=${statusFilter}`, {
+                        method: 'GET',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Content-Type': 'application/json',
+                        }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        updateAppointmentsDisplay(data, date);
+                    })
+                    .catch(error => {
+                        console.error('Error loading appointments:', error);
+                        showErrorMessage('Failed to load appointments for selected date. Please try again.');
+                    });
+                }
+                
+                window.showLoadingForDate = function(date) {
+                    const selectedSection = document.getElementById('selected-date-appointments');
+                    if (!selectedSection) {
+                        console.error('Selected appointments section not found!');
+                        return;
+                    }
+                    
+                    // Clear existing content and show the section
+                    selectedSection.innerHTML = '';
+                    selectedSection.style.display = 'block';
+                    
+                    const section = document.getElementById('selected-date-appointments');
+                    const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    
+                    section.innerHTML = `
+                        <h3 class="section-title mb-4">
+                            <i class="fas fa-calendar-day me-2"></i>
+                            <span id="selected-date-title">Appointments for ${formattedDate}</span>
+                        </h3>
+                        <div class="text-center py-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2 text-muted">Loading appointments...</p>
+                        </div>
+                    `;
+                    section.style.display = 'block';
+                }
+                
+                window.updateAppointmentsDisplay = function(data, date) {
+                    const section = document.getElementById('selected-date-appointments');
+                    if (!section) return;
+                    
+                    const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    
+                    if (data.appointments && data.appointments.length > 0) {
+                        let appointmentsHtml = `
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-calendar-day me-2"></i>
+                                <span id="selected-date-title">Appointments for ${formattedDate}</span>
+                            </h3>
+                            <div class="activity-list">
+                        `;
+                        
+                        data.appointments.forEach(appointment => {
+                            const appointmentState = appointment.state || 'upcoming';
+                            const badgeClass = `badge-gradient-${appointmentState.toLowerCase()}`;
+                            const iconClass = appointmentState.toLowerCase();
+                            const statusText = appointmentState.charAt(0).toUpperCase() + appointmentState.slice(1);
+                            const appointmentTime = new Date(appointment.appointment_date).toLocaleTimeString('en-US', {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                hour12: true
+                            });
+                            
+                            appointmentsHtml += `
+                                <div class="enhanced-appointment-card">
+                                    <div class="appointment-card-header">
+                                        <div class="appointment-number-badge">${appointment.name || `APT-${appointment.id}`}</div>
+                                        <div class="appointment-status-badge">
+                                            <span class="badge ${badgeClass}">${statusText}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="appointment-card-body">
+                                        <div class="doctor-profile-section">
+                                            <div class="doctor-profile-image-container">
+                                                ${appointment.doctor_image ? 
+                                                    `<img src="data:image/png;base64,${appointment.doctor_image}" class="doctor-profile-img"/>` :
+                                                    `<div class="doctor-profile-placeholder">
+                                                        <i class="fas fa-user-md"></i>
+                                                    </div>`
+                                                }
+                                            </div>
+                                            <div class="doctor-info">
+                                                <div class="doctor-name d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        ${appointment.doctor_name || 'General Appointment'}
+                                                        ${appointment.doctor_degrees && appointment.doctor_degrees.trim() !== '' ? 
+                                                            `<small style="color: #667eea; font-weight: 500;"> (${appointment.doctor_degrees})</small>` : 
+                                                            ''}
+                                                        ${appointment.doctor_specialty && 
+                                                          appointment.doctor_specialty !== 'oeh.medical.specialty()' && 
+                                                          appointment.doctor_specialty.trim() !== '' && 
+                                                          appointment.doctor_specialty !== 'None' ? 
+                                                          `<small style="color: #6b7280; font-weight: normal;"> - ${appointment.doctor_specialty}</small>` : 
+                                                          ''}
+                                                    </div>
+                                                    <a href="/patient/portal/appointment/${appointment.id}" class="btn btn-primary btn-sm">
+                                                        <i class="fas fa-eye me-1"></i>View Details
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="appointment-details-grid">
+                                            <div class="detail-item">
+                                                <i class="fas fa-clock"></i>
+                                                <span>${appointmentTime}</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-calendar-check"></i>
+                                                <span>${appointment.appointment_type}</span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <i class="fas fa-hospital"></i>
+                                                <span>${appointment.institution_name || 'Clinic'}</span>
+                                            </div>
+                                            ${appointment.priority && appointment.priority !== 'normal' ? `
+                                                <div class="detail-item priority-item priority-${appointment.priority}">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <span>${appointment.priority.charAt(0).toUpperCase() + appointment.priority.slice(1)} Priority</span>
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                        
+                                        <div class="appointment-actions-row">
+                                            ${appointment.online_meeting_link ? `
+                                                <button class="btn-meeting" onclick="window.open('${appointment.online_meeting_link}', '_blank')">
+                                                    <i class="fas fa-video"></i>
+                                                    Join Meeting
+                                                </button>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        
+                        appointmentsHtml += '</div>';
+                        section.innerHTML = appointmentsHtml;
+                    } else {
+                        section.innerHTML = `
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-calendar-day me-2"></i>
+                                <span id="selected-date-title">Appointments for ${formattedDate}</span>
+                            </h3>
+                            <div class="text-center py-5">
+                                <i class="fas fa-calendar-times fa-4x text-muted mb-3"></i>
+                                <h4 class="text-muted">No Appointments Found</h4>
+                                <p class="text-muted">You don't have any appointments scheduled for this date.</p>
+                            </div>
+                        `;
+                    }
+                    
+                    // Scroll to the section
+                    setTimeout(() => {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+                
+                window.showErrorMessage = function(message) {
+                    const section = document.getElementById('selected-date-appointments');
+                    if (section) {
+                        section.innerHTML = `
+                            <div class="alert alert-danger">
+                                <i class="fas fa-exclamation-circle me-2"></i>
+                                ${message}
+                            </div>
+                        `;
+                    }
+                }
+                
+                // Auto-scroll to center selected date
+                setTimeout(() => {
+                    const selectedDate = document.querySelector('.date-item-selected');
+                    const dateBar = document.getElementById('horizontal-date-bar');
+                    
+                    if (selectedDate && dateBar) {
+                        const containerWidth = dateBar.offsetWidth;
+                        const selectedLeft = selectedDate.offsetLeft;
+                        const selectedWidth = selectedDate.offsetWidth;
+                        
+                        // Calculate scroll position to center the selected date
+                        const scrollLeft = selectedLeft - (containerWidth / 2) + (selectedWidth / 2);
+                        
+                        dateBar.scrollTo({
+                            left: scrollLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 300);
+                
+                function navigateDateBar(dayOffset) {
+                    // Prevent multiple clicks
+                    if (window.navigating) return;
+                    window.navigating = true;
+                    
+                    try {
+                        const currentUrl = new URL(window.location);
+                        let currentDate;
+                        
+                        if (dayOffset === 0) {
+                            // Navigate to today
+                            currentDate = new Date();
+                        } else {
+                            // Get current date from URL parameter or use today
+                            const currentDateParam = currentUrl.searchParams.get('date');
+                            if (currentDateParam) {
+                                currentDate = new Date(currentDateParam);
+                            } else {
+                                currentDate = new Date();
+                            }
+                            currentDate.setDate(currentDate.getDate() + dayOffset);
+                        }
+                        
+                        const newDateString = currentDate.toISOString().split('T')[0];
+                        
+                        // Build new URL
+                        const newUrl = new URL(window.location);
+                        newUrl.searchParams.set('date', newDateString);
+                        
+                        // Preserve existing filters
+                        const doctorFilter = currentUrl.searchParams.get('doctor');
+                        const statusFilter = currentUrl.searchParams.get('status');
+                        
+                        if (doctorFilter) newUrl.searchParams.set('doctor', doctorFilter);
+                        if (statusFilter) newUrl.searchParams.set('status', statusFilter);
+                        
+                        // Remove selected_date to avoid conflicts
+                        newUrl.searchParams.delete('selected_date');
+                        
+                        // Navigate without jumping using replace
+                        window.location.replace(newUrl.toString());
+                    } catch (e) {
+                        console.error('Navigation error:', e);
+                        window.navigating = false;
+                    }
+                }
+                
+                
+                // Auto-scroll to center selected date
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(() => {
+                        const selectedDate = document.querySelector('.date-item-selected');
+                        const dateBar = document.getElementById('horizontal-date-bar');
+                        
+                        if (selectedDate && dateBar) {
+                            const containerWidth = dateBar.offsetWidth;
+                            const selectedLeft = selectedDate.offsetLeft;
+                            const selectedWidth = selectedDate.offsetWidth;
+                            
+                            // Calculate scroll position to center the selected date
+                            const scrollLeft = selectedLeft - (containerWidth / 2) + (selectedWidth / 2);
+                            
+                            dateBar.scrollTo({
+                                left: scrollLeft,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                });
+                
+                function updateFilters() {
+                    const doctorFilter = document.getElementById('doctor_filter') ? document.getElementById('doctor_filter').value : '';
+                    const statusFilter = document.getElementById('status_filter') ? document.getElementById('status_filter').value : '';
+                    const currentDate = document.getElementById('date_picker') ? document.getElementById('date_picker').value : '';
+                    
+                    const url = new URL(window.location.pathname, window.location.origin);
+                    
+                    // Add parameters only if they have values
+                    if (currentDate) url.searchParams.set('date', currentDate);
+                    if (doctorFilter) url.searchParams.set('doctor', doctorFilter);
+                    if (statusFilter) url.searchParams.set('status', statusFilter);
+                    
+                    // Preserve selected_date if it exists
+                    const currentUrl = new URL(window.location);
+                    const selectedDate = currentUrl.searchParams.get('selected_date');
+                    if (selectedDate) url.searchParams.set('selected_date', selectedDate);
+                    
+                    window.location.href = url.toString();
+                }
+                
+                // Add keyboard navigation
+                document.addEventListener('keydown', function(e) {
+                    const selectedDay = document.querySelector('.calendar-day-selected');
+                    if (!selectedDay) return;
+                    
+                    let targetDay = null;
+                    const allDays = Array.from(document.querySelectorAll('.calendar-day-clickable'));
+                    const currentIndex = allDays.indexOf(selectedDay);
+                    
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            targetDay = allDays[currentIndex - 1];
+                            break;
+                        case 'ArrowRight':
+                            targetDay = allDays[currentIndex + 1];
+                            break;
+                        case 'ArrowUp':
+                            targetDay = allDays[currentIndex - 7];
+                            break;
+                        case 'ArrowDown':
+                            targetDay = allDays[currentIndex + 7];
+                            break;
+                    }
+                    
+                    if (targetDay) {
+                        e.preventDefault();
+                        selectDate(targetDay);
+                    }
+                });
+                
+                // Add appointment click handlers
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('calendar-appointment')) {
+                        e.stopPropagation();
+                        // You could add appointment detail popup here
+                        console.log('Appointment clicked:', e.target.getAttribute('title'));
+                    }
+                });
+                
+                // Enhanced appointment card functions
+                window.viewAppointmentDetails = function(appointmentId) {
+                    window.location.href = `/patient/portal/appointment/${appointmentId}`;
+                };
+                
+                window.joinMeeting = function(meetingLink) {
+                    window.open(meetingLink, '_blank', 'noopener,noreferrer');
+                };
+                ]]>
+            </script>
+            
+            <!-- GLOBAL FUNCTIONS - MUST WORK -->
+            <script>
+            <![CDATA[
+            function selectHorizontalDate(dateElement) {
+                console.log('Date clicked:', dateElement.getAttribute('data-date'));
+                
+                // Remove all selected classes
+                var selected = document.querySelectorAll('.date-item-selected');
+                for (var i = 0; i < selected.length; i++) {
+                    selected[i].classList.remove('date-item-selected');
+                }
+                
+                // Add selected class to clicked element
+                dateElement.classList.add('date-item-selected');
+                
+                // Get the date
+                var selectedDate = dateElement.getAttribute('data-date');
+                
+                // Show loading in appointments section
+                var section = document.getElementById('selected-date-appointments');
+                if (!section) {
+                    console.error('Selected appointments section not found in CDATA function!');
+                    return;
+                }
+                
+                // Clear existing content and show the section
+                section.innerHTML = '';
+                section.style.display = 'block';
+                    section.innerHTML = '<h3>Loading appointments for ' + selectedDate + '...</h3><div class="spinner-border"></div>';
+                    
+                    // Make AJAX request
+                    fetch('/patient/portal/appointments/ajax?selected_date=' + selectedDate)
+                    .then(function(response) { 
+                        console.log('Response status:', response.status);
+                        return response.json(); 
+                    })
+                    .then(function(data) {
+                        console.log('Appointments data:', data);
+                        
+                        // Format date professionally
+                        var dateObj = new Date(selectedDate + 'T00:00:00');
+                        var formattedDate = dateObj.toLocaleDateString('en-US', { 
+                            weekday: 'long',
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        });
+                        
+                        if (data.appointments && data.appointments.length > 0) {
+                            var html = '<h3><i class="fas fa-calendar-day me-2"></i>Appointments for ' + formattedDate + '</h3><div class="activity-list">';
+                            for (var i = 0; i < data.appointments.length; i++) {
+                                var apt = data.appointments[i];
+                                var aptDate = new Date(apt.appointment_date);
+                                var aptTime = aptDate.toLocaleTimeString('en-US', {
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    hour12: true
+                                });
+                                
+                                html += '<div class="activity-item d-flex">';
+                                html += '<div class="activity-icon upcoming"><i class="fas fa-clock"></i></div>';
+                                html += '<div class="activity-card-content flex-grow-1">';
+                                html += '<div class="appointment-info">';
+                                html += '<div class="appointment-doctor"><strong>' + (apt.doctor_name || 'General Appointment') + '</strong></div>';
+                                html += '<div class="appointment-id">' + apt.name + '</div>';
+                                html += '</div>';
+                                html += '<div class="appointment-meta">';
+                                html += '<div class="appointment-detail"><i class="fas fa-clock me-1"></i><span>' + aptTime + '</span></div>';
+                                if (apt.institution_name) {
+                                    html += '<div class="appointment-detail"><i class="fas fa-hospital me-1"></i><span>' + apt.institution_name + '</span></div>';
+                                }
+                                html += '</div>';
+                                html += '</div></div>';
+                            }
+                            html += '</div>';
+                            section.innerHTML = html;
+                        } else {
+                            section.innerHTML = '<div class="text-center py-5">' +
+                                '<i class="fas fa-calendar-times fa-4x text-muted mb-3"></i>' +
+                                '<h4 class="text-muted">No Appointments Found</h4>' +
+                                '<p class="text-muted">You don\'t have any appointments scheduled for ' + formattedDate + '.</p>' +
+                                '</div>';
+                        }
+                    })
+                    .catch(function(error) {
+                        console.error('Error loading appointments:', error);
+                        section.innerHTML = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle me-2"></i>Failed to load appointments. Please try again.</div>';
+                    });
+                }
+            }
+            
+            function navigateDateBar(dayOffset) {
+                console.log('Navigate:', dayOffset);
+                // Simple navigation - reload page with new date
+                var currentUrl = new URL(window.location);
+                var currentDate = new Date();
+                if (currentUrl.searchParams.has('date')) {
+                    currentDate = new Date(currentUrl.searchParams.get('date'));
+                }
+                var newDate = new Date(currentDate);
+                newDate.setDate(currentDate.getDate() + dayOffset);
+                
+                currentUrl.searchParams.set('date', newDate.toISOString().split('T')[0]);
+                window.location.href = currentUrl.toString();
+            }
+            ]]>
+            </script>
+        </t>
+    </template>
+</odoo>

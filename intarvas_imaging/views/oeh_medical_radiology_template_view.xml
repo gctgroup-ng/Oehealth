@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Template Tree View -->
+        <record id="view_oeh_medical_radiology_template_list" model="ir.ui.view">
+            <field name="name">Radiology Template List</field>
+            <field name="model">oeh.medical.radiology.template</field>
+            <field name="arch" type="xml">
+                <list string="Report Templates">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="modality" widget="badge"/>
+                    <field name="usage_count"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Template Form View -->
+        <record id="view_oeh_medical_radiology_template_form" model="ir.ui.view">
+            <field name="name">Radiology Template Form</field>
+            <field name="model">oeh.medical.radiology.template</field>
+            <field name="arch" type="xml">
+                <form string="Report Template">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline" placeholder="Template Name"/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Template Information">
+                                <field name="code"/>
+                                <field name="modality"/>
+                                <field name="active"/>
+                            </group>
+                            <group string="Usage Statistics">
+                                <field name="usage_count"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Template Sections" name="sections">
+                                <group>
+                                    <separator string="Technique Section"/>
+                                    <field name="technique_template" nolabel="1" 
+                                           placeholder="Standard technique description..."/>
+                                    
+                                    <separator string="Findings Section"/>
+                                    <field name="findings_template" nolabel="1" 
+                                           placeholder="Template for findings..."/>
+                                    
+                                    <separator string="Impression Section"/>
+                                    <field name="impression_template" nolabel="1" 
+                                           placeholder="Template for impression..."/>
+                                </group>
+                            </page>
+
+                            <page string="Associated Studies" name="studies">
+                                <field name="study_ids" nolabel="1">
+                                    <list create="false" edit="false">
+                                        <field name="name"/>
+                                        <field name="patient"/>
+                                        <field name="date_requested"/>
+                                        <field name="state" widget="badge"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Template Search View -->
+        <record id="view_oeh_medical_radiology_template_search" model="ir.ui.view">
+            <field name="name">Radiology Template Search</field>
+            <field name="model">oeh.medical.radiology.template</field>
+            <field name="arch" type="xml">
+                <search string="Search Templates">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="modality"/>
+                    <separator/>
+                    <filter name="active" string="Active" domain="[('active', '=', True)]"/>
+                    <separator/>
+                    <group>
+                        <filter name="group_modality" string="Modality" context="{'group_by': 'modality'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record id="action_oeh_medical_radiology_template" model="ir.actions.act_window">
+            <field name="name">Report Templates</field>
+            <field name="res_model">oeh.medical.radiology.template</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first radiology report template!
+                </p>
+                <p>
+                    Templates provide standardized structures for consistent radiology reporting.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_oeh_medical_radiology_template" 
+                  name="Report Templates" 
+                  parent="oeh_medical_imaging_conf_menu" 
+                  action="action_oeh_medical_radiology_template" 
+                  sequence="17"/>
+
+    </data>
+</odoo>

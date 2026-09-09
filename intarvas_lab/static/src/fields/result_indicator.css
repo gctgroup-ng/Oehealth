@@ -1,0 +1,19 @@
+.result-indicator-field {
+    color: inherit;
+}
+
+/* Make arrows red */
+.result-indicator-field:after {
+    content: '';
+}
+
+/* Use CSS to color specific characters */
+.result-indicator-field {
+    color: black;
+}
+
+/* This will be applied via JavaScript */
+.result-indicator-field .indicator-arrow {
+    color: red !important;
+    font-weight: bold !important;
+}

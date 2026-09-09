@@ -1,0 +1,1757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- DISABLED TEMPLATE INHERITANCE TO PREVENT JS ERRORS -->
+    <!--
+    <template id="portal_patient_portal_entry" name="Patient Portal Entry" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="show_patient_portal">
+                <div class="col-lg-6 col-xl-4 col-md-6 o_portal_docs">
+                    <a href="/patient/portal" class="list-group-item list-group-item-action d-flex align-items-center">
+                        <div class="o_portal_navbar_section">
+                            <i class="fa fa-user-md fa-2x me-3" style="color: #6c757d;"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Patient Portal</strong>
+                            <div class="text-muted small">Access your medical records and health information</div>
+                        </div>
+                    </a>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    -->
+
+    <!-- Manage Sekoo -->
+    <template id="health_center_list" name="Health Center List">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a href="/my/home"><i class="fa fa-home" role="img" aria-label="Home" title="Home"/></a></li>
+                            <li class="breadcrumb-item">Health center</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="health_center" t-call="portal.portal_table">
+                        <thead>
+                           <tr class="active">
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Website</th>
+                            <t t-if="request.env.user and request.env.user.has_group('intarvas.group_oeh_medical_physician') or request.env.user.has_group('intarvas.group_oeh_medical_manager')">
+                                <th>Action</th>
+                            </t>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="health_center" t-as="hc">
+                            <tr>
+                              <td><t t-esc="hc.name"/></td>
+                              <td><t t-esc="hc.health_center_type"/></td>
+                              <td><span t-field="hc.street"/></td>
+                              <td><t t-esc="hc.city"/></td>
+                              <td><t t-if="hc.state_id"><span t-field="hc.state_id.name"/></t></td>
+                              <td><t t-if="hc.country_id"><span t-field="hc.country_id.name"/></t></td>
+                              <td><span t-field="hc.website"/></td>
+                              <td t-if="request.env.user and request.env.user.has_group('intarvas.group_oeh_medical_manager')">
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{hc.id}">Manage</a>
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not health_center">
+                        <p>There are currently no health center configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="edit_health_center" name="My Portal">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="o_portal_my_home mt16">
+                    <div class="card">
+                        <div class="card-header" style="background-color: #42d901; color:white;">
+                            <div class="row">
+                                <h4 class="col-md-4">Quick Access Links</h4>
+                                <a class="col-md-8 text-right" t-attf-href="/health/center/list"><button class="btn btn-primary">Back</button></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="o_portal_docs">
+                                <div class="o_portal_my_home">
+                                    <div class="card-deck">
+                                        <!--  -->
+                                        <div class="card text-center" style="border: none;">
+                                            <a t-attf-href="/health/center/#{institution}/buildings/list">
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <button class="fa fa-6x fa-hospital" style="border:none;background-color:white;color:#42d901;" type="button"/>
+                                                        <!--<img class="card-img-top" src="/supply_chain_finance/static/src/img/01.png"  alt="Card image cap"/>-->
+                                                    </div>
+                                                    <h5 class="card-title">
+                                                        Buildings
+                                                    </h5>
+                                                    <a t-attf-href="/health/center/#{institution}/buildings/create"><button class="btn btn-primary">Create</button></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--  -->
+                                        <div class="card text-center" style="border: none;">
+                                            <a t-attf-href="/health/center/#{institution}/wards/list">
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <button class="fa fa-6x fa-building-columns" style="border:none;background-color:white;color:#42d901;" type="button"/>
+                                                        <!--<img class="card-img-top" src="/supply_chain_finance/static/src/img/01.png"  alt="Card image cap"/>-->
+                                                    </div>
+                                                    <h5 class="card-title">
+                                                        Wards
+                                                    </h5>
+                                                    <a t-attf-href="/health/center/#{institution}/wards/create"><button class="btn btn-primary">Create</button></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--  -->
+                                        <div class="card text-center" style="border: none;">
+                                            <a t-attf-href="/health/center/#{institution}/beds/list">
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <button class="fa fa-6x fa-bed" style="border:none;background-color:white;color:#42d901;" type="button"/>
+                                                        <!--<img class="card-img-top" src="/supply_chain_finance/static/src/img/01.png"  alt="Card image cap"/>-->
+                                                    </div>
+                                                    <h5 class="card-title">
+                                                        Beds
+                                                    </h5>
+                                                    <a t-attf-href="/health/center/#{institution}/beds/create"><button class="btn btn-primary">Create</button></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--  -->
+                                        <div class="card text-center" style="border: none;">
+                                            <a t-attf-href="/health/center/#{institution}/ot/list">
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <button class="fa fa-6x fa-building-columns" style="border:none;background-color:white;color:#42d901;" type="button"/>
+                                                        <!--<img class="card-img-top" src="/supply_chain_finance/static/src/img/01.png"  alt="Card image cap"/>-->
+                                                    </div>
+                                                    <h5 class="card-title">
+                                                        Operating Theaters
+                                                    </h5>
+                                                    <a t-attf-href="/health/center/#{institution}/ot/create"><button class="btn btn-primary">Create</button></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--  -->
+                                        <div class="card text-center" style="border: none;">
+                                            <a t-attf-href="/health/center/#{institution}/pharmacies/list">
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <button class="fa fa-6x fa-medkit" style="border:none;background-color:white;color:#42d901;" type="button"/>
+                                                        <!--<img class="card-img-top" src="/supply_chain_finance/static/src/img/01.png"  alt="Card image cap"/>-->
+                                                    </div>
+                                                    <h5 class="card-title">
+                                                        Pharmacies
+                                                    </h5>
+                                                    <a t-attf-href="/health/center/#{institution}/pharmacies/create"><button class="btn btn-primary">Create</button></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--  -->
+                                        <!-- <div class="card text-center" style="border: none;">
+                                            <a t-attf-href="/health/center/#{institution}/du/list">
+                                                <div class="card-body">
+                                                    <div class="card-title">
+                                                        <button class="fa fa-6x fa-envelope" style="border:none;background-color:white;color:#42d901;" type="button"/>
+                                                        <img class="card-img-top" src="/supply_chain_finance/static/src/img/01.png"  alt="Card image cap"/>
+                                                    </div>
+                                                    <h5 class="card-title">
+                                                        Domiciliary Units
+                                                    </h5>
+                                                    <a t-attf-href="/health/center/du/create"><button class="btn btn-primary">Create</button></a>
+                                                </div>
+                                            </a>
+                                        </div> -->
+                                        <!--  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="test_center_list" name="Test Center List">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a href="/my/home"><i class="fa fa-home" role="img" aria-label="Home" title="Home"/></a></li>
+                            <li class="breadcrumb-item">Test center</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="test_center" t-call="portal.portal_table">
+                        <thead>
+                          <tr class="active">
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>Zip</th>
+                            <th>Country</th>
+                            <th>Extra Information</th>
+                            <!--<t t-if="request.env.user and request.env.user.has_group('intarvas.group_oeh_medical_physician') or request.env.user.has_group('intarvas.group_oeh_medical_manager')">
+                                <th>Action</th>
+                            </t>-->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="test_center" t-as="hc">
+                            <tr>
+                              <td><t t-esc="hc.name"/></td>
+                              <td><t t-esc="hc.company_id.name"/></td>
+                              <td><span t-field="hc.street"/></td>
+                              <td><t t-esc="hc.city"/></td>
+                              <td><t t-esc="hc.zip"/></td>
+                              <td><t t-if="hc.country_id"><span t-field="hc.country_id.name"/></t></td>
+                              <td><span t-field="hc.info"/></td>
+                              <!--<td t-if="request.env.user and request.env.user.has_group('intarvas.group_oeh_medical_physician') or request.env.user.has_group('intarvas.group_oeh_medical_manager')">
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{hc.id}">Manage</a>
+                              </td>-->
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not test_center">
+                        <p>There are currently no test center configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- building list -->
+
+    <template id="buildings_list" name="Building">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{institution}"><i class="fa fa-home" role="img" aria-label="Home" title="Home"/></a></li>
+                            <li class="breadcrumb-item">Buildings</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="buildings" t-call="portal.portal_table">
+                        <thead>
+                          <tr class="active">
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Health center</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="buildings" t-as="building">
+                            <tr>
+                              <td><t t-esc="building.name"/></td>
+                              <td><t t-esc="building.code"/></td>
+                              <td><t t-esc="building.institution.name"/></td>
+                              <td>
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{building.id}">Edit</a>
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not buildings">
+                        <p>There are currently no building configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- edit building -->
+
+    <template id="edit_building" name="Portal: Edit Building">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Edit Building</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}" role="alert">
+                        <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not building">
+                    <p>No valid Building !</p>
+                </t>
+                <div id="wrap" t-if="building">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/building/#{building.id}/edit/submit">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" t-attf-value="#{building.name}" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Code:</label>
+                                        <input type="text" class="form-control" name="code" id="code" t-attf-value="#{building.code}" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                                        <!--<select class="form-control" name="institution" id="institution" required="required">
+                                             <t t-foreach="health_center" t-as="health_centers">
+                                                  <option t-attf-value="#{health_centers.id}" t-att-selected="health_centers.id == building.institution.id"><t t-esc="health_centers.name"/></option>
+                                             </t>
+                                        </select>-->
+                                        <!-- <input type="hidden" id="institution_id" name="institution_id" t-attf-value="#{building.institution.id}"/> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- create building -->
+
+    <template id="create_building" name="Portal: Create Building">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Create Building</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div id="wrap">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/building/create/submit">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="code">Code:</label>
+                                        <input type="text" class="form-control" name="code" id="code" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                                        <!--<select class="form-control" name="institution" id="institution" required="required">
+                                             <t t-foreach="health_center" t-as="health_centers">
+                                                  <option t-attf-value="#{health_centers.id}"><t t-esc="health_centers.name"/></option>
+                                             </t>
+                                        </select>-->
+                                        <!-- <input type="hidden" id="institution_id" name="institution_id" t-attf-value="#{building.institution.id}"/> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- wards list -->
+
+    <template id="wards_list" name="Wards">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Wards</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="wards" t-call="portal.portal_table">
+                        <thead>
+                          <tr class="active">
+                            <th>Name</th>
+                            <th>Health center</th>
+                            <th>Building</th>
+                            <th>Floor Number</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="wards" t-as="ward">
+                            <tr>
+                              <td><t t-esc="ward.name"/></td>
+                              <td><t t-esc="ward.institution.name"/></td>
+                              <td><t t-esc="ward.building.name"/></td>
+                              <td><t t-esc="ward.floor"/></td>
+                              <td><t t-esc="ward.gender"/></td>
+                              <td>
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{ward.id}">Edit</a>
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not wards">
+                        <p>There are currently no wards configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- edit wards -->
+
+    <template id="edit_wards" name="Portal: Edit Wards">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Edit Wards</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}" role="alert">
+                        <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not wards">
+                    <p>No valid Wards !</p>
+                </t>
+                <div id="wrap" t-if="wards">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/wards/#{wards.id}/edit/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" t-attf-value="#{wards.name}" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Building:</label>
+                                        <select class="form-control" name="building" id="building" required="required">
+                                             <t t-foreach="building" t-as="buildings">
+                                                  <option t-attf-value="#{buildings.id}" t-att-selected="buildings.id == wards.building.id"><t t-esc="buildings.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Floor Number:</label>
+                                        <input type="number" class="form-control" name="floor" id="floor" t-attf-value="#{wards.floor}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Gender:</label>
+                                        <select class="form-control" name="gender" id="gender">
+                                             <option value="Men Ward" t-att-selected="wards.gender=='Men Ward'">Men Ward</option>
+                                             <option value="Women Ward" t-att-selected="wards.gender=='Women Ward'">Women Ward</option>
+                                             <option value="Unisex" t-att-selected="wards.gender=='Unisex'">Unisex</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Private Room:</label>
+                                        <input type="checkbox" name="private" id="private"  t-att-checked="wards.private"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Bio Hazard:</label>
+                                        <input type="checkbox" name="bio_hazard" id="bio_hazard" t-att-checked="wards.bio_hazard"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label style="color:blue;font-size: 1.3rem;">Facilities</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Telephone access:</label>
+                                        <input type="checkbox" name="telephone" id="telephone"  t-att-checked="wards.telephone"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Air Conditioning:</label>
+                                        <input type="checkbox" name="ac" id="ac" t-att-checked="wards.ac"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Private Bathroom:</label>
+                                        <input type="checkbox" name="private_bathroom" id="private_bathroom"  t-att-checked="wards.private_bathroom"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Guest sofa-bed:</label>
+                                        <input type="checkbox" name="guest_sofa" id="guest_sofa" t-att-checked="wards.guest_sofa"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Television:</label>
+                                        <input type="checkbox" name="tv" id="tv"  t-att-checked="wards.tv"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Internet Access:</label>
+                                        <input type="checkbox" name="internet" id="internet" t-att-checked="wards.internet"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Refrigerator:</label>
+                                        <input type="checkbox" name="refrigerator" id="refrigerator"  t-att-checked="wards.refrigerator"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Microwave:</label>
+                                        <input type="checkbox" name="microwave" id="microwave" t-att-checked="wards.microwave"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- create wards -->
+
+    <template id="create_wards" name="Portal: Create Wards">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Create Wards</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/wards/create/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name"  required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Building:</label>
+                                        <select class="form-control" name="building" id="building" required="required">
+                                             <t t-foreach="building" t-as="buildings">
+                                                  <option t-attf-value="#{buildings.id}"><t t-esc="buildings.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Floor Number:</label>
+                                        <input type="text" class="form-control" name="floor" id="floor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Gender:</label>
+                                        <select class="form-control" name="gender" id="gender">
+                                             <option value="Men Ward">Men Ward</option>
+                                             <option value="Women Ward">Women Ward</option>
+                                             <option value="Unisex">Unisex</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Private Room:</label>
+                                        <input type="checkbox" name="private" id="private"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Bio Hazard:</label>
+                                        <input type="checkbox" name="bio_hazard" id="bio_hazard"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label style="color:blue;font-size: 1.3rem;">Facilities</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Telephone access:</label>
+                                        <input type="checkbox" name="telephone" id="telephone"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Air Conditioning:</label>
+                                        <input type="checkbox" name="ac" id="ac"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Private Bathroom:</label>
+                                        <input type="checkbox" name="private_bathroom" id="private_bathroom"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Guest sofa-bed:</label>
+                                        <input type="checkbox" name="guest_sofa" id="guest_sofa"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Television:</label>
+                                        <input type="checkbox" name="tv" id="tv"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Internet Access:</label>
+                                        <input type="checkbox" name="internet" id="internet"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Refrigerator:</label>
+                                        <input type="checkbox" name="refrigerator" id="refrigerator"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Microwave:</label>
+                                        <input type="checkbox" name="microwave" id="microwave"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- beds list -->
+
+    <template id="beds_list" name="Beds">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Beds</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="beds" t-call="portal.portal_table">
+                        <thead>
+                          <tr class="active">
+                            <th>Name</th>
+                            <th>Ward</th>
+                            <th>Health center</th>
+                            <th>Building</th>
+                            <th>Bed Type</th>
+                            <th>Telephone Number</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="beds" t-as="bed">
+                            <tr>
+                              <td><t t-esc="bed.name"/></td>
+                              <td><t t-esc="bed.ward.name"/></td>
+                              <td><t t-esc="bed.institution.name"/></td>
+                              <td><t t-esc="bed.building.name"/></td>
+                              <td><t t-esc="bed.bed_type"/></td>
+                              <td><t t-esc="bed.telephone_number"/></td>
+                              <td><t t-esc="bed.state"/></td>
+                              <td>
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{bed.id}">Edit</a>
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not beds">
+                        <p>There are currently no beds configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- edit beds -->
+
+    <template id="edit_beds" name="Portal: Edit beds">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Edit Beds</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}" role="alert">
+                        <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not beds">
+                    <p>No valid beds !</p>
+                </t>
+                <div id="wrap" t-if="beds">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/beds/#{beds.id}/edit/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" t-attf-value="#{beds.name}" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Building:</label>
+                                        <select class="form-control" name="building" id="building" required="required">
+                                             <t t-foreach="building" t-as="buildings">
+                                                  <option t-attf-value="#{buildings.id}" t-att-selected="buildings.id == beds.building.id"><t t-esc="buildings.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Telephone Number:</label>
+                                        <input type="text" class="form-control" name="telephone_number" id="telephone_number" t-attf-value="#{beds.telephone_number}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Ward:</label>
+                                        <select class="form-control" name="ward" id="ward" required="required">
+                                             <t t-foreach="wards" t-as="ward">
+                                                  <option t-attf-value="#{ward.id}"><t t-esc="ward.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Reservation Charge:</label>
+                                        <input type="text" class="form-control" name="list_price" id="list_price" t-attf-value="#{beds.list_price}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Bed Type:</label>
+                                        <select class="form-control" name="bed_type" id="bed_type">
+                                             <option value="Gatch Bed" t-att-selected="beds.bed_type=='Gatch Bed'">Gatch Bed</option>
+                                             <option value="Electric" t-att-selected="beds.bed_type=='Electric'">Electric</option>
+                                             <option value="Stretcher" t-att-selected="beds.bed_type=='Stretcher'">Stretcher</option>
+                                             <option value="Low Bed" t-att-selected="beds.bed_type=='Low Bed'">Low Bed</option>
+                                             <option value="Low Air Loss" t-att-selected="beds.bed_type=='Low Air Loss'">Low Air Loss</option>
+                                             <option value="Circo Electric" t-att-selected="beds.bed_type=='Circo Electric'">Circo Electric</option>
+                                             <option value="Clinitron" t-att-selected="beds.bed_type=='Clinitron'">Clinitron</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label style="color:blue;font-size: 1.3rem;">Bed Status</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Change Bed Status:</label>
+                                        <select class="form-control" name="change_bed_status" id="change_bed_status">
+                                             <option value="Mark as Available" t-att-selected="beds.change_bed_status=='Mark as Available'">Mark as Available</option>
+                                             <option value="Mark as Reserved" t-att-selected="beds.change_bed_status=='Mark as Reserved'">Mark as Reserved</option>
+                                             <option value="Mark as Not Available" t-att-selected="beds.change_bed_status=='Mark as Not Available'">Mark as Not Available</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- create beds -->
+
+    <template id="create_beds" name="Portal: Create Beds">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Create Beds</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/beds/create/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Building:</label>
+                                        <select class="form-control" name="building" id="building" required="required">
+                                             <t t-foreach="building" t-as="buildings">
+                                                  <option t-attf-value="#{buildings.id}"><t t-esc="buildings.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Telephone Number:</label>
+                                        <input type="text" class="form-control" name="telephone_number" id="telephone_number"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Ward:</label>
+                                        <select class="form-control" name="ward" id="ward" required="required">
+                                             <t t-foreach="wards" t-as="ward">
+                                                  <option t-attf-value="#{ward.id}"><t t-esc="ward.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Reservation Charge:</label>
+                                        <input type="text" class="form-control" name="list_price" id="list_price"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Bed Type:</label>
+                                        <select class="form-control" name="bed_type" id="bed_type">
+                                             <option value="Gatch Bed">Gatch Bed</option>
+                                             <option value="Electric">Electric</option>
+                                             <option value="Stretcher">Stretcher</option>
+                                             <option value="Low Bed">Low Bed</option>
+                                             <option value="Low Air Loss">Low Air Loss</option>
+                                             <option value="Circo Electric">Circo Electric</option>
+                                             <option value="Clinitron">Clinitron</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label style="color:blue;font-size: 1.3rem;">Bed Status</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Change Bed Status:</label>
+                                        <select class="form-control" name="change_bed_status" id="change_bed_status">
+                                             <option value="Mark as Available">Mark as Available</option>
+                                             <option value="Mark as Reserved">Mark as Reserved</option>
+                                             <option value="Mark as Not Available">Mark as Not Available</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ot list -->
+
+    <template id="ot_list" name="ot">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Operating Theaters</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="ot" t-call="portal.portal_table">
+                        <thead>
+                          <tr class="active">
+                            <th>Name</th>
+                            <th>Building</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="ot" t-as="o">
+                            <tr>
+                              <td><t t-esc="o.name"/></td>
+                              <td><t t-esc="o.building.name"/></td>
+                              <td><t t-esc="o.state"/></td>
+                              <td>
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{o.id}">Edit</a>
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not ot">
+                        <p>There are currently no Operating Theaters configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Edit Operating Theaters -->
+
+    <template id="edit_ot" name="Portal: Edit Operating Theaters">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Edit Operating Theaters</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}" role="alert">
+                        <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not ot">
+                    <p>No valid Operating Theaters !</p>
+                </t>
+                <div id="wrap" t-if="ot">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/ot/#{ot.id}/edit/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" t-attf-value="#{ot.name}" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Building:</label>
+                                        <select class="form-control" name="building" id="building" required="required">
+                                             <t t-foreach="building" t-as="buildings">
+                                                  <option t-attf-value="#{buildings.id}" t-att-selected="buildings.id == ot.building.id"><t t-esc="buildings.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Create Operating Theaters -->
+
+    <template id="create_ot" name="Portal: Create Operating Theaters">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Create Operating Theaters</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/ot/create/submit">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Building:</label>
+                                        <select class="form-control" name="building" id="building" required="required">
+                                             <t t-foreach="building" t-as="buildings">
+                                                  <option t-attf-value="#{buildings.id}"><t t-esc="buildings.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- pharmacy list -->
+
+    <template id="pharmacy_list" name="Pharmacies">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Pharmacy</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <t t-if="pharmacy" t-call="portal.portal_table">
+                        <thead>
+                          <tr class="active">
+                            <th>Name</th>
+                            <th>Pharmacist Name</th>
+                            <th>Health center</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Website Link</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <t t-foreach="pharmacy" t-as="p">
+                            <tr>
+                              <td><t t-esc="p.name"/></td>
+                              <td><t t-esc="p.pharmacist_name.name"/></td>
+                              <td><t t-esc="p.institution.name"/></td>
+                              <td><span t-field="p.street"/></td>
+                              <td><t t-esc="p.city"/></td>
+                              <td><t t-if="p.state_id"><span t-field="p.state_id.name"/></t></td>
+                              <td><t t-if="p.country_id"><span t-field="p.country_id.name"/></t></td>
+                              <td><span t-field="p.website"/></td>
+                              <td>
+                                  <a role="button" class="btn btn-primary" t-attf-href="#{p.id}">Edit</a>
+                              </td>
+                            </tr>
+                          </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not pharmacy">
+                        <p>There are currently no pharmacies configured in your account.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Edit pharmacy -->
+
+    <template id="edit_pharmacy" name="Portal: Edit pharmacy">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Edit pharmacy</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}" role="alert">
+                        <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not pharmacy">
+                    <p>No valid pharmacy !</p>
+                </t>
+                <div id="wrap" t-if="pharmacy">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/pharmacy/#{pharmacy.id}/edit/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" t-attf-value="#{pharmacy.name}" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Pharmacist Name:</label>
+                                        <input type="text" class="form-control" name="pharmacist_name" id="pharmacist_name" t-attf-value="#{pharmacy.pharmacist_name and pharmacy.pharmacist_name.name or ''}" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="form-group">
+                                        <tbody>
+                                            <tr>
+                                                <td class="form-group">
+                                                    <label>Address:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</label>
+                                                </td>
+                                                <td style="width: 100%;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="street" id="street" t-attf-value="#{pharmacy.street}" placeholder="Street..."/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="street2" id="street2" t-attf-value="#{pharmacy.street2}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="city" id="city" t-attf-value="#{pharmacy.city}" placeholder="City"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <select class="form-control" name="state_id" id="state_id" placeholder="State">
+                                                                     <option value=""/>
+                                                                     <t t-foreach="state_id" t-as="s">
+                                                                          <option t-attf-value="#{s.id}" t-att-selected="s.id == pharmacy.state_id.id"><t t-esc="s.name"/></option>
+                                                                     </t>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="zip" id="zip" t-attf-value="#{pharmacy.zip}" placeholder="ZIP"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <select class="form-control" name="country_id" id="country_id" placeholder="Country">
+                                                                    <option value=""/>
+                                                                     <t t-foreach="country_id" t-as="c">
+                                                                          <option t-attf-value="#{c.id}" t-att-selected="c.id == pharmacy.country_id.id"><t t-esc="c.name"/></option>
+                                                                     </t>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Phone:</label>
+                                        <input type="text" class="form-control" name="phone" id="phone" t-attf-value="#{pharmacy.phone}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Mobile:</label>
+                                        <input type="text" class="form-control" name="mobile" id="mobile" t-attf-value="#{pharmacy.mobile}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Email:</label>
+                                        <input type="text" class="form-control" name="email" id="email" t-attf-value="#{pharmacy.email}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Website Link:</label>
+                                        <input type="text" class="form-control" name="website" id="website" t-attf-value="#{pharmacy.website}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Create pharmacy -->
+
+    <template id="create_pharmacy" name="Portal: Create Pharmacy">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/#{health_center.id}"><i class="fa fa-home" role="img" t-att-aria-label="health_center.display_name" t-att-title="health_center.display_name"/> <t t-esc="health_center.display_name"/></a></li>
+                            <li class="breadcrumb-item">Create Pharmacy</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="col-md-12">
+                        <form t-attf-action="/health/center/pharmacies/create/submit">
+                            <input type="hidden" id="institution" name="institution" t-att-value="health_center.id"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Pharmacist Name:</label>
+                                        <input type="text" class="form-control" name="pharmacist_name" id="pharmacist_name" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="form-group">
+                                        <tbody>
+                                            <tr>
+                                                <td class="form-group">
+                                                    <label>Address:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</label>
+                                                </td>
+                                                <td style="width: 100%;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="street" id="street" placeholder="Street..."/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="street2" id="street2" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="city" id="city" placeholder="City"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <select class="form-control" name="state_id" id="state_id" placeholder="State">
+                                                                     <option value=""/>
+                                                                     <t t-foreach="state_id" t-as="s">
+                                                                          <option t-attf-value="#{s.id}"><t t-esc="s.name"/></option>
+                                                                     </t>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="zip" id="zip" placeholder="ZIP"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <select class="form-control" name="country_id" id="country_id" placeholder="Country">
+                                                                    <option value=""/>
+                                                                     <t t-foreach="country_id" t-as="c">
+                                                                          <option t-attf-value="#{c.id}"><t t-esc="c.name"/></option>
+                                                                     </t>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Phone:</label>
+                                        <input type="text" class="form-control" name="phone" id="phone"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Mobile:</label>
+                                        <input type="text" class="form-control" name="mobile" id="mobile" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Email:</label>
+                                        <input type="text" class="form-control" name="email" id="email"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Website Link:</label>
+                                        <input type="text" class="form-control" name="website" id="website"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/#{health_center.id}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Edit Course -->
+    <template id="edit_health_center1" name="Portal: Edit Health center">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item"><a t-attf-href="/health/center/list"><i class="fa fa-home" role="img" aria-label="Home" title="Home"/></a></li>
+                            <li class="breadcrumb-item">Edit Health center</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}" role="alert">
+                        <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <t t-if="not health_center">
+                    <p>No valid course found !</p>
+                </t>
+                <div id="wrap" t-if="health_center">
+                    <div class="col-md-12">
+                        <form t-attf-action="#">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" t-attf-value="#{health_center.name}" required="required"/>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                    <div class="form-group">
+                                        <img t-if="health_center.image_1920" class="rounded-circle img_vvp_h" t-att-src="image_data_uri(health_center.image_1920)" alt="Contact"/>
+                                        <img t-if="not health_center.image_1920" class="rounded-circle img_vvp_h" src="/base/static/img/avatar_grey.png" alt="Contact"/>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="parent_id">Evaluation Type:</label>
+                                        <select class="form-control" name="evaluation_type" id="evaluation_type">
+                                             <option value="normal" t-att-selected="course.evaluation_type=='normal'">Normal</option>
+                                             <option value="GPA" t-att-selected="course.evaluation_type=='GPA'">GPA</option>
+                                             <option value="CWA" t-att-selected="course.evaluation_type=='CWA'">CWA</option>
+                                             <option value="CCE" t-att-selected="course.evaluation_type=='CCE'">CCE</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" t-if="parent_courses and len(parent_courses) > 0">
+                                    <div class="form-group">
+                                        <label for="parent_id">Parent Course:</label>
+                                        <select class="form-control" name="parent_id" id="parent_id">
+                                             <t t-foreach="parent_courses" t-as="parent_course">
+                                                  <option t-attf-value="#{parent_course.id}" t-att-selected="parent_course.id == course.parent_id.id"><t t-esc="parent_course.name"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="min_unit_load">Minimum Unit Load:</label>
+                                        <input type="number" class="form-control" name="min_unit_load" id="min_unit_load" t-attf-value="#{course.min_unit_load}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="max_unit_load">Maximum Unit Load:</label>
+                                        <input type="number" class="form-control" name="max_unit_load" id="max_unit_load" t-attf-value="#{course.max_unit_load}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt16 mb16">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="section_name">Section Name:</label>
+                                        <input type="text" class="form-control" name="section_name" id="section_name" t-attf-value="#{course.section_name}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" t-if="schools and len(schools) > 0">
+                                    <div class="form-group">
+                                        <label for="school_id">School:</label>
+                                        <select class="form-control" name="school_id" id="school_id">
+                                             <t t-foreach="schools" t-as="school">
+                                                  <option t-attf-value="#{school.id}" t-att-selected="school.id == course.school_id.id"><t t-esc="school.school_nm"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" t-if="degrees and len(degrees) > 0">
+                                    <div class="form-group">
+                                        <label for="section_name">Degree:</label>
+                                        <select class="form-control" name="degree" id="degree">
+                                             <t t-foreach="degrees" t-as="deg">
+                                                  <option t-attf-value="#{deg.id}" t-att-selected="deg.id == course.degree.id"><t t-esc="deg.degree_nm"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" t-if="departments and len(departments) > 0">
+                                    <div class="form-group">
+                                        <label for="department">Department:</label>
+                                        <select class="form-control" name="department" id="department">
+                                             <t t-foreach="departments" t-as="dept">
+                                                  <option t-attf-value="#{dept.id}" t-att-selected="dept.id == course.department.id"><t t-esc="dept.dept_nm"/></option>
+                                             </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="duration">Duration:</label>
+                                        <input type="number" class="form-control" name="duration" id="duration" t-attf-value="#{course.duration}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="semester">Semester:</label>
+                                        <input type="text" class="form-control" name="semester" id="semester" t-attf-value="#{course.semester}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="degree_lvl">Degree Level:</label>
+                                        <input type="text" class="form-control" name="degree_lvl" id="degree_lvl" t-attf-value="#{course.degree_lvl}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="credits">Credits:</label>
+                                        <input type="text" class="form-control" name="credits" id="credits" t-attf-value="#{course.credits}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="locations">Locations:</label>
+                                        <input type="text" class="form-control" name="locations" id="locations" t-attf-value="#{course.locations}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="accessible">Accessible:</label>
+                                        <input type="text" class="form-control" name="accessible" id="accessible" t-attf-value="#{course.accessible}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="des">Description:</label>
+                                        <input type="text" class="form-control" name="des" id="des" t-attf-value="#{course.des}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="add_details">Admission Detail:</label>
+                                        <input type="text" class="form-control" name="add_details" id="add_details" t-attf-value="#{course.add_details}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="further_study_details">Further Study Detail:</label>
+                                        <input type="text" class="form-control" name="further_study_details" id="further_study_details" t-attf-value="#{course.further_study_details}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="seats">Seats:</label>
+                                        <input type="text" class="form-control" name="seats" id="seats" t-attf-value="#{course.seats}"/>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="row mt16 mb16">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/health/center/list"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

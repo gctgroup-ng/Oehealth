@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Report Action for Birth Certificate -->
+        <record id="action_report_birth_certificate" model="ir.actions.report">
+            <field name="name">Birth Certificate</field>
+            <field name="model">oeh.medical.pediatrics.newborn</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas_paediatric.report_birth_certificate</field>
+            <field name="report_file">intarvas_paediatric.report_birth_certificate</field>
+            <field name="print_report_name">'Birth Certificate - %s - %s' % (object.name, object.birth_date.strftime('%d-%b-%Y') if object.birth_date else 'N/A')</field>
+            <field name="binding_model_id" ref="model_oeh_medical_pediatrics_newborn"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Server Action for Print Birth Certificate -->
+        <record id="action_print_birth_certificate" model="ir.actions.server">
+            <field name="name">Print Birth Certificate</field>
+            <field name="model_id" ref="model_oeh_medical_pediatrics_newborn"/>
+            <field name="binding_model_id" ref="model_oeh_medical_pediatrics_newborn"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = env.ref('intarvas_paediatric.action_report_birth_certificate').report_action(records)
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Reschedule Appointment Form -->
+    <template id="reschedule_appointment" name="Reschedule Appointment">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'appointments'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <h1 class="welcome-title">
+                    <i class="fas fa-calendar-check me-3"></i>Reschedule Appointment
+                </h1>
+                <p class="welcome-subtitle">Update your appointment details</p>
+            </div>
+
+            <t t-if="request.params.get('error')">
+                <div class="alert alert-danger-gradient mb-4">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <t t-if="request.params.get('error') == 'no_date'">
+                        Please select a new appointment date.
+                    </t>
+                    <t t-elif="request.params.get('error') == 'invalid_date'">
+                        Invalid date format. Please select a valid date.
+                    </t>
+                    <t t-elif="request.params.get('error') == 'update_failed'">
+                        Failed to reschedule appointment. Please try again.
+                    </t>
+                    <t t-else="">
+                        An error occurred while rescheduling your appointment. Please try again.
+                    </t>
+                </div>
+            </t>
+
+            <form method="post" class="patient-form">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="action-card">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-calendar-check me-2"></i>Current Appointment Details
+                            </h3>
+                            
+                            <div class="alert alert-current-appointment mb-4">
+                                <h6 style="color: white; font-weight: 700; margin-bottom: 1rem;"><strong>Current Appointment:</strong> <t t-esc="appointment.name"/></h6>
+                                <p class="mb-1" style="color: white; font-weight: 500;"><strong>Doctor:</strong> 
+                                    <t t-if="appointment.doctor"><t t-esc="appointment.doctor.formatted_name"/></t>
+                                    <t t-else="">Not specified</t>
+                                </p>
+                                <p class="mb-1" style="color: white; font-weight: 500;"><strong>Date:</strong> <t t-esc="appointment.appointment_date.strftime('%B %d, %Y at %I:%M %p')"/></p>
+                                <p class="mb-0" style="color: white; font-weight: 500;"><strong>Reason:</strong> <t t-esc="appointment.reason or 'Not specified'"/></p>
+                            </div>
+                            
+                            <h4 class="mb-3">New Appointment Details</h4>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="doctor" class="form-label">Select Doctor</label>
+                                    <select class="form-control patient-form-control" id="doctor" name="doctor">
+                                        <option value="">Keep Current Doctor</option>
+                                        <t t-foreach="doctors" t-as="doctor">
+                                            <option t-att-value="doctor.id" t-att-selected="'selected' if appointment.doctor and appointment.doctor.id == doctor.id else None">
+                                                <t t-esc="doctor.formatted_name"/>
+                                                <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality"/></t>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="institution" class="form-label">Healthcare Facility</label>
+                                    <select class="form-control patient-form-control" id="institution" name="institution">
+                                        <option value="">Keep Current Facility</option>
+                                        <t t-foreach="institutions" t-as="institution">
+                                            <option t-att-value="institution.id" t-att-selected="'selected' if appointment.institution and appointment.institution.id == institution.id else None">
+                                                <t t-esc="institution.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="appointment_date" class="form-label">New Date &amp; Time *</label>
+                                    <input type="datetime-local" class="form-control patient-form-control" id="appointment_date" name="appointment_date" 
+                                           t-att-value="appointment.appointment_date.strftime('%Y-%m-%dT%H:%M')" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="duration" class="form-label">Priority</label>
+                                    <select class="form-control patient-form-control" id="priority" name="priority">
+                                        <option value="Normal" t-att-selected="appointment and appointment.urgency_level == 'Normal'">Normal</option>
+                                        <option value="Urgent" t-att-selected="appointment and appointment.urgency_level == 'Urgent'">Urgent</option>
+                                        <option value="Medical Emergency" t-att-selected="appointment and appointment.urgency_level == 'Medical Emergency'">Medical Emergency</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="reason" class="form-label">Reason for Visit</label>
+                                    <textarea class="form-control patient-form-control" id="reason" name="reason" rows="4" 
+                                              placeholder="Please describe the reason for your appointment..."><t t-esc="appointment.reason or ''"/></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="action-card">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-info-circle me-2"></i>Reschedule Information
+                            </h3>
+                            <div class="summary-content">
+                                <div class="mb-3">
+                                    <strong>Patient:</strong>
+                                    <span t-esc="patient.name"/>
+                                </div>
+                                <div class="mb-3">
+                                    <strong>Contact:</strong>
+                                    <span t-esc="patient.email"/>
+                                </div>
+                                <div class="alert alert-warning-gradient">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <strong>Note:</strong> Your rescheduled appointment will need to be confirmed by our staff. You will receive a confirmation email.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-large-padding me-3">
+                        <i class="fas fa-calendar-edit me-2"></i>Reschedule Appointment
+                    </button>
+                    <a href="/patient/portal/appointments" class="btn btn-secondary btn-large-padding">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Appointments
+                    </a>
+                </div>
+            </form>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record model="oeh.medical.sample.types" id="oesamplet1">
+            <field name="name">Pericardial Fluid</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet2">
+            <field name="name">Blood (EDTA)</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet3">
+            <field name="name">Gastric Lavage</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet4">
+            <field name="name">Bronchoscopy Lavarge (BAL)</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet5">
+            <field name="name">Body Fluid</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet6">
+            <field name="name">Montoux</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet7">
+            <field name="name">SlitSkin</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet8">
+            <field name="name">Vaginal</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet9">
+            <field name="name">Scrap</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet10">
+            <field name="name">Asitic Fluid Panel</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet11">
+            <field name="name">GAL</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet12">
+            <field name="name">CSF Panel</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet13">
+            <field name="name">Knee Joint Fluid Panel</field>
+        </record>
+        <record model="oeh.medical.sample.types" id="oesamplet14">
+            <field name="name">Plural Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet15">
+            <field name="name">Pleural Fluid Panel</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet16">
+            <field name="name">Pus (Panel)</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet17">
+            <field name="name">Sample Pus</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet18">
+            <field name="name">Pyrotinial Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet19">
+            <field name="name">Peritoneal Fluid Panel</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet20">
+            <field name="name">Blood</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet21">
+            <field name="name">Urine</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet22">
+            <field name="name">Serum</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet23">
+            <field name="name">Semen</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet24">
+            <field name="name">Stool</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet25">
+            <field name="name">Montoux Test</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet26">
+            <field name="name">CSF</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet27">
+            <field name="name">Tissue</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet28">
+            <field name="name">Scrapping for Fungus</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet29">
+            <field name="name">Asitic Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet30">
+            <field name="name">Knee Joint Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet31">
+            <field name="name">Gastric Lavage (GAL)</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet32">
+            <field name="name">Bronchoscopy Lavage (BAL)</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet33">
+            <field name="name">Peritoneal Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet34">
+            <field name="name">Pleural Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet35">
+            <field name="name">Vaginal Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet36">
+            <field name="name">Other Body Fluids</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet37">
+            <field name="name">Sputum</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet38">
+            <field name="name">Pus</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet39">
+            <field name="name">Synovial Fluid</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet40">
+            <field name="name">Slit Skin</field>
+        </record>
+         <record model="oeh.medical.sample.types" id="oesamplet41">
+            <field name="name">Other Samples</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,2590 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* intarvas_paediatric
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-06 15:51+0000\n"
+"PO-Revision-Date: 2025-10-06 21:24+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.7\n"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__meeting_count
+msgid "# Meetings"
+msgstr "# Reuniões"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__supplier_invoice_count
+msgid "# Vendor Bills"
+msgstr "# Faturas de Fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__box_1099_id
+msgid "1099 Box"
+msgstr "1099 Caixa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_pulse__1
+msgid "< 100"
+msgstr "< 100"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_pulse__2
+msgid "> 100"
+msgstr "> 100"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_score
+msgid "APGAR Score"
+msgstr "Pontuação de APGAR"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "APGAR Scores"
+msgstr "Pontuações de APGAR"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__apgar_scores
+msgid "APGAR scores"
+msgstr "Pontuações de APGAR"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_pulse__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_respiration__0
+msgid "Absent"
+msgstr "Ausente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_absent_from_school
+msgid "Absent from school"
+msgstr "Ausente da escola"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_account_payable_id
+msgid "Account Payable"
+msgstr "Conta a Pagar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_account_receivable_id
+msgid "Account Receivable"
+msgstr "Conta a Receber"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_appearance__1
+msgid "Acrocyanosis"
+msgstr "Acrocianose"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_needaction
+msgid "Action Needed"
+msgstr "Ação Necessária"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__active_lang_count
+msgid "Active Lang Count"
+msgstr "Contagem Ativa de Idiomas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_ids
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_activity
+msgid "Activity"
+msgstr "Atividade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoração de atividade excepcional"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_state
+msgid "Activity State"
+msgstr "Estado da Atividade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone do Tipo de Atividade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_acts_as_driven_by_motor
+msgid "Acts as if driven by a motor"
+msgstr "Atua como se fosse acionado por um motor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_act_as_younger
+msgid "Acts younger than children his or her age"
+msgstr "Atos mais jovens do que crianças de sua idade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__additional_info
+msgid "Additional info"
+msgstr "Informação Adicional"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__type
+msgid "Address Type"
+msgstr "Tipo de Endereço"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__lang
+msgid ""
+"All the emails and documents sent to this contact will be translated in this language."
+msgstr ""
+"Todos os e-mails e documentos enviados para esse contato serão traduzidos neste idioma."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_ambiguous_genitalia
+msgid "Ambiguous Genitalia"
+msgstr "Genitália ambígua"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_appearance
+msgid "Appearance"
+msgstr "Aparência"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Are you sure you want to end newborn document by signing the process?"
+msgstr ""
+"Tem certeza de que deseja encerrar o documento do recém-nascido assinando o processo?"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reanimation_aspiration
+msgid "Aspiration"
+msgstr "Aspiração"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Anexos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__test_audition
+msgid "Audition"
+msgstr "Audição"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__autopost_bills
+msgid "Auto-post bills"
+msgstr "Lançar faturas automaticamente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__autopost_bills
+msgid "Automatically post bills for this trusted partner"
+msgstr "Lance faturas automaticamente para este parceiro confiável"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__receipt_reminder_email
+msgid ""
+"Automatically send a confirmation email to the vendor X days before the expected "
+"receipt date, asking him to confirm the exact date."
+msgstr ""
+"Envie automaticamente um e-mail de confirmação para o fornecedor X dias antes da data "
+"prevista de recebimento, solicitando que ele confirme a data exata."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatax_unique_code
+msgid "Avalara Code"
+msgstr "Código Avalara"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avalara_exemption_id
+msgid "Avalara Exemption"
+msgstr "Isenção de Avalara"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avalara_partner_code
+msgid "Avalara Partner Code"
+msgstr "Código de Parceiro Avalara"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avalara_show_address_validation
+msgid "Avalara Show Address Validation"
+msgstr "Validação de endereço de exibição do Avalara"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatar_1920
+msgid "Avatar"
+msgstr "Avatar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatar_1024
+msgid "Avatar 1024"
+msgstr "Avatar 1024"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatar_128
+msgid "Avatar 128"
+msgstr "Avatar 128"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatar_256
+msgid "Avatar 256"
+msgstr "Avatar 256"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatar_512
+msgid "Avatar 512"
+msgstr "Avatar 512"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_babinski_reflex
+msgid "Babinski Reflex"
+msgstr "Reflexo de Babinski"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_health_center__is_baby
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_health_center_pharmacy__is_baby
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_insurance__is_baby
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_patient__is_baby
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_baby
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_res_partner__is_baby
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_res_users__is_baby
+msgid "Baby"
+msgstr "Baby"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Baby Name"
+msgstr "Nome do bebê"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__bank_account_count
+msgid "Bank"
+msgstr "Banco"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__bank_ids
+msgid "Banks"
+msgstr "Bancos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__barcode
+msgid "Barcode"
+msgstr "Código de barras"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__test_billirubin
+msgid "Billirubin"
+msgstr "Billirubin"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__institution
+msgid "Birth at Health Center"
+msgstr "Parto no Centro de Saúde"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_blacklisted
+msgid "Blacklist"
+msgstr "Lista Negra"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__mobile_blacklisted
+msgid "Blacklisted Phone Is Mobile"
+msgstr "Telefone na lista negra é móvel"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_blacklisted
+msgid "Blacklisted Phone is Phone"
+msgstr "Telefone na lista negra é telefone"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_blames_others
+msgid "Blames others for his or her troubles"
+msgstr "Culpa os outros por seus problemas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_blink_reflex
+msgid "Blink Reflex"
+msgstr "Reflexo de Piscar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__indicator__bmi-f-a
+msgid "Body mass index for age (BMI for age)"
+msgstr "Índice de massa corporal para a idade (IMC para a idade)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_bounce
+msgid "Bounce"
+msgstr "Bounce"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__buyer_id
+msgid "Buyer"
+msgstr "Comprador"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__can_publish
+msgid "Can Publish"
+msgstr "Pode publicar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__cause_of_death
+msgid "Cause of Death"
+msgstr "Causa da morte"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_appearance__0
+msgid "Central Cyanosis"
+msgstr "cianose central"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__cephalic_perimeter
+msgid "Cephalic Perimeter (CP)"
+msgstr "Perímetro cefálico (PC)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__cephalic_perimeter
+msgid "Cephalic Perimeter in centimeters (cm)"
+msgstr "Perímetro cefálico em centímetros (cm)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__test_chagas
+msgid "Chagas"
+msgstr "Chagas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__channel_ids
+msgid "Channels"
+msgstr "Canais"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_company
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr "Verifique se o contato é uma empresa, caso contrário é uma pessoa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_institution
+msgid "Check if the party is a Medical Center"
+msgstr "Verifique se a festa é um Centro Médico"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_pharmacy
+msgid "Check if the party is a Pharmacy"
+msgstr "Verifique se a festa é uma farmácia"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_health_center__is_baby
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_health_center_pharmacy__is_baby
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_insurance__is_baby
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_patient__is_baby
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_baby
+#: model:ir.model.fields,help:intarvas_paediatric.field_res_partner__is_baby
+#: model:ir.model.fields,help:intarvas_paediatric.field_res_users__is_baby
+msgid "Check if the party is a baby"
+msgstr "Verifique se a festa é um bebê"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_doctor
+msgid "Check if the party is a health professional"
+msgstr "Verifique se a parte é um profissional de saúde"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_patient
+msgid "Check if the party is a patient"
+msgstr "Verifique se a parte é paciente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_person
+msgid "Check if the party is a person."
+msgstr "Verifique se a parte é uma pessoa."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_insurance_company
+msgid "Check if the party is an Insurance Company"
+msgstr "Verifique se a parte é uma seguradora"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__employee
+msgid "Check this box if this contact is an Employee."
+msgstr "Selecione esta opção se o contacto for um Funcionário."
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_psc_view
+#, fuzzy
+msgid "Checklist"
+msgstr "Checklist"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__congenital_diseases
+msgid ""
+"Choose a disease for this medicament from the disease list. It can be an existing "
+"disease of the patient or a prophylactic."
+msgstr ""
+"Escolha uma doença para este medicamento na lista de doenças. Pode ser uma doença "
+"existente do paciente ou profilática."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__city
+msgid "City"
+msgstr "Cidade"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.actions.act_window,help:intarvas_paediatric.oeh_medical_pediatrics_psc_action_tree
+msgid "Click to register a new checklist."
+msgstr "Clique para registrar uma nova lista de verificação."
+
+#. module: intarvas_paediatric
+#: model_terms:ir.actions.act_window,help:intarvas_paediatric.oeh_medical_newborn_action_tree
+msgid "Click to register a new newborn baby."
+msgstr "Clique para registrar um novo bebê recém-nascido."
+
+#. module: intarvas_paediatric
+#: model_terms:ir.actions.act_window,help:intarvas_paediatric.oeh_medical_pediatrics_growth_chart_action_tree
+msgid "Click to register a new pediatrics growth chart (WHO)."
+msgstr "Clique para registrar um novo gráfico de crescimento pediátrico (OMS)."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__peppol_eas
+msgid ""
+"Code used to identify the Endpoint for BIS Billing 3.0 and its derivatives.\n"
+"             List available at https://docs.peppol.eu/poacc/billing/3.0/codelist/eas/"
+msgstr ""
+"Código usado para identificar o Endpoint para o BIS Billing 3.0 e seus derivados.\n"
+"             Lista disponível em https://docs.peppol.eu/poacc/billing/3.0/codelist/eas/"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__color
+msgid "Color Index"
+msgstr "Índice de Cores"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Entidade Comercial"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__ref_company_ids
+msgid "Companies that refers to partner"
+msgstr "Empresas que se referem a parceiros"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__company_registry
+msgid "Company ID"
+msgstr "ID da Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__company_registry_label
+msgid "Company ID Label"
+msgstr "Etiqueta de identificação da empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__company_name
+msgid "Company Name"
+msgstr "Nome da Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__commercial_company_name
+msgid "Company Name Entity"
+msgstr "Nome da Empresa Entidade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__company_type
+msgid "Company Type"
+msgstr "Tipo de Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_gid
+msgid "Company database ID"
+msgstr "ID da Base de Dados da Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_aches_pains
+msgid "Complains of aches and pains"
+msgstr "Queixa-se de dores"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__contact_address
+msgid "Complete Address"
+msgstr "Endereço Completo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__complete_name
+msgid "Complete Name"
+msgstr "Nome Completo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__congenital_diseases
+msgid "Congenital Diseases"
+msgstr "Doenças Congênitas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__child_ids
+msgid "Contact"
+msgstr "Contato"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__contact_address_complete
+msgid "Contact Address Complete"
+msgstr "Endereço de Contato Completo"
+
+#. module: intarvas_paediatric
+#. odoo-python
+#: code:addons/intarvas_paediatric/models/oeh_medical_pediatrics_newborn.py:0
+msgid "Correct Doctor ID not found to complete the signing process !!"
+msgstr "ID do médico correto não encontrado para concluir o processo de assinatura !!"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_bounce
+msgid "Counter of the number of bounced emails for this contact"
+msgstr "Contador do número de e-mails devolvidos para este contato"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__country_code
+msgid "Country Code"
+msgstr "Código do País"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__create_uid
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__create_uid
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__create_uid
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__create_date
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__create_date
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__create_date
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__credit_limit
+msgid "Credit Limit"
+msgstr "Limite de Crédito"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__credit_to_invoice
+msgid "Credit To Invoice"
+msgstr "Crédito para faturar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__credit_limit
+msgid "Credit limit specific to this partner."
+msgstr "Limite de crédito específico para este parceiro."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_grimace__2
+msgid "Cry or pull away when stimulated"
+msgstr "Chorar ou se afastar quando estimulado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_psc__doctor
+msgid "Current primary care / family doctor"
+msgstr "Cuidados primários / médico de família atuais"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avalara_partner_code
+msgid "Customer Code set in Avalara for this partner."
+msgstr "Código do cliente definido no Avalara para este parceiro."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_stock_customer
+msgid "Customer Location"
+msgstr "Localização do Cliente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_payment_term_id
+msgid "Customer Payment Terms"
+msgstr "Termos de Pagamento do Cliente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__customer_rank
+msgid "Customer Rank"
+msgstr "Classificação do cliente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__evaluation_start
+msgid "Date"
+msgstr "Data"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__birth_date
+msgid "Date and Time of birth"
+msgstr "Data e hora de nascimento"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__birth_date
+msgid "Date of Birth"
+msgstr "Data de Nascimento"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_daydreams_too_much
+msgid "Daydreams too much"
+msgstr "Devaneios demais"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reminder_date_before_receipt
+msgid "Days Before Receipt"
+msgstr "Dias antes do recebimento"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__days_sales_outstanding
+msgid "Days Sales Outstanding (DSO)"
+msgstr "Dias de Vendas Pendentes (DSO)"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Deceased"
+msgstr "Falecido"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__trust
+msgid "Degree of trust you have in this debtor"
+msgstr "Grau de confiança neste devedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__died_at_delivery
+msgid "Died at delivery room"
+msgstr "Morreu na sala de parto"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__died_at_the_hospital
+msgid "Died at the hospital"
+msgstr "Morreu no hospital"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__died_being_transferred
+msgid "Died being transferred"
+msgstr "Morreu sendo transferido"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__dismissed
+msgid "Discharged"
+msgstr "Recebeu Alta"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__display_invoice_edi_format
+msgid "Display Invoice Edi Format"
+msgstr "Exibir formato EDI de fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__display_invoice_template_pdf_report_id
+msgid "Display Invoice Template Pdf Report"
+msgstr "Exibir relatório em PDF do modelo de fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__display_name
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__display_name
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__display_name
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_distracted_easily
+msgid "Distracted easily"
+msgstr "Distraia-se facilmente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__doctor
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_psc
+msgid "Doctor"
+msgstr "Médico"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__doctor
+msgid "Doctor in charge"
+msgstr "Médico responsável"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_does_not_get_people_feelings
+msgid "Does not get people feelings"
+msgstr "Não deixa as pessoas sentirem"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_does_not_listen_to_rules
+msgid "Does not listen to rules"
+msgstr "Não ouve regras"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_does_not_show_feelings
+msgid "Does not show feelings"
+msgstr "Não mostra sentimentos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_newborn__state__draft
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__duplicated_bank_account_partners_count
+msgid "Duplicated Bank Account Partners Count"
+msgstr "Contagem de parceiros de contas bancárias duplicadas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_share
+msgid ""
+"Either customer (not a user), either shared user. Indicated the current partner is a "
+"customer without access or with a limited access created for sharing data."
+msgstr ""
+"Qualquer cliente (não um usuário), ou usuário compartilhado. Indicou que o parceiro "
+"atual é um cliente sem acesso ou com um acesso limitado criado para compartilhar dados."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__email
+msgid "Email"
+msgstr "E-mail"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__employee
+msgid "Employee"
+msgstr "Funcionario"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__employee_ids
+msgid "Employees"
+msgstr "Funcionários"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__employees_count
+msgid "Employees Count"
+msgstr "Contagem de funcionários"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_erbs_palsy
+msgid "Erbs Palsy"
+msgstr "Paralisia de Erbs"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_feels_is_bad_child
+msgid "Feels he or she is bad"
+msgstr "Sente que ele ou ela é ruim"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_feels_hopeless
+msgid "Feels hopeless"
+msgstr "Parece sem esperança"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_sad_unhappy
+msgid "Feels sad, unhappy"
+msgstr "Sente-se triste, infeliz"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__sex__f
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_newborn__sex__female
+msgid "Female"
+msgstr "Feminino"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_fidgety
+msgid "Fidgety, unable to sit still"
+msgstr "Inquieto, incapaz de ficar parado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_sanitized
+msgid ""
+"Field used to store sanitized phone number. Helps speeding up searches and comparisons."
+msgstr ""
+"Campo usado para armazenar número de telefone higienizado. Ajuda a acelerar as buscas e "
+"comparações."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_fights_with_others
+msgid "Fights with other children"
+msgstr "Brigas com outras crianças"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Findings and Tests"
+msgstr "Achados e testes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__fiscal_country_codes
+msgid "Fiscal Country Codes"
+msgstr "Códigos de País Fiscal"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_account_position_id
+msgid "Fiscal Position"
+msgstr "Posição fiscal"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_activity__2
+msgid "Flexed arms and legs"
+msgstr "Braços e pernas flexionados"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Parceiros)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ícone do Font awesome ex. fa-tasks"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__email_formatted
+msgid "Format email address \"Name <email@domain>\""
+msgstr "Endereço de e-mail do formato \"Nome <email@domain>\""
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__email_formatted
+msgid "Formatted Email"
+msgstr "E-mail Formatado"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+msgid "Gender"
+msgstr "Gênero"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_latitude
+msgid "Geo Latitude"
+msgstr "Latitude Geográfica"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_longitude
+msgid "Geo Longitude"
+msgstr "Longitude Geográfica"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_gets_hurt_often
+msgid "Gets hurt frequently"
+msgstr "Machuca-se com frequência"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_grasp_reflex
+msgid "Grasp Reflex"
+msgstr "Reflexo de preensão"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_grimace
+msgid "Grimace"
+msgstr "Careta"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_grimace__1
+msgid "Grimace when stimulated"
+msgstr "Faça caretas quando estimulado"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_growth_chart_filter
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_psc
+msgid "Group By..."
+msgstr "Agrupar Por…"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_growth_chart_graph
+msgid "Growth Charts"
+msgstr "Gráficos de crescimento"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_growth_chart_tree
+msgid "Growth Charts Information"
+msgstr "Informações sobre gráficos de crescimento"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__has_message
+msgid "Has Message"
+msgstr "Tem Mensagem"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_trouble_concentrating
+msgid "Has trouble concentrating"
+msgstr "Tem dificuldade de concentração"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_trouble_sleeping
+msgid "Has trouble sleeping"
+msgstr "Tem dificuldade para dormir"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_trouble_with_teacher
+msgid "Has trouble with teacher"
+msgstr "Tem problemas com o professor"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+msgid "Health Center"
+msgstr "Posto de saúde"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_doctor
+msgid "Health Professional"
+msgstr "Profissional de Saúde"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_hematoma
+msgid "Hematomas"
+msgstr "Hematomas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_hernia
+msgid "Hernia"
+msgstr "Hérnia"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__id
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__id
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__id
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__id
+msgid "ID"
+msgstr "ID"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__im_status
+msgid "IM Status"
+msgstr "Status de IM"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícone para indicar uma exceção na atividade."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se estiver marcado, há novas mensagens que requerem a sua atenção."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_has_error
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se marcada, algumas mensagens têm um erro de entrega."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_blacklisted
+msgid ""
+"If the email address is on the blacklist, the contact won't receive mass mailing "
+"anymore, from any list"
+msgstr ""
+"Se o endereço de e-mail constar da lista negra, o contato não receberá mais emails em "
+"massa de nenhuma lista"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_sanitized_blacklisted
+msgid ""
+"If the sanitized phone number is on the blacklist, the contact won't receive mass "
+"mailing sms anymore, from any list"
+msgstr ""
+"Se o número de telefone harmonizado estiver na lista negra, o contacto não receberá "
+"mais sms em massa, de qualquer lista"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__ignore_abnormal_invoice_amount
+msgid "Ignore Abnormal Invoice Amount"
+msgstr "Ignorar valor anormal da fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__ignore_abnormal_invoice_date
+msgid "Ignore Abnormal Invoice Date"
+msgstr "Ignorar data de fatura anormal"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__image_1920
+msgid "Image"
+msgstr "Imagem"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__image_1024
+msgid "Image 1024"
+msgstr "Imagem 1024"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__image_128
+msgid "Image 128"
+msgstr "Imagem 128"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__image_256
+msgid "Image 256"
+msgstr "Imagem 256"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__image_512
+msgid "Image 512"
+msgstr "Imagem 512"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__mobile_blacklisted
+msgid ""
+"Indicates if a blacklisted sanitized phone number is a mobile number. Helps distinguish "
+"which number is blacklisted             when there is both a mobile and phone field in "
+"a model."
+msgstr ""
+"Indica se um número de telefone harmonizado na lista negra é um número de telemóvel. "
+"Ajuda a distinguir que número está na lista negra quando existem ambos os campos móvel "
+"e de telefone fixo num modelo."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_blacklisted
+msgid ""
+"Indicates if a blacklisted sanitized phone number is a phone number. Helps distinguish "
+"which number is blacklisted             when there is both a mobile and phone field in "
+"a model."
+msgstr ""
+"Indica se um número de telefone harmonizado na lista negra é um número de telemóvel. "
+"Ajuda a distinguir que número está na lista negra quando existem ambos os campos móvel "
+"e de telefone fixo num modelo."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__indicator
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_growth_chart_filter
+msgid "Indicator"
+msgstr "Indicador"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__industry_id
+msgid "Industry"
+msgstr "Indústria"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__contact_address_inline
+msgid "Inlined Complete Address"
+msgstr "Endereço completo embutido"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_institution
+msgid "Institution"
+msgstr "Instituição"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_insurance_company
+msgid "Insurance Company"
+msgstr "Empresa de seguros"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reanimation_intubation
+msgid "Intubation"
+msgstr "Intubação"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_warn
+msgid "Invoice"
+msgstr "Fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_edi_format_store
+msgid "Invoice Edi Format Store"
+msgstr "Loja de formato Edi de fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_template_pdf_report_id
+msgid "Invoice Template Pdf Report"
+msgstr "Relatório em PDF do Modelo de Fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_sending_method
+msgid "Invoice sending"
+msgstr "Envio de faturas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_ids
+msgid "Invoices"
+msgstr "Faturas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_coa_installed
+msgid "Is Coa Installed"
+msgstr "Está Instalado o Côa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_is_follower
+msgid "Is Follower"
+msgstr "É Seguidor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_peppol_edi_format
+msgid "Is Peppol Edi Format"
+msgstr "É o formato Peppol Edi"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_public
+msgid "Is Public"
+msgstr "É Público"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_published
+msgid "Is Published"
+msgstr "Está Publicado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_ubl_format
+msgid "Is Ubl Format"
+msgstr "É o formato ubl"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_company
+msgid "Is a Company"
+msgstr "É uma Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_afraid_of_new_situations
+msgid "Is afraid of new situations"
+msgstr "Tem medo de novas situações"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_down_on_self
+msgid "Is down on him or herself"
+msgstr "Está para baixo sobre si mesmo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_irritable_angry
+msgid "Is irritable, angry"
+msgstr "Está irritado, com raiva"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__function
+msgid "Job Position"
+msgstr "Cargo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__journal_item_count
+msgid "Journal Items"
+msgstr "Itens de Diario"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__box_1099_id
+msgid ""
+"Journal items of this vendor will be summed in the selected box of the 1099 report."
+msgstr ""
+"Os itens de diário deste fornecedor serão somados na caixa selecionada do relatório "
+"1099."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__lang
+msgid "Language"
+msgstr "Idioma"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__write_uid
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__write_uid
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__write_uid
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__write_date
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__write_date
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__write_date
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__calendar_last_notif_ack
+msgid "Last notification marked as read from base Calendar"
+msgstr "A última notificação foi marcada como lida"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__length
+msgid "Length (in)"
+msgstr "Comprimento (pol)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__length
+msgid "Length in centimeters (cm)"
+msgstr "Comprimento em centímetros (cm)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__indicator__l/h-f-a
+msgid "Length/height for age"
+msgstr "Comprimento/altura para a idade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_less_interested_in_friends
+msgid "Less interested in friends"
+msgstr "Menos interessado em amigos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_less_interest_in_school
+msgid "Less interested in school"
+msgstr "Menos interessado na escola"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__sex__m
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_newborn__sex__male
+msgid "Male"
+msgstr "Masculino"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reanimation_mask
+msgid "Mask"
+msgstr "Máscara"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__measure
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_growth_chart_filter
+msgid "Measure"
+msgstr "Medida"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__meconium
+msgid "Meconium"
+msgstr "Mecônio"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__medication
+msgid "Medicines"
+msgstr "Medicamentos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__image_medium
+msgid "Medium-sized image"
+msgstr "Imagem de tamanho médio"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__meeting_ids
+msgid "Meetings"
+msgstr "Reuniões"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de Entrega de Mensagem"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_warn_msg
+msgid "Message for Invoice"
+msgstr "Mensagem para Fatura"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__purchase_warn_msg
+msgid "Message for Purchase Order"
+msgstr "Mensagem para Encomenda de Compra"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sale_warn_msg
+msgid "Message for Sales Order"
+msgstr "Mensagem para a Encomenda de Venda"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__picking_warn_msg
+msgid "Message for Stock Picking"
+msgstr "Mensagem para Picking de Armazém"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__test_metabolic
+msgid "Metabolic (\"heel stick screening\")"
+msgstr "Metabólico (\"triagem de calcanhar\")"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_minute
+msgid "Minute"
+msgstr "Minuto"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__mobile
+msgid "Mobile"
+msgstr "Celular"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__month
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_growth_chart_graph
+msgid "Month"
+msgstr "Mês"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_moro_reflex
+msgid "Moro Reflex"
+msgstr "Reflexo de Moro"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__mother
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+msgid "Mother"
+msgstr "Mãe"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo das Minha Atividade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__name
+#, fuzzy
+msgid "Name"
+msgstr "Nome"
+
+#. module: intarvas_paediatric
+#: model:ir.model,name:intarvas_paediatric.model_oeh_medical_pediatrics_neonatal_apgar
+msgid "Neonatal APGAR Score"
+msgstr "Escore de APGAR neonatal"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Neonatal Reflex Check"
+msgstr "Verificação do reflexo neonatal"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Neonatal Signs and Symptoms"
+msgstr "Sinais e sintomas neonatais"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_absent_from_school__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_aches_pains__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_act_as_younger__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_acts_as_driven_by_motor__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_afraid_of_new_situations__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_blames_others__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_daydreams_too_much__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_distracted_easily__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_get_people_feelings__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_listen_to_rules__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_show_feelings__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_down_on_self__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_feels_hopeless__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_feels_is_bad_child__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_fidgety__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_fights_with_others__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_gets_hurt_often__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_having_less_fun__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_irritable_angry__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_less_interest_in_school__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_less_interested_in_friends__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_refuses_to_share__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_sad_unhappy__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_school_grades_dropping__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_spend_time_alone__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_takes_things_from_others__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_takes_unnecesary_risks__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_teases_others__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_tires_easily__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_concentrating__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_sleeping__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_with_teacher__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_visit_doctor_finds_ok__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_wants_to_be_with_parents__0
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_worries_a_lot__0
+msgid "Never"
+msgstr "Nunca"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Newborn"
+msgstr "Recém nascido"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__name
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__newborn_code
+msgid "Newborn ID"
+msgstr "Identificação do recém-nascido"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_tree
+msgid "Newborn Information"
+msgstr "Informações sobre recém-nascidos"
+
+#. module: intarvas_paediatric
+#: model:ir.actions.act_window,name:intarvas_paediatric.oeh_medical_newborn_action_tree
+#: model:ir.ui.menu,name:intarvas_paediatric.oeh_medical_newborn_list
+msgid "Newborns"
+msgstr "Recém-nascidos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo Evento de Atividade de Calendário"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Prazo da Próxima Atividade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumo da Próxima Atividade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo da Atividade Seguinte"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_appearance__2
+msgid "No Cyanosis"
+msgstr "Sem cianose"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_grimace__0
+msgid "No response to stimulation"
+msgstr "Sem resposta à estimulação"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_activity__0
+msgid "None"
+msgstr "Nenhum"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__email_normalized
+msgid "Normalized Email"
+msgstr "E-mail Normalizado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__comment
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__notes
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__notes
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_psc_view
+msgid "Notes"
+msgstr "Notas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Ações"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reminder_date_before_receipt
+msgid "Number of days to send reminder email before the promised receipt date"
+msgstr ""
+"Número de dias para enviar um e-mail de lembrete antes da data de recebimento prometida"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensagens que requerem uma ação"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensagens com um erro de entrega"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__ocn_token
+msgid "OCN Token"
+msgstr "OCN Token"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_absent_from_school__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_aches_pains__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_act_as_younger__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_acts_as_driven_by_motor__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_afraid_of_new_situations__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_blames_others__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_daydreams_too_much__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_distracted_easily__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_get_people_feelings__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_listen_to_rules__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_show_feelings__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_down_on_self__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_feels_hopeless__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_feels_is_bad_child__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_fidgety__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_fights_with_others__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_gets_hurt_often__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_having_less_fun__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_irritable_angry__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_less_interest_in_school__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_less_interested_in_friends__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_refuses_to_share__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_sad_unhappy__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_school_grades_dropping__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_spend_time_alone__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_takes_things_from_others__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_takes_unnecesary_risks__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_teases_others__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_tires_easily__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_concentrating__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_sleeping__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_with_teacher__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_visit_doctor_finds_ok__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_wants_to_be_with_parents__2
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_worries_a_lot__2
+msgid "Often"
+msgstr "Muitas vezes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__on_time_rate
+msgid "On-Time Delivery Rate"
+msgstr "Taxa de Entregas no Prazo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__online_partner_information
+msgid "Online Partner Information"
+msgstr "Informações de parceiros on-line"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__opportunity_ids
+msgid "Opportunities"
+msgstr "Oportunidades"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__opportunity_count
+msgid "Opportunity Count"
+msgstr "Contagem de oportunidades"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__on_time_rate
+msgid ""
+"Over the past x days; the number of products received on time divided by the number of "
+"ordered products.x is either the System Parameter purchase_stock.on_time_delivery_days "
+"or the default 365"
+msgstr ""
+"Nos últimos x dias; o número de produtos recebidos no prazo dividido pelo número de "
+"produtos pedidos.x é o parâmetro do sistema purchase_stock.on_time_delivery_days ou o "
+"padrão 365"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reanimation_oxygen
+msgid "Oxygen"
+msgstr "Oxygen"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__name
+msgid "PSC #"
+msgstr "PSC #"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_total
+msgid "PSC Total"
+msgstr "PSC Total"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__parent_name
+msgid "Parent name"
+msgstr "Nome dos pais"
+
+#. module: intarvas_paediatric
+#: model:ir.model,name:intarvas_paediatric.model_res_partner
+msgid "Partner"
+msgstr "Contato"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__contract_ids
+msgid "Partner Contracts"
+msgstr "Contratos de Parceiros"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__use_partner_credit_limit
+msgid "Partner Limit"
+msgstr "Limite do Parceiro"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_vat_placeholder
+msgid "Partner Vat Placeholder"
+msgstr "Espaço reservado para IVA do parceiro"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__same_company_registry_partner_id
+msgid "Partner with same Company Registry"
+msgstr "Parceiro com o mesmo Registo de Empresa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__same_vat_partner_id
+msgid "Partner with same Tax ID"
+msgstr "Parceiro com o mesmo NIF"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_id
+msgid "Partner-related data of the patient"
+msgstr "Dados relacionados ao parceiro do paciente"
+
+#. module: intarvas_paediatric
+#: model:ir.model,name:intarvas_paediatric.model_oeh_medical_patient
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_patient
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__patient
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_psc
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_psc__patient
+msgid "Patient Name"
+msgstr "Nome do Paciente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__debit_limit
+msgid "Payable Limit"
+msgstr "Limite a pagar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__payment_token_count
+msgid "Payment Token Count"
+msgstr "Número de Tokens de Pagamento"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__payment_token_ids
+msgid "Payment Tokens"
+msgstr "Tokens de Pagamento"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_psc_view
+msgid "Pediatric Symptom Checklist"
+msgstr "Lista de verificação de sintomas pediátricos"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_pediatrics_psc_tree
+msgid "Pediatric Symptom Checklist Information"
+msgstr "Informações da lista de verificação de sintomas pediátricos"
+
+#. module: intarvas_paediatric
+#: model:ir.actions.act_window,name:intarvas_paediatric.oeh_medical_pediatrics_psc_action_tree
+#: model:ir.ui.menu,name:intarvas_paediatric.oeh_medical_pediatrics_psc_list
+msgid "Pediatric Symptom Checklists"
+msgstr "Listas de verificação de sintomas pediátricos"
+
+#. module: intarvas_paediatric
+#: model:ir.ui.menu,name:intarvas_paediatric.oeh_medical_pediatrics_menu
+msgid "Pediatrics"
+msgstr "Pediatria"
+
+#. module: intarvas_paediatric
+#: model:ir.actions.act_window,name:intarvas_paediatric.oeh_medical_pediatrics_growth_chart_action_tree
+#: model:ir.ui.menu,name:intarvas_paediatric.oeh_medical_pediatrics_growth_chart_list
+msgid "Pediatrics Growth Charts (WHO)"
+msgstr "Gráficos de crescimento pediátrico (OMS)"
+
+#. module: intarvas_paediatric
+#: model:ir.model,name:intarvas_paediatric.model_oeh_medical_pediatrics_psc
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_patient__pediatrics_psc_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_patient_pediatrics_pcs_view
+msgid "Pediatrics Symptom Checklist"
+msgstr "Lista de verificação de sintomas pediátricos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__peppol_endpoint
+msgid "Peppol Endpoint"
+msgstr "Ponto de extremidade Peppol"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__peppol_eas
+msgid "Peppol e-address (EAS)"
+msgstr "Endereço eletrônico Peppol (EAS)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__measure__p
+msgid "Percentiles"
+msgstr "Percentis"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_person
+msgid "Person"
+msgstr "Pessoa"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_pharmacy
+msgid "Pharmacy"
+msgstr "Farmácia"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone
+msgid "Phone"
+msgstr "Telefone"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_sanitized_blacklisted
+msgid "Phone Blacklisted"
+msgstr "Telefone Fixo na Lista Negra"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_mobile_search
+msgid "Phone/Mobile"
+msgstr "Telefone/Móvel"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_polydactyly
+msgid "Polydactyly"
+msgstr "Polidactilia"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__pos_order_ids
+msgid "Pos Order"
+msgstr "Ordem de Posição"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__pos_order_count
+msgid "Pos Order Count"
+msgstr "Contagem de ordens do PdV"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_barlow
+msgid "Positive Barlow"
+msgstr "Barlow Positivo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_ortolani
+msgid "Positive Ortolani"
+msgstr "Ortolani Positivo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_outbound_payment_method_line_id
+msgid ""
+"Preferred payment method when buying from this vendor. This will be set by default on "
+"all outgoing payments created for this vendor"
+msgstr ""
+"Método de pagamento preferido ao comprar deste fornecedor. Isso será definido por "
+"padrão em todas as contas a pagar criadas para este fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_inbound_payment_method_line_id
+msgid ""
+"Preferred payment method when selling to this customer. This will be set by default on "
+"all incoming payments created for this customer"
+msgstr ""
+"Método de pagamento preferido ao vender para este cliente. Isso será definido por "
+"padrão em todas as entradas de pagamentos criadas para este cliente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__medication
+msgid "Prescribed Medicines"
+msgstr "Medicamentos prescritos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_product_pricelist
+msgid "Pricelist"
+msgstr "Lista de Preço"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_inbound_payment_method_line_id
+msgid "Property Inbound Payment Method Line"
+msgstr "Linha de Método de Pagamento de Entrada de Propriedade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_outbound_payment_method_line_id
+msgid "Property Outbound Payment Method Line"
+msgstr "Linha de Método de Pagamento de Saída de Propriedade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_pulse
+msgid "Pulse"
+msgstr "Pulso"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__purchase_line_ids
+msgid "Purchase Lines"
+msgstr "Linhas de Compra"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__purchase_order_count
+msgid "Purchase Order Count"
+msgstr "Contagem de Pedidos de Compra"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__purchase_warn
+msgid "Purchase Order Warning"
+msgstr "Aviso de pedido de compra"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__rating_ids
+msgid "Ratings"
+msgstr "Avaliações"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__receipt_reminder_email
+msgid "Receipt Reminder"
+msgstr "Lembrete de receção"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__ref
+msgid "Reference"
+msgstr "Referência"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_refuses_to_share
+msgid "Refuses to share"
+msgstr "Recusa-se a compartilhar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__parent_id
+msgid "Related Company"
+msgstr "Empresa Relacionada"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_id
+msgid "Related Partner"
+msgstr "Parceiro Relacionado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__employee_ids
+msgid "Related employees based on their private address"
+msgstr "Funcionários relacionados com base em seu endereço privado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_neonatal_apgar__apgar_respiration
+msgid "Respiration"
+msgstr "Respiração"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_user_id
+msgid "Responsible User"
+msgstr "Utilizador Responsável"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_id
+msgid "Restrict to a specific website."
+msgstr "Restringir a um site específico."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_rooting_reflex
+msgid "Rooting Reflex"
+msgstr "Reflexo de enraizamento"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__is_seo_optimized
+msgid "SEO optimized"
+msgstr "SEO otimizado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de Entrega de SMS"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sale_order_count
+msgid "Sale Order Count"
+msgstr "Número de Ordens de Venda"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sale_order_ids
+msgid "Sales Order"
+msgstr "Pedidos de Venda"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sale_warn
+msgid "Sales Warnings"
+msgstr "Avisos de Vendas"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__user_id
+msgid "Salesperson"
+msgstr "Vendedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__phone_sanitized
+msgid "Sanitized Number"
+msgstr "Número Harmonizado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_school_grades_dropping
+msgid "School grades dropping"
+msgstr "Notas escolares caindo"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_growth_chart_filter
+msgid "Search Growth Charts"
+msgstr "Pesquisar gráficos de crescimento"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+msgid "Search Newborns"
+msgstr "Pesquisar recém-nascidos"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_psc
+msgid "Search Pediatric Symptom Checklists"
+msgstr "Pesquisar listas de verificação de sintomas pediátricos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_having_less_fun
+msgid "Seems to be having less fun"
+msgstr "Parece estar se divertindo menos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_warn
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__picking_warn
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__purchase_warn
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sale_warn
+msgid ""
+"Selecting the \"Warning\" option will notify user with the message, Selecting "
+"\"Blocking Message\" will throw an exception with the message and block the flow. The "
+"Message has to be written in the next field."
+msgstr ""
+"Selecionar a opção \"Aviso\" notificará o utilizador com a mensagem, Selecionar "
+"\"Bloquear Mensagem\" vai despoletar uma exceção com a mensagem e bloquear o fluxo. A "
+"mensagem tem de ser escrita no seguinte campo."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__self
+msgid "Self"
+msgstr "Próprio"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__seo_name
+msgid "Seo name"
+msgstr "Nome seo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__sex
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sex
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_pediatrics_growth_chart_filter
+msgid "Sex"
+msgstr "Sexo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__sex
+msgid ""
+"Sex at birth. It might differ from the current patient gender. This is the biological "
+"sex."
+msgstr "Sexo ao nascer. Pode diferir do sexo atual do paciente. Este é o sexo biológico."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__partner_share
+msgid "Share Partner"
+msgstr "Partilhar Parceiro"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__show_credit_limit
+msgid "Show Credit Limit"
+msgstr "Mostrar limite de crédito"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Sign the process"
+msgstr "Assine o processo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_newborn__state__signed
+msgid "Signed"
+msgstr "Assinado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__signed_by
+msgid "Signed by"
+msgstr "Assinado por"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__signup_type
+msgid "Signup Token Type"
+msgstr "Tipo de Token de Inscrição"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_activity__1
+msgid "Some flexion"
+msgstr "Alguma flexão"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_absent_from_school__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_aches_pains__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_act_as_younger__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_acts_as_driven_by_motor__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_afraid_of_new_situations__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_blames_others__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_daydreams_too_much__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_distracted_easily__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_get_people_feelings__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_listen_to_rules__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_does_not_show_feelings__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_down_on_self__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_feels_hopeless__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_feels_is_bad_child__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_fidgety__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_fights_with_others__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_gets_hurt_often__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_having_less_fun__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_irritable_angry__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_less_interest_in_school__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_less_interested_in_friends__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_refuses_to_share__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_sad_unhappy__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_school_grades_dropping__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_spend_time_alone__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_takes_things_from_others__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_takes_unnecesary_risks__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_teases_others__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_tires_easily__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_concentrating__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_sleeping__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_trouble_with_teacher__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_visit_doctor_finds_ok__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_wants_to_be_with_parents__1
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_psc__psc_worries_a_lot__1
+msgid "Sometimes"
+msgstr "Às vezes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__specific_property_product_pricelist
+msgid "Specific Property Product Pricelist"
+msgstr "Lista de preços de produtos de propriedade específica"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_spend_time_alone
+msgid "Spends more time alone"
+msgstr "Passa mais tempo sozinho"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__starred_message_ids
+msgid "Starred Message"
+msgstr "Mensagem com estrela"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__state
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__state_id
+msgid "State"
+msgstr "Estado"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_oeh_medical_newborn_filter
+#, fuzzy
+msgid "Status"
+msgstr "Status"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estados baseados nas atividades\n"
+"Vencida: Ultrapassada a data planeada\n"
+"Hoje: Data da atividade é a de hoje\n"
+"Planeada: Atividades futuras."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_stepping_reflex
+msgid "Stepping Reflex"
+msgstr "Reflexo de passo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__bd
+msgid "Stillbirth"
+msgstr "Natimorto"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__reanimation_stimulation
+msgid "Stimulation"
+msgstr "Estimulação"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__picking_warn
+msgid "Stock Picking"
+msgstr "Picking de Armazém"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__street
+msgid "Street"
+msgstr "Rua"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__street2
+msgid "Street2"
+msgstr "Rua 2"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_respiration__2
+msgid "Strong"
+msgstr "Forte"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_sucking_reflex
+msgid "Sucking Reflex"
+msgstr "Reflexo de sucção"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_purchase_currency_id
+msgid "Supplier Currency"
+msgstr "Moeda do Fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__supplier_rank
+msgid "Supplier Rank"
+msgstr "Classificação do Fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_swimming_reflex
+msgid "Swimming Reflex"
+msgstr "Reflexo de natação"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_syndactyly
+msgid "Syndactyly"
+msgstr "Sindactilia"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__category_id
+msgid "Tags"
+msgstr "Tags"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_takes_things_from_others
+msgid "Takes things that do not belong to him or her"
+msgstr "Pega coisas que não lhe pertencem"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_takes_unnecesary_risks
+msgid "Takes unnecessary risks"
+msgstr "Assume riscos desnecessários"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_talipes_equinovarus
+msgid "Talipes Equinovarus"
+msgstr "Talipes Equinovarus"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__vat
+msgid "Tax ID"
+msgstr "CNPJ"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__vat_label
+msgid "Tax ID Label"
+msgstr "Etiqueta de identificação fiscal"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_teases_others
+msgid "Teases others"
+msgstr "Provoca os outros"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.oeh_medical_newborn_view
+msgid "Tests"
+msgstr "Testes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+"O código ISO do país em dois caracteres\n"
+"Pode usar este campo para busca rápida."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__vat
+msgid ""
+"The Tax Identification Number. Values here will be validated based on the country "
+"format. You can use '/' to indicate that the partner is not subject to tax."
+msgstr ""
+"O número de identificação fiscal. Os valores aqui serão validados com base no formato "
+"do país. Você pode usar '/' para indicar que o parceiro não está sujeito a impostos."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_account_position_id
+msgid "The fiscal position determines the taxes/accounts used for this contact."
+msgstr "A posição fiscal determina os impostos/contas utilizados para este contato."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_url
+msgid "The full URL to access the document through the website."
+msgstr "O URL completo para aceder ao documento através do website."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__user_id
+msgid "The internal user in charge of this contact."
+msgstr "O utilizador interno responsável por este contacto."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__pos_order_count
+msgid "The number of point of sales orders related to this customer"
+msgstr "O número de ordens de ponto de venda relacionadas a este cliente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__company_registry
+msgid ""
+"The registry number of the company. Use it if it is different from the Tax ID. It must "
+"be unique across all partners of a same country"
+msgstr ""
+"O número do registo da empresa. Use-o se for diferente do NIF. Deve ser único em todos "
+"os parceiros do mesmo país"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_stock_customer
+msgid "The stock location used as destination when sending goods to this contact."
+msgstr "O local de estoque usado como destino ao enviar mercadorias para este contato."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_stock_supplier
+msgid "The stock location used as source when receiving goods from this contact."
+msgstr "O local de estoque usado como fonte ao receber mercadorias deste contato."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_account_payable_id
+msgid ""
+"This account will be used instead of the default one as the payable account for the "
+"current partner"
+msgstr "Essa conta será usada em vez da padrão como conta a pagar do parceiro atual"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_account_receivable_id
+msgid ""
+"This account will be used instead of the default one as the receivable account for the "
+"current partner"
+msgstr "Essa conta será usada em vez da padrão como conta a receber do parceiro atual"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_purchase_currency_id
+msgid ""
+"This currency will be used, instead of the default one, for purchases from the current "
+"partner"
+msgstr ""
+"Esta moeda será usada, em vez da definida por defeito, para compras no cliente corrente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__email_normalized
+msgid ""
+"This field is used to search on email address as the primary email field can contain "
+"more than strictly an email address."
+msgstr ""
+"Este campo é usado para pesquisar endereços de e-mail, pois o campo de e-mail principal "
+"pode conter mais do que estritamente um endereço de email."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_supplier_payment_term_id
+msgid ""
+"This payment term will be used instead of the default one for purchase orders and "
+"vendor bills"
+msgstr ""
+"Essa condição de pagamento será usada em vez da padrão para pedidos e faturas de "
+"fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_payment_term_id
+msgid ""
+"This payment term will be used instead of the default one for sales orders and customer "
+"invoices"
+msgstr ""
+"Este termo de pagamento será usado no lugar do padrão, para pedidos de vendas e faturas "
+"de clientes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_product_pricelist
+msgid ""
+"This pricelist will be used, instead of the default one, for sales to the current "
+"partner"
+msgstr ""
+"Esta lista de preços será usada para vendas ao parceiro atual, em vez da lista por "
+"defeito. "
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__time_of_death
+msgid "Time of Death"
+msgstr "Hora da morte"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__tz
+msgid "Timezone"
+msgstr "Fuso Horário"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__tz_offset
+msgid "Timezone offset"
+msgstr "Deslocamento do fuso horário"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_tires_easily
+msgid "Tires easily, has little energy"
+msgstr "Cansa facilmente, tem pouca energia"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__title
+msgid "Title"
+msgstr "Título"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_tonic_neck_reflex
+msgid "Tonic Neck Reflex"
+msgstr "Reflexo tônico do pescoço"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__total_invoiced
+msgid "Total Invoiced"
+msgstr "Total Faturado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__debit
+msgid "Total Payable"
+msgstr "Total a pagar"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__credit
+msgid "Total Receivable"
+msgstr "Total a Receber"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__credit
+msgid "Total amount this customer owes you."
+msgstr "Valor total que este cliente deve."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__debit
+msgid "Total amount you have to pay to this vendor."
+msgstr "Valor total que você deve pagar a este fornecedor."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__test_toxo
+msgid "Toxoplasmosis"
+msgstr "Toxoplasmose"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__neonatal_palmar_crease
+msgid "Transversal Palmar Crease"
+msgstr "Prega Palmar Transversal"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de atividade de exceção registada."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__peppol_endpoint
+msgid ""
+"Unique identifier used by the BIS Billing 3.0 and its derivatives, also known as "
+"'Endpoint ID'."
+msgstr ""
+"Identificador exclusivo usado pelo BIS Billing 3.0 e seus derivados, também conhecido "
+"como 'Endpoint ID'."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__upcoming_appointment_ids
+msgid "Upcoming Appointments"
+msgstr "Próximos Agendamentos"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__barcode
+msgid "Use a barcode to identify this contact."
+msgstr "Use um código de barras para identificar esse contato."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__avatax_unique_code
+msgid "Use this code to cross-reference in the Avalara portal."
+msgstr "Use este código para fazer referência cruzada no portal Avalara."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__ocn_token
+msgid "Used for sending notification to registered devices"
+msgstr "Usado para enviar notificação para dispositivos registrados"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__user_livechat_username
+msgid "User Livechat Username"
+msgstr "Nome de usuário do Livechat"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__user_ids
+#, fuzzy
+msgid "Users"
+msgstr "Usuários"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__test_vdrl
+msgid "VDRL"
+msgstr "VDRL"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_growth_chart_who__value
+msgid "Value"
+msgstr "Valor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_stock_supplier
+msgid "Vendor Location"
+msgstr "Localização do fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__property_supplier_payment_term_id
+msgid "Vendor Payment Terms"
+msgstr "Termos de Pagamento do Fornecedor"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_published
+msgid "Visible on current website"
+msgstr "Visível no site atual"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__visitor_ids
+msgid "Visitors"
+msgstr "Visitantes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_visit_doctor_finds_ok
+msgid "Visits the doctor with doctor finding nothing wrong"
+msgstr "Visita o médico com o médico não encontrando nada de errado"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_wants_to_be_with_parents
+msgid "Wants to be with you more than before"
+msgstr "Quer estar com você mais do que antes"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_neonatal_apgar__apgar_respiration__1
+msgid "Weak / Irregular"
+msgstr "Fraco / Irregular"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_id
+msgid "Website"
+msgstr "Site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website
+msgid "Website Link"
+msgstr "Link do Website"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Website"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_description
+msgid "Website Partner Full Description"
+msgstr "Descrição completa do parceiro do site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_short_description
+msgid "Website Partner Short Description"
+msgstr "Breve descrição do parceiro do site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_url
+msgid "Website URL"
+msgstr "URL do site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do website"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_meta_description
+msgid "Website meta description"
+msgstr "Meta descrição do website"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_meta_keywords
+msgid "Website meta keywords"
+msgstr "Palavras-chave meta do site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_meta_title
+msgid "Website meta title"
+msgstr "Meta título do site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__website_meta_og_img
+msgid "Website opengraph image"
+msgstr "Imagem de gráfico aberto do site"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__weight
+msgid "Weight (pound or kg)"
+msgstr "Peso (libra ou kg)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__indicator__w-f-a
+msgid "Weight for age"
+msgstr "Peso por idade"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__weight
+msgid "Weight in grams (g)"
+msgstr "Peso em gramas (g)"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__tz
+msgid ""
+"When printing documents and exporting/importing data, time values are computed "
+"according to this timezone.\n"
+"If the timezone is not set, UTC (Coordinated Universal Time) is used.\n"
+"Anywhere else, time values are computed according to the time offset of your web client."
+msgstr ""
+"Ao imprimir documentos e exportar dados, os valores de tempo são calculados de acordo "
+"com este fuso horário.\n"
+"Se o fuso horário não estiver definido, o UTC (Coordenadas de Tempo Universal) será "
+"usado.\n"
+"Em qualquer outro lugar, os valores do tempo são calculados de acordo com o "
+"deslocamento do tempo do seu cliente web."
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_psc__psc_worries_a_lot
+msgid "Worries a lot"
+msgstr "Preocupa-se muito"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields.selection,name:intarvas_paediatric.selection__oeh_medical_pediatrics_growth_chart_who__measure__z
+msgid "Z-scores"
+msgstr "Pontuações Z"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__zip
+msgid "Zip"
+msgstr "CEP"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,help:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__days_sales_outstanding
+msgid ""
+"[(Total Receivable/Total Revenue) * number of days since the first invoice] for this "
+"customer"
+msgstr ""
+"[(Total a Receber/Receita Total) * número de dias desde a primeira fatura] para este "
+"cliente"
+
+#. module: intarvas_paediatric
+#: model:ir.model.fields,field_description:intarvas_paediatric.field_oeh_medical_pediatrics_newborn__invoice_edi_format
+msgid "eInvoice format"
+msgstr "Formato de fatura eletrônica"
+
+#. module: intarvas_paediatric
+#: model_terms:ir.ui.view,arch_db:intarvas_paediatric.view_res_partner_form
+msgid "intarvas"
+msgstr "intarvas"
+
+#. module: intarvas_paediatric
+#: model:ir.model,name:intarvas_paediatric.model_oeh_medical_pediatrics_growth_chart_who
+msgid "oeh.medical.pediatrics.growth.chart.who"
+msgstr "oeh.medical.pediatrics.growth.chart.who"
+
+#. module: intarvas_paediatric
+#: model:ir.model,name:intarvas_paediatric.model_oeh_medical_pediatrics_newborn
+msgid "oeh.medical.pediatrics.newborn"
+msgstr "oeh.medical.pediatrics.newborn"

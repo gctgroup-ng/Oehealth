@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- GDPR Privacy Settings Page -->
+    <template id="privacy_settings" name="Privacy &amp; GDPR Settings">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="privacy-settings-page">
+                <!-- Page Header -->
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Privacy &amp; GDPR Settings</h1>
+                    <p class="page-description">
+                        Manage your privacy preferences and exercise your data rights under GDPR
+                    </p>
+                </div>
+
+                <!-- GDPR Rights Information -->
+                <div class="gdpr-rights-card mb-4">
+                    <h2 class="section-title">Your Data Rights</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Right to Access</h3>
+                                <p>You have the right to access your personal data and know how it's being processed.</p>
+                                <button class="btn btn-outline-primary btn-export-data" data-type="all">
+                                    <i class="fas fa-download me-2"></i>Download All Data
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <h3>Right to Rectification</h3>
+                                <p>You can update and correct your personal information at any time.</p>
+                                <a href="/patient/portal/profile" class="btn btn-outline-primary">
+                                    <i class="fas fa-user-edit me-2"></i>Update Profile
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <h3>Right to Object</h3>
+                                <p>You can object to certain types of data processing and marketing communications.</p>
+                                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#objectModal">
+                                    <i class="fas fa-hand-paper me-2"></i>Object to Processing
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right-card">
+                                <div class="right-icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </div>
+                                <h3>Right to Erasure</h3>
+                                <p>You can request deletion of your personal data (right to be forgotten).</p>
+                                <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="fas fa-user-times me-2"></i>Delete Account
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Processing Transparency -->
+                <div class="data-processing-card mb-4">
+                    <h2 class="section-title">How We Use Your Data</h2>
+                    <div class="processing-list">
+                        <div class="processing-item">
+                            <div class="processing-icon medical">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <div class="processing-content">
+                                <h4>Medical Care</h4>
+                                <p>We process your health data to provide medical services and maintain your medical records.</p>
+                                <small class="text-muted">Legal basis: Vital interests and consent</small>
+                            </div>
+                        </div>
+                        <div class="processing-item">
+                            <div class="processing-icon communication">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="processing-content">
+                                <h4>Communication</h4>
+                                <p>We use your contact information to communicate about appointments and health updates.</p>
+                                <small class="text-muted">Legal basis: Legitimate interests</small>
+                            </div>
+                        </div>
+                        <div class="processing-item">
+                            <div class="processing-icon analytics">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="processing-content">
+                                <h4>Service Improvement</h4>
+                                <p>We analyze usage patterns to improve our services (anonymized data only).</p>
+                                <small class="text-muted">Legal basis: Legitimate interests</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Preferences -->
+                <div class="privacy-preferences-card mb-4">
+                    <h2 class="section-title">Privacy Preferences</h2>
+                    <div class="preferences-list">
+                        <div class="preference-item">
+                            <div class="preference-content">
+                                <h4>Email Communications</h4>
+                                <p>Receive email notifications about appointments and health updates</p>
+                            </div>
+                            <div class="preference-toggle">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input privacy-toggle" type="checkbox" name="email_communications" id="emailComm" checked="checked"/>
+                                    <label class="form-check-label" for="emailComm"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preference-item">
+                            <div class="preference-content">
+                                <h4>SMS Notifications</h4>
+                                <p>Receive SMS reminders for upcoming appointments</p>
+                            </div>
+                            <div class="preference-toggle">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input privacy-toggle" type="checkbox" name="sms_notifications" id="smsNotif" checked="checked"/>
+                                    <label class="form-check-label" for="smsNotif"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preference-item">
+                            <div class="preference-content">
+                                <h4>Marketing Communications</h4>
+                                <p>Receive information about health tips and wellness programs</p>
+                            </div>
+                            <div class="preference-toggle">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input privacy-toggle" type="checkbox" name="marketing_communications" id="marketingComm"/>
+                                    <label class="form-check-label" for="marketingComm"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preference-item">
+                            <div class="preference-content">
+                                <h4>Data Analytics</h4>
+                                <p>Allow anonymized usage data to help improve our services</p>
+                            </div>
+                            <div class="preference-toggle">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input privacy-toggle" type="checkbox" name="analytics_consent" id="analyticsConsent" checked="checked"/>
+                                    <label class="form-check-label" for="analyticsConsent"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Retention Information -->
+                <div class="data-retention-card">
+                    <h2 class="section-title">Data Retention</h2>
+                    <div class="retention-info">
+                        <div class="retention-item">
+                            <strong>Medical Records:</strong> Retained for 10 years after last appointment as required by law
+                        </div>
+                        <div class="retention-item">
+                            <strong>Contact Information:</strong> Retained while your account is active
+                        </div>
+                        <div class="retention-item">
+                            <strong>Communication Logs:</strong> Retained for 3 years for quality assurance
+                        </div>
+                        <div class="retention-item">
+                            <strong>Usage Analytics:</strong> Anonymized and retained indefinitely for service improvement
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Deletion Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete Account</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Warning:</strong> This action cannot be undone.
+                            </div>
+                            <p>Requesting account deletion will:</p>
+                            <ul>
+                                <li>Remove your personal information from our systems</li>
+                                <li>Cancel all future appointments</li>
+                                <li>Retain medical records as required by law (anonymized)</li>
+                                <li>Prevent access to this patient portal</li>
+                            </ul>
+                            <p>Are you sure you want to request account deletion?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <form method="post" action="/patient/portal/delete-account" style="display: inline;">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <button type="submit" class="btn btn-danger">Delete My Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Object to Processing Modal -->
+            <div class="modal fade" id="objectModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Object to Data Processing</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You can object to certain types of data processing. Please select what you'd like to object to:</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="objectMarketing"/>
+                                <label class="form-check-label" for="objectMarketing">
+                                    Marketing communications and promotional materials
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="objectAnalytics"/>
+                                <label class="form-check-label" for="objectAnalytics">
+                                    Usage analytics and service improvement data
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="objectProfiling"/>
+                                <label class="form-check-label" for="objectProfiling">
+                                    Automated profiling and decision-making
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-warning" onclick="try { if(typeof submitObjection === 'function') { submitObjection(); } else { alert('Feature not yet implemented'); } } catch(e) { alert('Error submitting objection'); }">Submit Objection</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Privacy Policy Page -->
+    <template id="privacy_policy" name="Privacy Policy">
+        <t t-call="website.layout">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="privacy-policy-content">
+                            <h1 class="mb-4">Privacy Policy</h1>
+                            <p class="lead">Last updated: <span t-esc="datetime.datetime.now().strftime('%B %d, %Y')"/></p>
+
+                            <section class="mb-5">
+                                <h2>1. Information We Collect</h2>
+                                <p>We collect information you provide directly to us, including:</p>
+                                <ul>
+                                    <li>Personal identification information (name, email, phone number, address)</li>
+                                    <li>Medical information (symptoms, diagnoses, treatment history)</li>
+                                    <li>Appointment and visit information</li>
+                                    <li>Communication preferences</li>
+                                </ul>
+                            </section>
+
+                            <section class="mb-5">
+                                <h2>2. How We Use Your Information</h2>
+                                <p>We use your information to:</p>
+                                <ul>
+                                    <li>Provide medical care and treatment</li>
+                                    <li>Schedule and manage appointments</li>
+                                    <li>Communicate about your health and care</li>
+                                    <li>Improve our services</li>
+                                    <li>Comply with legal and regulatory requirements</li>
+                                </ul>
+                            </section>
+
+                            <section class="mb-5">
+                                <h2>3. Information Sharing</h2>
+                                <p>We do not sell your personal information. We may share your information:</p>
+                                <ul>
+                                    <li>With healthcare providers involved in your care</li>
+                                    <li>As required by law or legal process</li>
+                                    <li>With your explicit consent</li>
+                                    <li>To protect health and safety</li>
+                                </ul>
+                            </section>
+
+                            <section class="mb-5">
+                                <h2>4. Data Security</h2>
+                                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                            </section>
+
+                            <section class="mb-5">
+                                <h2>5. Your Rights Under GDPR</h2>
+                                <p>If you are in the European Union, you have the following rights:</p>
+                                <ul>
+                                    <li>Right to access your personal data</li>
+                                    <li>Right to rectify inaccurate information</li>
+                                    <li>Right to erase your personal data</li>
+                                    <li>Right to restrict processing</li>
+                                    <li>Right to data portability</li>
+                                    <li>Right to object to processing</li>
+                                </ul>
+                            </section>
+
+                            <section class="mb-5">
+                                <h2>6. Data Retention</h2>
+                                <p>We retain your information for as long as necessary to provide services and comply with legal obligations. Medical records are typically retained for 10 years after your last appointment.</p>
+                            </section>
+
+                            <section class="mb-5">
+                                <h2>7. Contact Us</h2>
+                                <p>If you have questions about this privacy policy or want to exercise your rights, please contact us at:</p>
+                                <ul>
+                                    <li>Email: privacy@healthcare.com</li>
+                                    <li>Phone: +1 (555) 123-4567</li>
+                                    <li>Address: 123 Healthcare Ave, Medical City, MC 12345</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- GDPR Consent Banner Styles -->
+    <template id="gdpr_consent_banner_styles">
+        <style>
+        .gdpr-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--patient-gray-800) 0%, var(--patient-gray-900) 100%);
+            color: white;
+            padding: 1rem 0;
+            z-index: 9999;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gdpr-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .gdpr-text h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .gdpr-text p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .gdpr-actions {
+            display: flex;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .gdpr-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        </style>
+    </template>
+</odoo>

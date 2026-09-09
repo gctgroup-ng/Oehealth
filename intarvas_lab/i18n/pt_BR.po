@@ -1,0 +1,1911 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* intarvas_lab
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-06 14:11+0000\n"
+"PO-Revision-Date: 2025-10-06 19:58+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.7\n"
+
+#. module: intarvas_lab
+#. odoo-python
+#: code:addons/intarvas_lab/controllers/lab_portal.py:0
+msgid "%s is not the reference of a report"
+msgstr "%s não é a referência de um relatório"
+
+#. module: intarvas_lab
+#. odoo-python
+#: code:addons/intarvas_lab/controllers/lab_portal.py:0
+msgid "/patient/portal/lab_request/%s/edit"
+msgstr ""
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<i class=\"fa fa-address-book padding_patient\"/>Lab Requests"
+msgstr "<i j=\"0/\">Solicitações de laboratório</i>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<i class=\"fa fa-address-book padding_patient\"/>Lab Tests"
+msgstr "<i j=\"0/\">Testes de laboratório</i>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "<i class=\"fa fa-home\" role=\"img\" aria-label=\"My Account\" title=\"My Account\"/>"
+msgstr "<i class=\"fa fa-home\" role=\"img\" aria-label=\"Minha Conta\" title=\"Minha Conta\"/>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<i class=\"fa fa-plus-circle\"/> &amp;nbsp;\n"
+"                        <span>List out of all your Lab Tests.</span>"
+msgstr ""
+"<i j=\"0/\"> &amp;nbsp;\n"
+"                        <span>Liste todos os seus testes de laboratório.</span></i>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<i class=\"fa fa-plus-circle\"/> &amp;nbsp;\n"
+"                        <span>List out of all your lab requests.</span>"
+msgstr ""
+"<i j=\"0/\"> &amp;nbsp;\n"
+"                        <span>Liste todas as suas solicitações de laboratório.</span></i>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Sample Taken\" title=\"Sample Taken\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Sample Taken</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i j=\"1/\">\n"
+"                                                <span class=\"d-none d-md-inline\">Amostra coletada</span>\n"
+"                                            </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Test In Progress\" title=\"Test In Progress\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Test In Progress</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                                <i j=\"1/\">\n"
+"                                                <span class=\"d-none d-md-inline\">Teste em andamento</span>\n"
+"                                            </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                            <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Sample Taken\" title=\"Sample Taken\" role=\"img\"/>\n"
+"                                            <span class=\"d-none d-md-inline\">Sample Taken</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                            <i j=\"1/\">\n"
+"                                            <span class=\"d-none d-md-inline\">Amostra coletada</span>\n"
+"                                        </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                            <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Test In Progress\" title=\"Test In Progress\" role=\"img\"/>\n"
+"                                            <span class=\"d-none d-md-inline\">Test In Progress</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\">\n"
+"                                            <i j=\"1/\">\n"
+"                                            <span class=\"d-none d-md-inline\">Teste em andamento</span>\n"
+"                                        </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid ""
+"<span class=\"badge badge-pill badge-light\">\n"
+"                                                <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Draft</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-light\">\n"
+"                                                <i j=\"1/\">\n"
+"                                                <span class=\"d-none d-md-inline\">Rascunho</span>\n"
+"                                            </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<span class=\"badge badge-pill badge-light\">\n"
+"                                            <i class=\"fa fa-fw fa-clock-o\" aria-label=\"Draft\" title=\"Draft\" role=\"img\"/>\n"
+"                                            <span class=\"d-none d-md-inline\">Draft</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-light\">\n"
+"                                            <i j=\"1/\">\n"
+"                                            <span class=\"d-none d-md-inline\">Rascunho</span>\n"
+"                                        </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Completed\" title=\"Completed\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Completed</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i j=\"1/\">\n"
+"                                                <span class=\"d-none d-md-inline\">Concluído</span>\n"
+"                                            </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Pushed For Testing\" title=\"Pushed For Testing\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Pushed For Testing</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                                <i j=\"1/\">\n"
+"                                                <span class=\"d-none d-md-inline\">Empurrado para teste</span>\n"
+"                                            </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                            <i class=\"fa fa-fw fa-check\" aria-label=\"Completed\" title=\"Completed\" role=\"img\"/>\n"
+"                                            <span class=\"d-none d-md-inline\">Completed</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                            <i j=\"1/\">\n"
+"                                            <span class=\"d-none d-md-inline\">Concluído</span>\n"
+"                                        </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                            <i class=\"fa fa-fw fa-check\" aria-label=\"Pushed For Testing\" title=\"Pushed For Testing\" role=\"img\"/>\n"
+"                                            <span class=\"d-none d-md-inline\">Pushed For Testing</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\">\n"
+"                                            <i j=\"1/\">\n"
+"                                            <span class=\"d-none d-md-inline\">Empurrado para teste</span>\n"
+"                                        </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid ""
+"<span class=\"badge badge-pill\" style=\"background-color:lightgray;\">\n"
+"                                                <i class=\"fa fa-fw fa-check\" aria-label=\"Invoiced\" title=\"Invoiced\" role=\"img\"/>\n"
+"                                                <span class=\"d-none d-md-inline\">Invoiced</span>\n"
+"                                            </span>"
+msgstr ""
+"<span class=\"badge badge-pill\" style=\"background-color:lightgray;\">\n"
+"                                                <i j=\"1/\">\n"
+"                                                <span class=\"d-none d-md-inline\">Facturado</span>\n"
+"                                            </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid ""
+"<span class=\"badge badge-pill\" style=\"background-color:lightgray;\">\n"
+"                                            <i class=\"fa fa-fw fa-check\" aria-label=\"Invoiced\" title=\"Invoiced\" role=\"img\"/>\n"
+"                                            <span class=\"d-none d-md-inline\">Invoiced</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"badge badge-pill\" style=\"background-color:lightgray;\">\n"
+"                                            <i j=\"1/\">\n"
+"                                            <span class=\"d-none d-md-inline\">Facturado</span>\n"
+"                                        </i></span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label1\">Age/Gender :</span>"
+msgstr "<span class=\"label1\">Idade/Sexo :</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label1\">Doctor Name :</span>"
+msgstr "<span class=\"label1\">Nome do médico:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label1\">Patient ID :</span>"
+msgstr "<span class=\"label1\">Identificação do paciente:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label1\">Patient Name :</span>"
+msgstr "<span class=\"label1\">Nome do paciente:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label1\">Ref. By :</span>"
+msgstr "<span class=\"label1\">Ref. Por:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label2\">Registered On :</span>"
+msgstr "<span class=\"label2\">Registrado em :</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label2\">Sample Collected On :</span>"
+msgstr "<span class=\"label2\">Amostra coletada em:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label2\">Sample ID :</span>"
+msgstr "<span class=\"label2\">ID da amostra:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "<span class=\"label2\">Sample Reported On :</span>"
+msgstr "<span class=\"label2\">Amostra relatada em:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<span class=\"label_color font-weight-bold\">Date:</span>"
+msgstr "<span class=\"label_color font-weight-bold\">Data:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<span class=\"label_color font-weight-bold\">Lab Request Number:</span>"
+msgstr "<span class=\"label_color font-weight-bold\">Número da solicitação de laboratório:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<span class=\"label_color font-weight-bold\">Lab Tests:</span>"
+msgstr "<span class=\"label_color font-weight-bold\">Testes de laboratório:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<span class=\"label_color font-weight-bold\">Ordered Lab Tests:</span>"
+msgstr "<span class=\"label_color font-weight-bold\">Testes de laboratório solicitados:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "<span class=\"label_color font-weight-bold\">Tests Charge:</span>"
+msgstr "<span class=\"label_color font-weight-bold\">Carga de testes:</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "<span class=\"o_stat_text\">Invoice</span>"
+msgstr "<span class=\"o_stat_text\">Fatura</span>"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Action"
+msgstr "Ação"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_needaction
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_needaction
+msgid "Action Needed"
+msgstr "Ação Necessária"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_ids
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_exception_decoration
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoração de atividade excepcional"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_state
+msgid "Activity State"
+msgstr "Estado da Atividade"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_type_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone do Tipo de Atividade"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid "Add"
+msgstr "Adicionar"
+
+#. module: intarvas_lab
+#. odoo-python
+#: code:addons/intarvas_lab/models/oeh_medical_lab.py:0
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "Add Sample"
+msgstr "Adicionar amostra"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Add a line"
+msgstr "Adicionar uma linha"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Add a note"
+msgstr "Adicionar uma nota"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Add a section"
+msgstr "Adicionar uma secção"
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_technician_action_tree
+msgid "Add all the Lab Technician and manage their weekly schedules"
+msgstr "Adicione todos os técnicos de laboratório e gerencie suas agendas semanais"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__info
+msgid "Additional Information"
+msgstr "Informação Adicional"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template_line__info
+msgid "Additional information about the test"
+msgstr "Informações adicionais sobre o teste"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__invoice_amount_residual
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__invoice_amount_residual
+msgid "Amount Due"
+msgstr "Valor Devido"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Analysis Information"
+msgstr "Informações de análise"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_appointment
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__appointment
+msgid "Appointment"
+msgstr "Agendamento"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__appointment
+msgid "Appointment #"
+msgstr "Compromisso"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Are you sure you want to complete the test?"
+msgstr "Tem certeza de que deseja concluir o teste?"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Are you sure you want to start the test?"
+msgstr "Tem certeza de que deseja iniciar o teste?"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Anexos"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_account_move__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_appointment__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_patient__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_physician__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__audio_recording_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__audio_recording_count
+msgid "Audio Recording Count"
+msgstr "Contagem de gravação de áudio"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Bio Ref. Interval"
+msgstr "Bio Ref. Intervalo"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.add_sample_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__chief_complaint
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Chief Complaint"
+msgstr "Queixa principal"
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_technician_action_tree
+msgid "Click to add a new Lab Technician."
+msgstr "Clique para adicionar um novo Técnico de Laboratório."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_labtest_department_action_tree
+msgid "Click to add a new Lab Test department."
+msgstr "Clique para adicionar um novo departamento de Teste de Laboratório."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_requests_action_tree
+msgid "Click to add a new lab Requests."
+msgstr "Clique para adicionar um novo laboratório Solicitações."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_lab_test_template_action
+msgid "Click to add a new lab test template."
+msgstr "Clique para adicionar um novo modelo de teste de laboratório."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_test_types_action_tree
+msgid "Click to add a new lab test types."
+msgstr "Clique para adicionar novos tipos de teste de laboratório."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_units_action_tree
+msgid "Click to add a new lab test units."
+msgstr "Clique para adicionar novas unidades de teste de laboratório."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_test_action_tree
+msgid "Click to add a new lab tests."
+msgstr "Clique para adicionar novos testes de laboratório."
+
+#. module: intarvas_lab
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_samples_action_tree
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_lab_wizard_action_tree
+#: model_terms:ir.actions.act_window,help:intarvas_lab.oeh_medical_sample_type_action_tree
+msgid "Click to add a new sample type"
+msgstr "Clique para adicionar um novo tipo de amostra"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__code
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__code
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__code
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__code
+msgid "Code"
+msgstr "Código"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__comments
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__comments
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__comments
+msgid "Comments"
+msgstr "Comentários"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Complete Test"
+msgstr "Teste completo"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test__state__completed
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Completed"
+msgstr "Concluído"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Consultant Pathologist"
+msgstr "Patologista Consultor"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "Create Invoice"
+msgstr "Criar Fatura"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__create_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__create_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__currency_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Date &amp; Time"
+msgstr "Data &amp; Hora"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid "Date Requested"
+msgstr "Data solicitada"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__date_analysis
+msgid "Date of the Analysis"
+msgstr "Data da análise"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__date_requested
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__date_requested
+msgid "Date requested"
+msgstr "Data solicitada"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__lab_department
+msgid "Department"
+msgstr "Departamento"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__description
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__info
+msgid "Description"
+msgstr "Descrição"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__description
+msgid "Description of the lab test template"
+msgstr "Descrição do modelo de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__diagnosis
+msgid "Diagnosis"
+msgstr "Diagnosticos"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__display_name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__display_type
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__display_type
+msgid "Display Type"
+msgstr "Tipo de Exibição"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid "Doctor Who Requested The Test"
+msgstr "Médico que solicitou o teste"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Doctor Who Requested The Test:"
+msgstr "Médico que solicitou o teste:"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__requested_by
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__requestor
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__requestor_id
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__requested_by
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__requestor
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__requestor_id
+msgid "Doctor who requested the test"
+msgstr "Médico que solicitou o Exame"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_request__state__draft
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test__state__draft
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "Draft / Test In Progress"
+msgstr "Rascunho / Teste em Andamento"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Draft/Test In Progress"
+msgstr "Rascunho/Teste em andamento"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_types_form
+msgid "Extra Info"
+msgstr "Informação extra"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "Finished Taking Sample"
+msgstr "Terminado de tomar a amostra"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Parceiros)"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__activity_type_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ícone do Font awesome ex. fa-tasks"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_test_filter
+msgid "Group By..."
+msgstr "Agrupar Por…"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__has_message
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__has_message
+msgid "Has Message"
+msgstr "Tem Mensagem"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__institution
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__institution
+msgid "Health Center"
+msgstr "Posto de saúde"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Health Center:"
+msgstr "Posto de saúde:"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_exception_icon
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__activity_exception_icon
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícone para indicar uma exceção na atividade."
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__message_needaction
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se estiver marcado, há novas mensagens que requerem a sua atenção."
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__message_has_error
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se marcada, algumas mensagens têm um erro de entrega."
+
+#. module: intarvas_lab
+#. odoo-javascript
+#: code:addons/intarvas_lab/static/src/fields/result_indicator.xml:0
+msgid "Insert Field"
+msgstr "Inserir campo"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__move_id
+msgid "Invoice"
+msgstr "Fatura"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__move_id
+msgid "Invoice #"
+msgstr "Fatura #"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__invoice_currency_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__invoice_currency_id
+msgid "Invoice Currency"
+msgstr "Moeda da fatura"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__invoice_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__invoice_state
+msgid "Invoice State"
+msgstr "Estado da fatura"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__invoice_amount_total
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__invoice_amount_total
+msgid "Invoice Total"
+msgstr "Total da fatura"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_request__state__invoiced
+msgid "Invoiced"
+msgstr "Faturada"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__invoice_count
+msgid "Invoices"
+msgstr "Faturas"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_is_follower
+msgid "Is Follower"
+msgstr "É Seguidor"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento de diário"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "LABORATORY REPORT"
+msgstr "RELATÓRIO DE LABORATÓRIO"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_samples_wizard
+msgid "Lab  Samples"
+msgstr "Amostras de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_account_bank_statement_line__labtest_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_account_move__labtest_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__name
+msgid "Lab Request #"
+msgstr "Solicitação de laboratório #"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__name
+msgid "Lab Request ID"
+msgstr "ID da solicitação de laboratório"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Lab Request Number"
+msgstr "Número da solicitação de laboratório"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Lab Request Number:"
+msgstr "Número da solicitação de laboratório:"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__lab_request
+msgid "Lab Requested"
+msgstr "Laboratório Solicitado"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_requests_action_tree
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_request
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_appointment__medical_lab_request_ids
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_lab_request_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_tree
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid "Lab Requests"
+msgstr "Solicitações de laboratório"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Lab Requests Detail"
+msgstr "Detalhes das solicitações de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_wizard_action_tree
+msgid "Lab Sample"
+msgstr "Amostra de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_sample_type_action_tree
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_sample_type_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_sample_type_tree
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_sample_type_filter
+msgid "Lab Sample Type"
+msgstr "Tipo de amostra de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_sample_types
+msgid "Lab Sample Types "
+msgstr "Tipos de amostras de laboratório "
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_samples_action_tree
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_samples
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.add_sample_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_samples_tree
+msgid "Lab Samples"
+msgstr "Amostras de laboratório"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Lab Staff & Request Details"
+msgstr "Equipe do Laboratório e Detalhes da Solicitação"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_technician_action_tree
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__lab_technician_id
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_physician__staff_type__lab_technician
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_lab_technician
+#: model:res.groups,name:intarvas_lab.group_oeh_medical_lab_technician
+msgid "Lab Technician"
+msgstr "Técnico de Laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__name
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Lab Test #"
+msgstr "Teste de laboratório #"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__lab_criteria
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_types_form
+msgid "Lab Test Cases"
+msgstr "Casos de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_labtest_criteria
+msgid "Lab Test Criteria"
+msgstr "Critérios de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_labtest_department_action_tree
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_labtest_department
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_labtest_department_menu
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_department_tree
+msgid "Lab Test Departments"
+msgstr "Departamentos de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_patient__lab_test_ids
+msgid "Lab Test IDs"
+msgstr "IDs de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_appointment__labtest_line
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__lab_test_line_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_lab_test_template_form
+msgid "Lab Test Lines"
+msgstr "Linhas de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__name
+msgid "Lab Test Name"
+msgstr "Nome do teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.report,name:intarvas_lab.action_report_patient_labtest
+msgid "Lab Test Report"
+msgstr "Relatório de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__lab_test_criteria
+msgid "Lab Test Result"
+msgstr "Resultado Exame Lab"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_resultcriteria
+msgid "Lab Test Result Criteria"
+msgstr "Critérios de resultado de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_test_template
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_lab_test_template_form
+msgid "Lab Test Template"
+msgstr "Modelo de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_test_template_line
+msgid "Lab Test Template Line"
+msgstr "Linha de modelo de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_lab_test_template_action
+#: model:ir.ui.menu,name:intarvas_lab.oeh_lab_test_template_menu
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_lab_test_template_tree
+msgid "Lab Test Templates"
+msgstr "Modelos de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__lab_test_type_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__test_type_id
+msgid "Lab Test Type"
+msgstr "Tipo de exame de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_test_types_action_tree
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_labtest_types
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__medical_type_id
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_lab_test_types_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_types_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_types_tree
+msgid "Lab Test Types"
+msgstr "Tipos de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_units
+msgid "Lab Test Units"
+msgstr "Unidades de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__lab_test_ids
+msgid "Lab Test types"
+msgstr "Tipos de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_test_action_tree
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_lab_test
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__medical_lab_test_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_patient__labs_count
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_physician__lab_test
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__samples_ids
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_lab_test_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.add_sample_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_samples_tree
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_tree
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_view
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_patient_lab_button_count_view
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_patient_lab_view
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Lab Tests"
+msgstr "Teste de Lab"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_consultation_lab_request_view
+msgid "Lab Tests Requested"
+msgstr "Testes de laboratório solicitados"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Lab Tests:"
+msgstr "Testes de laboratório:"
+
+#. module: intarvas_lab
+#: model:ir.actions.act_window,name:intarvas_lab.oeh_medical_lab_units_action_tree
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_lab_units_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_units_tree
+msgid "Lab Units"
+msgstr "Unidades de Laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__name
+msgid "Lab result ID"
+msgstr "ID do resultado do laboratório"
+
+#. module: intarvas_lab
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_conf_laboratory
+#: model:ir.ui.menu,name:intarvas_lab.oeh_medical_laboratory
+msgid "Laboratory"
+msgstr "Laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__write_uid
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__write_date
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__institution
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__institution
+msgid "Medical Center"
+msgstr "Centro Médico"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_physician
+msgid "Medical Staff"
+msgstr "Equipa Médica"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_has_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de Entrega de Mensagem"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__my_activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo das Minha Atividade"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__name
+#, fuzzy
+msgid "Name"
+msgstr "Nome"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__name
+msgid "Name of the lab test template"
+msgstr "Nome do modelo de teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_calendar_event_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo Evento de Atividade de Calendário"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_date_deadline
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Prazo da Próxima Atividade"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_summary
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumo da Próxima Atividade"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_type_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo da Atividade Seguinte"
+
+#. module: intarvas_lab
+#. odoo-python
+#: code:addons/intarvas_lab/models/oeh_medical_lab.py:0
+msgid "No accounting journal with type \"Sale\" defined !"
+msgstr "Nenhum diário contábil com o tipo \"Venda\" definido!"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test_template_line__urgency__a
+msgid "Normal"
+msgstr "Normal"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__normal_range
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__normal_range
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__normal_range
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__normal_range
+msgid "Normal Range"
+msgstr "Faixa normal"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_resultcriteria__display_type__line_note
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test__display_type__line_note
+msgid "Note"
+msgstr "Nota"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Ações"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensagens que requerem uma ação"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensagens com um erro de entrega"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Observed Values"
+msgstr "Valores observados"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "Ordered Lab Tests"
+msgstr "Testes de laboratório solicitados"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "PATIENT NAME"
+msgstr "NOME DO PACIENTE"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Page 1 of 1"
+msgstr "Página 1 de 1"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__pathologist
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_test_filter
+msgid "Pathologist"
+msgstr "Técnico de Lab."
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__pathologist
+msgid "Pathologist who reviews and interprets lab results"
+msgstr "Patologista que revisa e interpreta resultados de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model,name:intarvas_lab.model_oeh_medical_patient
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__patient
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__patient
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_test_filter
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Patient Information"
+msgstr "Informações do Paciente"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__patient
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__patient
+msgid "Patient Name"
+msgstr "Nome do Paciente"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__invoice_payment_state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__invoice_payment_state
+msgid "Payment Status"
+msgstr "Status do pagamento"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__phlebotomist
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__phlebotomist
+msgid "Phlebotomist"
+msgstr "Flebotomista"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Phone:"
+msgstr "Telefone:"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__pricelist_id
+msgid "Pricelist"
+msgstr "Lista de Preço"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Print Lab Test"
+msgstr "Teste de laboratório de impressão"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template_line__urgency
+msgid "Priority level of the test"
+msgstr "Nível de prioridade do teste"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__product_id
+msgid "Product"
+msgstr "Produto"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "Push For Testing"
+msgstr "Empurre para teste"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_request__state__pushed_for_testing
+msgid "Pushed For Testing"
+msgstr "Empurrado para teste"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__rating_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__rating_ids
+msgid "Ratings"
+msgstr "Avaliações"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Request Information"
+msgstr "Solicitar Informações"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__activity_user_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__activity_user_id
+msgid "Responsible User"
+msgstr "Utilizador Responsável"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__result
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__result
+msgid "Result"
+msgstr "Resultado"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__results
+msgid "Results"
+msgstr "Resultados"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de Entrega de SMS"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__sample_id
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__sample_id
+msgid "Sample"
+msgstr "Amostra"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_request__state__sample_taken
+msgid "Sample Taken"
+msgstr "Amostra coletada"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__sample_type
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__sample_type
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_samples_wizard__sample_type
+msgid "Sample Type"
+msgstr "Tipo de amostra"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__name
+msgid "Sample Types"
+msgstr "Tipos de amostra"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__lab_sample_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__samples_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__samples_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "Samples"
+msgstr "Amostras"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_lab_test_department_filter
+msgid "Search Departments"
+msgstr "Procurar Departamentos"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_test_types_filter
+msgid "Search Test Types"
+msgstr "Pesquisar tipos de teste"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_test_filter
+msgid "Search Tests"
+msgstr "Pesquisar testes"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_units_filter
+msgid "Search Units"
+msgstr "Procurar Unidades"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_resultcriteria__display_type__line_section
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test__display_type__line_section
+msgid "Section"
+msgstr "Seção"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__seq
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__sequence
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__seq
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__sequence
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__sequence
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__active
+msgid "Set to false to hide the template without removing it"
+msgstr "Defina como false para ocultar o modelo sem removê-lo"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__code
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__code
+msgid "Short code for the test"
+msgstr "Código curto para o teste"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_physician__staff_type
+msgid "Staff"
+msgstr "Equipe"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Start Test"
+msgstr "Teste de início"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__state
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__state
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_oeh_medical_lab_test_filter
+msgid "State"
+msgstr "Estado"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+#, fuzzy
+msgid "Status"
+msgstr "Status"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__activity_state
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estados baseados nas atividades\n"
+"Vencida: Ultrapassada a data planeada\n"
+"Hoje: Data da atividade é a de hoje\n"
+"Planeada: Atividades futuras."
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.add_sample_ids
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__display_type
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__display_type
+msgid "Technical field for UX purpose."
+msgstr "Campo técnico para fins de Interface de Utilizador."
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__template_id
+msgid "Template"
+msgstr "Modelo"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__name
+msgid "Template Name"
+msgstr "Nome do modelo"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__test_charge
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__test_charge
+msgid "Test Charge"
+msgstr "Carga de teste"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Test Charge:"
+msgstr "Carga de teste:"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test__state__test_in_progress
+msgid "Test In Progress"
+msgstr "Teste em andamento"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_types_form
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Test Name"
+msgstr "Nome do Teste"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_test_form
+msgid "Test Results"
+msgstr "Resultados do teste"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__name
+msgid "Test type, eg X-Ray, Hemogram, Biopsy..."
+msgstr "Tipo de teste, por exemplo, raio-X, hemograma, biópsia..."
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__name
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__name
+msgid "Tests"
+msgstr "Testes"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_appointment__lab_test_request_ids
+msgid "Tests Requested"
+msgstr "Testes solicitados"
+
+#. module: intarvas_lab
+#: model:ir.model.constraint,message:intarvas_lab.constraint_oeh_medical_lab_units_name_uniq
+msgid "The Lab unit name must be unique"
+msgstr "O nome da unidade de laboratório deve ser exclusivo"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_requests
+msgid "There are currently no Lab Requests available."
+msgstr "No momento, não há solicitações de laboratório disponíveis."
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.view_patient_lab_test
+msgid "There are currently no Lab Tests available."
+msgstr "No momento, não há testes de laboratório disponíveis."
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__total
+msgid "Total"
+msgstr "Total"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template_line__test_type_id
+msgid "Type of lab test to be performed"
+msgstr "Tipo de teste de laboratório a ser realizado"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__activity_exception_decoration
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de atividade de exceção registada."
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Unit"
+msgstr "Unidade"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__name
+msgid "Unit Name"
+msgstr "Nome da Unidade"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__units
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__units
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__units
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__units
+msgid "Units"
+msgstr "Unidades"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "Update"
+msgstr "Atualizar"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template_line__urgency
+msgid "Urgency"
+msgstr "Urgência"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test_template_line__urgency__b
+msgid "Urgent"
+msgstr "Urgente"
+
+#. module: intarvas_lab
+#: model:ir.model.fields.selection,name:intarvas_lab.selection__oeh_medical_lab_test_template_line__urgency__c
+msgid "Very Urgent"
+msgstr "Muito urgente"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_lab_details_form
+msgid "View All"
+msgstr "Ver Todos"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.oeh_medical_lab_request_form
+msgid "View Lab Test"
+msgstr "Ver teste de laboratório"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_request__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_resultcriteria__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_samples__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_test_template__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_lab_units__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_criteria__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_department__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_labtest_types__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_lab.field_oeh_medical_sample_types__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Website"
+
+#. module: intarvas_lab
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_request__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_resultcriteria__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_samples__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_test_template__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_lab_units__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_criteria__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_department__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_labtest_types__website_message_ids
+#: model:ir.model.fields,help:intarvas_lab.field_oeh_medical_sample_types__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do website"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "Years /"
+msgstr "Anos/"
+
+#. module: intarvas_lab
+#. odoo-python
+#: code:addons/intarvas_lab/models/oeh_medical_lab.py:0
+msgid "You can not delete a lab test which is not in \"Draft\" state !!"
+msgstr "Você não pode excluir um teste de laboratório que não esteja no estado \"Rascunho\" !!"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.patient_manage_lab_requests
+msgid "close"
+msgstr "fechar"
+
+#. module: intarvas_lab
+#: model_terms:ir.ui.view,arch_db:intarvas_lab.report_oeh_medical_patient_labtest_document
+msgid "| Email:"
+msgstr "| Email:"

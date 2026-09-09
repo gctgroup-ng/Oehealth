@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Patient Invoice Payment Page -->
+    <template id="patient_invoice_payment" name="Patient Invoice Payment">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="patient-invoice-payment-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-credit-card me-3"></i>Pay Invoice #<span t-esc="invoice.name"/>
+                    </h1>
+                    <p class="welcome-subtitle">
+                        Complete your payment securely through our portal
+                    </p>
+                </div>
+
+                <!-- Full Width Invoice Portal Integration -->
+                <div class="back-button-container mb-3 d-flex gap-3">
+                    <a href="/patient/portal/billing" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Billing
+                    </a>
+                    <a t-att-href="download_url" class="btn btn-success" target="_blank">
+                        <i class="fas fa-download me-2"></i>Download Invoice
+                    </a>
+                </div>
+                
+                <!-- Direct Invoice Portal Content -->
+                <div class="invoice-portal-direct">
+                    <!-- Invoice Header -->
+                    <div class="invoice-header mb-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2 class="invoice-title mb-2">
+                                    <i class="fa fa-file-invoice me-2"></i>Invoice <span t-esc="invoice.name"/>
+                                </h2>
+                                <div class="invoice-meta">
+                                    <span t-if="invoice.invoice_date" class="me-3">
+                                        <strong>Date:</strong> <span t-esc="invoice.invoice_date.strftime('%B %d, %Y')"/>
+                                    </span>
+                                    <span t-if="invoice.invoice_date_due">
+                                        <strong>Due:</strong> <span t-esc="invoice.invoice_date_due.strftime('%B %d, %Y')"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <div class="invoice-status mb-2">
+                                    <span class="badge bg-warning" t-if="invoice.payment_state == 'not_paid'">
+                                        <i class="fa fa-clock me-1"></i>Unpaid
+                                    </span>
+                                    <span class="badge bg-info" t-if="invoice.payment_state == 'partial'">
+                                        <i class="fa fa-clock me-1"></i>Partially Paid
+                                    </span>
+                                    <span class="badge bg-success" t-if="invoice.payment_state == 'paid'">
+                                        <i class="fa fa-check me-1"></i>Paid
+                                    </span>
+                                </div>
+                                <div class="invoice-total">
+                                    <h3 class="text-primary mb-0">
+                                        $<span t-esc="'{:.2f}'.format(invoice.amount_residual)"/>
+                                    </h3>
+                                    <small class="text-muted">Amount Due</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Information -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bill To</h5>
+                                    <div class="customer-info">
+                                        <div><strong t-esc="invoice.partner_id.name"/></div>
+                                        <div t-if="invoice.partner_id.street" t-esc="invoice.partner_id.street"/>
+                                        <div>
+                                            <span t-if="invoice.partner_id.city" t-esc="invoice.partner_id.city"/>
+                                            <span t-if="invoice.partner_id.state_id">, <span t-esc="invoice.partner_id.state_id.name"/></span>
+                                            <span t-if="invoice.partner_id.zip"> <span t-esc="invoice.partner_id.zip"/></span>
+                                        </div>
+                                        <div t-if="invoice.partner_id.email" t-esc="invoice.partner_id.email"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Invoice Details</h5>
+                                    <div class="invoice-details">
+                                        <div class="detail-row">
+                                            <span>Invoice Number:</span>
+                                            <span t-esc="invoice.name"/>
+                                        </div>
+                                        <div class="detail-row" t-if="invoice.ref">
+                                            <span>Reference:</span>
+                                            <span t-esc="invoice.ref"/>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Currency:</span>
+                                            <span t-esc="invoice.currency_id.name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Lines -->
+                    <div class="invoice-lines mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Invoice Items</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Description</th>
+                                                <th class="text-end">Quantity</th>
+                                                <th class="text-end">Unit Price</th>
+                                                <th class="text-end">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="invoice.invoice_line_ids" t-as="line">
+                                                <t t-if="line.display_type == 'product'">
+                                                    <tr>
+                                                    <td>
+                                                        <div class="line-description">
+                                                            <strong t-esc="line.name"/>
+                                                            <div t-if="line.product_id" class="text-muted small">
+                                                                Product: <span t-esc="line.product_id.name"/>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-end">
+                                                        <span t-esc="'{:.2f}'.format(line.quantity)"/>
+                                                    </td>
+                                                    <td class="text-end">
+                                                        $<span t-esc="'{:.2f}'.format(line.price_unit)"/>
+                                                    </td>
+                                                    <td class="text-end">
+                                                        <strong>$<span t-esc="'{:.2f}'.format(line.price_subtotal)"/></strong>
+                                                    </td>
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Totals -->
+                    <div class="invoice-totals mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4">
+                                        <div class="totals-section">
+                                            <div class="total-row">
+                                                <span>Subtotal:</span>
+                                                <span>$<span t-esc="'{:.2f}'.format(invoice.amount_untaxed)"/></span>
+                                            </div>
+                                            <div class="total-row" t-if="invoice.amount_tax > 0">
+                                                <span>Tax:</span>
+                                                <span>$<span t-esc="'{:.2f}'.format(invoice.amount_tax)"/></span>
+                                            </div>
+                                            <div class="total-row total-final">
+                                                <strong>Total:</strong>
+                                                <strong>$<span t-esc="'{:.2f}'.format(invoice.amount_total)"/></strong>
+                                            </div>
+                                            <div class="total-row total-due">
+                                                <strong class="text-primary">Amount Due:</strong>
+                                                <strong class="text-primary">$<span t-esc="'{:.2f}'.format(invoice.amount_residual)"/></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="payment-section-wrapper mt-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">
+                                    <i class="fa fa-credit-card me-2"></i>Payment Options
+                                </h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <t t-if="invoice.payment_state in ['not_paid', 'partial']">
+                                    <p class="mb-3">Ready to pay this invoice? Click the button below to proceed with payment.</p>
+                                    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#payment_modal">
+                                        <i class="fa fa-credit-card me-2"></i>Pay Now - $<span t-esc="'{:.2f}'.format(invoice.amount_residual)"/>
+                                    </button>
+                                </t>
+                                <t t-else="">
+                                    <div class="alert alert-success">
+                                        <i class="fa fa-check-circle me-2"></i>
+                                        This invoice has been paid.
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Modal -->
+                    <div class="modal fade" id="payment_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Pay Invoice #<span t-esc="invoice.name"/></h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="payment-summary mb-3">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><strong>Amount Due:</strong> $<span t-esc="'{:.2f}'.format(invoice.amount_residual)"/></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><strong>Invoice Date:</strong> <span t-esc="invoice.invoice_date.strftime('%B %d, %Y')" t-if="invoice.invoice_date"/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <t t-if="providers_sudo">
+                                        <!-- Native Odoo Payment Form -->
+                                        <t t-call="payment.form"/>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="alert alert-warning">
+                                            <i class="fa fa-exclamation-triangle me-2"></i>
+                                            No payment methods are currently configured. Please contact support.
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Instructions -->
+                <div class="action-card">
+                    <h3 class="section-title mb-3">
+                        <i class="fas fa-info-circle me-2"></i>Payment Instructions
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="instruction-item">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-shield-alt text-success"></i>
+                                </div>
+                                <div class="instruction-content">
+                                    <h5>Secure Payment</h5>
+                                    <p>Your payment information is encrypted and secure. We never store your credit card details.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="instruction-item">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-clock text-info"></i>
+                                </div>
+                                <div class="instruction-content">
+                                    <h5>Processing Time</h5>
+                                    <p>Payments are typically processed within 1-2 business days. You'll receive a confirmation email.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="instruction-item">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-credit-card text-primary"></i>
+                                </div>
+                                <div class="instruction-content">
+                                    <h5>Accepted Methods</h5>
+                                    <p>We accept all major credit cards, PayPal, and bank transfers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="instruction-item">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-question-circle text-warning"></i>
+                                </div>
+                                <div class="instruction-content">
+                                    <h5>Need Help?</h5>
+                                    <p>Contact our billing department if you have questions about your invoice or payment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .patient-invoice-payment-page .detail-row {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0.5rem 0;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+                
+                .patient-invoice-payment-page .detail-label {
+                    font-weight: 500;
+                    color: #666;
+                }
+                
+                .patient-invoice-payment-page .detail-value {
+                    color: #333;
+                }
+                
+                .patient-invoice-payment-page .invoice-portal-direct {
+                    background: #fff;
+                    border-radius: 8px;
+                    padding: 20px;
+                }
+                
+                .patient-invoice-payment-page .invoice-portal-direct > div {
+                    margin-bottom: 20px;
+                }
+                
+                .patient-invoice-payment-page .payment-section-wrapper .card {
+                    border: 2px solid #e9ecef;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    background: #fff;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                }
+                
+                .patient-invoice-payment-page .invoice-header .invoice-title {
+                    color: #333;
+                    font-weight: 600;
+                }
+                
+                .patient-invoice-payment-page .invoice-header .invoice-meta {
+                    color: #666;
+                    font-size: 0.95rem;
+                }
+                
+                .patient-invoice-payment-page .totals-section .total-row {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+                
+                .patient-invoice-payment-page .totals-section .total-final {
+                    border-top: 2px solid #dee2e6;
+                    margin-top: 8px;
+                    padding-top: 12px;
+                    font-size: 1.1rem;
+                }
+                
+                .patient-invoice-payment-page .totals-section .total-due {
+                    border-top: 2px solid #007bff;
+                    margin-top: 8px;
+                    padding-top: 12px;
+                    font-size: 1.2rem;
+                }
+                
+                .patient-invoice-payment-page .line-description {
+                    line-height: 1.4;
+                }
+                
+                /* Payment Methods Styling */
+                .patient-invoice-payment-page .payment-methods-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 16px;
+                    margin-top: 20px;
+                }
+                
+                .patient-invoice-payment-page .payment-provider-card {
+                    position: relative;
+                }
+                
+                .patient-invoice-payment-page .payment-provider-label {
+                    display: block;
+                    cursor: pointer;
+                    margin: 0;
+                    width: 100%;
+                }
+                
+                .patient-invoice-payment-page .payment-provider-label input[type="radio"] {
+                    position: absolute;
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+                
+                .patient-invoice-payment-page .provider-card-content {
+                    display: flex;
+                    align-items: center;
+                    padding: 16px 20px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 12px;
+                    background: #fff;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                }
+                
+                .patient-invoice-payment-page .provider-card-content:hover {
+                    border-color: #007bff;
+                    box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+                    transform: translateY(-2px);
+                }
+                
+                .patient-invoice-payment-page .payment-provider-label input[type="radio"]:checked + .provider-card-content {
+                    border-color: #007bff;
+                    background: #f8f9ff;
+                    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+                }
+                
+                .patient-invoice-payment-page .provider-logo-container {
+                    flex-shrink: 0;
+                    width: 60px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 16px;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    border: 1px solid #e9ecef;
+                }
+                
+                .patient-invoice-payment-page .provider-logo {
+                    max-width: 50px;
+                    max-height: 30px;
+                    object-fit: contain;
+                }
+                
+                .patient-invoice-payment-page .provider-icon-placeholder {
+                    color: #6c757d;
+                    font-size: 1.2rem;
+                }
+                
+                .patient-invoice-payment-page .provider-info {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .patient-invoice-payment-page .provider-name {
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 1rem;
+                    margin-bottom: 4px;
+                }
+                
+                .patient-invoice-payment-page .provider-description {
+                    color: #6c757d;
+                    font-size: 0.85rem;
+                }
+                
+                .patient-invoice-payment-page .payment-provider-label input[type="radio"]:checked + .provider-card-content .provider-name {
+                    color: #007bff;
+                }
+                
+                .patient-invoice-payment-page .payment-provider-label input[type="radio"]:checked + .provider-card-content::after {
+                    content: '✓';
+                    position: absolute;
+                    top: 12px;
+                    right: 16px;
+                    color: #007bff;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+                
+                .patient-invoice-payment-page .instruction-item {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: 1rem;
+                    text-align: left;
+                }
+                
+                .patient-invoice-payment-page .instruction-icon {
+                    width: 40px;
+                    text-align: center;
+                    margin-right: 1rem;
+                    margin-top: 0.25rem;
+                    flex-shrink: 0;
+                }
+                
+                .patient-invoice-payment-page .instruction-icon i {
+                    font-size: 1.25rem;
+                }
+                
+                .patient-invoice-payment-page .instruction-content {
+                    text-align: left;
+                    flex: 1;
+                }
+                
+                .patient-invoice-payment-page .instruction-content h5 {
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                    text-align: left;
+                }
+                
+                .patient-invoice-payment-page .instruction-content p {
+                    margin-bottom: 0;
+                    color: #666;
+                    font-size: 0.9rem;
+                    text-align: left;
+                }
+                
+                @media (max-width: 768px) {
+                    .patient-invoice-payment-page .invoice-portal-direct {
+                        padding: 10px;
+                    }
+                    
+                    .patient-invoice-payment-page .detail-row {
+                        flex-direction: column;
+                        gap: 0.25rem;
+                    }
+                    
+                    .patient-invoice-payment-page .instruction-item {
+                        text-align: left;
+                    }
+                    
+                    .patient-invoice-payment-page .instruction-content {
+                        text-align: left;
+                    }
+                    
+                    .patient-invoice-payment-page .instruction-content h5 {
+                        text-align: left;
+                    }
+                    
+                    .patient-invoice-payment-page .instruction-content p {
+                        text-align: left;
+                    }
+                    
+                    .patient-invoice-payment-page .payment-methods-grid {
+                        grid-template-columns: 1fr;
+                        gap: 12px;
+                    }
+                    
+                    .patient-invoice-payment-page .provider-card-content {
+                        padding: 12px 16px;
+                    }
+                    
+                    .patient-invoice-payment-page .provider-logo-container {
+                        width: 50px;
+                        height: 35px;
+                        margin-right: 12px;
+                    }
+                }
+                
+                /* Payment Modal Styling */
+                .modal.fade .modal-dialog {
+                    transition: transform 0.3s ease-out;
+                }
+                
+                .modal-dialog-centered {
+                    display: flex;
+                    align-items: center;
+                    min-height: calc(100vh - 3.5rem);
+                    margin: 1.75rem auto;
+                }
+                
+                .modal-dialog-centered::before {
+                    content: '';
+                    display: block;
+                    height: calc(100vh - 3.5rem);
+                    height: -webkit-min-content;
+                    height: -moz-min-content;
+                    height: min-content;
+                }
+                
+                /* Ensure modal is always visible on mobile */
+                @media (max-width: 767px) {
+                    .modal-dialog-centered {
+                        margin: 0.5rem;
+                        min-height: calc(100vh - 1rem);
+                    }
+                }
+                
+                /* Payment Modal Content Styling */
+                #payment_modal .modal-content {
+                    border-radius: 12px;
+                    border: none;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                }
+                
+                #payment_modal .modal-header {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border-radius: 12px 12px 0 0;
+                    border: none;
+                }
+                
+                #payment_modal .modal-title {
+                    font-weight: 600;
+                }
+                
+                #payment_modal .btn-close {
+                    filter: brightness(0) invert(1);
+                }
+            </style>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const paymentModal = document.getElementById('payment_modal');
+                    if (paymentModal) {
+                        paymentModal.addEventListener('show.bs.modal', function() {
+                            // Add class to body to prevent scrolling
+                            document.body.classList.add('modal-open');
+                        });
+                        
+                        paymentModal.addEventListener('shown.bs.modal', function() {
+                            // Ensure modal is centered in viewport
+                            const modalDialog = paymentModal.querySelector('.modal-dialog');
+                            if (modalDialog) {
+                                modalDialog.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                            
+                            // Debug: Log when modal is shown
+                            console.log('Payment modal opened');
+                        });
+                        
+                        paymentModal.addEventListener('hidden.bs.modal', function() {
+                            // Remove class from body
+                            document.body.classList.remove('modal-open');
+                        });
+                        
+                        // Debug: Monitor payment form submission
+                        const paymentForm = paymentModal.querySelector('#o_payment_form');
+                        if (paymentForm) {
+                            paymentForm.addEventListener('submit', function(e) {
+                                console.log('Payment form submitted');
+                            });
+                        }
+                    }
+                    
+                    // Check for payment success on page load
+                    const urlParams = new URLSearchParams(window.location.search);
+                    if (urlParams.get('payment_success') === '1') {
+                        console.log('Payment was successful - showing success message');
+                    }
+                });
+            </script>
+        </t>
+    </template>
+</odoo>

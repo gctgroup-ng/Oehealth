@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+         <record id="oeh_medical_patient_grant_access_view" model="ir.ui.view">
+            <field name="name">Patient</field>
+            <field name="model">oeh.medical.patient</field>
+            <field name="inherit_id" ref="intarvas.oeh_medical_patient_view"/>
+            <field name="arch" type="xml">
+                <!-- Add hidden field first -->
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="is_portal_access" invisible="1"/>
+                </xpath>
+                
+                <!-- Add portal access buttons as FIRST button before all others -->
+                <xpath expr="//button[@name='%(intarvas.oeh_medical_appointment_action_tree)d']" position="before">
+                    <!-- Green button when access NOT granted -->
+                    <button name="change_grant_access"
+                            type="object"
+                            class="oe_stat_button text-success"
+                            invisible="is_portal_access"
+                            icon="fa-user-plus text-success"
+                            string="Grant Portal Access">
+                    </button>
+                    <!-- Red button when access IS granted -->
+                    <button name="change_grant_access"
+                            type="object"
+                            class="oe_stat_button text-danger"
+                            invisible="not is_portal_access"
+                            icon="fa-user-times text-danger"
+                            string="Revoke Portal Access">
+                    </button>
+                </xpath>
+
+                <xpath expr="//field[@name='genetic_risks']" position="after">
+                    <field name="patient_token" invisible="1"/>
+                    <field name="patient_url" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
