@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Lab Test Management -->
+        <record id="seq_oeh_medical_lab_test" model="ir.sequence">
+            <field name="name">Lab Tests</field>
+            <field name="code">oeh.medical.lab.test</field>
+            <field name="prefix">LT</field>
+            <field name="padding">6</field>
+        </record>
+
+        <!-- Lab Request Management -->
+        <record id="seq_oeh_medical_lab_request" model="ir.sequence">
+            <field name="name">Lab Requests</field>
+            <field name="code">oeh.medical.lab.request</field>
+            <field name="prefix">LR</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</odoo>

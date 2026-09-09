@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Lab Results Page -->
+    <template id="lab_results" name="Lab Results">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="lab-results-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-vial me-3"></i>Lab Results
+                    </h1>
+                    <p class="welcome-subtitle">View your laboratory test results and requests</p>
+                </div>
+
+                <!-- Lab Tests in Progress -->
+                <t t-if="progress_labtest">
+                    <div class="lab-section mb-4">
+                        <h2 class="section-title section-title-upcoming">
+                            <i class="fas fa-hourglass-half me-2"></i>Tests in Progress
+                        </h2>
+                        <div class="lab-tests-list">
+                            <t t-foreach="progress_labtest" t-as="test">
+                                <div class="lab-test-card in-progress">
+                                    <div class="lab-test-icon">
+                                        <i class="fas fa-flask"></i>
+                                    </div>
+                                    <div class="lab-test-content">
+                                        <div class="lab-test-header">
+                                            <h4 class="lab-test-title" t-esc="test.name"/>
+                                        </div>
+                                        <div class="lab-test-details">
+                                            <div class="lab-test-info-row">
+                                                <div class="lab-test-date">
+                                                    <i class="fas fa-calendar me-2"></i>
+                                                    Requested: <t t-esc="test.date_requested.strftime('%B %d, %Y')" t-if="test.date_requested"/><t t-else="">N/A</t>
+                                                </div>
+                                                <t t-if="test.institution">
+                                                    <div class="lab-test-institution">
+                                                        <i class="fas fa-hospital me-2"></i>
+                                                        Health Center: <t t-esc="test.institution.name"/>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            <t t-if="test.lab_test_type_ids">
+                                                <div class="lab-test-types">
+                                                    <i class="fas fa-vial me-2"></i>
+                                                    Test Types: <t t-foreach="test.lab_test_type_ids" t-as="test_type">
+                                                        <span t-esc="test_type.name"/><t t-if="not test_type_last">, </t>
+                                                    </t>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- Completed Lab Tests -->
+                <t t-if="completed_labtest">
+                    <div class="lab-section mb-4">
+                        <h2 class="section-title section-title-completed">
+                            <i class="fas fa-check-circle me-2"></i>Completed Tests
+                        </h2>
+                        <div class="lab-tests-list">
+                            <t t-foreach="completed_labtest" t-as="test">
+                                <div class="lab-test-card completed">
+                                    <div class="lab-test-icon">
+                                        <i class="fas fa-vial"></i>
+                                    </div>
+                                    <div class="lab-test-content">
+                                        <div class="lab-test-header">
+                                            <h4 class="lab-test-title" t-esc="test.name"/>
+                                        </div>
+                                        <div class="lab-test-details">
+                                            <div class="lab-test-info-row">
+                                                <div class="lab-test-date">
+                                                    <i class="fas fa-calendar me-2"></i>
+                                                    Completed: <t t-esc="test.date_analysis.strftime('%B %d, %Y')" t-if="test.date_analysis"/><t t-else="">N/A</t>
+                                                </div>
+                                                <t t-if="test.institution">
+                                                    <div class="lab-test-institution">
+                                                        <i class="fas fa-hospital me-2"></i>
+                                                        Health Center: <t t-esc="test.institution.name"/>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            <t t-if="test.lab_test_type_ids">
+                                                <div class="lab-test-types">
+                                                    <i class="fas fa-vial me-2"></i>
+                                                    Test Types: <t t-foreach="test.lab_test_type_ids" t-as="test_type">
+                                                        <span t-esc="test_type.name"/><t t-if="not test_type_last">, </t>
+                                                    </t>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div class="lab-test-actions">
+                                        <a t-attf-href="/patient/portal/labtest-report/#{test.id}" 
+                                           class="btn btn-sm btn-outline-primary" target="_blank">
+                                            <i class="fas fa-download me-2"></i>Download Report
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- Lab Requests -->
+                <t t-if="lab_requests">
+                    <div class="lab-section mb-4">
+                        <h2 class="section-title">
+                            <i class="fas fa-clipboard-list me-2"></i>Lab Requests
+                        </h2>
+                        <div class="lab-requests-list">
+                            <t t-foreach="lab_requests" t-as="lab_request">
+                                <div class="lab-request-card">
+                                    <div class="lab-request-icon">
+                                        <i class="fas fa-file-medical"></i>
+                                    </div>
+                                    <div class="lab-request-content">
+                                        <div class="lab-request-header">
+                                            <h4 class="lab-request-title">Lab Request #<t t-esc="lab_request.name"/></h4>
+                                        </div>
+                                        <div class="lab-request-details">
+                                            <div class="lab-request-date">
+                                                <i class="fas fa-calendar me-2"></i>
+                                                Requested: <t t-esc="lab_request.date_requested.strftime('%B %d, %Y')" t-if="lab_request.date_requested"/><t t-else="">N/A</t>
+                                            </div>
+                                            <t t-if="lab_request.requested_by">
+                                                <div class="lab-request-doctor">
+                                                    <i class="fas fa-user-md me-2"></i>
+                                                    Requested by: <t t-esc="lab_request.requested_by"/>
+                                                </div>
+                                            </t>
+                                            <t t-if="lab_request.institution">
+                                                <div class="lab-request-institution">
+                                                    <i class="fas fa-hospital me-2"></i>
+                                                    Health Center: <t t-esc="lab_request.institution.name"/>
+                                                </div>
+                                            </t>
+                                            <t t-if="lab_request.chief_complaint">
+                                                <div class="lab-request-complaint">
+                                                    <i class="fas fa-notes-medical me-2"></i>
+                                                    Reason: <t t-esc="lab_request.chief_complaint"/>
+                                                </div>
+                                            </t>
+                                            <t t-if="lab_request.lab_test_ids">
+                                                <div class="lab-request-tests">
+                                                    <i class="fas fa-vial me-2"></i>
+                                                    Tests Requested: <t t-foreach="lab_request.lab_test_ids" t-as="test_type">
+                                                        <span t-esc="test_type.name"/><t t-if="not test_type_last">, </t>
+                                                    </t>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- No Results Message -->
+                <t t-if="not labtest_available and not lab_request_available">
+                    <div class="no-lab-results">
+                        <div class="no-results-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3>No Lab Results Found</h3>
+                        <p>You don't have any lab tests or requests yet.</p>
+                        <p>Contact your healthcare provider if you need to request lab tests.</p>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

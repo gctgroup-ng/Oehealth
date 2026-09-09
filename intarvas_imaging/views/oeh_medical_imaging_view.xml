@@ -1,0 +1,317 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+        <!-- Radiology Management -->
+        <menuitem name="Radiology" id="oeh_medical_imaging_menu" parent="intarvas.oeh_medical_menu"
+                  sequence="30"/>
+        <menuitem name="Radiology" id="oeh_medical_imaging_conf_menu" parent="intarvas.oeh_medical_conf_menu"
+                  sequence="6"/>
+
+
+        <!-- Radiology Test Department management -->
+
+        <record model="ir.ui.view" id="oeh_medical_imaging_test_department_tree">
+            <field name="name">Radiology Test Departments</field>
+            <field name="model">oeh.medical.imagingtest.department</field>
+            <!--                <field name="type">tree</field>-->
+            <field name="arch" type="xml">
+                <list string='Radiology Test Departments' editable="top">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_imaging_test_department_filter" model="ir.ui.view">
+            <field name="name">Radiology Test Departments</field>
+            <field name="model">oeh.medical.imagingtest.department</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Departments">
+                    <separator orientation="vertical"/>
+                    <field name="name" select="1"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="oeh_medical_imagingtest_department_action_tree" model="ir.actions.act_window">
+            <field name="name">Radiology Test Departments</field>
+            <field name="res_model">oeh.medical.imagingtest.department</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new Radiology Test department.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="oeh_medical_imagingtest_department_action_tree" id="oeh_medical_imagingtest_department_menu"
+                  parent="oeh_medical_imaging_conf_menu" sequence="5"/>
+
+
+        <!-- Radiology Test Types Management -->
+
+        <record id="view_oeh_medical_imaging_test_type_filter" model="ir.ui.view">
+            <field name="name">Radiology Test Types</field>
+            <field name="model">oeh.medical.imaging.test.type</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Radiology Test Types">
+                    <field name="name" select="1"/>
+                    <field name="code" select="1"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="oeh_medical_imaging_test_type_tree">
+            <field name="name">Radiology Test Types</field>
+            <field name="model">oeh.medical.imaging.test.type</field>
+            <!--                <field name="type">tree</field>-->
+            <field name="arch" type="xml">
+                <list string='Radiology Test Types' editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="imaging_department"/>
+                    <field name="test_charge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="oeh_medical_imaging_test_type_action_tree" model="ir.actions.act_window">
+            <field name="name">Radiology Test Types</field>
+            <field name="res_model">oeh.medical.imaging.test.type</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new radiology test type.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="oeh_medical_imaging_test_type_action_tree" id="oeh_medical_imaging_test_type_conf_list"
+                  parent="oeh_medical_imaging_conf_menu" sequence="10"/>
+
+        <!-- Radiology Studies -->
+
+        <record id="view_oeh_medical_imaging_test_filter" model="ir.ui.view">
+            <field name="name">Radiology Studies</field>
+            <field name="model">oeh.medical.imaging</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Studies">
+                    <field name="name" select="1"/>
+                    <field name="analysis" select="1"/>
+                    <field name="conclusion" select="1"/>
+                    <field name="patient"/>
+                    <field name="test_type"/>
+                    <separator/>
+                    <filter name="my_studies" string="My Studies" domain="[('requestor.oeh_user_id', '=', uid)]"/>
+                    <filter name="today" string="Today" domain="[('date_requested', '>=', context_today)]"/>
+                    <filter name="this_week" string="This Week" domain="[('date_requested', '>=', (context_today - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                    <separator/>
+                    <filter name="draft" string="Draft" domain="[('state', '=', 'Draft')]"/>
+                    <filter name="in_progress" string="In Progress" domain="[('state', '=', 'Test In Progress')]"/>
+                    <filter name="completed" string="Completed" domain="[('state', '=', 'Completed')]"/>
+                    <separator/>
+                    <group>
+                        <filter name="group_patient" string="Patient" context="{'group_by': 'patient'}"/>
+                        <filter name="group_doctor" string="Doctor" context="{'group_by': 'requestor'}"/>
+                        <filter name="group_test_types" string="Test Types" context="{'group_by': 'test_type'}"/>
+                        <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                        <filter name="group_date" string="Date" context="{'group_by': 'date_requested'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="oeh_medical_imaging_test_tree">
+            <field name="name">Radiology Studies</field>
+            <field name="model">oeh.medical.imaging</field>
+            <field name="arch" type="xml">
+                <list string='Radiology Studies' 
+                      decoration-muted="state=='Invoiced'"
+                      decoration-info="state=='Test In Progress'" 
+                      decoration-success="state=='Completed'"
+                      sample="1">
+                    <field name="name"/>
+                    <field name="test_type" optional="show"/>
+                    <field name="patient" optional="show" widget="many2one_avatar_patient"/>
+                    <field name="requestor" optional="show" widget="many2one_avatar_physician"/>
+                    <field name="date_requested" optional="show"/>
+                    <field name="date_analysis" optional="show"/>
+                    <field name="state" widget="badge"
+                           decoration-info="state == 'Draft'"
+                           decoration-warning="state == 'Test In Progress'" 
+                           decoration-success="state == 'Completed'"
+                           decoration-muted="state == 'Invoiced'"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="oeh_medical_imaging_test_form">
+            <field name="name">Radiology Studies</field>
+            <field name="model">oeh.medical.imaging</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Radiology Studies">
+                    <header>
+                        <!-- Original Workflow Buttons -->
+                        <button name="action_start_test" string="Start Test" type="object" 
+                                invisible="state != 'Draft'" class="oe_highlight"/>
+                        <button name="action_complete_test" string="Complete" type="object" 
+                                invisible="state != 'Test In Progress'" class="oe_highlight"/>
+                        
+                        <!-- Invoice creation -->
+                        <button confirm="Are you sure you want to create the invoice?"
+                                name="action_imaging_invoice_create" invisible="state != 'Completed'"
+                                string="Create Invoice" type="object" class="oe_highlight"
+                                groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                        <button name="print_patient_imaging"
+                                invisible="state not in ('Completed', 'Invoiced')"
+                                string="Print Report" type="object"
+                                groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                        
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="Draft,Test In Progress,Completed,Invoiced"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_view_invoice" string="View Invoice"
+                                    class="oe_stat_button" icon="fa-pencil-square-o"
+                                    invisible="not move_id"/>
+                        </div>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Study Information">
+                                <field name="imaging_department" required="1" readonly="state != 'Draft'"/>
+                                <field name="test_type" readonly="state != 'Draft'"/>
+                                <field name="priority" readonly="state != 'Draft'"/>
+                                <field name="imaging_protocol"/>
+                            </group>
+                            <group string="Patient &amp; Provider">
+                                <field name="patient" options="{'no_create': True}" readonly="state != 'Draft'" widget="many2one_avatar_patient"/>
+                                <field name="requestor" options="{'no_create': True}" readonly="state != 'Draft'" widget="many2one_avatar_physician"/>
+                                <field name="date_requested" readonly="state != 'Draft'"/>
+                                <field name="date_analysis" readonly="1"/>
+                            </group>
+                        </group>
+
+                        <!-- Hidden Legacy Fields -->
+                        <group invisible="1">
+                            <field name="move_id" readonly="1"/>
+                            <field name="product_id"/>
+                        </group>
+                        <notebook>
+                            <!-- Clinical Information Tab -->
+                            <page string="Clinical Information" name="clinical_info">
+                                <group string="Clinical Details">
+                                    <field name="clinical_indication" placeholder="Enter clinical indication for this study..."/>
+                                </group>
+                                <group string="Report Template">
+                                    <field name="reporting_template"/>
+                                    <field name="peer_reviewer" invisible="state not in ('Test In Progress', 'Completed', 'Invoiced')"/>
+                                    <field name="critical_result"/>
+                                </group>
+                            </page>
+
+                            <!-- Report Tab -->
+                            <page string="Report" name="report" invisible="state == 'Draft'">
+                                <group>
+                                    <group string="Technique">
+                                        <field name="technique" nolabel="1" placeholder="Describe imaging technique used..."/>
+                                    </group>
+                                    <group string="Analysis">
+                                        <field name="analysis" nolabel="1" placeholder="Detailed imaging findings..."/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Impression">
+                                        <field name="impression" nolabel="1" placeholder="Diagnostic impression..."/>
+                                    </group>
+                                    <group string="Conclusion">
+                                        <field name="conclusion" nolabel="1" placeholder="Clinical conclusion..."/>
+                                    </group>
+                                </group>
+                                <group string="Recommendations">
+                                    <field name="recommendations" nolabel="1" placeholder="Follow-up recommendations..."/>
+                                </group>
+                            </page>
+
+                            <!-- Medical Files Tab with Drag-Drop Upload -->
+                            <page string="Medical Files" name="medical_files">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <!-- File Upload Area -->
+                                        <div class="medical_files_container">
+                                            <field name="attachment_ids" 
+                                                   widget="many2many_binary"
+                                                   options="{
+                                                       'accepted_file_extensions': '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.pdf,.dcm,.zip,.mp4,.avi,.wav,.mp3',
+                                                       'show_upload': true,
+                                                       'preview_image': true,
+                                                       'multiple': true
+                                                   }"
+                                                   context="{
+                                                       'default_res_model': 'oeh.medical.imaging',
+                                                       'default_res_id': id,
+                                                       'default_public': False
+                                                   }"
+                                                   readonly="state == 'Invoiced'"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="oeh_medical_imaging_test_action_tree" model="ir.actions.act_window">
+            <field name="name">Radiology Studies</field>
+            <field name="res_model">oeh.medical.imaging</field>
+            <field name="view_mode">list,form,kanban</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new radiology study.
+                </p>
+                <p>
+                    Upload medical images, DICOM files, and reports for comprehensive radiology management.
+                </p>
+            </field>
+        </record>
+
+        <!--Add Radiology tab on patient notebook-->
+        <record id="oeh_imaging_patient_view" model="ir.ui.view">
+            <field name="name">Radiology Patient</field>
+            <field name="model">oeh.medical.patient</field>
+            <field name="inherit_id" ref="intarvas.oeh_medical_patient_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Radiology Studies" name="imaging_test">
+                        <field name="imaging_test_ids" readonly="1">
+                            <list string="Radiology Studies">
+                                <field name="name"/>
+                                <field name="imaging_department"/>
+                                <field name="date_requested"/>
+                                <field name="test_type"/>
+                                <field name="requestor"/>
+                                <field name="state" widget="badge"/>
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem action="oeh_medical_imaging_test_action_tree" id="oeh_medical_imaging_test_conf_list"
+                  parent="oeh_medical_imaging_menu" sequence="5"/>
+
+    </data>
+</odoo>

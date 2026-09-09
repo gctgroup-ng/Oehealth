@@ -1,0 +1,1639 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* intarvas_imaging
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-06 16:06+0000\n"
+"PO-Revision-Date: 2025-10-06 21:39+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.7\n"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid ""
+"<br/><br/>\n"
+"                        <strong>Test #:</strong>"
+msgstr ""
+"<br/><br/>\n"
+"                        <strong>Teste #:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid ""
+"<br/><br/>\n"
+"                        <strong>Test Type:</strong>"
+msgstr ""
+"<br/><br/>\n"
+"                        <strong>Tipo de teste:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<em>[Clinical impression to be documented here]</em>"
+msgstr "<em>[Impressão clínica a ser documentada aqui]</em>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<em>[Detailed findings to be documented here]</em>"
+msgstr "<em>[Descobertas detalhadas a serem documentadas aqui]</em>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>*** END OF REPORT ***</strong>"
+msgstr "<strong>*** FIM DO RELATÓRIO ***</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Clinical Indication:</strong>"
+msgstr "<strong>Indicação clínica:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Dictated by:</strong>"
+msgstr "<strong>Ditado por:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>FINDINGS:</strong>"
+msgstr "<strong>RESULTADOS:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>IMPRESSION:</strong>"
+msgstr "<strong>IMPRESSÃO:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Image 1</strong><br/><br/>"
+msgstr "<strong>Imagem 1</strong><br/><br/>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Image 2</strong><br/><br/>"
+msgstr "<strong>Imagem 2</strong><br/><br/>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Image 3</strong><br/><br/>"
+msgstr "<strong>Imagem 3</strong><br/><br/>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>MEDICAL IMAGES:</strong>"
+msgstr "<strong>IMAGENS MÉDICAS:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Medical Imaging Study</strong>"
+msgstr "<strong>Estudo de imagens médicas</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Patient Name:</strong>"
+msgstr "<strong>Nome do paciente:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>RADIOLOGY REPORT</strong>"
+msgstr "<strong>LAUDO DE RADIOLOGIA</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>RECOMMENDATIONS:</strong>"
+msgstr "<strong>RECOMENDAÇÕES:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Referring Physician:</strong>"
+msgstr "<strong>Médico Solicitante:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Report Date:</strong>"
+msgstr "<strong>Data do relatório:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Report Status:</strong>"
+msgstr "<strong>Status do relatório:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>Study Date:</strong>"
+msgstr "<strong>Data do estudo:</strong>"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.report_oeh_medical_patient_imaging_document
+msgid "<strong>TECHNIQUE:</strong>"
+msgstr "<strong>TÉCNICA:</strong>"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__abdomen
+msgid "Abdomen"
+msgstr "Abdômen"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__file_quality__acceptable
+msgid "Acceptable"
+msgstr "Peso Aceitável"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__acquisition_instructions
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Acquisition Instructions"
+msgstr "Instruções de aquisição"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__acquisition_parameters
+msgid "Acquisition Parameters"
+msgstr "Parâmetros de aquisição"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_needaction
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_needaction
+msgid "Action Needed"
+msgstr "Ação Necessária"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__active
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__active
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_search
+msgid "Active"
+msgstr "Ativo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_patient__imaging_test_ids
+msgid "All imaging studies for this patient"
+msgstr "Todos os exames de imagem para este paciente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__attachment_ids
+msgid "All medical images and documents for this radiology study"
+msgstr "Todas as imagens e documentos médicos para este estudo de radiologia"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__analysis
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Analysis"
+msgstr "Análise"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Approval & Usage"
+msgstr "Aprovação e Uso"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__approval_date
+msgid "Approval Date"
+msgstr "Data da Aprovação"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Approve Protocol"
+msgstr "Aprovar protocolo"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+msgid "Approved"
+msgstr "Aprovado"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__approved_by
+msgid "Approved By"
+msgstr "Aprovado Por"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Are you sure you want to create the invoice?"
+msgstr "Tem certeza de que deseja criar a fatura?"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__study_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__study_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Associated Studies"
+msgstr "Estudos Associados"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "At least 2 images are required for comparison"
+msgstr "Pelo menos 2 imagens são necessárias para comparação"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_ir_attachment
+msgid "Attachment"
+msgstr "Anexo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_attachment_count
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Anexos"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__average_duration_minutes
+msgid "Average Duration (minutes)"
+msgstr "Duração média (minutos)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__average_duration_minutes
+msgid "Average time required for this protocol"
+msgstr "Tempo médio necessário para este protocolo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__body_region
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+msgid "Body Region"
+msgstr "Região do corpo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__ct
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_radiology_template__modality__ct
+msgid "CT Scan"
+msgstr "Tomografia"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__cardiac
+msgid "Cardiac"
+msgstr "Cardíaco"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__chest
+msgid "Chest"
+msgstr "Peito"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__child_attachment_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__child_attachment_ids
+msgid "Child Attachments"
+msgstr "Anexos filho"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__child_protocol_ids
+msgid "Child Protocols"
+msgstr "Protocolos filho"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__claim_id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__claim_id
+msgid "Claim"
+msgstr "Reivindicar"
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.oeh_medical_imagingtest_department_action_tree
+msgid "Click to add a new Radiology Test department."
+msgstr "Clique para adicionar um novo departamento de Teste de Radiologia."
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.oeh_medical_imaging_test_action_tree
+msgid "Click to add a new radiology study."
+msgstr "Clique para adicionar um novo estudo de radiologia."
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.oeh_medical_imaging_test_type_action_tree
+msgid "Click to add a new radiology test type."
+msgstr "Clique para adicionar um novo tipo de teste de radiologia."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Clinical Analysis"
+msgstr "Análises Clínicas"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Clinical Details"
+msgstr "Detalhes clínicos"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__clinical_indication
+msgid "Clinical Indication"
+msgstr "Indicação Clínica"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Clinical Information"
+msgstr "Informações clínicas"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Clinical conclusion..."
+msgstr "Conclusão clínica..."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__clinical_indication
+msgid "Clinical reason for the imaging study"
+msgstr "Razão clínica para o estudo de imagem"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Complete"
+msgstr "Completo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__processing_status__completed
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__state__completed
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Completed"
+msgstr "Concluído"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__conclusion
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Conclusion"
+msgstr "Conclusão"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Conclusion & Impression"
+msgstr "Conclusão e Impressão"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__contrast_delay
+msgid "Contrast Delay (seconds)"
+msgstr "Atraso de contraste (segundos)"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Contrast Information"
+msgstr "Informações de contraste"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__contrast_required
+msgid "Contrast Required"
+msgstr "Contraste necessário"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__contrast_type
+msgid "Contrast Type"
+msgstr "Tipo de contraste"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__contrast_volume
+msgid "Contrast Volume (ml)"
+msgstr "Volume de contraste (ml)"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Create Invoice"
+msgstr "Criar Fatura"
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.action_oeh_medical_imaging_protocol
+msgid "Create your first imaging protocol!"
+msgstr "Crie seu primeiro protocolo de imagem!"
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.action_oeh_medical_radiology_template
+msgid "Create your first radiology report template!"
+msgstr "Crie seu primeiro modelo de relatório de radiologia!"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_image_processor__create_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__create_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__create_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__create_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__create_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_image_processor__create_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__create_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__create_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__create_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__create_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__critical_result
+msgid "Critical Result"
+msgstr "Resultado Crítico"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__dicom
+msgid "DICOM File"
+msgstr "Arquivo DICOM"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__dicom_metadata
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__dicom_metadata
+msgid "DICOM Metadata"
+msgstr "Metadados DICOM"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__dicom_thumbnail
+msgid "DICOM Thumbnail"
+msgstr "Miniatura DICOM"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Date"
+msgstr "Data"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__date_analysis
+msgid "Date of the Analysis"
+msgstr "Data da análise"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__date_requested
+msgid "Date requested"
+msgstr "Data solicitada"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__imaging_department
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__imaging_department
+msgid "Department"
+msgstr "Departamento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__name
+msgid "Department Name"
+msgstr "Nome do Departamento"
+
+#. module: intarvas_imaging
+#: model:ir.model.constraint,message:intarvas_imaging.constraint_oeh_medical_imagingtest_department_name_uniq
+msgid "Department name must be unique!"
+msgstr "O nome do departamento deve ser único!"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Describe imaging technique used..."
+msgstr "Descreva a técnica de imagem usada..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Detailed imaging findings..."
+msgstr "Achados de imagem detalhados..."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__impression
+msgid "Diagnostic impression"
+msgstr "Impressão diagnóstica"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Diagnostic impression..."
+msgstr "Impressão diagnóstica..."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_image_processor__display_name
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__display_name
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__display_name
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__display_name
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__display_name
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__requestor
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Doctor"
+msgstr "Médico"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__requestor
+msgid "Doctor who requested the test"
+msgstr "Médico que solicitou o Exame"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__state__draft
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Duplicate Protocol"
+msgstr "Protocolo duplicado"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_ir_attachment__voice_duration
+#: model:ir.model.fields,help:intarvas_imaging.field_product_document__voice_duration
+msgid "Duration of the voice message in seconds."
+msgstr "Duração da mensagem de voz em segundos."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Enter clinical impression and recommendations..."
+msgstr "Insira a impressão clínica e as recomendações..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Enter clinical indication for this study..."
+msgstr "Insira a indicação clínica para este estudo..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Enter detailed analysis findings..."
+msgstr "Insira os resultados da análise detalhada..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Enter image acquisition instructions..."
+msgstr "Insira as instruções de aquisição de imagem..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Enter patient positioning instructions..."
+msgstr "Insira as instruções de posicionamento do paciente..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Enter patient preparation instructions..."
+msgstr "Insira as instruções de preparação do paciente..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Enter post-processing instructions..."
+msgstr "Insira as instruções de pós-processamento..."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__estimated_dose
+msgid "Estimated Radiation Dose (mGy)"
+msgstr "Dose estimada de radiação (mGy)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__estimated_dose
+msgid "Estimated radiation dose for this protocol"
+msgstr "Dose de radiação estimada para este protocolo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__file_quality__excellent
+msgid "Excellent"
+msgstr "Excelente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__extremity
+msgid "Extremity"
+msgstr "Extremidade"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__processing_status__failed
+msgid "Failed"
+msgstr "Falhou"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "Feature extraction failed: %s"
+msgstr "Falha na extração de recursos: %s"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__file_quality
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__file_quality
+msgid "File Quality"
+msgstr "Qualidade do ficheiro"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "File is not a valid image"
+msgstr "O arquivo não é uma imagem válida"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Findings Section"
+msgstr "Seção de descobertas"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__findings_template
+msgid "Findings Template"
+msgstr "Modelo de descobertas"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__fl
+msgid "Fluoroscopy"
+msgstr "Fluoroscopia"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__recommendations
+msgid "Follow-up recommendations"
+msgstr "Recomendações de acompanhamento"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Follow-up recommendations..."
+msgstr "Recomendações de acompanhamento..."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_follower_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_partner_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Parceiros)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__file_quality__good
+msgid "Good"
+msgstr "Bom"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Group By..."
+msgstr "Agrupar Por…"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__has_message
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__has_message
+msgid "Has Message"
+msgstr "Tem Mensagem"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__head_neck
+msgid "Head & Neck"
+msgstr "Cabeça & Pescoço"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_image_processor__id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__contrast_type__iv
+msgid "IV Contrast"
+msgstr "Contraste IV"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__message_needaction
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se estiver marcado, há novas mensagens que requerem a sua atenção."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__message_has_error
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__message_has_sms_error
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__message_has_error
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se marcada, algumas mensagens têm um erro de entrega."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__image1
+msgid "Image 1 (Legacy)"
+msgstr "Imagem 1 (Legado)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__image2
+msgid "Image 2 (Legacy)"
+msgstr "Imagem 2 (Legado)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__image3
+msgid "Image 3 (Legacy)"
+msgstr "Imagem 3 (Legado)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__image4
+msgid "Image 4 (Legacy)"
+msgstr "Imagem 4 (Legado)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__image5
+msgid "Image 5 (Legacy)"
+msgstr "Imagem 5 (Legado)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__image6
+msgid "Image 6 (Legacy)"
+msgstr "Imagem 6 (Legado)"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__image_metadata
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__image_metadata
+msgid "Image Metadata"
+msgstr "Metadados de Imagem"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "Image enhancement failed: %s"
+msgstr "Falha no aprimoramento de imagem: %s"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "Image processing libraries not installed."
+msgstr "Bibliotecas de processamento de imagem não instaladas."
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid ""
+"Image processing libraries not installed. Please install PIL, opencv-"
+"python, and numpy."
+msgstr ""
+"Bibliotecas de processamento de imagem não instaladas. Instale o PIL, o "
+"opencv-python e o numpy."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Imaging Protocol"
+msgstr "Protocolo de imagem"
+
+#. module: intarvas_imaging
+#: model:ir.actions.act_window,name:intarvas_imaging.action_oeh_medical_imaging_protocol
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_list
+msgid "Imaging Protocols"
+msgstr "Protocolos de imagem"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_imagingtest_department
+msgid "Imaging Test Department"
+msgstr "Departamento de Exames de Imagem"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_imaging
+msgid "Imaging Test Management"
+msgstr "Gerenciamento de exames de imagem"
+
+#. module: intarvas_imaging
+#: model:ir.actions.report,name:intarvas_imaging.action_report_patient_imaging
+msgid "Imaging Test Report"
+msgstr "Relatório de exame de imagem"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_imaging_test_type
+msgid "Imaging Test Types"
+msgstr "Tipos de teste de imagem"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_patient__imaging_test_ids
+msgid "Imaging Tests"
+msgstr "Exames de imagem"
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.action_oeh_medical_imaging_protocol
+msgid ""
+"Imaging protocols define standardized procedures for different types of "
+"medical imaging studies."
+msgstr ""
+"Os protocolos de imagem definem procedimentos padronizados para diferentes "
+"tipos de estudos de imagens médicas."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__technique
+msgid "Imaging technique used"
+msgstr "Técnica de imagem utilizada"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__impression
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Impression"
+msgstr "Impressão"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Impression Section"
+msgstr "Seção de impressão"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__impression_template
+msgid "Impression Template"
+msgstr "Modelo de impressão"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "In Progress"
+msgstr "Em Progresso"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_ir_attachment__is_voice
+#: model:ir.model.fields,help:intarvas_imaging.field_product_document__is_voice
+msgid ""
+"Indicates this attachment is a voice message that should have special "
+"handling in chatter."
+msgstr ""
+"Indica que esse anexo é uma mensagem de voz que deve ter tratamento "
+"especial no Chatter."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Instructions"
+msgstr "Instruções"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__post_processing_instructions
+msgid "Instructions for image post-processing"
+msgstr "Instruções para pós-processamento de imagem"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__positioning_instructions
+msgid "Instructions for patient positioning during the procedure"
+msgstr "Instruções para o posicionamento do paciente durante o procedimento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__preparation_instructions
+msgid "Instructions for patient preparation before the procedure"
+msgstr "Instruções para preparação do paciente antes do procedimento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_ir_attachment__claim_id
+#: model:ir.model.fields,help:intarvas_imaging.field_product_document__claim_id
+msgid "Insurance claim this document supports"
+msgstr "Reivindicação de seguro que este documento suporta"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__validation_status__invalid
+msgid "Invalid"
+msgstr "Inválido"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__move_id
+msgid "Invoice"
+msgstr "Fatura"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__state__invoiced
+msgid "Invoiced"
+msgstr "Faturada"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__is_dicom_file
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__is_dicom_file
+msgid "Is DICOM File"
+msgstr "É um arquivo DICOM"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_is_follower
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_is_follower
+msgid "Is Follower"
+msgstr "É Seguidor"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__is_voice
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__is_voice
+msgid "Is Voice Message"
+msgstr "É mensagem de voz"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_image_processor__write_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__write_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__write_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__write_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__write_uid
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_image_processor__write_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__write_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__write_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__write_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imagingtest_department__write_date
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__last_used_date
+msgid "Last Used Date"
+msgstr "Data da última utilização"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Legacy Analysis"
+msgstr "Análise de legado"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Legacy Images"
+msgstr "Imagens legadas"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__image1
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__image2
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__image3
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__image4
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__image5
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__image6
+msgid "Legacy field - use attachment system instead"
+msgstr "Campo herdado - use o sistema de anexos"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__mri
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_radiology_template__modality__mri
+msgid "MRI"
+msgstr "RESSONÂNCIA"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__mg
+msgid "Mammography"
+msgstr "Mamografia"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__medical_file_type
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__medical_file_type
+msgid "Medical File Type"
+msgstr "Tipo de arquivo médico"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__attachment_ids
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Medical Files"
+msgstr "Arquivos médicos"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__image
+msgid "Medical Image"
+msgstr "Imagem médica"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_image_processor
+msgid "Medical Image Processing Service"
+msgstr "Serviço de processamento de imagens médicas"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_imaging_protocol
+msgid "Medical Imaging Protocol"
+msgstr "Protocolo de imagem médica"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__report
+msgid "Medical Report"
+msgstr "Relatório médico"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__video
+msgid "Medical Video"
+msgstr "Vídeo médico"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_has_error
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de Entrega de Mensagem"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__modality
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__modality
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_search
+msgid "Modality"
+msgstr "Modalidade"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "Montage creation failed: %s"
+msgstr "Falha na criação da montagem: %s"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "My Studies"
+msgstr "Meus estudos"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/image_processing.py:0
+msgid "No valid images found for montage"
+msgstr "Nenhuma imagem válida encontrada para montagem"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__nm
+msgid "Nuclear Medicine"
+msgstr "Medicina Nuclear"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_needaction_counter
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Ações"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_has_error_counter
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__message_needaction_counter
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensagens que requerem uma ação"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__message_has_error_counter
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensagens com um erro de entrega"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__contrast_type__oral_iv
+msgid "Oral + IV Contrast"
+msgstr "Contraste Oral + IV"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__contrast_type__oral
+msgid "Oral Contrast"
+msgstr "Contraste Oral"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__contrast_type__other
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__other
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_radiology_template__modality__other
+msgid "Other"
+msgstr "Outro"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__other
+msgid "Other Medical File"
+msgstr "Outro arquivo médico"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__pet
+msgid "PET Scan"
+msgstr "Tomografia"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__parent_attachment_id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__parent_attachment_id
+msgid "Parent Attachment"
+msgstr "Anexo pai"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__parent_protocol_id
+msgid "Parent Protocol"
+msgstr "Protocolo pai"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_patient
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__patient_id
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__patient
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__patient_id
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Patient & Provider"
+msgstr "Paciente & Provedor"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__patient
+msgid "Patient Name"
+msgstr "Nome do Paciente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__positioning_instructions
+msgid "Patient Positioning Instructions"
+msgstr "Instruções de posicionamento do paciente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__preparation_instructions
+msgid "Patient Preparation Instructions"
+msgstr "Instruções de preparação do paciente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_ir_attachment__patient_id
+#: model:ir.model.fields,help:intarvas_imaging.field_product_document__patient_id
+msgid "Patient this document belongs to"
+msgstr "Paciente a que este documento pertence"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__peer_reviewer
+msgid "Peer Reviewer"
+msgstr "Revisor por pares"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__pelvis
+msgid "Pelvis"
+msgstr "Pelve"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__processing_status__pending
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__validation_status__pending
+msgid "Pending"
+msgstr "Pendente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__file_quality__poor
+msgid "Poor"
+msgstr "Ruim"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Positioning Instructions"
+msgstr "Instruções de posicionamento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__post_processing_instructions
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Post-Processing Instructions"
+msgstr "Instruções de pós-processamento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__primary_reader
+msgid "Primary Reader"
+msgstr "Leitor Primário"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Print Report"
+msgstr "Imprimir relatório"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__priority
+msgid "Priority"
+msgstr "Prioridade"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__processed
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__processed
+msgid "Processed"
+msgstr "Processado"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__processing_status__processing
+msgid "Processing"
+msgstr "Processando"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__processing_metadata
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__processing_metadata
+msgid "Processing Metadata"
+msgstr "Processando metadados"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__processing_status
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__processing_status
+msgid "Processing Status"
+msgstr "Status de processamento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__product_id
+msgid "Product"
+msgstr "Produto"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__imaging_protocol
+msgid "Protocol"
+msgstr "Protocolo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__code
+msgid "Protocol Code"
+msgstr "Código de protocolo"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Protocol Information"
+msgstr "Informações do protocolo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__name
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Protocol Name"
+msgstr "Nome do protocolo"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/oeh_medical_imaging_protocol.py:0
+msgid "Protocol code must be unique."
+msgstr "O código de protocolo deve ser exclusivo."
+
+#. module: intarvas_imaging
+#: model:ir.ui.menu,name:intarvas_imaging.menu_oeh_medical_imaging_protocol
+msgid "Protocols"
+msgstr "Protocolos"
+
+#. module: intarvas_imaging
+#: model:ir.ui.menu,name:intarvas_imaging.oeh_medical_imaging_conf_menu
+#: model:ir.ui.menu,name:intarvas_imaging.oeh_medical_imaging_menu
+msgid "Radiology"
+msgstr "Radiologia"
+
+#. module: intarvas_imaging
+#: model:ir.model,name:intarvas_imaging.model_oeh_medical_radiology_template
+msgid "Radiology Report Template"
+msgstr "Modelo de relatório de radiologia"
+
+#. module: intarvas_imaging
+#: model:ir.actions.act_window,name:intarvas_imaging.oeh_medical_imaging_test_action_tree
+#: model:ir.ui.menu,name:intarvas_imaging.oeh_medical_imaging_test_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_imaging_patient_view
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_tree
+msgid "Radiology Studies"
+msgstr "Estudos de radiologia"
+
+#. module: intarvas_imaging
+#: model:ir.actions.act_window,name:intarvas_imaging.oeh_medical_imagingtest_department_action_tree
+#: model:ir.ui.menu,name:intarvas_imaging.oeh_medical_imagingtest_department_menu
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_department_tree
+msgid "Radiology Test Departments"
+msgstr "Departamentos de teste de radiologia"
+
+#. module: intarvas_imaging
+#: model:ir.actions.act_window,name:intarvas_imaging.oeh_medical_imaging_test_type_action_tree
+#: model:ir.ui.menu,name:intarvas_imaging.oeh_medical_imaging_test_type_conf_list
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_type_tree
+msgid "Radiology Test Types"
+msgstr "Tipos de teste de radiologia"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__rating_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__rating_ids
+msgid "Ratings"
+msgstr "Avaliações"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__recommendations
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Recommendations"
+msgstr "Recomendações"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__contrast_type__rectal
+msgid "Rectal Contrast"
+msgstr "Contraste retal"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Related Protocols"
+msgstr "Protocolos relacionados"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Report"
+msgstr "Relatório"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__reporting_template
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Report Template"
+msgstr "Modelo de relatório"
+
+#. module: intarvas_imaging
+#: model:ir.actions.act_window,name:intarvas_imaging.action_oeh_medical_radiology_template
+#: model:ir.ui.menu,name:intarvas_imaging.menu_oeh_medical_radiology_template
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_list
+msgid "Report Templates"
+msgstr "Modelos de Relatório"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+msgid "Requires Contrast"
+msgstr "Requer contraste"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__requires_physician_approval
+msgid "Requires Physician Approval"
+msgstr "Requer aprovação médica"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__priority__routine
+msgid "Routine"
+msgstr "Rotina"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__message_has_sms_error
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de Entrega de SMS"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__priority__stat
+msgid "STAT"
+msgstr "STAT"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_imaging_test_department_filter
+msgid "Search Departments"
+msgstr "Procurar Departamentos"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_search
+msgid "Search Protocols"
+msgstr "Protocolos de pesquisa"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_type_filter
+msgid "Search Radiology Test Types"
+msgstr "Pesquisar tipos de teste de radiologia"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Search Studies"
+msgstr "Pesquisar estudos"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_search
+msgid "Search Templates"
+msgstr "Pesquisar Modelos"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__spine
+msgid "Spine"
+msgstr "Espinha"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_radiology_template__technique_template
+msgid "Standard technique description template"
+msgstr "Modelo de descrição de técnica padrão"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Standard technique description..."
+msgstr "Descrição da técnica padrão..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Start Test"
+msgstr "Teste de início"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__state
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "State"
+msgstr "Estado"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Study Information"
+msgstr "Informações do estudo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__study_metadata
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Study Metadata"
+msgstr "Metadados do estudo"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "Technical Parameters"
+msgstr "Parâmetros técnicos"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__acquisition_instructions
+msgid "Technical instructions for image acquisition"
+msgstr "Instruções técnicas para aquisição de imagens"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__technique
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "Technique"
+msgstr "Técnica"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Technique Section"
+msgstr "Seção de Técnica"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__technique_template
+msgid "Technique Template"
+msgstr "Modelo de técnica"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__code
+msgid "Template Code"
+msgstr "Código do modelo"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Template Information"
+msgstr "Informação do modelo"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__name
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Template Name"
+msgstr "Nome do modelo"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Template Sections"
+msgstr "Seções de modelo"
+
+#. module: intarvas_imaging
+#. odoo-python
+#: code:addons/intarvas_imaging/models/oeh_medical_radiology_template.py:0
+msgid "Template code must be unique."
+msgstr "O código do modelo deve ser exclusivo."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_radiology_template__findings_template
+msgid "Template for findings section"
+msgstr "Modelo para a seção de descobertas"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Template for findings..."
+msgstr "Modelo para descobertas..."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_radiology_template__impression_template
+msgid "Template for impression section"
+msgstr "Modelo para seção de impressão"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Template for impression..."
+msgstr "Modelo para impressão..."
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.action_oeh_medical_radiology_template
+msgid ""
+"Templates provide standardized structures for consistent radiology "
+"reporting."
+msgstr ""
+"Os modelos fornecem estruturas padronizadas para relatórios radiológicos "
+"consistentes."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__name
+msgid "Test #"
+msgstr "Teste #"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__test_charge
+msgid "Test Charge"
+msgstr "Carga de teste"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__code
+msgid "Test Code"
+msgstr "Código de Teste"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__state__test_in_progress
+msgid "Test In Progress"
+msgstr "Teste em andamento"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__test_type
+msgid "Test Type"
+msgstr "Tipo de teste"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_test_type__name
+msgid "Test Type Name"
+msgstr "Nome do tipo de teste"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Test Types"
+msgstr "Tipos de teste"
+
+#. module: intarvas_imaging
+#: model:ir.model.constraint,message:intarvas_imaging.constraint_oeh_medical_imaging_test_type_name_uniq
+msgid "Test type name must be unique!"
+msgstr "O nome do tipo de teste deve ser exclusivo!"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "This Week"
+msgstr "Esta Semana"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__thumbnail
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_test_filter
+msgid "Today"
+msgstr "Hoje"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__us
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_radiology_template__modality__us
+msgid "Ultrasound"
+msgstr "Ultrassom"
+
+#. module: intarvas_imaging
+#: model_terms:ir.actions.act_window,help:intarvas_imaging.oeh_medical_imaging_test_action_tree
+msgid ""
+"Upload medical images, DICOM files, and reports for comprehensive radiology "
+"management."
+msgstr ""
+"Carregue imagens médicas, arquivos DICOM e relatórios para gerenciamento "
+"abrangente de radiologia."
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging__priority__urgent
+msgid "Urgent"
+msgstr "Urgente"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__usage_count
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_radiology_template__usage_count
+msgid "Usage Count"
+msgstr "Contagem de uso"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_radiology_template_form
+msgid "Usage Statistics"
+msgstr "Estatísticas de Utilização"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__validation_status__valid
+msgid "Valid"
+msgstr "Válido"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__validation_messages
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__validation_messages
+msgid "Validation Messages"
+msgstr "Mensagens de Validação"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__validation_status
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__validation_status
+msgid "Validation Status"
+msgstr "Estado de Validação"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__vascular
+msgid "Vascular"
+msgstr "Vascular"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.oeh_medical_imaging_test_form
+msgid "View Invoice"
+msgstr "Ver Fatura"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_ir_attachment__voice_duration
+#: model:ir.model.fields,field_description:intarvas_imaging.field_product_document__voice_duration
+msgid "Voice Duration"
+msgstr "Duração da voz"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__medical_file_type__voice
+msgid "Voice Recording"
+msgstr "Gravação de voz"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__ir_attachment__validation_status__warning
+msgid "Warning"
+msgstr "Atenção"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging__website_message_ids
+#: model:ir.model.fields,field_description:intarvas_imaging.field_oeh_medical_imaging_protocol__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Website"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging__website_message_ids
+#: model:ir.model.fields,help:intarvas_imaging.field_oeh_medical_imaging_protocol__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do website"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__body_region__whole_body
+msgid "Whole Body"
+msgstr "Corpo inteiro"
+
+#. module: intarvas_imaging
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_imaging_protocol__modality__xr
+#: model:ir.model.fields.selection,name:intarvas_imaging.selection__oeh_medical_radiology_template__modality__xr
+msgid "X-Ray"
+msgstr "Raio-X"
+
+#. module: intarvas_imaging
+#: model_terms:ir.ui.view,arch_db:intarvas_imaging.view_oeh_medical_imaging_protocol_form
+msgid "{\"kVp\": \"120\", \"mAs\": \"250\", \"slice_thickness\": \"5mm\"}"
+msgstr "{\"kVp\": \"120\", \"mAs\": \"250\", \"slice_thickness\": \"5mm\"}"

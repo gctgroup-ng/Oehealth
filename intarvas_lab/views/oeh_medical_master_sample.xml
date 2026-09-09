@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<odoo>
+        <data>
+
+            <!-- Lab Sample Type -->
+
+            <record model="ir.ui.view" id="oeh_medical_sample_type_tree">
+                <field name="name">Lab Sample Type</field>
+                <field name="model">oeh.medical.sample.types</field>
+<!--                <field name="type">tree</field>-->
+                <field name="arch" type="xml">
+                    <list string='Lab Sample Type' editable="bottom">
+                        <field name="name"/>
+                    </list>
+                </field>
+            </record>
+
+             <record id="view_oeh_medical_sample_type_filter" model="ir.ui.view">
+                <field name="name">Sample Type Search</field>
+                <field name="model">oeh.medical.sample.types</field>
+                <field name="priority" eval="8" />
+			    <field name="arch" type="xml">
+                    <search string="Lab Sample Type">
+                        <field name="name"/>
+				    </search>
+                </field>
+            </record>
+
+            <record id="oeh_medical_sample_type_action_tree" model="ir.actions.act_window">
+                    <field name="name">Lab Sample Type</field>
+                    <field name="res_model">oeh.medical.sample.types</field>
+                    <field name="view_mode">list,form</field>
+                    <field name="help" type="html">
+                      <p class="o_view_nocontent_smiling_face">
+                        Click to add a new sample type
+                      </p>
+                    </field>
+            </record>
+
+            <menuitem action="oeh_medical_sample_type_action_tree" id="oeh_medical_sample_type_conf_list"
+                      parent="oeh_medical_conf_laboratory" sequence="5"/>
+
+        </data>
+</odoo>

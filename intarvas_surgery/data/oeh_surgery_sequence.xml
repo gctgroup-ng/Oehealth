@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Surgical Management -->
+
+        <record id="seq_oeh_medical_surgery" model="ir.sequence">
+            <field name="name">Surgeries</field>
+            <field name="code">oeh.medical.surgery</field>
+            <field name="prefix">SR/%(year)s/</field>
+            <field name="padding">5</field>
+
+        </record>
+    </data>
+</openerp>

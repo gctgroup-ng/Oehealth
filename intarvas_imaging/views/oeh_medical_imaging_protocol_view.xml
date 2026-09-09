@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Protocol Tree View -->
+        <record id="view_oeh_medical_imaging_protocol_list" model="ir.ui.view">
+            <field name="name">Imaging Protocol List</field>
+            <field name="model">oeh.medical.imaging.protocol</field>
+            <field name="arch" type="xml">
+                <list string="Imaging Protocols" sample="1">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="modality" widget="badge"/>
+                    <field name="contrast_required" widget="boolean_toggle"/>
+                    <field name="usage_count"/>
+                    <field name="last_used_date"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Protocol Form View -->
+        <record id="view_oeh_medical_imaging_protocol_form" model="ir.ui.view">
+            <field name="name">Imaging Protocol Form</field>
+            <field name="model">oeh.medical.imaging.protocol</field>
+            <field name="arch" type="xml">
+                <form string="Imaging Protocol">
+                    <header>
+                        <button name="action_approve_protocol" string="Approve Protocol" 
+                                type="object" class="oe_highlight" 
+                                invisible="approved_by"/>
+                        <button name="action_duplicate_protocol" string="Duplicate Protocol" 
+                                type="object"/>
+                        <field name="active" widget="boolean_button" 
+                               options='{"terminology": "active"}'/>
+                    </header>
+                    
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline" placeholder="Protocol Name"/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Protocol Information">
+                                <field name="code" readonly="approved_by"/>
+                                <field name="modality"/>
+                                            <field name="body_region"/>
+                            </group>
+                            <group string="Approval &amp; Usage">
+                                <field name="approved_by"/>
+                                <field name="approval_date"/>
+                                <field name="usage_count"/>
+                                <field name="last_used_date"/>
+                            </group>
+                        </group>
+
+                        <group string="Contrast Information">
+                            <group>
+                                <field name="contrast_required"/>
+                                <field name="contrast_type" invisible="not contrast_required"/>
+                                <field name="contrast_volume" invisible="not contrast_required"/>
+                                <field name="contrast_delay" invisible="not contrast_required"/>
+                            </group>
+                            <group>
+                                <field name="requires_physician_approval"/>
+                                <field name="average_duration_minutes"/>
+                                <field name="estimated_dose"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Instructions" name="instructions">
+                                <group>
+                                    <field name="preparation_instructions" nolabel="1" 
+                                           placeholder="Enter patient preparation instructions..."/>
+                                </group>
+                                <separator string="Positioning Instructions"/>
+                                <group>
+                                    <field name="positioning_instructions" nolabel="1" 
+                                           placeholder="Enter patient positioning instructions..."/>
+                                </group>
+                                <separator string="Acquisition Instructions"/>
+                                <group>
+                                    <field name="acquisition_instructions" nolabel="1" 
+                                           placeholder="Enter image acquisition instructions..."/>
+                                </group>
+                                <separator string="Post-Processing Instructions"/>
+                                <group>
+                                    <field name="post_processing_instructions" nolabel="1" 
+                                           placeholder="Enter post-processing instructions..."/>
+                                </group>
+                            </page>
+                            
+                            <page string="Technical Parameters" name="parameters">
+                                <group>
+                                    <field name="acquisition_parameters" widget="ace" 
+                                           options="{'mode': 'json'}"
+                                           placeholder='{"kVp": "120", "mAs": "250", "slice_thickness": "5mm"}'/>
+                                </group>
+                            </page>
+
+                            <page string="Related Protocols" name="relationships">
+                                <group>
+                                    <field name="parent_protocol_id"/>
+                                    <field name="child_protocol_ids" nolabel="1">
+                                        <list editable="bottom">
+                                            <field name="name"/>
+                                            <field name="code"/>
+                                            <field name="modality"/>
+                                        </list>
+                                    </field>
+                                </group>
+                            </page>
+
+                            <page string="Associated Studies" name="studies">
+                                <field name="study_ids" nolabel="1">
+                                    <list create="false" edit="false">
+                                        <field name="name"/>
+                                        <field name="patient"/>
+                                        <field name="date_requested"/>
+                                        <field name="state" widget="badge"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Protocol Search View -->
+        <record id="view_oeh_medical_imaging_protocol_search" model="ir.ui.view">
+            <field name="name">Imaging Protocol Search</field>
+            <field name="model">oeh.medical.imaging.protocol</field>
+            <field name="arch" type="xml">
+                <search string="Search Protocols">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="modality"/>
+                    <separator/>
+                    <filter name="active" string="Active" domain="[('active', '=', True)]"/>
+                    <filter name="contrast" string="Requires Contrast" domain="[('contrast_required', '=', True)]"/>
+                    <filter name="approved" string="Approved" domain="[('approved_by', '!=', False)]"/>
+                    <separator/>
+                    <group>
+                        <filter name="group_modality" string="Modality" context="{'group_by': 'modality'}"/>
+                        <filter name="group_region" string="Body Region" context="{'group_by': 'body_region'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- Actions -->
+        <record id="action_oeh_medical_imaging_protocol" model="ir.actions.act_window">
+            <field name="name">Imaging Protocols</field>
+            <field name="res_model">oeh.medical.imaging.protocol</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first imaging protocol!
+                </p>
+                <p>
+                    Imaging protocols define standardized procedures for different types of medical imaging studies.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- Menu Items -->
+        <menuitem id="menu_oeh_medical_imaging_protocol" 
+                  name="Protocols" 
+                  parent="oeh_medical_imaging_conf_menu" 
+                  action="action_oeh_medical_imaging_protocol" 
+                  sequence="15"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="post_health_center_organization" name="Post Health Center">
+        <t t-call="website.layout">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md">
+                        <img class="img img-responsive img-fluid mb32"
+                                 src="/intarvas_patient_portal/static/img/UK-Recruitment-Agencies.jpg"
+                                 style="width:100%; height:100%;"></img>
+                        <div class="d-none d-sm-block d-none d-xs-block header-text httal htvam">
+                            <h2 id="header_293" class="form-header"
+                                data-component="header">Great companies are built with great people
+                            </h2>
+                            <input type="hidden" class="post_active" t-att-value="post_job_active"/>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <form id="create_organization_form_id" action="/health/create_health_center/thankyou"
+                          data-toggle="validator" method="post"
+                          class="msform form-horizontal container-fluid mt32 hr_form"
+                          enctype="multipart/form-data" >
+                        <div class="form_border" style="padding:1em;">
+                           <h3 style="margin-bottom:2em;">CREATE YOUR HEALTH CENTER</h3>
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+                            <t t-set="states" t-value="request.env['res.country.state'].sudo().search([])"/>
+                            <t t-set="countries" t-value="request.env['res.country'].sudo().search([])"/>
+                            <div class="col-lg-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="name" class="control-label">Name
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control o_website_form_input"
+                                                           name="name"
+                                                           required="" data-error="Please add health center name."/>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="health_center_type" class="control-label">Health Center Type
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" name="health_center_type" id="health_center_type" required="">
+                                                         <option value="Hospital">Hospital</option>
+                                                        <option value="Multi-speciality Hospital">Multi-speciality Hospital</option>
+                                                        <option value="Nursing Home">Nursing Home</option>
+                                                        <option value="Clinic">Clinic</option>
+                                                        <option value="Community Health Center">Community Health Center</option>
+                                                        <option value="Military Medical Facility">Military Medical Facility</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="street" class="control-label">
+                                                        Street
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           name="street"
+                                                           />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="city" class="control-label">
+                                                        City
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           name="city"
+                                                           required=""
+                                                           />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="zip" class="control-label">
+                                                        Zip
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           name="zip"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--<div class="form-group" t-if="len(states) > 0">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="state_id" class="control-label">
+                                                        State
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" name="state_id">
+                                                         <t t-foreach="states" t-as="state">
+                                                              <option t-attf-value="#{state.id}"><t t-esc="state.name"/></option>
+                                                         </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+                                        <div class="form-group" t-if="len(countries) > 0">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="country_id" class="control-label">
+                                                        Country
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" name="country_id" required="required">
+                                                         <t t-foreach="countries" t-as="country">
+                                                              <option t-attf-value="#{country.id}"><t t-esc="country.name"/></option>
+                                                         </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="notify_email" class="control-label">
+                                                        Email
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="email"
+                                                           class="form-control"
+                                                           name="notify_email"
+                                                           data-error="Please enter valid Email address."
+                                                           required=""/>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="image_1920" class="control-label">
+                                                        Logo
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="file"
+                                                           class="form-control"
+                                                           name="image_1920"
+                                                           data-error="Please enter valid logo picture."
+                                                           accept=".jpeg,.jpg,.png,"
+                                                           required="" style="padding-bottom: 33px;"/>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+
+                                                <div class="col-lg-12 text-center">
+                                                    <button class="btn btn-primary btn-lg o_website_form_send mb32 action-button"
+                                                            style="width: auto;" type="submit">Get in touch
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="health_center_thankyou" name="Health Center Thank You">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p></p>
+                                <h1 class="text-center">Congratulations!</h1>
+                                <p class="text-center">
+                                    Your Health Center creation demand has been recorded successfully.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row" id="o_recruitment_thank_cta">
+                            <div class="col-lg-12 text-center mt32 mb32">
+                                In the meantime,
+                                <h3 class="mt8 mb32">Look around on our website:</h3>
+                                <a role="button" href="/" class="btn btn-primary btn-lg">Continue To Our Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="post_test_center_organization" name="Post Test Center">
+        <t t-call="website.layout">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md">
+                        <img class="img img-responsive img-fluid mb32"
+                                 src="/intarvas_patient_portal/static/img/UK-Recruitment-Agencies.jpg"
+                                 style="width:100%; height:100%;"></img>
+                        <div class="d-none d-sm-block d-none d-xs-block header-text httal htvam">
+                            <h2 id="header_293" class="form-header"
+                                data-component="header">Great companies are built with great people
+                            </h2>
+                            <input type="hidden" class="post_active" t-att-value="post_job_active"/>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <form id="create_organization_form_id" action="/health/create_test_center/thankyou"
+                          data-toggle="validator" method="post"
+                          class="msform form-horizontal container-fluid mt32 hr_form"
+                          enctype="multipart/form-data" >
+                        <div class="form_border" style="padding:1em;">
+                           <h3 style="margin-bottom:2em;">CREATE YOUR TEST CENTER</h3>
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+                            <t t-set="states" t-value="request.env['res.country.state'].sudo().search([])"/>
+                            <t t-set="countries" t-value="request.env['res.country'].sudo().search([])"/>
+                            <div class="col-lg-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="name" class="control-label">Name
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control o_website_form_input"
+                                                           name="name"
+                                                           required="" data-error="Please add test center name."/>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="info" class="control-label">Description
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control o_website_form_input"
+                                                           name="info"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="street" class="control-label">
+                                                        Street
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           name="street"
+                                                           />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="city" class="control-label">
+                                                        City
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           name="city"
+                                                           required=""
+                                                           />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="zip" class="control-label">
+                                                        Zip
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           name="zip"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--<div class="form-group" t-if="len(states) > 0">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="state_id" class="control-label">
+                                                        State
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" name="state_id">
+                                                         <t t-foreach="states" t-as="state">
+                                                              <option t-attf-value="#{state.id}"><t t-esc="state.name"/></option>
+                                                         </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+                                        <div class="form-group" t-if="len(countries) > 0">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="country_id" class="control-label">
+                                                        Country
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" name="country_id" required="required">
+                                                         <t t-foreach="countries" t-as="country">
+                                                              <option t-attf-value="#{country.id}"><t t-esc="country.name"/></option>
+                                                         </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="notify_email" class="control-label">
+                                                        Email
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="email"
+                                                           class="form-control"
+                                                           name="notify_email"
+                                                           data-error="Please enter valid Email address."
+                                                           required=""/>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+                                                <div class="col-lg-4 text-right">
+                                                    <label for="image_1920" class="control-label">
+                                                        Logo
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="file"
+                                                           class="form-control"
+                                                           name="image_1920"
+                                                           data-error="Please enter valid logo picture."
+                                                           accept=".jpeg,.jpg,.png,"
+                                                           required="" style="padding-bottom: 33px;"/>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group o_website_form_required_custom">
+                                            <div class="row">
+
+                                                <div class="col-lg-12 text-center">
+                                                    <button class="btn btn-primary btn-lg o_website_form_send mb32 action-button"
+                                                            style="width: auto;" type="submit">Get in touch
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="test_center_thankyou" name="Test Center Thank You">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p></p>
+                                <h1 class="text-center">Congratulations!</h1>
+                                <p class="text-center">
+                                    Your Test Center creation demand has been recorded successfully.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row" id="o_recruitment_thank_cta">
+                            <div class="col-lg-12 text-center mt32 mb32">
+                                In the meantime,
+                                <h3 class="mt8 mb32">Look around on our website:</h3>
+                                <a role="button" href="/" class="btn btn-primary btn-lg">Continue To Our Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+</template>
+
+    <template id="patient_web_registration" name="Patient Registration">
+        <t t-call="web.login_layout">
+            <form class="oe_signup_form"  id="patient_registration" role="form" method="post">
+                <div class="text-center mt32 mb32"><strong>Patient Registration</strong></div>
+                <t t-set="hospitals" t-value="request.env['oeh.medical.health.center'].sudo().search([])"/>
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div id="patient_registration_details" t-att-style="None if signup_from_patient_registration_page else 'display:none;'">
+                    <div class="form-group field-login">
+                        <label for="login">Your Email</label>
+                        <input type="text" name="login" t-att-value="login" id="login" class="form-control form-control-sm" autofocus="autofocus"
+                            autocapitalize="off" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
+                    </div>
+
+                    <div class="form-group field-name">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" placeholder="e.g. John Doe"
+                            required="required" t-att-readonly="'readonly' if only_passwords else None"
+                            t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                    </div>
+
+                    <div class="form-group field-password pt-2">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control form-control-sm"
+                            required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
+                    </div>
+
+                    <div class="form-group field-confirm_password">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-sm" required="required"/>
+                    </div>
+                    <div class="form-group field-dob">
+                        <label class="control-label" for="dob">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" class="form-control" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="patient_id">Patient ID</label>
+                        <input type="text" name="patient_id" id="patient_id" class="form-control" required="required"/>
+                    </div>
+<!--                    <div class="form-group field-marital-status">-->
+<!--                        <label class="control-label" for="marital_status">Marital Status</label>-->
+<!--                        <select id="marital_status" name="marital_status" class="form-control" required="required">-->
+<!--                            <option value="Single">Single</option>-->
+<!--                            <option value="Married">Married</option>-->
+<!--                            <option value="Widowed">Widowed</option>-->
+<!--                            <option value="Divorced">Divorced</option>-->
+<!--                            <option value="Separated">Separated</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <div class="form-group field-gender">-->
+<!--                        <label class="control-label" for="gender">Gender</label>-->
+<!--                        <select id="gender" name="gender" class="form-control" required="required">-->
+<!--                            <option value="Male">Male</option>-->
+<!--                            <option value="Female">Female</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <div class="form-group field-hospitals" t-if="len(hospitals) > 0">-->
+<!--                        <t t-set="counter" t-value="0"/>-->
+<!--                        <label class="control-label" for="hospitals">Hospitals</label>-->
+<!--                        <t t-foreach="hospitals" t-as="hospital" name="hospital_ids">-->
+<!--                            <t t-set="counter" t-value="counter + 1"/>-->
+<!--                            <div class="form-check">-->
+<!--                                <label class="form-check-label">-->
+<!--                                    <input type="checkbox" t-attf-name="hospital-#{counter}" class="form-check-input" t-attf-value="#{hospital.id}">-->
+<!--                                            <t t-esc="hospital.name"/>-->
+<!--                                    </input>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </div>-->
+<!--                    <div class="form-group field-primary-hospital" t-if="len(hospitals) > 0">-->
+<!--                        <label class="control-label" for="primary_hospital">Primary Hospital</label>-->
+<!--                        <select id="gender" name="primary_hospital" class="form-control">-->
+<!--                            <t t-foreach="hospitals" t-as="hospital">-->
+<!--                                <option t-attf-value="#{hospital.id}"><t t-esc="hospital.name"/></option>-->
+<!--                            </t>-->
+<!--                        </select>-->
+<!--                    </div>-->
+                    <input type="hidden" name="is_patient" value="true"/>
+                </div>
+                <p class="alert alert-danger" t-if="error">
+                    <t t-esc="error"/>
+                </p>
+                <input type="hidden" name="signup_from_patient_registration_page" value="false"/>
+                <input type="hidden" name="redirect" t-att-value="redirect"/>
+                <input type="hidden" name="token" t-att-value="token"/>
+                <div class="clearfix oe_login_buttons">
+                    <button type="submit" class="btn btn-primary pull-left">Sign up</button>
+                </div>
+
+            </form>
+        </t>
+    </template>
+
+<!--    <template id="post_menu_health_centers_web_portal" name="Link to frontend portal"-->
+<!--              inherit_id="website.layout">-->
+<!--        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')]" position="before">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link post-job-menu" href="/health/patient/registration" role="menuitem">-->
+<!--                    Register as Patient-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="nav-item" groups="intarvas.group_oeh_medical_physician">-->
+<!--                <a class="nav-link post-job-menu" href="/patients" role="menuitem">-->
+<!--                    Patients-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+    <!-- Main Signup form inheritance -->
+    <template id="auth_signup_signup_extend" inherit_id="auth_signup.signup" name="Signup Fields Extend">
+        <xpath expr="//t[@t-call='auth_signup.fields']" position="before">
+            <h3 class="mt32 mb32 font-weight-bold">Signup as Family Responsible</h3>
+        </xpath>
+    </template>
+
+    <template id="auth_signup_fields_extend" inherit_id="auth_signup.fields" name="Signup Fields Extend">
+        <xpath expr="//div[hasclass('field-name')]" position="after">
+            <div class="form-group field-relation">
+                <label for="relation">Your Relation:</label>
+                <select class="form-control" name="relation" id="relation">
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Wife">Wife</option>
+                    <option value="Husband">Husband</option>
+                    <option value="Grand Father">Grand Father</option>
+                    <option value="Grand Mother">Grand Mother</option>
+                    <option value="Aunt">Aunt</option>
+                    <option value="Uncle">Uncle</option>
+                    <option value="Nephew">Nephew</option>
+                    <option value="Niece">Niece</option>
+                    <option value="Cousin">Cousin</option>
+                    <option value="Relative">Relative</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group field-age">
+                <label for="age">Your Age</label>
+                <input type="number" name="age" class="form-control" required="required"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('field-confirm_password')]" position="after">
+            <h3 class="mt32 mb32">Verify</h3>
+            <div class="form-group field-patient-id">
+                <label for="patient_id">Patient ID</label>
+                <input type="text" name="patient_id" class="form-control" required="required"/>
+            </div>
+            <div class="form-group field-dob">
+                <label for="birth_date">Patient Date of Birth</label>
+                <input type="date" name="birth_date" class="form-control" required="required"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

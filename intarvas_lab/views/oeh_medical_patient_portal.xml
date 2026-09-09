@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="patient_lab_details_form" inherit_id="intarvas_patient_portal.patient_detail_form"
+              name="Patient Lab Detail Form">
+        <xpath expr="//div[hasclass('appointment_show')]" position="after">
+            <div class="card mb-3">
+                <h6 class="card-header" style="border:none;background-color:white !important;">
+                    <div class="row">
+                        <div class="column text-left font_patient" style="width: 50%;">
+                            <i class="fa fa-address-book padding_patient"/>Lab Requests
+                        </div>
+                        <!-- <p class="card-text mb0" t-if="user_id">user<t t-esc="user_id.id"/></p>
+                        <p class="card-text mb0" t-if="patient">patient<t t-esc="patient.oeh_patient_user_id.id"/></p> -->
+                        <div class="column text-right" style="width: 50%;">
+                            <!-- <t t-if="user_id.id == patient.oeh_patient_user_id.id"> -->
+                            <a t-attf-href="/patient/portal/#{patient.id}/lab_requests"
+                               groups="intarvas.group_oeh_medical_physician">
+                                <button class="fa fa-plus link_patient font_patient"
+                                        style="border:none;" type="button">View All
+                                </button>
+                            </a>
+                            <!-- </t> -->
+                        </div>
+                    </div>
+                </h6>
+                <div class="card-body">
+                    <t t-set="lab_req"
+                       t-value="request.env['oeh.medical.lab.request'].sudo().search([('patient', '=', patient.id)])"/>
+                    <p class="card-text font_patient" t-if="not lab_req">
+                        <i class="fa fa-plus-circle"/> &amp;nbsp;
+                        <span>List out of all your lab requests.</span>
+                    </p>
+                    <t t-if="lab_req" t-foreach="lab_req" t-as="lab">
+                        <p class="card-text font_patient " t-if="lab">
+                            <div class="row">
+                                <div class="column text-left font_patient ml-2" style="width: 70%;">
+                                    <p class="mb0 font-weight-bold">
+                                        <t t-esc="lab.name"/>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Date:</span>
+                                        <span t-field="lab.date_requested"/>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Ordered Lab Tests:</span>
+                                        <t t-set="lab_count" t-value="0"/>
+                                        <t t-foreach="lab.lab_test_ids" t-as="types">
+                                            <t t-set="lab_count" t-value="lab_count + 1"/>
+                                            <t t-if="len(lab.lab_test_ids) > lab_count">
+                                                <span t-field="types.name"/>
+                                                ,
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="types.name"/>
+                                            </t>
+                                        </t>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Tests Charge:</span>
+                                        <span t-esc="request.env.user.company_id.currency_id.symbol"/>
+                                        <span t-field="lab.total"/>
+                                    </p>
+                                </div>
+                                <div class="column text-left font_patient tx_status"
+                                     style="width: 20%;">
+                                    <t t-if="lab.state == 'Draft'">
+                                        <span class="badge badge-pill badge-light">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Draft"
+                                               title="Draft" role="img"></i>
+                                            <span class="d-none d-md-inline">Draft</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Sample Taken'">
+                                        <span class="badge badge-pill badge-info">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Sample Taken"
+                                               title="Sample Taken" role="img"></i>
+                                            <span class="d-none d-md-inline">Sample Taken</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Invoiced'">
+                                        <span class="badge badge-pill" style="background-color:lightgray;">
+                                            <i class="fa fa-fw fa-check" aria-label="Invoiced"
+                                               title="Invoiced" role="img"></i>
+                                            <span class="d-none d-md-inline">Invoiced</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Pushed For Testing'">
+                                        <span class="badge badge-pill badge-success">
+                                            <i class="fa fa-fw fa-check" aria-label="Pushed For Testing"
+                                               title="Pushed For Testing" role="img"></i>
+                                            <span class="d-none d-md-inline">Pushed For Testing</span>
+                                        </span>
+                                    </t>
+                                </div>
+
+                                <!--                                <div class="column text-right" style="width:2%;margin-left:303px;">-->
+                                <!--                                    <div class="row">-->
+                                <!--                                        <div class="column edit_family" style="width:50%;">-->
+                                <!--                                            <a t-attf-href="/patient/portal/#{patient.id}/family/#{family.id}">-->
+                                <!--                                                <i class="fa fa-pencil link_patient font_patient"-->
+                                <!--                                                   style="border:none;"-->
+                                <!--                                                   groups="intarvas.group_oeh_medical_physician"/>-->
+                                <!--                                            </a>-->
+                                <!--                                        </div>-->
+                                <!--                                        <div class="column remove_family" style="width:50%;">-->
+                                <!--                                            <a t-attf-href="/patient/portal/family/#{family.id}/remove">-->
+                                <!--                                                <i class="fa fa-trash link_patient font_patient"-->
+                                <!--                                                   style="border:none;"-->
+                                <!--                                                   groups="intarvas.group_oeh_medical_physician"/>-->
+                                <!--                                            </a>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
+                            </div>
+                            <!--                            </div>-->
+                            <!--                        </t>-->
+                        </p>
+                    </t>
+                </div>
+            </div>
+
+
+            <div class="card mb-3">
+                <h6 class="card-header" style="border:none;background-color:white !important;">
+                    <div class="row">
+                        <div class="column text-left font_patient" style="width: 50%;">
+                            <i class="fa fa-address-book padding_patient"/>Lab Tests
+                        </div>
+                        <!-- <p class="card-text mb0" t-if="user_id">user<t t-esc="user_id.id"/></p>
+                        <p class="card-text mb0" t-if="patient">patient<t t-esc="patient.oeh_patient_user_id.id"/></p> -->
+                        <div class="column text-right" style="width: 50%;">
+                            <!-- <t t-if="user_id.id == patient.oeh_patient_user_id.id"> -->
+                            <a t-attf-href="/patient/portal/#{patient.id}/lab-tests">
+                                <button class="fa fa-plus link_patient font_patient"
+                                        style="border:none;" type="button">View All
+                                </button>
+                            </a>
+                            <!-- </t> -->
+                        </div>
+                    </div>
+                </h6>
+                <div class="card-body">
+                    <t t-set="lab_test"
+                       t-value="request.env['oeh.medical.lab.test'].sudo().search([('patient', '=', patient.id)])"/>
+                    <p class="card-text font_patient" t-if="not lab_test">
+                        <i class="fa fa-plus-circle"/> &amp;nbsp;
+                        <span>List out of all your Lab Tests.</span>
+                    </p>
+                    <t t-if="lab_test">
+                        <t t-set="progress_labtest"
+                           t-value="request.env['oeh.medical.lab.test'].sudo().search([('patient', '=', patient.id), ('state', 'in', ('Draft', 'Test In Progress'))])"/>
+                        <p t-if="progress_labtest" class="mt16 mb16" style="color:gray;">
+                            Draft / Test In Progress
+                        </p>
+                        <div t-if="progress_labtest" t-foreach="progress_labtest"
+                             t-as="lab" class="mb32 ml-2">
+                            <div class="row">
+                                <div class="column text-left font_patient ml-2" style="width: 70%;">
+                                    <p class="mb0 font-weight-bold">
+                                        <t t-esc="lab.name"/>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Date:</span>
+                                        <span t-field="lab.date_requested"/>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Ordered Lab Tests:</span>
+                                        <t t-set="lab_count" t-value="0"/>
+                                        <t t-foreach="lab.lab_test_type_ids" t-as="types">
+                                            <t t-set="lab_count" t-value="lab_count + 1"/>
+                                            <t t-if="len(lab.lab_test_type_ids) > lab_count">
+                                                <span t-field="types.name"/>
+                                                ,
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="types.name"/>
+                                            </t>
+                                        </t>
+                                    </p>
+                                    <p class="mb0">
+                                        <t t-if="lab.lab_request">
+                                            <span class="label_color font-weight-bold">Lab Request Number:</span>
+                                            <span t-field="lab.lab_request"/>
+                                        </t>
+                                    </p>
+
+                                </div>
+                                <div class="column text-left font_patient tx_status"
+                                     style="width: 20%;">
+                                    <t t-if="lab.state == 'Draft'">
+                                        <span class="badge badge-pill badge-light">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Draft"
+                                               title="Draft" role="img"></i>
+                                            <span class="d-none d-md-inline">Draft</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Test In Progress'">
+                                        <span class="badge badge-pill badge-info">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Test In Progress"
+                                               title="Test In Progress" role="img"></i>
+                                            <span class="d-none d-md-inline">Test In Progress</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Completed'">
+                                        <span class="badge badge-pill badge-success">
+                                            <i class="fa fa-fw fa-check" aria-label="Completed"
+                                               title="Completed" role="img"></i>
+                                            <span class="d-none d-md-inline">Completed</span>
+                                        </span>
+                                    </t>
+                                </div>
+                                <div class="column text-right" style="width: 5%;">
+                                    <div class="row">
+                                        <div class="column edit_family" style="width: 90%;">
+                                            <a t-attf-href="/patient/portal/labtest-report/#{lab.id}">
+                                                <i class="fa fa-print link_patient font_patient"
+                                                   style="border:none;"/>
+                                            </a>
+                                        </div>
+                                        <!--                                        <div class="column edit_family" style="width:30%;">-->
+                                        <!--                                            <a t-attf-href="#">-->
+                                        <!--                                                <i class="fa fa-pencil link_patient font_patient"-->
+                                        <!--                                                   style="border:none;"-->
+                                        <!--                                                   groups="intarvas.group_oeh_medical_physician"/>-->
+                                        <!--                                            </a>-->
+                                        <!--                                        </div>-->
+                                        <!--                                        <div class="column remove_family" style="width:30%;">-->
+                                        <!--                                            <a t-attf-href="/patient/portal/labtest/#{lab.id}/remove">-->
+                                        <!--                                                <i class="fa fa-trash link_patient font_patient"-->
+                                        <!--                                                   style="border:none;"-->
+                                        <!--                                                   groups="intarvas.group_oeh_medical_physician"/>-->
+                                        <!--                                            </a>-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <t t-set="completed_labtest"
+                           t-value="request.env['oeh.medical.lab.test'].sudo().search([('patient', '=', patient.id), ('state', '=', 'Completed')])"/>
+                        <p t-if="completed_labtest" class="mt16 mb16" style="color:gray;">
+                            Completed
+                        </p>
+                        <div t-if="completed_labtest" t-foreach="completed_labtest"
+                             t-as="lab" class="mb32 ml-2">
+                            <div class="row">
+                                <div class="column text-left font_patient ml-2" style="width: 70%;">
+                                    <p class="mb0 font-weight-bold">
+                                        <t t-esc="lab.name"/>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Date:</span>
+                                        <span t-field="lab.date_requested"/>
+                                    </p>
+                                    <p class="mb0">
+                                        <span class="label_color font-weight-bold">Lab Tests:</span>
+                                        <t t-set="lab_count" t-value="0"/>
+                                        <t t-foreach="lab.lab_test_type_ids" t-as="types">
+                                            <t t-set="lab_count" t-value="lab_count + 1"/>
+                                            <t t-if="len(lab.lab_test_type_ids) > lab_count">
+                                                <span t-field="types.name"/>
+                                                ,
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="types.name"/>
+                                            </t>
+                                        </t>
+                                    </p>
+                                    <p class="mb0">
+                                        <t t-if="lab.lab_request">
+                                            <span class="label_color font-weight-bold">Lab Request Number:</span>
+                                            <span t-field="lab.lab_request"/>
+                                        </t>
+                                    </p>
+
+                                </div>
+                                <div class="column text-left font_patient tx_status"
+                                     style="width: 20%;">
+                                    <t t-if="lab.state == 'Draft'">
+                                        <span class="badge badge-pill badge-light">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Draft"
+                                               title="Draft" role="img"></i>
+                                            <span class="d-none d-md-inline">Draft</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Test In Progress'">
+                                        <span class="badge badge-pill badge-info">
+                                            <i class="fa fa-fw fa-clock-o" aria-label="Test In Progress"
+                                               title="Test In Progress" role="img"></i>
+                                            <span class="d-none d-md-inline">Test In Progress</span>
+                                        </span>
+                                    </t>
+                                    <t t-if="lab.state == 'Completed'">
+                                        <span class="badge badge-pill badge-success">
+                                            <i class="fa fa-fw fa-check" aria-label="Completed"
+                                               title="Completed" role="img"></i>
+                                            <span class="d-none d-md-inline">Completed</span>
+                                        </span>
+                                    </t>
+                                </div>
+                                <div class="column text-right" style="width: 5%;">
+                                    <div class="row">
+                                        <div class="column edit_family" style="width: 90%;">
+                                            <a t-attf-href="/patient/portal/labtest-report/#{lab.id}">
+                                                <i class="fa fa-print link_patient font_patient"
+                                                   style="border:none;"/>
+                                            </a>
+                                        </div>
+                                        <!--                                        <div class="column edit_family" style="width:30%;">-->
+                                        <!--                                            <a t-attf-href="#">-->
+                                        <!--                                                <i class="fa fa-pencil link_patient font_patient"-->
+                                        <!--                                                   style="border:none;"-->
+                                        <!--                                                   groups="intarvas.group_oeh_medical_physician"/>-->
+                                        <!--                                            </a>-->
+                                        <!--                                        </div>-->
+                                        <!--                                        <div class="column remove_family" style="width:30%;">-->
+                                        <!--                                            <a t-attf-href="/patient/portal/labtest/#{lab.id}/remove">-->
+                                        <!--                                                <i class="fa fa-trash link_patient font_patient"-->
+                                        <!--                                                   style="border:none;"-->
+                                        <!--                                                   groups="intarvas.group_oeh_medical_physician"/>-->
+                                        <!--                                            </a>-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="view_patient_lab_test" name="View Patient Lab Tests">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item">
+                                <a t-attf-href="/patient/portal/#{patient.patient_token}">
+                                    <i class="fa fa-home" role="img" aria-label="My Account" title="My Account"/>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">Lab Tests</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <!--                    <div class="row mt16 mb16">-->
+                    <!--                        <div class="col-md-12 text-right">-->
+                    <!--                            <input type="hidden" name="patient" id="patient" t-att-value="patient.id"/>-->
+                    <!--                            <a t-attf-href="/patient/portal/#{patient.id}/appointment"-->
+                    <!--                               groups="intarvas.group_oeh_medical_physician">-->
+                    <!--                                <button type="button" class="btn btn-secondary">Add</button>-->
+                    <!--                            </a>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <t t-if="labtest_available" t-call="portal.portal_table">
+                        <thead>
+                            <tr class="active">
+                                <th>Lab Test #</th>
+                                <th>Lab Request Number</th>
+                                <th>Date &amp; Time</th>
+                                <th>Ordered Lab Tests</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-if="progress_labtest">
+                                <td class="mt16 mb16 font-weight-bold" style="color:gray;">Draft/Test In Progress</td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <t t-foreach="progress_labtest" t-as="progress">
+                                <tr>
+                                    <td>
+                                        <span t-field="progress.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="progress.lab_request"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="progress.date_requested"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="lab_count" t-value="0"/>
+                                        <t t-foreach="progress.lab_test_type_ids" t-as="types">
+                                            <t t-set="lab_count" t-value="lab_count + 1"/>
+                                            <t t-if="len(progress.lab_test_type_ids) > lab_count">
+                                                <span t-field="types.name"/>
+                                                ,
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="types.name"/>
+                                            </t>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="progress.state == 'Draft'">
+                                            <span class="badge badge-pill badge-light">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Draft"
+                                                   title="Draft" role="img"></i>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="progress.state == 'Test In Progress'">
+                                            <span class="badge badge-pill badge-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Test In Progress"
+                                                   title="Test In Progress" role="img"></i>
+                                                <span class="d-none d-md-inline">Test In Progress</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="progress.state == 'Completed'">
+                                            <span class="badge badge-pill badge-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Completed"
+                                                   title="Completed" role="img"></i>
+                                                <span class="d-none d-md-inline">Completed</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <a t-attf-href="/patient/portal/labtest-report/#{progress.id}">
+                                            <i class="fa fa-print link_patient font_patient"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr t-if="completed_labtest">
+                                <td class="mt16 mb16 font-weight-bold" style="color:gray;">Completed</td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <t t-foreach="completed_labtest" t-as="completed">
+                                <tr>
+                                    <td>
+                                        <span t-field="completed.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="completed.lab_request"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="completed.date_requested"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="lab_count" t-value="0"/>
+                                        <t t-foreach="completed.lab_test_type_ids" t-as="types">
+                                            <t t-set="lab_count" t-value="lab_count + 1"/>
+                                            <t t-if="len(completed.lab_test_type_ids) > lab_count">
+                                                <span t-field="types.name"/>
+                                                ,
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="types.name"/>
+                                            </t>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="completed.state == 'Draft'">
+                                            <span class="badge badge-pill badge-light">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Draft"
+                                                   title="Draft" role="img"></i>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="completed.state == 'Test In Progress'">
+                                            <span class="badge badge-pill badge-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Test In Progress"
+                                                   title="Test In Progress" role="img"></i>
+                                                <span class="d-none d-md-inline">Test In Progress</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="completed.state == 'Completed'">
+                                            <span class="badge badge-pill badge-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Completed"
+                                                   title="Completed" role="img"></i>
+                                                <span class="d-none d-md-inline">Completed</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <a t-attf-href="/patient/portal/labtest-report/#{completed.id}">
+                                            <i class="fa fa-print link_patient font_patient"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not labtest_available">
+                        <p>There are currently no Lab Tests available.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="view_patient_lab_requests" name="View Patient Lab Requests">
+        <t t-call="portal.frontend_layout">
+            <div class="container mb16">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item">
+                                <a t-attf-href="/patient/portal/#{patient.patient_token}">
+                                    <i class="fa fa-home" role="img" aria-label="My Account" title="My Account"/>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">Lab Requests</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="row mt16 mb16">
+                        <div class="col-md-12 text-right">
+                            <input type="hidden" name="patient" id="patient" t-att-value="patient.id"/>
+                            <a t-attf-href="/patient/portal/#{patient.id}/lab_request"
+                               groups="intarvas.group_oeh_medical_physician">
+                                <button type="button" class="btn btn-secondary">Add</button>
+                            </a>
+                        </div>
+                    </div>
+                    <t t-if="lab_request_available" t-call="portal.portal_table">
+                        <thead>
+                            <tr class="active">
+                                <th>Lab Request Number</th>
+                                <th>Doctor Who Requested The Test</th>
+                                <th>Date Requested</th>
+                                <th>Ordered Lab Tests</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="lab_request" t-as="req">
+                                <tr>
+                                    <td>
+                                        <span t-field="req.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="req.requestor"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="req.date_requested"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="req.lab_test_ids"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="req.state == 'Draft'">
+                                            <span class="badge badge-pill badge-light">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Draft"
+                                                   title="Draft" role="img"></i>
+                                                <span class="d-none d-md-inline">Draft</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="req.state == 'Sample Taken'">
+                                            <span class="badge badge-pill badge-info">
+                                                <i class="fa fa-fw fa-clock-o" aria-label="Sample Taken"
+                                                   title="Sample Taken" role="img"></i>
+                                                <span class="d-none d-md-inline">Sample Taken</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="req.state == 'Invoiced'">
+                                            <span class="badge badge-pill" style="background-color:lightgray;">
+                                                <i class="fa fa-fw fa-check" aria-label="Invoiced"
+                                                   title="Invoiced" role="img"></i>
+                                                <span class="d-none d-md-inline">Invoiced</span>
+                                            </span>
+                                        </t>
+                                        <t t-if="req.state == 'Pushed For Testing'">
+                                            <span class="badge badge-pill badge-success">
+                                                <i class="fa fa-fw fa-check" aria-label="Pushed For Testing"
+                                                   title="Pushed For Testing" role="img"></i>
+                                                <span class="d-none d-md-inline">Pushed For Testing</span>
+                                            </span>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <a t-attf-href="/patient/portal/#{patient.id}/lab_request/#{req.id}">
+                                            <i class="fa fa-pencil link_patient font_patient"/>
+                                        </a>
+                                        <a t-attf-href="/patient/portal/#{patient.id}/lab_request/#{req.id}/remove">
+                                            <i class="fa fa-trash link_patient font_patient"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                    <t t-if="not lab_request_available">
+                        <p>There are currently no Lab Requests available.</p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="patient_manage_lab_requests" name="Patient Lab Requests Details">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb mt8">
+                            <li class="breadcrumb-item">
+                                <a t-attf-href="/patient/portal/#{patient.id}/lab_requests">
+                                    <i class="fa fa-home" role="img" aria-label="My Account" title="My Account"/>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">Lab Requests Detail</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr16 mt16 mb16" t-if="error_message">
+                    <div t-attf-class="'col-md-12 mr16 ml16 alert alert-dismissable' #{'alert-danger' if error else 'alert-warning'}"
+                         role="alert">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        <t name="error_message">
+                            <t t-esc="error_message"/>
+                        </t>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="col-md-12">
+                        <form t-att-action="form_action">
+                            <input type="hidden" name="patient" id="patient" t-att-value="patient.id"/>
+                            <div class="row" t-if="labreq">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Lab Request Number:</label>
+                                        <input type="text" class="form-control" name="name" id="name"
+                                               t-attf-value="#{labreq.name}" readonly="readonly"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="requestor">Doctor Who Requested The Test:</label>
+                                        <input type="text" class="form-control" name="requestor" id="requestor"
+                                               t-att-value="requestor" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="date_requested">Date Requested</label>
+                                        <div class="input-group">
+                                            <input type="datetime-local" class="form-control" name="date_requested"
+                                                   id="date_requested" t-att-value="date_requested"
+                                                   required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="institution">Health Center:</label>
+                                        <select class="form-control" name="institution" id="institution">
+                                            <t t-foreach="institutions" t-as="institute">
+                                                <option t-attf-value="#{institute.id}"
+                                                        t-att-selected="labreq and institute.id == labreq.institution.id">
+                                                    <t t-esc="institute.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <t t-set="lab_tests"
+                                           t-value="request.env['oeh.medical.labtest.types'].sudo().search([])"/>
+                                        <label for="lab_test_ids">Lab Tests:</label>
+                                        <br/>
+                                        <div class="row">
+                                            <t t-foreach="lab_tests" t-as="lab">
+                                                <div class="col-md-6">
+                                                    <input type="checkbox" class="lab_test_ids" name="lab_test_ids"
+                                                           id="lab_test_ids"
+                                                           t-attf-value="#{lab.id}"
+                                                           t-att-checked="labreq and lab.id in labreq.lab_test_ids.ids">
+                                                        <!--                                                <t t-esc="labreq.lab_test_ids.ids"/>-->
+                                                        <t t-esc="lab.name"/>
+                                                        <br/>
+                                                    </input>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="test_charge" class="form-group">
+                                        <label>Test Charge:</label>
+                                        <b>
+                                            <span id="currency" t-esc="request.env.user.company_id.currency_id.symbol"/>
+                                            <span id="lab_test_total"/>
+                                        </b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="chief_complaint">Chief Complaint</label>
+                                        <textarea class="form-control" name="chief_complaint"
+                                                  id="chief_complaint">
+                                            <t t-esc="labreq and labreq.chief_complaint"/>
+                                        </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt16">
+                                <div class="col-md-6 text-left">
+                                    <a t-attf-href="/patient/portal/#{patient.id}/lab_requests">
+                                        <button type="button" class="btn btn-secondary">Cancel</button>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                <br/>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

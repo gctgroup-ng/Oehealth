@@ -1,0 +1,105 @@
+#wrapwrap .top .fa {
+    background-color: #DD7E43;
+    color: #eee2cf;
+}
+
+#wrapwrap .img-circle, #wrapwrap .img-circle.img-thumbnail {
+    border-radius: 50%;
+}
+
+.hide_btn_bottom {
+  display: none;
+}
+
+.myImg:hover .hide_btn_bottom {
+    display: contents;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border: 5px solid transparent;
+    border-bottom: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hide_remove_btn_bottom {
+  display: none;
+}
+
+.myImg:hover .hide_remove_btn_bottom {
+    display: block;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 5px solid transparent;
+    border-top: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.list-group-item {
+    border-radius: 0.375rem !important;
+}
+
+.vvp_alumni_font {
+    margin-bottom: 0.625rem;
+    font-weight: 600;
+    line-height: 1.1;
+    font-size: 1.875rem;
+}
+
+.label_connect {
+    padding-right: 0rem;
+    font-size: 12px;
+    padding-bottom: 0px!important;
+    padding-top: 5px !important;
+
+}
+
+.form_group_margin_bottom {
+    margin-bottom: 0px !important;
+}
+
+.img_patient {
+    width: 5.3em;
+    height: 5.3em;
+    object-fit: cover;
+}
+
+.img_patient_h {
+    width: 2.3em;
+    height: 2.3em;
+    object-fit: cover;
+}
+
+.font_patient {
+    font-size: 16px;
+}
+
+.link_patient {
+    color: #00b3b3;
+    background-color: rgba(0, 0, 0, 0.003);
+}
+
+.padding_patient {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.label_color {
+    color: #A9A9A9;
+}
+
+.font_icon_patient {
+    font-size: 15px;
+}
+
+.modal-open #wrapwrap {
+    overflow: auto !important;
+}

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_birth_certificate_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.mother.partner_id.lang if doc.mother else 'en_US')"/>
+            
+            <div class="page">
+                <style>
+                    .page {
+                        font-family: 'Times New Roman', serif;
+                        font-size: 12pt;
+                        line-height: 1.4;
+                        color: #000;
+                        margin: 0;
+                        padding: 20px;
+                        background: white;
+                    }
+                    
+                    /* Certificate Header */
+                    .certificate-header {
+                        text-align: center;
+                        margin-bottom: 30px;
+                        border-bottom: 2px solid #2C5F2D;
+                        padding-bottom: 20px;
+                    }
+                    .certificate-title {
+                        font-size: 24pt;
+                        font-weight: bold;
+                        color: #2C5F2D;
+                        margin-bottom: 5px;
+                        letter-spacing: 2px;
+                    }
+                    .certificate-subtitle {
+                        font-size: 16pt;
+                        color: #666;
+                        font-style: italic;
+                        margin-bottom: 10px;
+                    }
+                    .institution-info {
+                        font-size: 12pt;
+                        color: #333;
+                        margin-top: 10px;
+                    }
+                    
+                    /* Certificate Body */
+                    .certificate-body {
+                        margin: 30px 0;
+                        padding: 20px;
+                        border: 1px solid #ddd;
+                        background: #fafafa;
+                    }
+                    
+                    /* Information Table */
+                    .info-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 20px 0;
+                        font-size: 11pt;
+                    }
+                    .info-table td {
+                        padding: 8px 12px;
+                        border: 1px solid #ccc;
+                        vertical-align: top;
+                    }
+                    .info-table .label {
+                        background: #f5f5f5;
+                        font-weight: bold;
+                        width: 30%;
+                        color: #333;
+                    }
+                    .info-table .value {
+                        background: white;
+                        font-weight: normal;
+                    }
+                    
+                    /* Birth Details Section */
+                    .birth-details {
+                        margin: 25px 0;
+                        padding: 15px;
+                        border: 2px solid #2C5F2D;
+                        background: white;
+                    }
+                    .section-title {
+                        font-size: 14pt;
+                        font-weight: bold;
+                        color: #2C5F2D;
+                        margin-bottom: 15px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    }
+                    
+                    /* Medical Information */
+                    .medical-info {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 20px;
+                        margin: 20px 0;
+                    }
+                    .medical-box {
+                        padding: 10px;
+                        border: 1px solid #ddd;
+                        background: #f9f9f9;
+                    }
+                    .medical-label {
+                        font-weight: bold;
+                        font-size: 10pt;
+                        color: #555;
+                        margin-bottom: 3px;
+                    }
+                    .medical-value {
+                        font-size: 11pt;
+                        color: #000;
+                    }
+                    
+                    /* Footer and Signatures */
+                    .certificate-footer {
+                        margin-top: 40px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: end;
+                    }
+                    .signature-section {
+                        text-align: center;
+                        width: 45%;
+                    }
+                    .signature-line {
+                        border-top: 1px solid #000;
+                        margin: 40px 0 5px 0;
+                        padding-top: 5px;
+                    }
+                    .signature-title {
+                        font-size: 10pt;
+                        font-weight: bold;
+                        color: #555;
+                    }
+                    .signature-name {
+                        font-size: 11pt;
+                        color: #000;
+                        margin-top: 3px;
+                    }
+                    
+                    /* Certificate ID */
+                    .certificate-id {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        font-size: 9pt;
+                        color: #666;
+                        font-style: italic;
+                    }
+                    
+                    /* Official Seal */
+                    .official-seal {
+                        text-align: center;
+                        margin: 20px 0;
+                        font-size: 9pt;
+                        color: #666;
+                        border: 2px dashed #ccc;
+                        padding: 10px;
+                        font-style: italic;
+                    }
+                </style>
+                
+                <!-- Certificate ID -->
+                <div class="certificate-id">
+                    Certificate ID: <t t-esc="doc.newborn_code"/>
+                </div>
+                
+                <!-- Certificate Header -->
+                <div class="certificate-header">
+                    <div class="certificate-title">BIRTH CERTIFICATE</div>
+                    <div class="certificate-subtitle">Official Record of Birth</div>
+                    <div class="institution-info">
+                        <strong><t t-esc="doc.institution.name or 'Medical Institution'"/></strong><br/>
+                        <t t-if="doc.institution.street">
+                            <t t-esc="doc.institution.street"/><br/>
+                        </t>
+                        <t t-if="doc.institution.city">
+                            <t t-esc="doc.institution.city"/>, 
+                        </t>
+                        <t t-if="doc.institution.state_id">
+                            <t t-esc="doc.institution.state_id.name"/>
+                        </t>
+                        <t t-if="doc.institution.zip">
+                            - <t t-esc="doc.institution.zip"/>
+                        </t>
+                    </div>
+                </div>
+                
+                <!-- Birth Details -->
+                <div class="birth-details">
+                    <div class="section-title">Birth Information</div>
+                    
+                    <table class="info-table">
+                        <tr>
+                            <td class="label">Full Name of Child</td>
+                            <td class="value"><strong><t t-esc="doc.name or 'Not Specified'"/></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label">Date of Birth</td>
+                            <td class="value">
+                                <t t-if="doc.birth_date">
+                                    <t t-esc="doc.birth_date.strftime('%A, %B %d, %Y')"/> at <t t-esc="doc.birth_date.strftime('%I:%M %p')"/>
+                                </t>
+                                <t t-else="">Not Specified</t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Gender</td>
+                            <td class="value"><t t-esc="doc.sex or 'Not Specified'"/></td>
+                        </tr>
+                        <tr>
+                            <td class="label">Place of Birth</td>
+                            <td class="value"><t t-esc="doc.institution.name or 'Medical Institution'"/></td>
+                        </tr>
+                        <tr>
+                            <td class="label">Mother's Name</td>
+                            <td class="value">
+                                <t t-if="doc.mother">
+                                    <t t-esc="doc.mother.name"/>
+                                    <t t-if="doc.mother.age"> (Age: <t t-esc="doc.mother.age"/> years)</t>
+                                </t>
+                                <t t-else="">Not Specified</t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Medical Information -->
+                <div class="birth-details">
+                    <div class="section-title">Medical Information</div>
+                    
+                    <div class="medical-info">
+                        <div class="medical-box">
+                            <div class="medical-label">Birth Weight</div>
+                            <div class="medical-value">
+                                <t t-if="doc.weight">
+                                    <t t-esc="doc.weight"/> lbs
+                                </t>
+                                <t t-else="">Not Recorded</t>
+                            </div>
+                        </div>
+                        
+                        <div class="medical-box">
+                            <div class="medical-label">Birth Length</div>
+                            <div class="medical-value">
+                                <t t-if="doc.length">
+                                    <t t-esc="doc.length"/> inches
+                                </t>
+                                <t t-else="">Not Recorded</t>
+                            </div>
+                        </div>
+                        
+                        <div class="medical-box">
+                            <div class="medical-label">Head Circumference</div>
+                            <div class="medical-value">
+                                <t t-if="doc.cephalic_perimeter">
+                                    <t t-esc="doc.cephalic_perimeter"/> cm
+                                </t>
+                                <t t-else="">Not Recorded</t>
+                            </div>
+                        </div>
+                        
+                        <div class="medical-box">
+                            <div class="medical-label">Attending Physician</div>
+                            <div class="medical-value">
+                                <t t-if="doc.doctor">
+                                    Dr. <t t-esc="doc.doctor.name"/>
+                                </t>
+                                <t t-else="">Not Specified</t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- APGAR Scores if available -->
+                <t t-if="doc.apgar_scores">
+                    <div class="birth-details">
+                        <div class="section-title">APGAR Scores</div>
+                        <table class="info-table">
+                            <tr>
+                                <td class="label" style="text-align: center;"><strong>Minute</strong></td>
+                                <td class="label" style="text-align: center;"><strong>APGAR Score</strong></td>
+                                <td class="label" style="text-align: center;"><strong>Assessment</strong></td>
+                            </tr>
+                            <t t-foreach="doc.apgar_scores" t-as="apgar">
+                                <tr>
+                                    <td class="value" style="text-align: center;"><t t-esc="apgar.apgar_minute"/></td>
+                                    <td class="value" style="text-align: center;"><strong><t t-esc="apgar.apgar_score"/></strong></td>
+                                    <td class="value" style="text-align: center;">
+                                        <t t-if="apgar.apgar_score >= 7">Excellent</t>
+                                        <t t-elif="apgar.apgar_score >= 4">Good</t>
+                                        <t t-else="">Requires Attention</t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+                
+                <!-- Official Seal -->
+                <div class="official-seal">
+                    [ OFFICIAL HOSPITAL SEAL ]<br/>
+                    This certificate is issued under the authority of <t t-esc="doc.institution.name or 'Medical Institution'"/>
+                </div>
+                
+                <!-- Certificate Footer with Signatures -->
+                <div class="certificate-footer">
+                    <div class="signature-section">
+                        <div class="signature-line">
+                            <div class="signature-title">Attending Physician</div>
+                            <div class="signature-name">
+                                <t t-if="doc.doctor">
+                                    Dr. <t t-esc="doc.doctor.name"/>
+                                </t>
+                                <t t-else="">Dr. ________________________</t>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="signature-section">
+                        <div class="signature-line">
+                            <div class="signature-title">Medical Director / Registrar</div>
+                            <div class="signature-name">
+                                <t t-if="doc.signed_by">
+                                    Dr. <t t-esc="doc.signed_by.name"/>
+                                </t>
+                                <t t-else="">Dr. ________________________</t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate Issue Information -->
+                <div style="margin-top: 30px; font-size: 9pt; color: #666; text-align: center; border-top: 1px solid #ccc; padding-top: 10px;">
+                    <div>
+                        Certificate Status: 
+                        <strong style="color: #2C5F2D;">
+                            <t t-esc="doc.state or 'Draft'"/>
+                        </strong>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        This certificate is generated electronically and constitutes an official medical record.
+                    </div>
+                    <div style="margin-top: 5px;">
+                        Generated on: <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%B %d, %Y at %I:%M %p')"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_birth_certificate">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="intarvas_paediatric.report_birth_certificate_document" t-lang="doc.mother.partner_id.lang if doc.mother else 'en_US'"/>
+            </t>
+        </t>
+    </template>
+</odoo>

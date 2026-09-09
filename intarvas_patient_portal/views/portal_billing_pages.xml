@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Patient Prescriptions Page -->
+    <template id="patient_prescriptions" name="Patient Prescriptions">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="patient-prescriptions-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-pills me-3"></i>My Prescriptions
+                    </h1>
+                    <p class="welcome-subtitle">
+                        View and manage your current and past prescriptions
+                    </p>
+                </div>
+
+                <!-- Current Prescriptions -->
+                <div class="quick-actions mb-4">
+                    <h2 class="section-title">Current Prescriptions</h2>
+                    <t t-if="current_prescriptions">
+                        <div class="row g-3">
+                            <t t-foreach="current_prescriptions" t-as="prescription">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="action-card d-flex">
+                                        <div class="flex-grow-1">
+                                            <div class="action-icon">
+                                                <i class="fas fa-pills"></i>
+                                            </div>
+                                            <h3 t-esc="prescription.name or 'Prescription'"/>
+                                            <p><strong>Date:</strong> <span t-esc="prescription.date.strftime('%B %d, %Y')" t-if="prescription.date"/></p>
+                                            <p><strong>Doctor:</strong> <span t-esc="prescription.doctor.formatted_name" t-if="prescription.doctor"/></p>
+                                            <p><strong>Status:</strong> <span t-esc="prescription.state.title()"/></p>
+                                            <div class="mt-3">
+                                                <a t-att-href="'/patient/portal/prescription/' + str(prescription.id)" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-eye me-1"></i>View Details
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start pt-2">
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-5">
+                            <i class="fas fa-pills fa-4x text-muted mb-3"></i>
+                            <h3 class="text-muted">No Current Prescriptions</h3>
+                            <p class="text-muted">You don't have any active prescriptions at the moment.</p>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Past Prescriptions -->
+                <div class="recent-activity">
+                    <h2 class="section-title">Past Prescriptions</h2>
+                    <t t-if="past_prescriptions">
+                        <div class="activity-list">
+                            <t t-foreach="past_prescriptions" t-as="prescription">
+                                <div class="activity-item d-flex">
+                                    <div class="activity-icon completed me-3">
+                                        <i class="fas fa-pills"></i>
+                                    </div>
+                                    <div class="activity-content flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h4 t-esc="prescription.name or 'Prescription'"/>
+                                            <a t-att-href="'/patient/portal/prescription/' + str(prescription.id)" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye me-1"></i>View Details
+                                            </a>
+                                        </div>
+                                        <p><strong>Date:</strong> <span t-esc="prescription.date.strftime('%B %d, %Y')" t-if="prescription.date"/></p>
+                                        <p>Prescribed by <span t-esc="prescription.doctor.formatted_name" t-if="prescription.doctor"/> on <span t-esc="prescription.date.strftime('%B %d, %Y')" t-if="prescription.date"/></p>
+                                    </div>
+                                    <div class="d-flex align-items-start">
+                                        <span class="badge bg-secondary">Completed</span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-3">
+                            <p class="text-muted">No past prescriptions found.</p>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Prescription Detail Page -->
+    <template id="prescription_detail" name="Prescription Detail">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'prescriptions'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-3">
+                <h1 class="welcome-title mb-2">
+                    <i class="fas fa-pills me-3"></i>Prescription Details
+                </h1>
+                <p class="welcome-subtitle mb-0">View your prescription information and medicines</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="back-button-container mb-3 d-flex gap-3">
+                <a href="/patient/portal/prescriptions" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Prescriptions
+                </a>
+                <a t-att-href="'/patient/portal/prescription/' + str(prescription.id) + '/download'" 
+                   class="btn btn-success">
+                    <i class="fas fa-download me-2"></i>Download Prescription
+                </a>
+            </div>
+
+            <div class="row g-3">
+                <!-- Main Prescription Details -->
+                <div class="col-12">
+                    <div class="action-card">
+                        <h3 class="section-title mb-3">
+                            <i class="fas fa-prescription me-2"></i>Prescription Details
+                        </h3>
+                        
+                        <!-- Prescription Information -->
+                        <div class="row g-2 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Prescription Number</label>
+                                <div class="info-value">
+                                    <span t-esc="prescription.name"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Status</label>
+                                <div class="info-value">
+                                    <span class="badge" t-att-class="'badge-' + ('success' if prescription.state == 'Sent to Pharmacy' else 'info' if prescription.state == 'Invoiced' else 'warning')" t-esc="prescription.state"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Date</label>
+                                <div class="info-value">
+                                    <i class="fas fa-calendar me-2"></i>
+                                    <t t-esc="prescription.date.strftime('%B %d, %Y')" t-if="prescription.date"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6" t-if="prescription.doctor">
+                                <label class="form-label">Prescribed by</label>
+                                <div class="info-value">
+                                    <t t-if="prescription.doctor.image_128">
+                                        <img t-att-src="'data:image/png;base64,' + prescription.doctor.image_128.decode()" 
+                                             style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 0.75rem; border: 2px solid #667eea;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #667eea; color: white; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                                            <i class="fas fa-user-md"></i>
+                                        </div>
+                                    </t>
+                                    <div>
+                                        <t t-esc="prescription.doctor.formatted_name"/>
+                                        <t t-if="prescription.doctor.degree_id">
+                                            <small style="color: #667eea; font-weight: 500;"> (
+                                                <t t-foreach="prescription.doctor.degree_id" t-as="degree">
+                                                    <t t-esc="degree.name"/><t t-if="not degree_last">, </t>
+                                                </t>)
+                                            </small>
+                                        </t>
+                                        <t t-if="prescription.doctor.speciality">
+                                            <small style="color: #6b7280; display: block;"> - <t t-esc="prescription.doctor.speciality.name"/></small>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <t t-if="prescription.institution">
+                                <div class="col-md-6">
+                                    <label class="form-label">Health Center</label>
+                                    <div class="info-value">
+                                        <i class="fas fa-hospital me-2"></i>
+                                        <t t-esc="prescription.institution.name"/>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-if="prescription.info">
+                                <div class="col-12">
+                                    <label class="form-label">Notes</label>
+                                    <div class="info-value">
+                                        <p class="mb-0" t-esc="prescription.info"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+
+                        <!-- Prescribed Medicines Section -->
+                        <div class="prescribed-medicines-section">
+                            <h4 class="section-subtitle mb-3">
+                                <i class="fas fa-capsules me-2"></i>Prescribed Medicines
+                            </h4>
+                        
+                        <t t-if="prescription.prescription_line">
+                            <t t-foreach="prescription.prescription_line" t-as="line">
+                                <div class="medicine-card mb-2">
+                                    <div class="row g-2">
+                                        <div class="col-md-8">
+                                            <label class="form-label">Medicine</label>
+                                            <div class="info-value">
+                                                <h5 class="mb-1" style="color: #1f2937;">
+                                                    <i class="fas fa-pill me-2" style="color: #667eea;"></i>
+                                                    <span t-esc="line.name.name" t-if="line.name"/>
+                                                </h5>
+                                                <t t-if="line.name and line.name.composition">
+                                                    <small class="text-muted">Composition: <span t-esc="line.name.composition"/></small>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <label class="form-label">Quantity</label>
+                                            <div class="info-value">
+                                                <strong><span t-esc="line.qty"/></strong>
+                                                <span class="text-muted" t-if="line.dose_unit"> <t t-esc="line.dose_unit.name"/></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3" t-if="line.dose">
+                                            <label class="form-label">Dose</label>
+                                            <div class="info-value">
+                                                <span t-esc="line.dose"/> <span t-esc="line.dose_unit.name" t-if="line.dose_unit"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3" t-if="line.frequency">
+                                            <label class="form-label">Frequency</label>
+                                            <div class="info-value">
+                                                <span t-esc="line.frequency"/> per <span t-esc="line.frequency_unit"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3" t-if="line.duration">
+                                            <label class="form-label">Duration</label>
+                                            <div class="info-value">
+                                                <span t-esc="line.duration"/> <span t-esc="line.duration_period"/>
+                                            </div>
+                                        </div>
+                                        <t t-if="line.info">
+                                            <div class="col-12">
+                                                <label class="form-label">Instructions</label>
+                                                <div class="alert alert-warning mb-0" style="background: #fef3c7; border: none; border-left: 4px solid #f59e0b;">
+                                                    <span t-esc="line.info"/>
+                                                </div>
+                                            </div>
+                                        </t>
+                                        <t t-if="line.indication">
+                                            <div class="col-12">
+                                                <label class="form-label">Indication</label>
+                                                <div class="alert alert-info mb-0" style="background: #e0f2fe; border: none; border-left: 4px solid #0288d1;">
+                                                    <span t-esc="line.indication.name"/>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <div class="text-center py-3">
+                                <i class="fas fa-capsules fa-3x text-muted mb-2"></i>
+                                <h5 class="text-muted">No Medicines Listed</h5>
+                                <p class="text-muted mb-0">This prescription doesn't contain any medicine details.</p>
+                            </div>
+                        </t>
+                        </div> <!-- End prescribed-medicines-section -->
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+    <!-- Patient Evaluations Page -->
+    <template id="patient_evaluations" name="Patient Evaluations">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="patient-evaluations-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-clipboard-list me-3"></i>Medical Evaluations
+                    </h1>
+                    <p class="welcome-subtitle">
+                        Review your medical evaluations and assessments
+                    </p>
+                </div>
+
+                <!-- Recent Evaluations -->
+                <div class="recent-activity">
+                    <h2 class="section-title">Your Evaluations</h2>
+                    <t t-if="evaluations">
+                        <div class="activity-list">
+                            <t t-foreach="evaluations" t-as="evaluation">
+                                <div class="activity-item d-flex">
+                                    <div class="activity-icon info me-3">
+                                        <i class="fas fa-clipboard-list"></i>
+                                    </div>
+                                    <div class="activity-content flex-grow-1">
+                                        <h4 t-esc="evaluation.name"/>
+                                        <p><strong>Date:</strong> <span t-esc="evaluation.evaluation_start_date.strftime('%B %d, %Y')" t-if="evaluation.evaluation_start_date"/></p>
+                                        <p><strong>Evaluated by:</strong> <span t-esc="evaluation.doctor.formatted_name"/></p>
+                                        <t t-if="evaluation.notes">
+                                            <p><strong>Notes:</strong> <span t-esc="evaluation.notes"/></p>
+                                        </t>
+                                        <a t-att-href="'/patient/portal/evaluation/' + str(evaluation.id)" class="activity-link">View Details →</a>
+                                    </div>
+                                    <div class="d-flex align-items-start">
+                                        <span class="badge bg-info">
+                                            <span t-esc="evaluation.evaluation_type"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-5">
+                            <i class="fas fa-clipboard-list fa-4x text-muted mb-3"></i>
+                            <h3 class="text-muted">No Evaluations Found</h3>
+                            <p class="text-muted">You don't have any medical evaluations on record yet.</p>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Patient Messages Page -->
+    <template id="patient_messages" name="Patient Messages">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="patient-messages-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-envelope me-3"></i>Messages
+                    </h1>
+                    <p class="welcome-subtitle">
+                        Communicate securely with your healthcare team
+                    </p>
+                </div>
+
+                <!-- New Message Button -->
+                <div class="mb-4">
+                    <a href="/patient/portal/messages/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Send New Message
+                    </a>
+                </div>
+
+                <!-- Messages List -->
+                <div class="recent-activity">
+                    <h2 class="section-title">Your Messages</h2>
+                    <t t-if="messages">
+                        <div class="activity-list">
+                            <t t-foreach="messages" t-as="message">
+                                <div class="activity-item d-flex">
+                                    <div class="activity-icon upcoming me-3">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="activity-content flex-grow-1">
+                                        <h4 t-esc="message.subject or 'No Subject'"/>
+                                        <p><strong>From:</strong> <span t-esc="message.author_id.name or 'System'"/></p>
+                                        <p><strong>Date:</strong> <span t-esc="message.date.strftime('%B %d, %Y at %I:%M %p')"/></p>
+                                        <p t-esc="(message.body and message.body[:100] + '...' if len(message.body or '') > 100 else message.body) or 'No content'"/>
+                                        <a href="#" class="activity-link">Read Full Message →</a>
+                                    </div>
+                                    <div class="d-flex align-items-start">
+                                        <span class="badge bg-primary">New</span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-5">
+                            <i class="fas fa-envelope fa-4x text-muted mb-3"></i>
+                            <h3 class="text-muted">No Messages</h3>
+                            <p class="text-muted">You don't have any messages yet. Send a message to your healthcare provider to get started.</p>
+                            <a href="/patient/portal/messages/new" class="btn btn-outline-primary">
+                                <i class="fas fa-plus me-2"></i>Send First Message
+                            </a>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Patient Billing Page -->
+    <template id="patient_billing" name="Patient Billing">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="patient-billing-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-credit-card me-3"></i>Billing &amp; Insurance
+                    </h1>
+                    <p class="welcome-subtitle">
+                        Manage your billing information and insurance details
+                    </p>
+                </div>
+
+                <!-- Payment Status Messages -->
+                <t t-if="request.params.get('payment') == 'success'">
+                    <div class="alert alert-success-gradient mb-4">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Payment completed successfully! Your invoice has been paid.
+                    </div>
+                </t>
+                <t t-if="request.params.get('payment') == 'pending'">
+                    <div class="alert alert-info-gradient mb-4">
+                        <i class="fas fa-clock me-2"></i>
+                        Payment is being processed. You will receive an email confirmation once completed.
+                    </div>
+                </t>
+                <t t-if="request.params.get('payment') == 'failed'">
+                    <div class="alert alert-danger-gradient mb-4">
+                        <i class="fas fa-times-circle me-2"></i>
+                        Payment failed. Please try again or contact support if the problem persists.
+                    </div>
+                </t>
+                <t t-if="request.params.get('payment') == 'cancelled'">
+                    <div class="alert alert-warning-gradient mb-4">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        Payment was cancelled. You can try again when ready.
+                    </div>
+                </t>
+                <t t-if="request.params.get('error')">
+                    <div class="alert alert-danger-gradient mb-4">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <t t-if="request.params.get('error') == 'no_reference'">Payment error: No transaction reference found.</t>
+                        <t t-if="request.params.get('error') == 'transaction_not_found'">Payment error: Transaction not found.</t>
+                        <t t-if="request.params.get('error') == 'no_invoice'">Payment error: No invoice linked to transaction.</t>
+                        <t t-else="">An error occurred during payment processing. Please try again.</t>
+                    </div>
+                </t>
+
+                <!-- Outstanding Bills -->
+                <div class="quick-actions mb-4">
+                    <h2 class="section-title">Outstanding Bills</h2>
+                    <t t-if="outstanding_bills">
+                        <div class="row g-3">
+                            <t t-foreach="outstanding_bills" t-as="bill">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="action-card">
+                                        <div class="action-icon">
+                                            <i class="fas fa-file-invoice-dollar"></i>
+                                        </div>
+                                        <h3>Invoice #<span t-esc="bill.name"/></h3>
+                                        <p><strong>Due Amount:</strong> $<span t-esc="'{:.2f}'.format(bill.amount_residual_signed)"/></p>
+                                        <p t-if="bill.invoice_date_due"><strong>Due Date:</strong> <span t-esc="bill.invoice_date_due.strftime('%B %d, %Y')"/></p>
+                                        <p t-if="bill.invoice_date"><strong>Invoice Date:</strong> <span t-esc="bill.invoice_date.strftime('%B %d, %Y')"/></p>
+                                        <a t-att-href="'/patient/portal/invoice/' + str(bill.id) + '/pay'" class="btn btn-primary">
+                                            <i class="fa fa-eye me-2"></i>View &amp; Pay
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-3">
+                            <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                            <h3 class="text-success">All Paid Up!</h3>
+                            <p class="text-muted">You don't have any outstanding bills at the moment.</p>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Payment History -->
+                <div class="recent-activity">
+                    <h2 class="section-title">Payment History</h2>
+                    <t t-if="payment_history">
+                        <div class="activity-list">
+                            <t t-foreach="payment_history" t-as="payment">
+                                <div class="activity-item d-flex">
+                                    <div class="activity-icon completed me-3">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="activity-content flex-grow-1">
+                                        <h4>Payment #<span t-esc="payment.name"/></h4>
+                                        <p><strong>Amount:</strong> $<span t-esc="'{:.2f}'.format(payment.amount)"/></p>
+                                        <p><strong>Payment Date:</strong> <span t-esc="payment.date.strftime('%B %d, %Y')" t-if="payment.date"/></p>
+                                        <p><strong>Method:</strong> <span t-esc="payment.journal_id.name" t-if="payment.journal_id"/></p>
+                                    </div>
+                                    <div class="d-flex align-items-start">
+                                        <span class="badge bg-success">Paid</span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-3">
+                            <p class="text-muted">No payment history found.</p>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Patient Help &amp; Support Page -->
+    <template id="patient_help" name="Patient Help &amp; Support">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="patient-help-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-question-circle me-3"></i>Help &amp; Support
+                    </h1>
+                    <p class="welcome-subtitle">
+                        Find answers to common questions and get support
+                    </p>
+                </div>
+
+                <!-- Quick Help -->
+                <div class="quick-actions mb-4">
+                    <h2 class="section-title">How Can We Help?</h2>
+                    <div class="row g-3">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <h3>FAQ</h3>
+                                <p>Find answers to frequently asked questions</p>
+                                <a href="#" class="btn btn-outline-primary">View FAQ</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Contact Support</h3>
+                                <p>Send a message to our support team</p>
+                                <a href="/patient/portal/messages/new" class="btn btn-outline-primary">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h3>Call Us</h3>
+                                <p>Speak directly with our support team</p>
+                                <a href="tel:+1234567890" class="btn btn-outline-primary">Call Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Questions -->
+                <div class="recent-activity">
+                    <h2 class="section-title">Common Questions</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>How do I book an appointment?</h4>
+                                <p>You can book appointments through the "Book Appointment" section or by clicking the "Book Now" button on the dashboard.</p>
+                                <a href="/patient/portal/appointments/new" class="activity-link">Book Appointment →</a>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon completed">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>How can I access my medical records?</h4>
+                                <p>Your medical records are available in the "Medical Records" section where you can view and download them securely.</p>
+                                <a href="/patient/portal/medical-records" class="activity-link">View Records →</a>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon upcoming">
+                                <i class="fas fa-user-edit"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>How do I update my profile information?</h4>
+                                <p>You can update your personal information, contact details, and preferences in the "My Profile" section.</p>
+                                <a href="/patient/portal/profile" class="activity-link">Update Profile →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Medical Records Page -->
+    <template id="medical_records" name="Medical Records">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="medical-records-page">
+                <div class="welcome-section mb-4">
+                    <h1 class="welcome-title">
+                        <i class="fas fa-file-medical me-3"></i>Medical Records
+                    </h1>
+                    <p class="welcome-subtitle">
+                        Access and download your medical documents and history
+                    </p>
+                </div>
+
+                <!-- Medical Evaluations -->
+                <div class="quick-actions mb-4">
+                    <h2 class="section-title">Medical Evaluations</h2>
+                    <t t-if="evaluations">
+                        <div class="row g-3">
+                            <t t-foreach="evaluations" t-as="evaluation">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="action-card">
+                                        <div class="action-icon">
+                                            <i class="fas fa-clipboard-check"></i>
+                                        </div>
+                                        <h3 t-esc="evaluation.name or 'Medical Evaluation'"/>
+                                        <p><strong>Date:</strong> <span t-esc="evaluation.evaluation_start_date.strftime('%B %d, %Y')" t-if="evaluation.evaluation_start_date"/></p>
+                                        <p><strong>Doctor:</strong> <span t-esc="evaluation.doctor.formatted_name" t-if="evaluation.doctor"/></p>
+                                        <t t-if="evaluation.info_diagnosis">
+                                            <p><strong>Diagnosis:</strong> <span t-esc="evaluation.info_diagnosis"/></p>
+                                        </t>
+                                        <a t-att-href="'/patient/portal/evaluation/' + str(evaluation.id)" class="btn btn-outline-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-5">
+                            <i class="fas fa-clipboard-check fa-4x text-muted mb-3"></i>
+                            <h3 class="text-muted">No Evaluations Found</h3>
+                            <p class="text-muted">You don't have any medical evaluations on record yet.</p>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Medical Certificates -->
+                <div class="recent-activity">
+                    <h2 class="section-title">Medical Certificates</h2>
+                    <t t-if="certificates">
+                        <div class="activity-list">
+                            <t t-foreach="certificates" t-as="certificate">
+                                <div class="activity-item d-flex">
+                                    <div class="activity-icon completed me-3">
+                                        <i class="fas fa-certificate"></i>
+                                    </div>
+                                    <div class="activity-content flex-grow-1">
+                                        <h4>Medical Certificate</h4>
+                                        <p><strong>Issue Date:</strong> <span t-esc="certificate.issue_date.strftime('%B %d, %Y')" t-if="certificate.issue_date"/></p>
+                                        <p><strong>Issued by:</strong> <span t-esc="certificate.doctor.formatted_name" t-if="certificate.doctor"/></p>
+                                        <t t-if="certificate.reason">
+                                            <p t-esc="certificate.reason"/>
+                                        </t>
+                                        <a t-att-href="'/patient/portal/certificate/' + str(certificate.id) + '/download'" class="activity-link">Download →</a>
+                                    </div>
+                                    <div class="d-flex align-items-start">
+                                        <span class="badge bg-success">Valid</span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center py-3">
+                            <p class="text-muted">No medical certificates found.</p>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Lab Results Section -->
+                <div class="recent-activity mt-4">
+                    <h2 class="section-title">Recent Lab Results</h2>
+                    <div class="row g-3">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <h3>Lab Tests</h3>
+                                <p>View your laboratory test results and reports</p>
+                                <a href="/patient/portal/lab-results" class="btn btn-outline-primary">View Lab Results</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <h3>Download Records</h3>
+                                <p>Download all your medical records in PDF format</p>
+                                <a href="/patient/portal/download-all-records" class="btn btn-outline-primary">Download All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Evaluation Details Page -->
+    <template id="evaluation_details" name="Evaluation Details">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="evaluation-details-page">
+                <div class="welcome-section mb-3">
+                    <h1 class="welcome-title mb-2">
+                        <i class="fas fa-clipboard-list me-3"></i>Evaluation Details
+                    </h1>
+                    <p class="welcome-subtitle mb-0">
+                        Detailed information about your medical evaluation
+                    </p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="back-button-container mb-3 d-flex gap-3">
+                    <a href="/patient/portal/evaluations" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Evaluations
+                    </a>
+                    <a t-att-href="'/patient/portal/evaluation/' + str(evaluation.id) + '/print'" target="_blank" class="btn btn-success">
+                        <i class="fas fa-print me-2"></i>Print Evaluation
+                    </a>
+                </div>
+
+                <div class="row g-3">
+                    <!-- Main Evaluation Info -->
+                    <div class="col-md-8">
+                        <div class="action-card">
+                            <h3 class="section-title mb-3">
+                                <i class="fas fa-file-medical me-2"></i>Evaluation Information
+                            </h3>
+                            
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <label class="form-label">Evaluation #:</label>
+                                    <p class="form-control-plaintext" t-esc="evaluation.name"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Date:</label>
+                                    <p class="form-control-plaintext" t-esc="evaluation.evaluation_start_date.strftime('%B %d, %Y at %I:%M %p')" t-if="evaluation.evaluation_start_date"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Type:</label>
+                                    <p class="form-control-plaintext" t-esc="evaluation.evaluation_type or 'N/A'"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Doctor:</label>
+                                    <p class="form-control-plaintext"><span t-esc="evaluation.doctor.formatted_name" t-if="evaluation.doctor"/><span t-else="">N/A</span></p>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Chief Complaint:</label>
+                                    <p class="form-control-plaintext" t-esc="evaluation.chief_complaint or 'N/A'"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Diagnosis:</label>
+                                    <p class="form-control-plaintext" t-esc="evaluation.info_diagnosis or 'N/A'"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Notes:</label>
+                                    <p class="form-control-plaintext" t-esc="evaluation.notes or 'No additional notes'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vital Signs -->
+                    <div class="col-md-4">
+                        <div class="action-card">
+                            <h3 class="section-title mb-3">
+                                <i class="fas fa-heartbeat me-2"></i>Vital Signs
+                            </h3>
+                            
+                            <div class="vital-signs">
+                                <t t-if="evaluation.temperature">
+                                    <p><strong>Temperature:</strong> <span t-esc="evaluation.temperature"/>°C</p>
+                                </t>
+                                <t t-if="evaluation.weight">
+                                    <p><strong>Weight:</strong> <span t-esc="evaluation.weight"/> kg</p>
+                                </t>
+                                <t t-if="evaluation.height">
+                                    <p><strong>Height:</strong> <span t-esc="evaluation.height"/> cm</p>
+                                </t>
+                                <t t-if="evaluation.bmi">
+                                    <p><strong>BMI:</strong> <span t-esc="'{:.2f}'.format(evaluation.bmi)"/></p>
+                                </t>
+                                <t t-if="evaluation.systolic and evaluation.diastolic">
+                                    <p><strong>Blood Pressure:</strong> <span t-esc="evaluation.systolic"/>/<span t-esc="evaluation.diastolic"/> mmHg</p>
+                                </t>
+                                <t t-if="evaluation.bpm">
+                                    <p><strong>Heart Rate:</strong> <span t-esc="evaluation.bpm"/> bpm</p>
+                                </t>
+                                <t t-if="evaluation.respiratory_rate">
+                                    <p><strong>Respiratory Rate:</strong> <span t-esc="evaluation.respiratory_rate"/></p>
+                                </t>
+                                <t t-if="evaluation.osat">
+                                    <p><strong>O2 Saturation:</strong> <span t-esc="evaluation.osat"/>%</p>
+                                </t>
+                                
+                                <t t-if="not (evaluation.temperature or evaluation.weight or evaluation.height or evaluation.bmi or evaluation.systolic or evaluation.diastolic or evaluation.bpm or evaluation.respiratory_rate or evaluation.osat)">
+                                    <p class="text-muted">No vital signs recorded</p>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+    <!-- Print-Only Evaluation Template -->
+    <template id="evaluation_print" name="Evaluation Print View">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            
+            <style>
+                body {
+                    font-family: Arial, sans-serif !important;
+                    color: #000 !important;
+                    background: white !important;
+                    margin: 0 !important;
+                    padding: 20px !important;
+                }
+                
+                .print-container {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    background: white;
+                    padding: 30px;
+                    border: 1px solid #ddd;
+                }
+                
+                .print-header {
+                    text-align: center;
+                    border-bottom: 3px solid #333;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                
+                .print-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #333;
+                    margin: 0 0 10px 0;
+                }
+                
+                .print-subtitle {
+                    font-size: 14px;
+                    color: #666;
+                    margin: 0;
+                }
+                
+                .print-section {
+                    margin-bottom: 25px;
+                    border: 1px solid #ddd;
+                    padding: 20px;
+                }
+                
+                .print-section-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #333;
+                    margin: 0 0 15px 0;
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid #ddd;
+                }
+                
+                .print-row {
+                    display: flex;
+                    margin-bottom: 12px;
+                    align-items: baseline;
+                }
+                
+                .print-label {
+                    font-weight: bold;
+                    color: #333;
+                    min-width: 120px;
+                    margin-right: 20px;
+                }
+                
+                .print-value {
+                    color: #000;
+                    flex: 1;
+                    padding-left: 10px;
+                    border-bottom: 1px dotted #ccc;
+                    padding-bottom: 2px;
+                }
+                
+                .print-notes {
+                    background: #f9f9f9;
+                    padding: 15px;
+                    border: 1px solid #ddd;
+                    margin-top: 10px;
+                }
+                
+                .vital-signs-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    margin-top: 10px;
+                }
+                
+                .vital-sign-item {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px dotted #ddd;
+                }
+                
+                @media print {
+                    body { margin: 0 !important; padding: 10px !important; }
+                    .print-container { border: none !important; padding: 0 !important; }
+                }
+            </style>
+            
+            <div class="print-container">
+                <!-- Header -->
+                <div class="print-header">
+                    <h1 class="print-title">MEDICAL EVALUATION REPORT</h1>
+                    <p class="print-subtitle">Patient Medical Evaluation Details</p>
+                </div>
+                
+                <!-- Patient Information -->
+                <div class="print-section">
+                    <h2 class="print-section-title">Patient Information</h2>
+                    <div class="print-row">
+                        <span class="print-label">Patient Name:</span>
+                        <span class="print-value" t-esc="patient.name"/>
+                    </div>
+                    <div class="print-row">
+                        <span class="print-label">Patient ID:</span>
+                        <span class="print-value" t-esc="patient.identification_code or 'N/A'"/>
+                    </div>
+                    <div class="print-row" t-if="patient.dob">
+                        <span class="print-label">Date of Birth:</span>
+                        <span class="print-value" t-esc="patient.dob.strftime('%B %d, %Y')"/>
+                    </div>
+                    <div class="print-row" t-if="patient.sex">
+                        <span class="print-label">Gender:</span>
+                        <span class="print-value" t-esc="patient.sex"/>
+                    </div>
+                </div>
+                
+                <!-- Evaluation Information -->
+                <div class="print-section">
+                    <h2 class="print-section-title">Evaluation Details</h2>
+                    <div class="print-row">
+                        <span class="print-label">Evaluation #:</span>
+                        <span class="print-value" t-esc="evaluation.name"/>
+                    </div>
+                    <div class="print-row" t-if="evaluation.evaluation_start_date">
+                        <span class="print-label">Date:</span>
+                        <span class="print-value" t-esc="evaluation.evaluation_start_date.strftime('%B %d, %Y at %I:%M %p')"/>
+                    </div>
+                    <div class="print-row" t-if="evaluation.evaluation_type">
+                        <span class="print-label">Type:</span>
+                        <span class="print-value" t-esc="evaluation.evaluation_type"/>
+                    </div>
+                    <div class="print-row" t-if="evaluation.doctor">
+                        <span class="print-label">Doctor:</span>
+                        <span class="print-value"><span t-esc="evaluation.doctor.formatted_name"/></span>
+                    </div>
+                    <div class="print-row" t-if="evaluation.chief_complaint">
+                        <span class="print-label">Chief Complaint:</span>
+                        <span class="print-value" t-esc="evaluation.chief_complaint"/>
+                    </div>
+                    <div class="print-row" t-if="evaluation.info_diagnosis">
+                        <span class="print-label">Diagnosis:</span>
+                        <span class="print-value" t-esc="evaluation.info_diagnosis"/>
+                    </div>
+                </div>
+                
+                <!-- Vital Signs -->
+                <div class="print-section" t-if="evaluation.temperature or evaluation.weight or evaluation.height or evaluation.bmi or evaluation.systolic or evaluation.diastolic or evaluation.bpm or evaluation.respiratory_rate or evaluation.osat">
+                    <h2 class="print-section-title">Vital Signs</h2>
+                    <div class="vital-signs-grid">
+                        <div class="vital-sign-item" t-if="evaluation.temperature">
+                            <span>Temperature:</span>
+                            <span><strong><span t-esc="evaluation.temperature"/>°C</strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.weight">
+                            <span>Weight:</span>
+                            <span><strong><span t-esc="evaluation.weight"/> kg</strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.height">
+                            <span>Height:</span>
+                            <span><strong><span t-esc="evaluation.height"/> cm</strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.bmi">
+                            <span>BMI:</span>
+                            <span><strong><span t-esc="'{:.2f}'.format(evaluation.bmi)"/></strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.systolic and evaluation.diastolic">
+                            <span>Blood Pressure:</span>
+                            <span><strong><span t-esc="evaluation.systolic"/>/<span t-esc="evaluation.diastolic"/> mmHg</strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.bpm">
+                            <span>Heart Rate:</span>
+                            <span><strong><span t-esc="evaluation.bpm"/> bpm</strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.respiratory_rate">
+                            <span>Respiratory Rate:</span>
+                            <span><strong><span t-esc="evaluation.respiratory_rate"/></strong></span>
+                        </div>
+                        <div class="vital-sign-item" t-if="evaluation.osat">
+                            <span>O2 Saturation:</span>
+                            <span><strong><span t-esc="evaluation.osat"/>%</strong></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Notes -->
+                <div class="print-section" t-if="evaluation.notes">
+                    <h2 class="print-section-title">Additional Notes</h2>
+                    <div class="print-notes">
+                        <p t-esc="evaluation.notes"/>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; font-size: 12px; color: #666;">
+                    <p>Generated on <span t-esc="datetime.now().strftime('%B %d, %Y at %I:%M %p')"/></p>
+                    <p>This is an official medical evaluation report.</p>
+                </div>
+            </div>
+            
+            <!-- Auto-print script -->
+            <script>
+                window.onload = function() {
+                    window.print();
+                }
+            </script>
+        </t>
+    </template>
+</odoo>

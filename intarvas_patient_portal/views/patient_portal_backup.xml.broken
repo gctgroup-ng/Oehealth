@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- Patient Profile Page -->
+    <template id="patient_profile" name="Patient Profile">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'profile'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <h1 class="welcome-title">
+                    <i class="fas fa-user-edit me-3"></i>My Profile
+                </h1>
+                <p class="welcome-subtitle">Keep your personal and contact information up to date</p>
+            </div>
+
+            <t t-if="request.params.get('success')">
+                <div class="alert alert-success mb-4" style="background: linear-gradient(135deg, #a8e6cf, #88d8a3); border: none; border-radius: 15px; color: white;">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Profile updated successfully!
+                </div>
+            </t>
+
+            <t t-if="request.params.get('error')">
+                <div class="alert alert-danger mb-4" style="background: linear-gradient(135deg, #ff6b6b, #ee5a52); border: none; border-radius: 15px; color: white;">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    An error occurred while updating your profile.
+                </div>
+            </t>
+
+            <form method="post" class="patient-form">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                
+                <div class="row g-4">
+                    <!-- Personal Information Card -->
+                    <div class="col-md-8">
+                        <div class="action-card" style="padding: 2rem;">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-user me-2"></i>Personal Information
+                            </h3>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Full Name *</label>
+                                            <input type="text" class="form-control" id="name" name="name" t-att-value="patient.name" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email Address *</label>
+                                            <input type="email" class="form-control" id="email" name="email" t-att-value="patient.email" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" t-att-value="patient.phone"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="mobile">Mobile Number</label>
+                                            <input type="tel" class="form-control" id="mobile" name="mobile" t-att-value="patient.mobile"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dob">Date of Birth</label>
+                                            <input type="date" class="form-control" id="dob" name="dob" t-att-value="patient.dob"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="gender">Gender</label>
+                                            <select class="form-control" id="gender" name="gender">
+                                                <option value="">Select Gender</option>
+                                                <option value="Male" t-att-selected="'selected' if patient.sex == 'Male' else None">Male</option>
+                                                <option value="Female" t-att-selected="'selected' if patient.sex == 'Female' else None">Female</option>
+                                                <option value="Other" t-att-selected="'selected' if patient.sex == 'Other' else None">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Address Information Card -->
+                    <div class="col-md-8">
+                        <div class="action-card" style="padding: 2rem;">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-map-marker-alt me-2"></i>Address Information
+                            </h3>
+                                
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="street">Street Address</label>
+                                            <input type="text" class="form-control" id="street" name="street" t-att-value="patient.street"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="street2">Street Address 2</label>
+                                            <input type="text" class="form-control" id="street2" name="street2" t-att-value="patient.street2"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="city">City</label>
+                                            <input type="text" class="form-control" id="city" name="city" t-att-value="patient.city"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="zip">Postal Code</label>
+                                            <input type="text" class="form-control" id="zip" name="zip" t-att-value="patient.zip"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="country_id">Country</label>
+                                            <select class="form-control" id="country_id" name="country_id">
+                                                <option value="">Select Country</option>
+                                                <t t-foreach="countries" t-as="country">
+                                                    <option t-att-value="country.id" t-att-selected="'selected' if patient.country_id.id == country.id else None">
+                                                        <t t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="state_id">State/Province</label>
+                                            <select class="form-control" id="state_id" name="state_id">
+                                                <option value="">Select State</option>
+                                                <t t-foreach="states" t-as="state">
+                                                    <option t-att-value="state.id" t-att-selected="'selected' if patient.state_id.id == state.id else None">
+                                                        <t t-esc="state.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Picture Card -->
+                    <div class="col-md-4">
+                        <div class="action-card text-center" style="padding: 2rem;">
+                            <h3 class="section-title mb-4">
+                                <i class="fas fa-camera me-2"></i>Profile Picture
+                            </h3>
+                                
+                                <div class="profile-picture-container">
+                                    <div class="profile-picture">
+                                        <img t-if="patient.avatar_256"
+                                             t-att-src="image_data_uri(patient.avatar_256)"
+                                             alt="Profile Picture"/>
+                                        <img t-else="" 
+                                             src="/web/static/img/user_menu_avatar.png" 
+                                             alt="Default Profile Picture"/>
+                                    </div>
+                                    
+                                    <div class="profile-picture-actions">
+                                        <form action="/patient/portal/update/img" method="post" enctype="multipart/form-data" class="upload-form">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <input type="hidden" name="partner_id" t-att-value="patient.partner_id.id"/>
+                                            <input type="file" id="profile-upload" name="attachment" accept="image/*" style="display: none"/>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="try { var el = document.getElementById('profile-upload'); if(el) el.click(); } catch(e) {}">
+                                                <i class="fas fa-camera me-2"></i>Upload Photo
+                                            </button>
+                                        </form>
+                                        
+                                        <form action="/patient/portal/remove/img" method="post" class="remove-form">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <input type="hidden" name="partner_id" t-att-value="patient.partner_id.id"/>
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                <i class="fas fa-trash me-2"></i>Remove Photo
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-save me-2"></i>Update Profile
+                        </button>
+                        <a href="/patient/portal" class="btn btn-secondary">
+                            <i class="fa fa-arrow-left me-2"></i>Back to Portal
+                        </a>
+                    </div>
+                </form>
+
+            <script>
+                // Profile upload handling is in patient_portal.js
+            </script>
+        </t>
+    </template>
+
+    <!-- Patient Appointments Page -->
+    <template id="patient_appointments" name="Patient Appointments">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <t t-set="page_name" t-value="'appointments'"/>
+            
+            <!-- Page Header with Gradient Background -->
+            <div class="welcome-section mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="welcome-title">
+                            <i class="fas fa-calendar-check me-3"></i>My Appointments
+                        </h1>
+                        <p class="welcome-subtitle">View and manage your healthcare appointments</p>
+                    </div>
+                    <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Book New Appointment
+                    </a>
+                </div>
+            </div>
+
+            <t t-if="request.params.get('success') == 'appointment_created'">
+                <div class="alert alert-success mb-4" style="background: linear-gradient(135deg, #a8e6cf, #88d8a3); border: none; border-radius: 15px; color: white;">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment booked successfully!
+                </div>
+            </t>
+
+            <!-- Upcoming Appointments -->
+            <t t-if="upcoming_appointments">
+                <div class="quick-actions mb-4">
+                    <h2 class="section-title" style="color: #f6d365;">
+                        <i class="fas fa-clock me-2"></i>Upcoming Appointments
+                    </h2>
+                    <div class="row g-3">
+                        <t t-foreach="upcoming_appointments" t-as="appointment">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="action-card" style="position: relative; padding: 1.5rem;">
+                                    <!-- Status Badge -->
+                                    <div style="position: absolute; top: 1rem; right: 1rem;">
+                                        <span class="badge" style="background: linear-gradient(135deg, #f6d365, #fda085); color: white; padding: 0.5rem 1rem; border-radius: 20px;">
+                                            <i class="fas fa-clock me-1"></i>Upcoming
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Doctor Info -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="action-icon" style="font-size: 2rem; margin-right: 1rem; margin-bottom: 0;">
+                                            <t t-if="appointment.doctor and appointment.doctor.image_128">
+                                                <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()"
+                                                     style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 3px solid #667eea;"/>
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fas fa-user-md"></i>
+                                            </t>
+                                        </div>
+                                        <div>
+                                            <h3 style="margin-bottom: 0.25rem; font-size: 1.2rem;">
+                                                <t t-if="appointment.doctor">
+                                                    <t t-esc="appointment.doctor.formatted_name"/>
+                                                </t>
+                                                <t t-else="">General Appointment</t>
+                                            </h3>
+                                            <t t-if="appointment.doctor and appointment.doctor.speciality">
+                                                <p style="color: #718096; margin-bottom: 0; font-size: 0.9rem;">
+                                                    <t t-esc="appointment.doctor.speciality"/>
+                                                </p>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Appointment Details -->
+                                    <div class="appointment-details">
+                                        <p style="margin-bottom: 0.5rem; color: #4a5568; font-weight: 500;">
+                                            <i class="fas fa-calendar me-2" style="color: #667eea;"></i>
+                                            <t t-esc="appointment.appointment_date.strftime('%B %d, %Y at %I:%M %p')"/>
+                                        </p>
+                                        <t t-if="appointment.institution">
+                                            <p style="margin-bottom: 0.5rem; color: #4a5568;">
+                                                <i class="fas fa-map-marker-alt me-2" style="color: #667eea;"></i>
+                                                <t t-esc="appointment.institution.name"/>
+                                            </p>
+                                        </t>
+                                        <t t-if="appointment.reason">
+                                            <p style="margin-bottom: 0; color: #718096; font-style: italic;">
+                                                <i class="fas fa-notes-medical me-2" style="color: #667eea;"></i>
+                                                <t t-esc="appointment.reason"/>
+                                            </p>
+                                        </t>
+                                    </div>
+                                    
+                                    <!-- Action Buttons -->
+                                    <div class="mt-3">
+                                        <button class="btn btn-outline-primary me-2" style="border-radius: 20px;">
+                                            <i class="fas fa-edit me-1"></i>Reschedule
+                                        </button>
+                                        <button class="btn btn-outline-danger" style="border-radius: 20px;">
+                                            <i class="fas fa-times me-1"></i>Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+            <!-- Today's Appointments -->
+            <t t-if="today_appointments">
+                <div class="quick-actions mb-4">
+                    <h2 class="section-title" style="color: #667eea;">
+                        <i class="fas fa-calendar-day me-2"></i>Today's Appointments
+                    </h2>
+                    <div class="row g-3">
+                        <t t-foreach="today_appointments" t-as="appointment">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="action-card" style="position: relative; padding: 1.5rem; border-left: 5px solid #667eea;">
+                                    <div style="position: absolute; top: 1rem; right: 1rem;">
+                                        <span class="badge" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 0.5rem 1rem; border-radius: 20px;">
+                                            <i class="fas fa-calendar-day me-1"></i>Today
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="action-icon" style="font-size: 2rem; margin-right: 1rem; margin-bottom: 0;">
+                                            <t t-if="appointment.doctor and appointment.doctor.image_128">
+                                                <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()"
+                                                     style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 3px solid #667eea;"/>
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fas fa-user-md"></i>
+                                            </t>
+                                        </div>
+                                        <div>
+                                            <h3 style="margin-bottom: 0.25rem; font-size: 1.2rem;">
+                                                <t t-if="appointment.doctor">
+                                                    <t t-esc="appointment.doctor.formatted_name"/>
+                                                </t>
+                                                <t t-else="">General Appointment</t>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    
+                                    <p style="margin-bottom: 0; color: #4a5568; font-weight: 500; font-size: 1.1rem;">
+                                        <i class="fas fa-clock me-2" style="color: #667eea;"></i>
+                                        <t t-esc="appointment.appointment_date.strftime('%I:%M %p')"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+            <!-- Past Appointments -->
+            <t t-if="past_appointments">
+                <div class="recent-activity">
+                    <h2 class="section-title" style="color: #88d8a3;">
+                        <i class="fas fa-history me-2"></i>Past Appointments
+                    </h2>
+                    <div class="activity-list">
+                        <t t-foreach="past_appointments" t-as="appointment">
+                            <div class="activity-item">
+                                <div class="activity-icon completed">
+                                    <t t-if="appointment.doctor and appointment.doctor.image_128">
+                                        <img t-att-src="'data:image/png;base64,' + appointment.doctor.image_128.decode()"
+                                             style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"/>
+                                    </t>
+                                    <t t-else="">
+                                        <i class="fas fa-check-circle"></i>
+                                    </t>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>
+                                        <t t-if="appointment.doctor">
+                                            <t t-esc="appointment.doctor.formatted_name"/>
+                                        </t>
+                                        <t t-else="">General Appointment</t>
+                                    </h4>
+                                    <p style="margin-bottom: 0.25rem;">
+                                        <strong>Date:</strong> <t t-esc="appointment.appointment_date.strftime('%B %d, %Y')"/>
+                                    </p>
+                                    <t t-if="appointment.institution">
+                                        <p style="margin-bottom: 0.25rem;">
+                                            <strong>Location:</strong> <t t-esc="appointment.institution.name"/>
+                                        </p>
+                                    </t>
+                                    <t t-if="appointment.reason">
+                                        <p style="color: #718096; font-style: italic;">
+                                            <t t-esc="appointment.reason"/>
+                                        </p>
+                                    </t>
+                                </div>
+                                <span class="badge" style="background: linear-gradient(135deg, #a8e6cf, #88d8a3); color: white; padding: 0.5rem 1rem; border-radius: 20px;">
+                                    <i class="fas fa-check me-1"></i>Completed
+                                </span>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+            <!-- No Appointments -->
+            <t t-if="not upcoming_appointments and not today_appointments and not past_appointments">
+                <div class="text-center py-5">
+                    <div class="action-icon mb-4" style="font-size: 4rem; margin: 0 auto;">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3 style="color: #4a5568; margin-bottom: 1rem;">No Appointments Found</h3>
+                    <p style="color: #718096; margin-bottom: 2rem;">You don't have any appointments scheduled yet.</p>
+                    <a href="/patient/portal/appointments/new" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Book Your First Appointment
+                    </a>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- New Appointment Form -->
+    <template id="new_appointment" name="Book New Appointment">
+        <t t-call="intarvas_patient_portal.patient_portal_layout">
+            <div class="new-appointment-page">
+                <div class="page-header mb-4">
+                    <h1 class="page-title">Book New Appointment</h1>
+                    <p class="page-description">Schedule your next visit</p>
+                </div>
+
+                <t t-if="request.params.get('error')">
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        An error occurred while booking your appointment. Please try again.
+                    </div>
+                </t>
+
+                <form method="post" class="patient-form">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="form-section">
+                                <h3 class="form-section-title">Appointment Details</h3>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="doctor">Select Doctor</label>
+                                            <select class="form-control" id="doctor" name="doctor">
+                                                <option value="">Select a Doctor</option>
+                                                <t t-foreach="doctors" t-as="doctor">
+                                                    <option t-att-value="doctor.id">
+                                                        <t t-esc="doctor.formatted_name"/>
+                                                        <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality"/></t>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="institution">Healthcare Facility</label>
+                                            <select class="form-control" id="institution" name="institution">
+                                                <option value="">Select Facility</option>
+                                                <t t-foreach="institutions" t-as="institution">
+                                                    <option t-att-value="institution.id">
+                                                        <t t-esc="institution.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="appointment_date">Preferred Date &amp; Time *</label>
+                                            <input type="datetime-local" class="form-control" id="appointment_date" name="appointment_date" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="duration">Duration (hours)</label>
+                                            <select class="form-control" id="duration" name="duration">
+                                                <option value="0.5">30 minutes</option>
+                                                <option value="1" selected="selected">1 hour</option>
+                                                <option value="1.5">1.5 hours</option>
+                                                <option value="2">2 hours</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="reason">Reason for Visit</label>
+                                            <textarea class="form-control" id="reason" name="reason" rows="4" placeholder="Please describe the reason for your appointment..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="appointment-summary">
+                                <h3 class="form-section-title">Appointment Summary</h3>
+                                <div class="summary-content">
+                                    <div class="summary-item">
+                                        <strong>Patient:</strong>
+                                        <span t-esc="patient.name"/>
+                                    </div>
+                                    <div class="summary-item">
+                                        <strong>Contact:</strong>
+                                        <span t-esc="patient.email"/>
+                                    </div>
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <strong>Note:</strong> Your appointment request will be reviewed and confirmed by our staff. You will receive a confirmation email within 24 hours.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-calendar-plus me-2"></i>Book Appointment
+                        </button>
+                        <a href="/patient/portal/appointments" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Appointments
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+    </data>
+</odoo>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_oeh_medical_patient_labtest_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.patient.partner_id.lang})"/>
+            
+            <style>
+                .page {
+                    font-family: 'Arial', 'Helvetica', sans-serif;
+                    font-size: 10pt;
+                    line-height: 1.3;
+                    color: #000;
+                    margin: 0;
+                    padding: 0;
+                    background: white;
+                }
+                
+                .patient-name {
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    text-transform: uppercase;
+                    color: #000;
+                }
+                
+                .info-line {
+                    margin-bottom: 2px;
+                }
+                
+                .info-line span {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                
+                .label1 { width: 120px; font-weight: bold; }
+                .value1 { width: 180px; }
+                .label2 { width: 140px; font-weight: bold; margin-left: 20px; }
+                .value2 { width: 160px; }
+                
+                .test-category {
+                    background-color: #d3d3d3;
+                    text-align: center;
+                    font-weight: bold;
+                    padding: 6px;
+                    margin: 20px 0 5px 0;
+                }
+                
+                .test-table {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    border: none;
+                    border-collapse: separate;
+                }
+                
+                .test-table th {
+                    padding: 8px;
+                    font-weight: bold;
+                    text-align: center;
+                    border: none;
+                }
+                
+                .test-table td {
+                    padding: 6px;
+                    vertical-align: top;
+                    border: none;
+                }
+                
+                .test-name-col { text-align: left; width: 45%; border: none; }
+                .observed-col { text-align: center; width: 20%; border: none; }
+                .unit-col { text-align: center; width: 15%; border: none; }
+                .range-col { text-align: center; width: 20%; border: none; }
+                
+                .abnormal {
+                    font-weight: bold;
+                }
+                
+                .footer {
+                    margin-top: 50px;
+                    text-align: center;
+                    color: #000;
+                    page-break-inside: avoid;
+                }
+            </style>
+            
+            <div class="page">
+                <!-- Hospital Header Section -->
+                <div style="text-align: center; margin-bottom: 20px; padding: 15px 0; border-bottom: 2px solid #333;">
+                    <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">
+                        <t t-esc="env.company.name"/>
+                    </div>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 3px;">
+                        <t t-if="env.company.street" t-esc="env.company.street"/>
+                        <t t-if="env.company.street2">, <t t-esc="env.company.street2"/></t>
+                        <t t-if="env.company.city">, <t t-esc="env.company.city"/></t>
+                        <t t-if="env.company.zip"> - <t t-esc="env.company.zip"/></t>
+                    </div>
+                    <div style="font-size: 11px; color: #666;">
+                        <t t-if="env.company.phone">Phone: <t t-esc="env.company.phone"/></t>
+                        <t t-if="env.company.email"> | Email: <t t-esc="env.company.email"/></t>
+                        <t t-if="env.company.website"> | <t t-esc="env.company.website"/></t>
+                    </div>
+                    <div style="font-size: 14px; font-weight: bold; margin-top: 8px; color: #2c5282;">
+                        LABORATORY REPORT
+                    </div>
+                </div>
+                
+                <!-- Patient Name -->
+                <div class="patient-name">
+                    <t t-if="o.patient.name" t-esc="o.patient.name"/>
+                    <t t-else="">PATIENT NAME</t>
+                </div>
+                
+                <!-- Patient Info Lines -->
+                <div class="info-line">
+                    <span class="label1">Ref. By :</span>
+                    <span class="value1" t-esc="o.requestor"/>
+                    <span class="label2">Registered On :</span>
+                    <span class="value2" t-esc="o.date_requested"/>
+                </div>
+                
+                <div class="info-line">
+                    <span class="label1">Patient Name :</span>
+                    <span class="value1" t-esc="o.patient.name"/>
+                    <span class="label2">Sample Collected On :</span>
+                    <span class="value2" t-esc="o.date_requested"/>
+                </div>
+                
+                <div class="info-line">
+                    <span class="label1">Age/Gender :</span>
+                    <span class="value1"><t t-esc="o.patient.age"/> Years / <t t-esc="o.patient.sex"/></span>
+                    <span class="label2">Sample Reported On :</span>
+                    <span class="value2" t-esc="o.date_analysis"/>
+                </div>
+                
+                <div class="info-line">
+                    <span class="label1">Patient ID :</span>
+                    <span class="value1" t-esc="o.name"/>
+                    <span class="label2">Sample ID :</span>
+                    <span class="value2" t-esc="o.name"/>
+                </div>
+                
+                <div class="info-line">
+                    <span class="label1">Doctor Name :</span>
+                    <span class="value1" t-esc="o.pathologist"/>
+                </div>
+
+                <!-- Test Results -->
+                <t t-foreach="o.lab_test_type_ids" t-as="test_type">
+                    <div class="test-category" t-esc="test_type.name"/>
+                    
+                    <table class="test-table">
+                        <thead>
+                            <tr>
+                                <th class="test-name-col">Test Name</th>
+                                <th class="observed-col">Observed Values</th>
+                                <th class="unit-col">Unit</th>
+                                <th class="range-col">Bio Ref. Interval</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.lab_test_criteria" t-as="l">
+                                <t t-set="find_test_criteria" t-value="test_type.lab_criteria.filtered(lambda line: line.name == l.name)"/>
+                                <t t-if="find_test_criteria">
+                                    <!-- Check if result is abnormal -->
+                                    <t t-set="is_abnormal" t-value="False"/>
+                                    <t t-if="l.result and l.normal_range and not l.display_type">
+                                        <t t-set="result_str" t-value="str(l.result).strip()"/>
+                                        <t t-set="range_str" t-value="str(l.normal_range).strip()"/>
+                                        
+                                        <!-- Extract numeric value from result -->
+                                        <t t-set="numeric_result" t-value="None"/>
+                                        <t t-try="">
+                                            <t t-set="clean_result" t-value="result_str.replace(',', '.').replace(' ', '')"/>
+                                            <t t-if="clean_result.replace('.', '').replace('-', '').isdigit()">
+                                                <t t-set="numeric_result" t-value="float(clean_result)"/>
+                                            </t>
+                                        </t>
+                                        <t t-except="">
+                                            <!-- Ignore conversion errors -->
+                                        </t>
+                                        
+                                        <!-- Check if result is out of range -->
+                                        <t t-if="numeric_result is not None">
+                                            <!-- Handle "min-max" range -->
+                                            <t t-if="'-' in range_str and not range_str.startswith('&lt;') and not range_str.startswith('&gt;')">
+                                                <t t-set="range_parts" t-value="range_str.replace(' ', '').split('-')"/>
+                                                <t t-if="len(range_parts) == 2">
+                                                    <t t-try="">
+                                                        <t t-set="min_val" t-value="float(range_parts[0]) if range_parts[0].replace('.', '').isdigit() else None"/>
+                                                        <t t-set="max_val" t-value="float(range_parts[1]) if range_parts[1].replace('.', '').isdigit() else None"/>
+                                                        <t t-if="min_val is not None and max_val is not None">
+                                                            <t t-set="is_abnormal" t-value="numeric_result &lt; min_val or numeric_result &gt; max_val"/>
+                                                        </t>
+                                                    </t>
+                                                    <t t-except="">
+                                                        <!-- Ignore conversion errors -->
+                                                    </t>
+                                                </t>
+                                            </t>
+                                            <!-- Handle "&lt; value" range -->
+                                            <t t-elif="range_str.startswith('&lt;')">
+                                                <t t-try="">
+                                                    <t t-set="max_val" t-value="float(range_str.replace('&lt;', '').strip())"/>
+                                                    <t t-set="is_abnormal" t-value="numeric_result &gt; max_val"/>
+                                                </t>
+                                                <t t-except="">
+                                                    <!-- Ignore conversion errors -->
+                                                </t>
+                                            </t>
+                                            <!-- Handle "&gt; value" range -->
+                                            <t t-elif="range_str.startswith('&gt;')">
+                                                <t t-try="">
+                                                    <t t-set="min_val" t-value="float(range_str.replace('&gt;', '').strip())"/>
+                                                    <t t-set="is_abnormal" t-value="numeric_result &lt; min_val"/>
+                                                </t>
+                                                <t t-except="">
+                                                    <!-- Ignore conversion errors -->
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    
+                                    <tr>
+                                        <td class="test-name-col" t-esc="l.name"/>
+                                        <td class="observed-col">
+                                            <t t-if="is_abnormal">
+                                                <span class="abnormal" t-esc="l.result"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-esc="l.result"/>
+                                            </t>
+                                        </td>
+                                        <td class="unit-col" t-esc="l.units.name"/>
+                                        <td class="range-col" t-esc="l.normal_range"/>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+                
+                <!-- Footer -->
+                <div class="footer">
+                    <div style="font-weight: bold; margin-bottom: 5px;" t-if="o.pathologist" t-esc="o.pathologist"/>
+                    <div style="font-size: 11px;">Consultant Pathologist</div>
+                    <div style="font-size: 10px; margin-top: 15px;">Page 1 of 1</div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_oeh_medical_patient_labtest">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="intarvas_lab.report_oeh_medical_patient_labtest_document"
+                   t-lang="o.patient.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

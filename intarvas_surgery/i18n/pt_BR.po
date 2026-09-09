@@ -1,0 +1,1172 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* intarvas_surgery
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-06 15:57+0000\n"
+"PO-Revision-Date: 2025-10-06 21:31+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.7\n"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_inherit_view
+msgid "<span>Operation Theaters</span>"
+msgstr "<span>Teatros de Operação</span>"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_asa
+msgid "ASA PS"
+msgstr "ASA PS"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_asa
+msgid "ASA pre-operative Physical Status"
+msgstr "Estado físico pré-operatório ASA"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_needaction
+msgid "Action Needed"
+msgstr "Ação Necessária"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__qty_used
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_supply__qty_used
+msgid "Actual quantity used"
+msgstr "Quantidade real usada"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__admission
+msgid "Admission"
+msgstr "Inscrições"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__admission
+msgid "Admission Name"
+msgstr "Nome de admissão"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__computed_age
+msgid "Age during surgery"
+msgstr "Idade durante a cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__anesthesia_report
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Anesthesia Report"
+msgstr "Relatório de Anestesia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__anesthetist
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery
+msgid "Anesthetist"
+msgstr "Anestesista"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__anesthetist
+msgid "Anesthetist in charge"
+msgstr "Anestesista responsável"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_antibiotics
+msgid "Antibiotic Prophylaxis"
+msgstr "Profilaxia antibiótica"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to cancel the surgery?"
+msgstr "Tem certeza de que deseja cancelar a cirurgia?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to confirm the surgery detail?"
+msgstr "Tem certeza de que deseja confirmar os detalhes da cirurgia?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to create invoice"
+msgstr "Tem certeza de que deseja criar fatura"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to end surgery?"
+msgstr "Tem certeza de que deseja encerrar a cirurgia?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+msgid "Are you sure you want to mark OT as Not Available?"
+msgstr "Tem certeza de que deseja marcar a OT como Não disponível?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+msgid "Are you sure you want to mark OT as available?"
+msgstr "Tem certeza de que deseja marcar a OT como disponível?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to set surgery record in Draft state?"
+msgstr "Tem certeza de que deseja estabelecer o recorde de cirurgia no estado de rascunho?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to sign the surgery record?"
+msgstr "Tem certeza de que deseja assinar o registro da cirurgia?"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Are you sure you want to start surgery?"
+msgstr "Tem certeza de que deseja iniciar a cirurgia?"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Anexos"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__pathology
+msgid "Base Condition / Reason"
+msgstr "Condição / Razão Base"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__building
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__building
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_medical_healthcenters_ot_filter
+msgid "Building"
+msgstr "Construção"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__building
+msgid "Building of the selected Health Center"
+msgstr "Edifício do Centro de Saúde selecionado"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Cancel Surgery"
+msgstr "Cancelar cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_mallampati__class_1
+msgid "Class 1: Full visibility of tonsils, uvula and soft palate"
+msgstr "Classe 1: Visibilidade total das amígdalas, úvula e palato mole"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_mallampati__class_2
+msgid "Class 2: Visibility of hard and soft palate, upper portion of tonsils and uvula"
+msgstr "Classe 2: Visibilidade do palato duro e mole, porção superior das amígdalas e úvula"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_mallampati__class_3
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "Classe 3: Palato mole e duro e base da úvula são visíveis"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_mallampati__class_4
+msgid "Class 4: Only Hard Palate visible"
+msgstr "Classe 4: Apenas palato duro visível"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__surgical_wound__i
+msgid "Clean . Class I"
+msgstr "Limpo. Classe I"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__surgical_wound__ii
+msgid "Clean-Contaminated . Class II"
+msgstr "Contaminado por limpeza. Classe II"
+
+#. module: intarvas_surgery
+#: model_terms:ir.actions.act_window,help:intarvas_surgery.oeh_medical_healthcenters_ot_action_tree
+msgid "Click to add a new health center operation theater."
+msgstr "Clique para adicionar uma nova sala de operações do centro de saúde."
+
+#. module: intarvas_surgery
+#: model_terms:ir.actions.act_window,help:intarvas_surgery.oeh_medical_surgery_action_tree
+msgid "Click to add a new surgery."
+msgstr "Clique para adicionar uma nova cirurgia."
+
+#. module: intarvas_surgery
+#: model_terms:ir.actions.act_window,help:intarvas_surgery.action_intarvas_surgery_types
+msgid "Click to add a surgery types."
+msgstr "Clique para adicionar um tipo de cirurgia."
+
+#. module: intarvas_surgery
+#: model_terms:ir.actions.act_window,help:intarvas_surgery.oeh_medical_surgery_rcri_action_tree
+msgid "Click to register a new Revised Cardiac Risk Index (RCRI)."
+msgstr "Clique para registrar um novo Índice de Risco Cardíaco Revisado (RCRI)."
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__computed_age
+msgid "Computed patient age at the moment of the surgery"
+msgstr "Idade computada do paciente no momento da cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__pathology
+msgid "Condition"
+msgstr "Condição"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Confirm Surgery"
+msgstr "Confirmar cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__confirmed
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__surgical_wound__iii
+msgid "Contaminated . Class III"
+msgstr "Contaminado. Classe III"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Create Invoice"
+msgstr "Criar Fatura"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__create_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__create_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__create_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__create_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__create_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__create_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__create_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__create_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__create_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__create_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_date
+msgid "Date"
+msgstr "Data"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__description
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Description"
+msgstr "Descrição"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_diabetes_history
+msgid "Diabetes Mellitus requiring treatment with Insulin"
+msgstr "Diabetes Mellitus que requer tratamento com insulina"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__surgical_wound__iv
+msgid "Dirty-Infected . Class IV"
+msgstr "Infectado sujo. Classe IV"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__display_name
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__display_name
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__display_name
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__display_name
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__display_name
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__doctor
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery_rcri
+msgid "Doctor"
+msgstr "Médico"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__done
+msgid "Done"
+msgstr "Feito"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__draft
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgery_length
+msgid "Duration (Hour:Minute)"
+msgstr "Duração (Hora:Minuto)"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__classification__emergency
+msgid "Emergency"
+msgstr "Emergência"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "End Surgery"
+msgstr "Cirurgia final"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgery_end_date
+msgid "End date & time"
+msgstr "Data e hora de término"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__surgery_end_date
+msgid "End of the Surgery"
+msgstr "Fim da cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__info
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__info
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Extra Info"
+msgstr "Informação extra"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+msgid "Extra Information"
+msgstr "Informações Adicionais"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__gender__female
+msgid "Female"
+msgstr "Feminino"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__gender__female_->_male
+msgid "Female -> Male"
+msgstr "Feminino -> Masculino"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Parceiros)"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_health_center_ot__state__free
+msgid "Free"
+msgstr "Grátis"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__gender
+msgid "Gender"
+msgstr "Gênero"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_medical_healthcenters_ot_filter
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery_rcri
+msgid "Group By..."
+msgstr "Agrupar Por…"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__has_message
+msgid "Has Message"
+msgstr "Tem Mensagem"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__institution
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__institution
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__institution
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_medical_healthcenters_ot_filter
+msgid "Health Center"
+msgstr "Posto de saúde"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_health_center_building
+msgid "Health Centers buildings"
+msgstr "Edifícios dos Centros de Saúde"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__signed_by
+msgid "Health Professional that signed this surgery document"
+msgstr "Profissional de saúde que assinou este documento de cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__doctor
+msgid "Health professional / Cardiologist who signed the assesment RCRI"
+msgstr "Profissional de saúde / cardiologista que assinou o RCRI de avaliação"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_team__team_member
+msgid "Health professional that participated on this surgery"
+msgstr "Profissional de saúde que participou desta cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_high_risk_surgery
+msgid "High Risk surgery"
+msgstr "Cirurgia de alto risco"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_cerebrovascular_history
+msgid "History of Cerebrovascular disease"
+msgstr "História de doença cerebrovascular"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_congestive_history
+msgid "History of Congestive heart disease"
+msgstr "História de cardiopatia congestiva"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_ischemic_history
+msgid "History of Ischemic heart disease"
+msgstr "História de cardiopatia isquêmica"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_ischemic_history
+msgid ""
+"History of MI or a positive exercise test, current complaint of chest pain considered to be "
+"secondary to myocardial ischemia, use of nitrate therapy, or ECG with pathological Q waves; "
+"do not count prior coronary revascularization procedure unless one of the other criteria "
+"for ischemic heart disease is present\""
+msgstr ""
+"História de infarto do miocárdio ou teste ergométrico positivo, queixa atual de dor "
+"torácica considerada secundária à isquemia miocárdica, uso de terapia com nitrato ou "
+"eletrocardiograma (ECG) com ondas Q patológicas; não contam o procedimento prévio de "
+"revascularização coronária, a menos que um dos outros critérios para doença cardíaca "
+"isquêmica esteja presente\""
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__id
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__id
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__id
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__id
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__id
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__id
+msgid "ID"
+msgstr "ID"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery_rcri__rcri_class__ii
+msgid "II"
+msgstr "II"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery_rcri__rcri_class__iii
+msgid "III"
+msgstr "III"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery_rcri__rcri_class__iv
+msgid "IV"
+msgstr "IV"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se estiver marcado, há novas mensagens que requerem a sua atenção."
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__message_has_error
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se marcada, algumas mensagens têm um erro de entrega."
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__in_progress
+msgid "In Progress"
+msgstr "Em Progresso"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_high_risk_surgery
+msgid "Includes andy suprainguinal vascular, intraperitoneal or intrathoracic procedures"
+msgstr "Inclui procedimentos vasculares, intraperitoneais ou intratorácicos suprainguinais"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Information"
+msgstr "Informação"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_health_center
+msgid "Information about the health centers"
+msgstr "Informações sobre os centros de saúde"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_health_center_ot
+msgid "Information about the health centers operating theaters"
+msgstr "Informações sobre as salas de cirurgia dos centros de saúde"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__qty
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_supply__qty
+msgid "Initial required quantity"
+msgstr "Quantidade inicial necessária"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__move_id
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__invoice
+msgid "Invoice"
+msgstr "Fatura"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_is_follower
+msgid "Is Follower"
+msgstr "É Seguidor"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__write_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__write_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__write_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__write_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__write_uid
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__write_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__write_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__write_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__write_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__write_date
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__surgery_length
+msgid "Length of the surgery"
+msgstr "Duração da cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__procedures
+msgid ""
+"List of the procedures in the surgery. Please enter the first one as the main procedure"
+msgstr "Lista dos procedimentos na cirurgia. Insira o primeiro como procedimento principal"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__supplies
+msgid "List of the supplies required for the surgery"
+msgstr "Lista dos suprimentos necessários para a cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__gender__male
+msgid "Male"
+msgstr "Masculino"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__gender__male_->_female
+msgid "Male -> Female"
+msgstr "Macho -> Fêmea"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_mallampati
+msgid "Mallampati Score"
+msgstr "Pontuação Mallampati"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+msgid "Mark as Available"
+msgstr "Marcar como disponível"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+msgid "Mark as Not Available"
+msgstr "Marcar como não disponível"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__team_member
+msgid "Member"
+msgstr "Membro"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de Entrega de Mensagem"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: intarvas_surgery
+#. odoo-python
+#: code:addons/intarvas_surgery/models/oeh_medical_surgery.py:0
+msgid "No physician associated to logged in user"
+msgstr "Nenhum médico associado ao usuário logado"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_health_center_ot__state__not_available
+msgid "Not Available"
+msgstr "Não Disponível"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__notes
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__notes
+msgid "Notes"
+msgstr "Notas"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Ações"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensagens que requerem uma ação"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensagens com um erro de entrega"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_sterility
+msgid "Nursing team has confirmed sterility of the devices and room"
+msgstr "A equipe de enfermagem confirmou a esterilidade dos dispositivos e da sala"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+msgid "OT Name"
+msgstr "Nome do Antigo Testamento"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_health_center_ot__state__occupied
+msgid "Occupied"
+msgstr "Ocupado"
+
+#. module: intarvas_surgery
+#: model:ir.actions.act_window,name:intarvas_surgery.oeh_medical_healthcenters_ot_action_tree
+#: model:ir.ui.menu,name:intarvas_surgery.oeh_medical_healthcenters_ot_list
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_tree
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_view
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_medical_healthcenters_ot_filter
+msgid "Operating Theaters"
+msgstr "Salas de cirurgia"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Operation Info"
+msgstr "Informações de operação"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__operating_room
+msgid "Operation Theater"
+msgstr "Teatro de Operações"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__name
+msgid "Operation Theater Name"
+msgstr "Nome do Teatro de Operações"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center__ot_ids
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_building__ot_count
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_healthcenters_ot_inherit_view
+msgid "Operation Theaters"
+msgstr "Teatros de Operação"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__classification__optional
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_asa__ps_1
+msgid "PS 1 : Normal healthy patient"
+msgstr "PS 1 : Paciente normal e saudável"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_asa__ps_2
+msgid "PS 2 : Patients with mild systemic disease"
+msgstr "PS 2 : Pacientes com doença sistêmica leve"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_asa__ps_3
+msgid "PS 3 : Patients with severe systemic disease"
+msgstr "PS 3 : Pacientes com doença sistêmica grave"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_asa__ps_4
+msgid "PS 4 : Patients with severe systemic disease that is a constant threat to life "
+msgstr "PS 4 : Pacientes com doença sistêmica grave que é uma ameaça constante à vida "
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_asa__ps_5
+msgid "PS 5 : Moribund patients who are not expected to survive without the operation"
+msgstr "PS 5 : Pacientes moribundos que não devem sobreviver sem a operação"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__preop_asa__ps_6
+msgid "PS 6 : A declared brain-dead patient who organs are being removed for donor purposes"
+msgstr ""
+"PS 6: Um paciente com morte cerebral declarada cujos órgãos estão sendo removidos para fins "
+"de doação"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_patient
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__patient
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__patient
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery_rcri
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__patient
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__patient
+msgid "Patient Name"
+msgstr "Nome do Paciente"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_rcri
+msgid ""
+"Patient Revised Cardiac Risk Index\n"
+" Points 0: Class I Very Low (0.4% complications)\n"
+" Points 1: Class II Low (0.9% complications)\n"
+" Points 2: Class III Moderate (6.6% complications)\n"
+" Points 3 or more : Class IV High (>11% complications)"
+msgstr ""
+"Índice de Risco Cardíaco Revisado pelo Paciente\n"
+" Pontos 0: Classe I Muito Baixa (0,4% c Aplicações)\n"
+" Pontos 1: Classe II Baixa (0,9% c Aplicações)\n"
+" Pontos 2: Classe III moderada (6,6% c complicações)\n"
+" Pontos 3 ou mais : Classe IV Elevada (>11% cAplicações)"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Patient Surgical Risk Assessment"
+msgstr "Avaliação de risco cirúrgico do paciente"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_bleeding_risk
+msgid ""
+"Patient has a risk of losing more than 500 ml in adults of over 7ml/kg in infants. If so, "
+"make sure that intravenous access and fluids are available"
+msgstr ""
+"O paciente tem o risco de perder mais de 500 ml em adultos de mais de 7 ml/kg em bebês. Em "
+"caso afirmativo, certifique-se de que o acesso intravenoso e os fluidos estejam disponíveis"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_total
+msgid ""
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
+msgstr ""
+"Pontos 0: Classe I Muito Baixa (0,4% c Aplicações)\n"
+"Pontos 1: Classe II Baixa (0,9% c Aplicações)\n"
+"Pontos 2: Classe III moderada (6,6% c complicações)\n"
+"Pontos 3 ou mais : Classe IV Elevada (>11% cAplicações)"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_rcri_view
+msgid ""
+"Points 0: Class I Very Low (0.4% complications)<br/>\n"
+"                                    Points 1: Class II Low (0.9% complications)<br/>\n"
+"                                    Points 2: Class III Moderate (6.6% complications)<br/>\n"
+"                                    Points 3 or more : Class IV High (&gt;11% complications)"
+msgstr ""
+"Pontos 0: Classe I Muito Baixa (0,4% complicas)<br/>Pontos 1: Classe II Baixa (0,9% "
+"complicas)<br/>Pontos 2: Classe III Moderada (6.6% complicas)<br/>Pontos 3 ou mais : Classe "
+"IV Elevada (&gt;11% complicas)"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__postoperative_dx
+msgid "Post-op dx"
+msgstr "Pós-operatório dx"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__postoperative_dx
+msgid "Post-operative diagnosis"
+msgstr "Diagnóstico pós-operatório"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Preoperative Checklist"
+msgstr "Lista de verificação pré-operatória"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_diabetes_history
+msgid "Preoperative Diabetes"
+msgstr "Diabetes pré-operatório"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_kidney_history
+msgid "Preoperative Kidney disease"
+msgstr "Doença renal pré-operatória"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_kidney_history
+msgid "Preoperative serum creatinine >2.0 mg/dL (177 mol/L)"
+msgstr "Creatinina sérica pré-operatória >2,0 mg/dL (177 mol/L)"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__price_of_surgery
+msgid "Price of Surgery"
+msgstr "Preço da cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__procedures
+msgid "Procedures"
+msgstr "Procedimentos"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Procedures & Supplies"
+msgstr "Procedimentos e suprimentos"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__surgery_team
+msgid "Professionals Involved in the surgery"
+msgstr "Profissionais envolvidos na cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_antibiotics
+msgid "Prophylactic antibiotic treatment within the last 60 minutes"
+msgstr "Tratamento antibiótico profilático nos últimos 60 minutos"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_oximeter
+msgid "Pulse Oximeter in place"
+msgstr "Oxímetro de pulso no lugar"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_oximeter
+msgid "Pulse oximeter is in place and functioning"
+msgstr "O oxímetro de pulso está instalado e funcionando"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_rcri
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__name
+msgid "RCRI"
+msgstr "RCRI"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_class
+msgid "RCRI Class"
+msgstr "Classe RCRI"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__rating_ids
+msgid "Ratings"
+msgstr "Avaliações"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__move_id
+msgid "Related Invoice"
+msgstr "Fatura relacionada"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__product_id
+msgid "Related Product"
+msgstr "Visualização de produtos relacionados"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__classification__required
+msgid "Required"
+msgstr "Obrigatório"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_health_center_ot__state__reserved
+msgid "Reserved"
+msgstr "Reservado"
+
+#. module: intarvas_surgery
+#: model:ir.actions.act_window,name:intarvas_surgery.oeh_medical_surgery_rcri_action_tree
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_surgery_rcri
+#: model:ir.ui.menu,name:intarvas_surgery.oeh_medical_surgery_rcri_list
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_rcri_view
+msgid "Revised Cardiac Risk Index"
+msgstr "Índice de Risco Cardíaco Revisado"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_rcri_tree
+msgid "Revised Cardiac Risk Index Information"
+msgstr "Informações revisadas do índice de risco cardíaco"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_bleeding_risk
+msgid "Risk of Massive bleeding"
+msgstr "Risco de sangramento maciço"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__role
+msgid "Role"
+msgstr "Função"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de Entrega de SMS"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_rcri__rcri_total
+msgid "Score"
+msgstr "Pontuação"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery_rcri
+msgid "Search Revised Cardiac Risk Index"
+msgstr "Pesquisar Índice de Risco Cardíaco Revisado"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery
+msgid "Search Surgeries"
+msgstr "Pesquisar Cirurgias"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Set To Draft"
+msgstr "Definir para esboço"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Sign & Archive"
+msgstr "Assine e arquive"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__state__signed
+msgid "Signed"
+msgstr "Assinado"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__signed_by
+msgid "Signed by"
+msgstr "Assinado por"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Start Surgery"
+msgstr "Iniciar cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgery_date
+msgid "Start date & time"
+msgstr "Data e hora de início"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__surgery_date
+msgid "Start of the Surgery"
+msgstr "Início da cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__state
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_medical_healthcenters_ot_filter
+msgid "State"
+msgstr "Estado"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery
+msgid "States"
+msgstr "Estados"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_health_center_ot__state
+#, fuzzy
+msgid "Status"
+msgstr "Status"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_sterility
+msgid "Sterility Confirmed"
+msgstr "Esterilidade confirmada"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__supplies
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Supplies"
+msgstr "Suprimentos"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_surgery_supply
+msgid "Supplies related to the surgery"
+msgstr "Suprimentos relacionados à cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__supply
+msgid "Supply"
+msgstr "Fornecimento"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery_supply__supply
+msgid "Supply to be used in this surgery"
+msgstr "Suprimento a ser usado nesta cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgeon
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_oeh_medical_surgery
+msgid "Surgeon"
+msgstr "Cirurgião"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__surgeon
+msgid "Surgeon who did the procedure"
+msgstr "Cirurgião que fez o procedimento"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_surgery
+msgid "Surgerical Management"
+msgstr "Manejo Cirúrgico"
+
+#. module: intarvas_surgery
+#: model:ir.actions.act_window,name:intarvas_surgery.oeh_medical_surgery_action_tree
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_patient__pediatrics_surgery_ids
+#: model:ir.ui.menu,name:intarvas_surgery.oeh_medical_surgery_list
+#: model:ir.ui.menu,name:intarvas_surgery.oeh_medical_surgery_menu
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_patient_surgery_view
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_tree
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Surgeries"
+msgstr "Cirurgias"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_supply__name
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery_team__name
+#: model:ir.ui.menu,name:intarvas_surgery.main_menu_surgeryy
+msgid "Surgery"
+msgstr "Cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__name
+msgid "Surgery #"
+msgstr "Cirurgia #"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_oeh_medical_surgery_team
+msgid "Surgery Team"
+msgstr "Equipe de Cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgery_type
+#: model:ir.model.fields,field_description:intarvas_surgery.field_surgery_types__name
+msgid "Surgery Type"
+msgstr "Tipo de cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.actions.act_window,name:intarvas_surgery.action_intarvas_surgery_types
+#: model:ir.ui.menu,name:intarvas_surgery.menu_surgery_types
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_intarvas_surgery_types_form
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.view_intarvas_surgery_types_tree
+msgid "Surgery Types"
+msgstr "Tipos de cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__preop_site_marking
+msgid "Surgical Site Marking"
+msgstr "Marcação do local cirúrgico"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgical_wound
+msgid "Surgical Wound"
+msgstr "Ferida Cirúrgica"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__surgery_team
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "Team Members"
+msgstr "Membros da Equipe"
+
+#. module: intarvas_surgery
+#: model:ir.model.constraint,message:intarvas_surgery.constraint_oeh_medical_health_center_ot_name_bed_uniq
+msgid "The operation theater name is already occupied !"
+msgstr "O nome da sala de operações já está ocupado!"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__preop_site_marking
+msgid "The surgeon has marked the surgical incision"
+msgstr "O cirurgião marcou a incisão cirúrgica"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__classification
+msgid "Urgency"
+msgstr "Urgência"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__classification
+msgid "Urgency level for this surgery"
+msgstr "Nível de urgência para esta cirurgia"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields.selection,name:intarvas_surgery.selection__oeh_medical_surgery__classification__urgent
+msgid "Urgent"
+msgstr "Urgente"
+
+#. module: intarvas_surgery
+#: model_terms:ir.ui.view,arch_db:intarvas_surgery.oeh_medical_surgery_view
+msgid "View Invoice"
+msgstr "Ver Fatura"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,field_description:intarvas_surgery.field_oeh_medical_surgery__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Website"
+
+#. module: intarvas_surgery
+#: model:ir.model.fields,help:intarvas_surgery.field_oeh_medical_surgery__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do website"
+
+#. module: intarvas_surgery
+#: model_terms:ir.actions.act_window,help:intarvas_surgery.oeh_medical_healthcenters_ot_action_tree
+msgid ""
+"With intarvas OT screen, you can configure your operating rooms to use during the surgeries"
+msgstr ""
+"Com a tela intarvas OT, você pode configurar suas salas de cirurgia para usar durante as "
+"cirurgias"
+
+#. module: intarvas_surgery
+#. odoo-python
+#: code:addons/intarvas_surgery/models/oeh_medical_healthcenters.py:0
+msgid ""
+"You can not delete operating theaters(s) which is in \"Reserved\" or \"Occupied\" state !!"
+msgstr ""
+"Você não pode excluir salas de cirurgia que estão no estado \"Reservado\" ou \"Ocupado\" !!"
+
+#. module: intarvas_surgery
+#: model_terms:ir.actions.act_window,help:intarvas_surgery.oeh_medical_surgery_action_tree
+msgid ""
+"intarvas surgery screen will allow you to record complete details of all the surgeries;"
+msgstr ""
+"A tela de cirurgia intarvas permitirá que você registre detalhes completos de todas as "
+"cirurgias;"
+
+#. module: intarvas_surgery
+#: model:ir.model,name:intarvas_surgery.model_surgery_types
+msgid "surgery.types"
+msgstr "cirurgia.tipos"
+
+#. module: intarvas_surgery
+#. odoo-python
+#: code:addons/intarvas_surgery/models/oeh_medical_surgery.py:0
+msgid "update oeh_medical_health_center_ot set state='Free' where id=%s"
+msgstr ""
+
+#. module: intarvas_surgery
+#. odoo-python
+#: code:addons/intarvas_surgery/models/oeh_medical_surgery.py:0
+msgid "update oeh_medical_health_center_ot set state='Occupied' where id=%s"
+msgstr ""
+
+#. module: intarvas_surgery
+#. odoo-python
+#: code:addons/intarvas_surgery/models/oeh_medical_surgery.py:0
+msgid "update oeh_medical_health_center_ot set state='Reserved' where id=%s"
+msgstr ""

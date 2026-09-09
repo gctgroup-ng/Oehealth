@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_patient_imaging" model="ir.actions.report">
+            <field name="name">Imaging Test Report</field>
+            <field name="model">oeh.medical.imaging</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas_imaging.report_oeh_medical_patient_imaging</field>
+            <field name="report_file">intarvas_imaging.report_oeh_medical_patient_imaging</field>
+        </record>
+    </data>
+</odoo>

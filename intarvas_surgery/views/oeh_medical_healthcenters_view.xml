@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<odoo>
+        <data>
+
+            <!-- Operating Theaters -->
+
+            <record model="ir.ui.view" id="oeh_medical_healthcenters_ot_view">
+                <field name="name">Operating Theaters</field>
+                <field name="model">oeh.medical.health.center.ot</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Operating Theaters">
+                        <header>
+                            <button confirm="Are you sure you want to mark OT as Not Available?" name="action_surgery_set_to_not_available" invisible="state!='Free'" string="Mark as Not Available" type="object" class="oe_highlight" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <button confirm="Are you sure you want to mark OT as available?" name="action_surgery_set_to_available" invisible="state!='Not Available'" string="Mark as Available" type="object" class="oe_highlight" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <field name="state" widget="statusbar" statusbar_visible="Free,Reserved,Occupied,Not Available" statusbar_colors='{"Occupied":"red","Free":"blue","Reserved":"purple","Not Available":"grey"}'/>
+                        </header>
+                        <sheet>
+                            <div>
+                                <div class="oe_title">
+                                    <label class="oe_edit_only" for="name" string="OT Name"/>
+                                    <h1><field name="name" class="oe_inline"/></h1>
+                                </div>
+                            </div>
+                            <group>
+                                <field name="institution"/>
+                                <field name="building" domain="[('institution','=',institution)]" context="{'default_institution': institution}"/>
+                            </group>
+                            <group string="Extra Information">
+                                <field name="info" nolabel="1"/>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="oeh_medical_healthcenters_ot_tree">
+                <field name="name">Operating Theaters</field>
+                <field name="model">oeh.medical.health.center.ot</field>
+                <field name="type">list</field>
+                <field name="arch" type="xml">
+                    <list string='Operating Theaters' decoration-muted="state=='Occupied'" decoration-info="state=='Reserved'" decoration-success="state=='Free'" decoration-danger="state=='Not Available'">
+                        <field name="name"/>
+                        <field name="institution"/>
+                        <field name="building"/>
+                        <field name="state" widget="badge" decoration-muted="state=='Occupied'" decoration-info="state=='Reserved'" decoration-success="state=='Free'" decoration-danger="state=='Not Available'"/>
+                    </list>
+                </field>
+            </record>
+
+             <record id="view_medical_healthcenters_ot_filter" model="ir.ui.view">
+                <field name="name">Operating Theater Search</field>
+                <field name="model">oeh.medical.health.center.ot</field>
+                <field name="priority" eval="8" />
+			    <field name="arch" type="xml">
+                    <search string="Operating Theaters">
+                        <field name="name"/>
+                        <field name="institution"/>
+                        <field name="info"/>
+                        <field name="building"/>
+                        <newline />
+                        <group>
+                            <filter name="group_institution" string="Health Center" domain="[]" context="{'group_by':'institution'}" />
+                            <filter name="group_building" string="Building" domain="[]" context="{'group_by':'building'}" />
+                            <filter name="group_state" string="State" domain="[]" context="{'group_by':'state'}" />
+                        </group>
+				    </search>
+                </field>
+            </record>
+
+            <record id="oeh_medical_healthcenters_ot_action_tree" model="ir.actions.act_window">
+                    <field name="name">Operating Theaters</field>
+                    <field name="res_model">oeh.medical.health.center.ot</field>
+                    <field name="view_mode">list,form</field>
+                    <field name="help" type="html">
+                      <p class="o_view_nocontent_smiling_face">
+                        Click to add a new health center operation theater.
+                      </p><p>
+                        With intarvas OT screen, you can configure your operating rooms to use during the surgeries
+                      </p>
+                    </field>
+            </record>
+
+            <menuitem action="oeh_medical_healthcenters_ot_action_tree" id="oeh_medical_healthcenters_ot_list" parent="intarvas.oeh_medical_hospital_menu" sequence="5"/>
+
+            <!-- Inheriting Health Center view to add Operation Theaters button and tab -->
+            <record id="oeh_medical_healthcenters_ot_inherit_view" model="ir.ui.view">
+                <field name="name">Health Centers - Operation Theaters</field>
+                <field name="model">oeh.medical.health.center</field>
+                <field name="inherit_id" ref="intarvas.oeh_medical_healthcenters_view"/>
+                <field name="arch" type="xml">
+                    <!-- Add Operation Theaters button -->
+                    <xpath expr="//div[@class='oe_button_box']//button[last()]" position="after">
+                        <button type="action"
+                                class="oe_stat_button"
+                                name="%(oeh_medical_healthcenters_ot_action_tree)d"
+                                context="{'search_default_institution': id, 'default_institution': id}"
+                                icon="fa-hospital-o"
+                                groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager,intarvas.group_oeh_medical_nurse">
+                            <span>Operation Theaters</span>
+                        </button>
+                    </xpath>
+                    <!-- Add Operation Theaters tab -->
+                    <xpath expr="//page[@name='accommodations']" position="after">
+                        <page string="Operation Theaters">
+                            <field name="ot_ids" nolabel="1">
+                                <list string="Operation Theaters">
+                                    <field name="name"/>
+                                    <field name="building" domain="[('institution','=',parent.id)]" context="{'default_institution': parent.id}"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </xpath>
+                </field>
+            </record>
+
+    </data>
+</odoo>

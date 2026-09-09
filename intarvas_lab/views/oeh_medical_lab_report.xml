@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_patient_labtest" model="ir.actions.report">
+            <field name="name">Lab Test Report</field>
+            <field name="model">oeh.medical.lab.test</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas_lab.report_oeh_medical_patient_labtest</field>
+            <field name="report_file">intarvas_lab.report_oeh_medical_patient_labtest</field>
+        </record>
+    </data>
+</odoo>
