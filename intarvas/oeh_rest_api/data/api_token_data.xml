@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Setting up API Token Expiration Time (in days) inside default Odoo Configuration Parameter  -->
+        <record id="intarvas_rest_api_token_expires_in" model="ir.config_parameter">
+            <field name="key">intarvas_rest_api_token_expires_in</field>
+            <field name="value">30</field>
+        </record>
+
+        <!-- Setting up Notificication Configuration Parameteres  -->
+        <record id="fcm_project_api_key" model="ir.config_parameter">
+            <field name="key">fcm_project_api_key</field>
+            <field name="value">AAAA1s98Ez8:APA91bGaT3SwPP07-g-aRfyI8jm3Xc39_a0W9pq2gGVFvKHGMIW38UUH8ALfXOQ_rPatVpHVihzSG9psXG_1iWtGziMUcgMvDE9bNfbIe8Und0ya4mfLt2QwYB7fowqrZp8PUoipzssc</field>
+        </record>
+
+        <record id="patient_notification_message" model="ir.config_parameter">
+            <field name="key">patient_notification_message</field>
+            <field name="value">You have an appointment today with %physician% in %minutes%</field>
+        </record>
+
+        <record id="physician_notification_message" model="ir.config_parameter">
+            <field name="key">physician_notification_message</field>
+            <field name="value">You have an appointment today with %patient% in %minutes%</field>
+        </record>
+
+    </data>
+</odoo>

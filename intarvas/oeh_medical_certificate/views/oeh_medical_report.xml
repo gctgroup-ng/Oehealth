@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <report-->
+<!--            string="Medical Certificate"-->
+<!--            id="action_report_oeh_medical_patient_medical_cert"-->
+<!--            model="oeh.medical.patient.medical.cert"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="intarvas.report_patient_medical_cert"-->
+<!--            file="intarvas.report_patient_medical_cert"-->
+<!--        />-->
+
+        <record id="action_report_oeh_medical_patient_medical_cert" model="ir.actions.report">
+            <field name="name">Medical Certificate</field>
+            <field name="model">oeh.medical.patient.medical.cert</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_patient_medical_cert</field>
+            <field name="report_file">intarvas.report_patient_medical_cert</field>
+            <field name="binding_type">report</field>
+        </record>
+
+
+    </data>
+</odoo>

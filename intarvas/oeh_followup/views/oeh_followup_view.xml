@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="oeh_medical_followup_form_view" model="ir.ui.view">
+        <field name="name">Followup Form</field>
+        <field name="model">oeh.medical.followup</field>
+        <field name="arch" type="xml">
+            <form string="Follow-Up">
+                <header>
+                    <button name="set_to_done" string="Mark as Done" invisible="state != 'scheduled'" type="object" class="oe_highlight" />
+                    <field name="state" widget="statusbar" statusbar_visible="scheduled,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Name" required="1"/>
+                            <field name="patient" string="Patient" required="1" widget="many2one_avatar_patient"/>
+                            <field name="health_center" string="Health Center" required="1"/>
+                        </group>
+                        <group>
+                            <field name="source_appointment_bool" invisible="1"/>
+                            <field name="source_followup_bool" invisible="1"/>
+                            <field name="source_prescription_bool" invisible="1"/>
+                            <field name="source_appointment" string="Source" invisible="source_prescription_bool or source_followup_bool"/>
+                            <field name="source_prescription" string="Source" invisible="source_appointment_bool or source_followup_bool"/>
+                            <field name="source_followup" string="Source" invisible="source_appointment_bool or source_prescription_bool"/>
+                            <field name="followup_date" string="Follow-Up Date"/>
+                            <field name="fin_followup_datetime" string="Completed Follow-Up Date &amp; Time"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" string="Notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="oeh_medical_followup_tree_view" model="ir.ui.view">
+        <field name="name">Followup Tree</field>
+        <field name="model">oeh.medical.followup</field>
+        <field name="arch" type="xml">
+            <list string="Follow-Up">
+                <field name="name"/>
+                <field name="patient"/>
+                <field name="health_center"/>
+                <field name="followup_date" string="Follow-Up Date"/>
+                <field name="fin_followup_datetime" string="Completed Follow-Up Date &amp; Time"/>
+                <field name="state" string="State"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="oeh_medical_followup_calender_view" model="ir.ui.view">
+        <field name="name">Followup Calender</field>
+        <field name="model">oeh.medical.followup</field>
+        <field name="arch" type="xml">
+            <calendar string="Follow-Up" date_start="followup_date" quick_create="False" color="health_center" mode="month">
+                <field name="name"/>
+                <field name="patient"/>
+                <field name="health_center"/>
+                <field name="followup_date"/>
+                <field name="health_center" filters="1" invisible="1"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="oeh_medical_followup_search_view" model="ir.ui.view">
+        <field name="name">Followup Search</field>
+        <field name="model">oeh.medical.followup</field>
+        <field name="arch" type="xml">
+            <search string="Follow-Up">
+                <field name="name"/>
+                <field name="patient"/>
+                <field name="health_center"/>
+                <separator/>
+                <filter name="state_scheduled" string="Scheduled" domain="[('state','=','scheduled')]"/>
+                <filter name="state_done" string="Done" domain="[('state','=','done')]"/>
+                <group>
+                    <filter string='Health Centers' name="group_health_center" context="{'group_by': 'health_center'}"/>
+                    <filter string="Patients" name="group_patient" context="{'group_by': 'patient'}"/>
+                    <filter string="States" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="oeh_medical_followup_action" model="ir.actions.act_window">
+        <field name="name">Follow-Up</field>
+        <field name="res_model">oeh.medical.followup</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="context">{'search_default_group_health_center':1,'search_default_state_scheduled':1}</field>
+    </record>
+
+    <menuitem id="oeh_medical_followup_menu" parent="oeh_medical_menu" action="oeh_medical_followup_action" sequence="70"/>
+
+
+</odoo>

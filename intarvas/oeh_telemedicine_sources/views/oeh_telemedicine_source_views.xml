@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="oeh_medical_telemedicine_source_tree" model="ir.ui.view">
+            <field name="name">TeleMedical Sources</field>
+            <field name="model">oeh.medical.telemedicine.sources</field>
+            <field name="arch" type="xml">
+                <list string='TeleMedicine Sources'>
+                    <field name="name"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="oeh_medical_telemedicine_source_form">
+            <field name="name">TeleMedical Sources</field>
+            <field name="model">oeh.medical.telemedicine.sources</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Telemedicine" delete="false">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Name" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="oeh_medical_telemedicine_action_tree" model="ir.actions.act_window">
+            <field name="name">Telemedicine Sources</field>
+            <field name="res_model">oeh.medical.telemedicine.sources</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    View and manage all Telemedicine sources
+                </p>
+            </field>
+        </record>
+    </data>
+
+    <menuitem action="oeh_medical_telemedicine_action_tree" id="oeh_medical_sources"
+              name="Sources"
+              parent="oeh_medical_telemedicine"
+              sequence="11"/>
+
+
+<!--    <record model="ir.ui.view" id="oeh_medical_appointment_view_inherit">-->
+<!--        <field name="name">Appointments</field>-->
+<!--        <field name="model">oeh.medical.appointment</field>-->
+<!--        <field name="inherit_id" ref="intarvas.oeh_medical_appointment_view"/>-->
+<!--        <field name="arch" type="xml">-->
+            <!--            <xpath expr="//button[@name='set_to_completed']" position="after">-->
+            <!--                <button name="create_online_meetings" string="Create Online Meeting" type="object"-->
+            <!--                        class="oe_highlight"/>-->
+            <!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

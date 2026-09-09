@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Prescription Templates Data -->
+
+        <!-- Common Cold/Flu Treatment -->
+        <record id="prescription_template_cold_flu" model="oeh.medical.prescription.template">
+            <field name="name">Common Cold/Flu Treatment</field>
+            <field name="description">Standard prescription for cold and flu symptoms</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="prescription_template_cold_flu_line1" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_cold_flu"/>
+            <field name="medicine_id" ref="oeh_product_242"/>  <!-- paracetamol -->
+            <field name="dose">500</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">10</field>
+            <field name="common_dosage_id" ref="oeh229799001"/>
+            <field name="duration">5</field>
+            <field name="duration_period">days</field>
+            <field name="info">Take with food to avoid stomach upset</field>
+        </record>
+
+        <record id="prescription_template_cold_flu_line2" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_cold_flu"/>
+            <field name="medicine_id" ref="oeh_product_161"/>  <!-- ibuprofen -->
+            <field name="dose">400</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">6</field>
+            <field name="common_dosage_id" ref="oeh229798009"/>
+            <field name="duration">3</field>
+            <field name="duration_period">days</field>
+            <field name="info">Take after meals</field>
+        </record>
+
+        <!-- Bacterial Infection Treatment -->
+        <record id="prescription_template_bacterial_infection" model="oeh.medical.prescription.template">
+            <field name="name">Bacterial Infection Treatment</field>
+            <field name="description">Standard antibiotic treatment for bacterial infections</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="prescription_template_bacterial_line1" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_bacterial_infection"/>
+            <field name="medicine_id" ref="oeh_product_18"/>  <!-- amoxicillin -->
+            <field name="dose">500</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">21</field>
+            <field name="common_dosage_id" ref="oeh229798009"/>
+            <field name="duration">7</field>
+            <field name="duration_period">days</field>
+            <field name="info">Complete the full course even if symptoms improve</field>
+        </record>
+
+        <!-- Hypertension Maintenance -->
+        <record id="prescription_template_hypertension" model="oeh.medical.prescription.template">
+            <field name="name">Hypertension Maintenance</field>
+            <field name="description">Standard medication for blood pressure control</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="prescription_template_hypertension_line1" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_hypertension"/>
+            <field name="medicine_id" ref="oeh_product_16"/>  <!-- amlodipine -->
+            <field name="dose">5</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">30</field>
+            <field name="common_dosage_id" ref="oeh229797004"/>
+            <field name="duration">1</field>
+            <field name="duration_period">months</field>
+            <field name="info">Take at the same time daily, preferably in the morning</field>
+        </record>
+
+        <!-- Diabetes Management -->
+        <record id="prescription_template_diabetes" model="oeh.medical.prescription.template">
+            <field name="name">Type 2 Diabetes Management</field>
+            <field name="description">Standard medication for Type 2 Diabetes</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="prescription_template_diabetes_line1" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_diabetes"/>
+            <field name="medicine_id" ref="oeh_product_207"/>  <!-- metformin -->
+            <field name="dose">500</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">60</field>
+            <field name="common_dosage_id" ref="oeh229799001"/>
+            <field name="duration">1</field>
+            <field name="duration_period">months</field>
+            <field name="info">Take with meals to reduce gastrointestinal side effects</field>
+        </record>
+
+        <!-- Pain Management -->
+        <record id="prescription_template_pain_management" model="oeh.medical.prescription.template">
+            <field name="name">General Pain Management</field>
+            <field name="description">Standard pain relief medication</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="prescription_template_pain_line1" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_pain_management"/>
+            <field name="medicine_id" ref="oeh_product_242"/>  <!-- paracetamol -->
+            <field name="dose">650</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">20</field>
+            <field name="common_dosage_id" ref="oeh307439001"/>
+            <field name="duration">5</field>
+            <field name="duration_period">days</field>
+            <field name="info">Do not exceed 4 grams per day</field>
+        </record>
+
+        <record id="prescription_template_pain_line2" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_pain_management"/>
+            <field name="medicine_id" ref="oeh_product_161"/>  <!-- ibuprofen -->
+            <field name="dose">200</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">10</field>
+            <field name="common_dosage_id" ref="oeh229798009"/>
+            <field name="duration">3</field>
+            <field name="duration_period">days</field>
+            <field name="info">Take with food. Stop if stomach upset occurs</field>
+        </record>
+
+        <!-- Gastric Issues Treatment -->
+        <record id="prescription_template_gastric" model="oeh.medical.prescription.template">
+            <field name="name">Gastric Issues Treatment</field>
+            <field name="description">Treatment for acid reflux and gastric problems</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="prescription_template_gastric_line1" model="oeh.medical.prescription.template.line">
+            <field name="template_id" ref="prescription_template_gastric"/>
+            <field name="medicine_id" ref="oeh_product_281"/>  <!-- ranitidine -->
+            <field name="dose">20</field>
+            <field name="dose_unit_id" ref="mg"/>
+            <field name="qty">14</field>
+            <field name="common_dosage_id" ref="oeh229797004"/>
+            <field name="duration">14</field>
+            <field name="duration_period">days</field>
+            <field name="info">Take 30 minutes before breakfast</field>
+        </record>
+
+    </data>
+</odoo>

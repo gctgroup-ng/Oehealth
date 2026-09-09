@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<odoo>
+        <data>
+
+            <!-- Ethnic Groups -->
+
+             <record id="oeh_medical_ethnic_groups_form" model="ir.ui.view">
+                <field name="name">Ethnic Groups</field>
+                <field name="model">oeh.medical.ethnicity</field>
+                <field name="arch" type="xml">
+                    <form string='Ethnic Groups'>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="oeh_medical_ethnic_groups_tree">
+                <field name="name">Ethnic Groups</field>
+                <field name="model">oeh.medical.ethnicity</field>
+<!--                <field name="type">tree</field>-->
+                <field name="arch" type="xml">
+                    <list string='Ethnic Groups' editable="bottom">
+                        <field name="name"/>
+                    </list>
+                </field>
+            </record>
+
+             <record id="view_oeh_medical_ethnic_groups_filter" model="ir.ui.view">
+                <field name="name">Ethnic Groups Search</field>
+                <field name="model">oeh.medical.ethnicity</field>
+			    <field name="arch" type="xml">
+                    <search string="Ethnic Groups">
+                        <field name="name"/>
+				    </search>
+                </field>
+            </record>
+
+            <record id="oeh_medical_ethnic_groups_action_tree" model="ir.actions.act_window">
+                    <field name="name">Ethnic Groups</field>
+                    <field name="res_model">oeh.medical.ethnicity</field>
+                    <field name="view_mode">list,form</field>
+                    <field name="help" type="html">
+                      <p class="o_view_nocontent_smiling_face">
+                        Click to add a new ethnic groups.
+                      </p>
+                    </field>
+            </record>
+
+            <menuitem action="oeh_medical_ethnic_groups_action_tree" id="oeh_medical_ethnic_groups_conf_list" parent="oeh_medical_conf_patient" sequence="1"/>
+
+        </data>
+</odoo>

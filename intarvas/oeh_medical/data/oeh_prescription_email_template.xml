@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+     <record id="oeh_email_template_prescription" model="mail.template">
+        <field name="name">Prescription: Send by email</field>
+        <field name="model_id" ref="intarvas.model_oeh_medical_prescription"/>
+        <field name="subject">Prescription # :{{object.name or 'n/a'}}</field>
+        <field name="email_from">{{ (user.email_formatted or '') }}</field>
+        <field name="partner_to">{{ object.patient.partner_id.id }}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    <!--            Dear {{ object.patient.name }},-->
+                    Dear
+                    <t t-out="object.patient.name or ''">,</t>
+                    <br/>
+                    <br/>
+                    Please find your attached prescription
+                    <strong>
+                        <t t-out="object.patient.name or ''"/>
+                    </strong>
+                    dated
+                    <strong>
+                        <t t-out="object.date or ''"/>
+                    </strong>
+                    <t t-if="object.institution">
+                        and generated at
+                        <strong>
+                            <t t-out="object.institution.name or ''"/>
+                        </strong>
+                    </t>
+                    <br/>
+                    <br/>
+                    Do not hesitate to contact us if you have any questions.
+                    <br/>
+                </p>
+            </div>
+        </field>
+        <field name="report_template_ids" eval="[(4, ref('intarvas.action_oeh_medical_report_patient_prescriptions'))]"/>
+        <field name="lang">{{ object.patient.partner_id.lang or 'en_US' }}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,311 @@
+<?xml version="1.0" ?>
+<odoo>
+        <data>
+
+            <!-- Inpatient Hospitalization -->
+
+            <record model="ir.ui.view" id="oeh_medical_inpatient_view">
+                <field name="name">Inpatient Admission</field>
+                <field name="model">oeh.medical.inpatient</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Inpatient Admission">
+                        <header>
+                            <button confirm="Are you sure you want to admit the patient?" name="set_to_hospitalized" invisible="state != 'Draft'" string="Admit Now" type="object" class="oe_highlight" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <button name="action_create_appointment" invisible="state != 'Hospitalized'" string="Create Appointment" type="object" class="btn-primary" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <button confirm="Are you sure you want to create the invoice?" name="set_to_invoiced" invisible="state != 'Hospitalized'" string="Create Invoice" type="object" class="oe_highlight" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <button confirm="Are you sure you want to discharge the patient?" name="set_to_discharged" invisible="state != 'Invoiced'" string="Discharge Now" type="object" class="oe_highlight" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <button confirm="Are you sure you want to cancel the admission?" name="set_to_cancelled" invisible="state != 'Hospitalized'" string="Cancel Admission" type="object" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <button confirm="Are you sure you want to set record to draft mode?" name="set_to_draft" invisible="state != 'Cancelled'" string="Set to Draft" type="object" class="oe_highlight" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <sheet>
+                            <div class="oe_button_box" name="button_box">
+                                <button type="object" name="action_view_appointment"
+                                        string="Appointment" class="oe_stat_button" icon="fa-calendar">
+                                    <field string="Appointment" name="appointment_count" widget="statinfo"/>
+                                </button>
+                                <button name="action_view_invoice" type="object" class="oe_stat_button"
+                                        icon="fa-money" invisible="not move_id">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value" style="color: #007bff;">
+                                            <field name="invoice_amount_residual" widget="monetary"/>
+                                        </span>
+                                        <span class="o_stat_text">Invoice</span>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="oe_left" style="width: 500px;">
+                                <div class="oe_title" style="width: 390px;">
+                                    <label class="oe_edit_only" for="name" string="Inpatient #"/>
+                                    <h1><field name="name" class="oe_inline"/></h1>
+                                </div>
+                            </div>
+                            <group class="col-12">
+                                <group class="col-6">
+                                    <field name="patient" readonly="state!='Draft'" widget="many2one_avatar_patient"/>
+                                    <field name="admission_reason" readonly="state!='Draft'"/>
+                                    <field name="ward" options="{'no_create': True}" readonly="state!='Draft'"/>
+                                    <field name="bed" domain="[('ward','=',ward),('state','=','Free')]" options="{'no_create': True}" readonly="state!='Draft'"/>
+                                    <field name="move_id" readonly="1" invisible="1"/>
+                                    <field name="prescribed_medical_ids" readonly="0" invisible="1"/>
+                                    <field name="appointment_id" invisible="1"/>
+                                </group>
+                                <group class="col-6">
+                                    <field name="institution" required="1" readonly="state!='Draft'"/>
+                                    <field name="admission_type" readonly="state!='Draft'"/>
+                                    <field name="attending_physician" options="{'no_create': True}" readonly="state!='Draft'" widget="many2one_avatar_physician"/>
+                                    <field name="operating_physician" options="{'no_create': True}" readonly="state!='Draft'" widget="many2one_avatar_physician"/>
+                                    <field name="scheduled_date" readonly="state!='Draft'"/>
+                                    <field name="admission_date" readonly="state not in ['Hospitalized','Discharged']"/>
+                                    <field name="discharge_date" readonly="state not in ['Hospitalized','Discharged']"/>
+                                </group>
+                            </group>
+                            <notebook>
+                                <page string="Details">
+                                    <group>
+                                        <field name="admission_condition" readonly="state!='Draft'"/>
+                                    </group>
+                                    <group>
+                                        <field name="nursing_plan" readonly="state!='Draft'"/>
+                                    </group>
+                                    <group>
+                                        <field name="discharge_plan" readonly="state!='Draft'"/>
+                                    </group>
+                                </page>
+                                <page string="Prescribed Medicines">
+                                    <field name="prescribed_medicines">
+                                        <form string="Prescribed Medicines">
+                                            <group>
+                                                <group>
+                                                    <field name="name"/>
+                                                    <field name="dose_form"/>
+                                                    <field name="start_treatment"/>
+                                                    <field name="patient" domain="[('id', '=', parent.patient)]" required="1"/>
+                                                </group>
+                                                <group>
+                                                    <field name="indication"/>
+                                                    <field name="dose_route"/>
+                                                    <field name="end_treatment"/>
+                                                </group>
+                                            </group>
+                                            <group>
+                                                <group string="Dosage">
+                                                    <field name="qty" required="1"/>
+                                                    <label for="dose"/>
+                                                    <div>
+                                                        <field name="dose" placeholder="250" style="width: 20%%"/>
+                                                        <field name="dose_unit" placeholder="mg" style="width: 40%%"/>
+                                                    </div>
+                                                </group>
+                                                <group string="Common Dosage">
+                                                    <field name="common_dosage"/>
+                                                    <field name="admin_times"/>
+                                                </group>
+                                            </group>
+                                            <group string="Specific Dosage">
+                                                <p class="oe_grey" colspan="2">
+                                                    Time in between doses the patient must wait (ie, for 1 pill each 8 hours, put here 8 and select 'hours' in the unit field)
+                                                </p>
+                                            </group>
+                                            <group>
+                                                <group>
+                                                    <field name="frequency"/>
+                                                </group>
+                                                <group>
+                                                    <field name="frequency_unit"/>
+                                                </group>
+                                            </group>
+                                            <group string="Treatment">
+                                                <p class="oe_grey" colspan="2">
+                                                    Treatment period that the patient must take the medication in minutes, hours, days, months, years or indefinitely
+                                                </p>
+                                            </group>
+                                            <group>
+                                                <group>
+                                                    <field name="duration" string="Day(s)"/>
+                                                </group>
+                                                <group>
+                                                    <field name="duration_period" string="Period"/>
+                                                </group>
+                                            </group>
+                                            <group string="Comment">
+                                                <field name="info" nolabel="1"/>
+                                            </group>
+                                        </form>
+                                        <list string="Medicines">
+                                            <field name="name"/>
+                                            <field name="indication"/>
+                                            <field name="dose"/>
+                                            <field name="dose_unit"/>
+                                            <field name="dose_form"/>
+                                            <field name="common_dosage"/>
+                                            <field name="qty"/>
+                                            <field name="duration"/>
+                                            <field name="duration_period"/>
+                                            <field name="info"/>
+                                            <field name="inpatient_id"/>
+                                        </list>
+                                    </field>
+                                </page>
+                                <page string="Consumed Medicines">
+                                    <field name="consumed_medicines">
+                                        <form string="Consumed Medicines">
+                                            <group>
+                                                <group>
+                                                    <field name="name" domain="[('id', 'in', parent.prescribed_medical_ids)]"/>
+                                                    <field name="user_id" readonly="1"/>
+                                                </group>
+                                                <group>
+                                                    <field name="date_time"/>
+                                                </group>
+                                            </group>
+                                            <group string="Dose">
+                                                <field name="dose_no" required="1"/>
+                                            </group>
+                                            <group>
+                                                <field name="qty" required="1"/>
+                                            </group>
+                                            <group>
+                                                <label for="dose"/>
+                                                <div>
+                                                    <field name="dose" placeholder="250" style="width: 20%%"/>
+                                                    <field name="dose_unit" placeholder="mg" style="width: 40%%"/>
+                                                </div>
+                                            </group>
+                                            <group string="Remarks">
+                                                <field name="remarks" nolabel="1"/>
+                                            </group>
+                                        </form>
+                                        <list>
+                                            <field name="name"/>
+                                            <field name="date_time"/>
+                                            <field name="user_id"/>
+                                            <field name="dose_no"/>
+                                            <field name="qty"/>
+                                            <field name="dose"/>
+                                            <field name="dose_unit"/>
+                                            <field name="remarks"/>
+                                            <field name="inpatient_id"/>
+                                        </list>
+                                    </field>
+                                </page>
+                                <page string="Extra Information">
+                                    <field name="info" nolabel="1"/>
+                                </page>
+                            </notebook>
+                        </sheet>
+                        <chatter/>
+                    </form>
+                </field>
+            </record>
+
+            <record id="oeh_medical_inpatient_calendar" model="ir.ui.view">
+                <field name="name">Inpatient Admission Calendar</field>
+                <field name="model">oeh.medical.inpatient</field>
+                <field name="arch" type="xml">
+                    <calendar string="Admissions" date_start="scheduled_date" color="admission_type" quick_create="True">
+                        <field name="patient" widget="many2one_avatar_patient"/>
+                        <field name="admission_type"/>
+                        <field name="ward"/>
+                        <field name="bed"/>
+                        <field name="state"/>
+                    </calendar>
+                </field>
+            </record>
+
+            <record id="oeh_medical_inpatient_tree" model="ir.ui.view">
+                <field name="name">Inpatient Admission</field>
+                <field name="model">oeh.medical.inpatient</field>
+                <field name="arch" type="xml">
+                    <list string='Inpatient Admission'>
+                        <field name="name"/>
+                        <field name="patient" widget="many2one_avatar_patient"/>
+                        <field name="admission_type"/>
+                        <field name="ward"/>
+                        <field name="bed"/>
+                        <field name="scheduled_date"/>
+                        <field name="admission_date"/>
+                        <field name="discharge_date"/>
+                        <field name="state" widget="badge"/>
+                    </list>
+                </field>
+            </record>
+
+             <record id="view_medical_inpatient_filter" model="ir.ui.view">
+                <field name="name">Inpatient Admission Search</field>
+                <field name="model">oeh.medical.inpatient</field>
+			    <field name="arch" type="xml">
+                    <search string="Inpatient Admission">
+                        <field name="name"/>
+                        <field name="patient"/>
+                        <field name="attending_physician"/>
+                        <field name="operating_physician"/>
+                        <field name="bed"/>
+                        <separator />
+                        <filter name="admission_type_routine" string="Routine" domain="[('admission_type', '=', 'Routine')]"/>
+                        <filter name="admission_type_maternity" string="Maternity" domain="[('admission_type', '=', 'Maternity')]"/>
+                        <filter name="admission_type_elective" string="Elective" domain="[('admission_type', '=', 'Elective')]"/>
+                        <filter name="admission_type_urgent" string="Urgent" domain="[('admission_type', '=', 'Urgent')]"/>
+                        <filter name="admission_type_emergency" string="Emergency" domain="[('admission_type', '=', 'Emergency')]"/>
+                        <separator/>
+                        <filter name="state_draft" string="Draft" domain="[('state', '=', 'Draft')]"/>
+                        <filter name="state_hospitalized" string="Hospitalized" domain="[('state', '=', 'Hospitalized')]"/>
+                        <filter name="state_discharged" string="Discharged" domain="[('state', '=', 'Discharged')]"/>
+                        <filter name="state_cancelled" string="Cancelled" domain="[('state', '=', 'Cancelled')]"/>
+                        <separator />
+                        <group>
+                            <filter string="Admission Type" name="group_admission_type" domain="[]" context="{'group_by':'admission_type'}" />
+                            <filter string="Ward" name="group_ward" domain="[]" context="{'group_by':'ward'}" />
+                            <filter string="State" name="group_state" domain="[]" context="{'group_by':'state'}" />
+                        </group>
+				    </search>
+                </field>
+            </record>
+
+            <record id="oeh_medical_inpatient_graph" model="ir.ui.view">
+                <field name="name">Inpatient Admission Graph</field>
+                <field name="model">oeh.medical.inpatient</field>
+                <field name="arch" type="xml">
+                    <graph string="Admissions Analysis" type="bar">
+                        <field name="admission_type"/>
+                        <field name="state"/>
+                        <field name="ward"/>
+                    </graph>
+                </field>
+            </record>
+
+            <record id="oeh_medical_inpatient_pivot" model="ir.ui.view">
+                <field name="name">Inpatient Admission Pivot</field>
+                <field name="model">oeh.medical.inpatient</field>
+                <field name="arch" type="xml">
+                    <pivot string="Admissions Analysis">
+                        <field name="admission_type" type="row"/>
+                        <field name="state" type="col"/>
+                        <field name="ward" type="row"/>
+                        <field name="id" type="measure" string="Count"/>
+                    </pivot>
+                </field>
+            </record>
+
+            <record id="oeh_medical_inpatient_action_tree" model="ir.actions.act_window">
+                    <field name="name">Admissions</field>
+                    <field name="res_model">oeh.medical.inpatient</field>
+                    <field name="view_mode">calendar,list,form,graph,pivot</field>
+                    <field name="view_id" ref="oeh_medical_inpatient_calendar"/>
+                    <field name="search_view_id" ref="view_medical_inpatient_filter"/>
+                    <field name="context">{}</field>
+                    <field name="help" type="html">
+                      <p class="o_view_nocontent_smiling_face">
+                        Click to admit new patient.
+                      </p>
+                    </field>
+            </record>
+
+            <!-- Remove submenu and assign action directly to IPD parent menu -->
+            <record id="intarvas.oeh_medical_ipd_menu" model="ir.ui.menu">
+                <field name="action" ref="oeh_medical_inpatient_action_tree"/>
+            </record>
+
+        </data>
+</odoo>

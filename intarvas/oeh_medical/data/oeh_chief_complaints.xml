@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Chief Complaints Data -->
+        
+        <record id="complaint_1" model="oeh.medical.complaints">
+            <field name="name">Fever</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_2" model="oeh.medical.complaints">
+            <field name="name">Cough</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_3" model="oeh.medical.complaints">
+            <field name="name">Cold</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_4" model="oeh.medical.complaints">
+            <field name="name">Headache</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_5" model="oeh.medical.complaints">
+            <field name="name">Body Ache</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_6" model="oeh.medical.complaints">
+            <field name="name">Stomach Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_7" model="oeh.medical.complaints">
+            <field name="name">Vomiting</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_8" model="oeh.medical.complaints">
+            <field name="name">Diarrhea</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_9" model="oeh.medical.complaints">
+            <field name="name">Chest Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_10" model="oeh.medical.complaints">
+            <field name="name">Shortness of Breath</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_11" model="oeh.medical.complaints">
+            <field name="name">Back Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_12" model="oeh.medical.complaints">
+            <field name="name">Fatigue</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_13" model="oeh.medical.complaints">
+            <field name="name">Dizziness</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_14" model="oeh.medical.complaints">
+            <field name="name">Joint Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_15" model="oeh.medical.complaints">
+            <field name="name">Skin Rash</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_16" model="oeh.medical.complaints">
+            <field name="name">Sore Throat</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_17" model="oeh.medical.complaints">
+            <field name="name">Ear Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_18" model="oeh.medical.complaints">
+            <field name="name">Eye Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_19" model="oeh.medical.complaints">
+            <field name="name">Tooth Ache</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_20" model="oeh.medical.complaints">
+            <field name="name">Neck Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_21" model="oeh.medical.complaints">
+            <field name="name">Diabetes Check-up</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_22" model="oeh.medical.complaints">
+            <field name="name">Hypertension Check-up</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_23" model="oeh.medical.complaints">
+            <field name="name">General Check-up</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_24" model="oeh.medical.complaints">
+            <field name="name">Sleep Issues</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_25" model="oeh.medical.complaints">
+            <field name="name">Anxiety</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_26" model="oeh.medical.complaints">
+            <field name="name">Weakness</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_27" model="oeh.medical.complaints">
+            <field name="name">Nausea</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_28" model="oeh.medical.complaints">
+            <field name="name">Sugar</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_29" model="oeh.medical.complaints">
+            <field name="name">Bloating</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_30" model="oeh.medical.complaints">
+            <field name="name">Profuse Sweating</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_31" model="oeh.medical.complaints">
+            <field name="name">Fat</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_32" model="oeh.medical.complaints">
+            <field name="name">Constant Tiredness</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_33" model="oeh.medical.complaints">
+            <field name="name">Abdominal Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_34" model="oeh.medical.complaints">
+            <field name="name">Abscess</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_35" model="oeh.medical.complaints">
+            <field name="name">Hunger</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_36" model="oeh.medical.complaints">
+            <field name="name">Slurred Speech</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_37" model="oeh.medical.complaints">
+            <field name="name">Heaviness</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_38" model="oeh.medical.complaints">
+            <field name="name">Vaginal Discharge</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_39" model="oeh.medical.complaints">
+            <field name="name">Vaginal Bleeding</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_40" model="oeh.medical.complaints">
+            <field name="name">Shoulder Pain</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_41" model="oeh.medical.complaints">
+            <field name="name">Depression</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_42" model="oeh.medical.complaints">
+            <field name="name">Stressed</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_43" model="oeh.medical.complaints">
+            <field name="name">Meno</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_44" model="oeh.medical.complaints">
+            <field name="name">Skin Irritability</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_45" model="oeh.medical.complaints">
+            <field name="name">Red Rashes on Knee</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_46" model="oeh.medical.complaints">
+            <field name="name">Dry Cough</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_47" model="oeh.medical.complaints">
+            <field name="name">Blurry Vision</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_48" model="oeh.medical.complaints">
+            <field name="name">Weight Loss</field>
+            <field name="active">True</field>
+        </record>
+        
+        <record id="complaint_49" model="oeh.medical.complaints">
+            <field name="name">Sweatness</field>
+            <field name="active">True</field>
+        </record>
+        
+    </data>
+</odoo>

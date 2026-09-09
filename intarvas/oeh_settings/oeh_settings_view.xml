@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.intarvas</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="25"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="intarvas" string="intarvas" name="intarvas" groups="intarvas.group_oeh_medical_manager">
+                    <block title="Patient Management" name="oeh_patient_management_setting_container">
+                        <setting id="patient_name_display_preference_conf">
+                            <label for="patient_name_order"/>
+                            <div class="text-muted">
+                                Choose how you want to display patient name. Click on "Regenerate Names" button after saving new preference.
+                            </div>
+                            <div class="mt16">
+                                <field name="patient_name_order" class="o_light_label" widget="radio"/>
+                            </div>
+                            <div class="mt16">
+                                <button
+                                    name="action_regenerate_patient_names"
+                                    string="Regenerate Names"
+                                    icon="fa-refresh"
+                                    class="oe_highlight"
+                                    type="object"
+                                    help="Regenerate patient names based on newly selected display preference."
+                                />
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Appointment" name="oeh_appointment_setting_container">
+                        <setting id="appointment_type_conf">
+                            <label for="appointment_type"/>
+                            <div class="text-muted">
+                                Set default appointment availability type while creating new doctor.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="appointment_type" string="Choose Type" class="col-lg-4 o_light_label"/>
+                                    <field name="appointment_type" required="1"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="appointment_duration_conf">
+                            <label for="appointment_duration"/>
+                            <div class="text-muted">
+                                Set default appointment duration.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="appointment_duration" string="Choose Duration (HH:MM)" class="col-lg-4 o_light_label"/>
+                                    <field name="appointment_duration" widget="float_time" required="1"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="appointment_invoice_control_conf">
+                            <label for="appointment_invoice_control"/>
+                            <div class="text-muted">
+                                Choose how you want to generate invoice from appointment.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="appointment_invoice_control" string="Choose Option" class="col-lg-4 o_light_label"/>
+                                    <field name="appointment_invoice_control" required="1"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="appointment_invoicing_flow_conf">
+                            <label for="appointment_invoicing_flow"/>
+                            <div class="text-muted">
+                                Choose when to collect payment for consultation.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="appointment_invoicing_flow" string="Invoicing Flow" class="col-lg-4 o_light_label"/>
+                                    <field name="appointment_invoicing_flow" required="1"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="unit_system_conf">
+                            <label for="unit_system"/>
+                            <div class="text-muted">
+                                Choose the unit system for displaying medical vitals (weight, height, temperature).
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="unit_system" string="Unit System" class="col-lg-4 o_light_label"/>
+                                    <field name="unit_system" required="1"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Inventory &amp; Prescription Management" name="oeh_inventory_setting_container">
+                        <setting id="stock_deduction_conf">
+                            <label for="stock_deduction_method"/>
+                            <div class="text-muted">
+                                Choose how you want to deduct the stock of the medicines added through Prescription section.
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="stock_deduction_method" string="Choose Method" class="col-lg-4 o_light_label"/>
+                                    <field name="stock_deduction_method"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="prescription_send_by_email_conf">
+                            <label for="prescription_send_by_email"/>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="prescription_send_by_email" string="Tick to enable" class="col-lg-4 o_light_label"/>
+                                    <field name="prescription_send_by_email"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Followup" name="oeh_followup_setting_container">
+                        <setting id="oeh_followup_setting_container">
+                            <div class="o_setting_left_pane">
+                                <field name="followup_feature"/>
+                            </div>
+                            <div class="o_setting_right_pane" name="followup_conf">
+                                <label for="followup_feature"/>
+                                <div class="content-group" invisible="not followup_feature">
+                                    <div class="row mt16">
+                                        <label for="followup_appointment_duration" class="col-lg-4 o_light_label"/>
+                                        <field name="followup_appointment_duration" required="followup_feature"/>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label for="followup_prescription_duration" class="col-lg-4 o_light_label"/>
+                                        <field name="followup_prescription_duration" required="followup_feature"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                    <!--Patient Portal(New Section)-->
+                    <block title="Patient Portal" name="oeh_patient_portal_setting_container">
+                        <setting id="oeh_patient_portal_setting_container">
+                                <div class="row mt16">
+                                    <label for="patient_account_password" class="col-lg-6 o_light_label"/>
+                                    <field name="patient_account_password"/>
+                                </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_intarvas_configuration" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'module' : 'intarvas', 'bin_size': False}</field>
+    </record>
+
+    <menuitem id="menu_intarvas_general_settings" name="Settings" parent="oeh_medical_conf_menu"
+        sequence="0" action="action_intarvas_configuration" groups="base.group_system,intarvas.group_oeh_medical_manager"/>
+
+</odoo>

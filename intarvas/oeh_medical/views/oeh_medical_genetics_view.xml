@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<odoo>
+        <data>
+
+            <!-- Genetics Risk -->
+
+             <record id="view_oeh_medical_genetics_filter" model="ir.ui.view">
+                <field name="name">Genetics Search</field>
+                <field name="model">oeh.medical.genetics</field>
+			    <field name="arch" type="xml">
+                    <search string="Genetic Risks">
+                        <field name="name"/>
+                        <field name="long_name"/>
+                        <group>
+                            <filter string="Dominance" name="group_dominance" context="{'group_by':'dominance'}" />
+                        </group>
+				    </search>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="oeh_medical_genetics_tree">
+                <field name="name">Genetic Risks</field>
+                <field name="model">oeh.medical.genetics</field>
+<!--                <field name="type">tree</field>-->
+                <field name="arch" type="xml">
+                    <list string='Genetic Risks'>
+                        <field name="name"/>
+                        <field name="long_name"/>
+                        <field name="chromosome"/>
+                        <field name="dominance"/>
+                    </list>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="oeh_medical_genetics_view">
+                <field name="name">Genetic Risks</field>
+                <field name="model">oeh.medical.genetics</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Genetic Risks">
+                        <sheet>
+                            <div class="oe_left" style="width: 500px;">
+                                <div class="oe_title" style="width: 390px;">
+                                    <label class="oe_edit_only" for="long_name"/>
+                                    <h1><field name="long_name" class="oe_inline"/></h1>
+                                </div>
+                            </div>
+                            <group class="col-12">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="chromosome"/>
+                                    <field name="dominance"/>
+                                </group>
+                                <group>
+                                    <field name="gene_id"/>
+                                    <field name="location"/>
+                                </group>
+                            </group>
+                            <group string="Extra Info"/>
+                            <field name="info" nolabel="1"/>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record id="oeh_medical_genetics_action_tree" model="ir.actions.act_window">
+                    <field name="name">Genetic Risks</field>
+                    <field name="res_model">oeh.medical.genetics</field>
+                    <field name="view_mode">list,form</field>
+                    <field name="help" type="html">
+                      <p class="o_view_nocontent_smiling_face">
+                        Click to add a new genetic risks.
+                      </p>
+                    </field>
+            </record>
+
+            <menuitem action="oeh_medical_genetics_action_tree" id="oeh_medical_genetics_conf_list"
+                      parent="oeh_medical_conf_patient" sequence="2"/>
+        </data>
+</odoo>

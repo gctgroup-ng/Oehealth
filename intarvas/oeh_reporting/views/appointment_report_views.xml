@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Appointment Analytics Report - List View -->
+    <record id="view_appointment_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.report.list</field>
+        <field name="model">oeh.medical.appointment.report</field>
+        <field name="arch" type="xml">
+            <list string="Appointment Analytics" create="false" edit="false" delete="false">
+                <field name="appointment_date"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="specialty_id"/>
+                <field name="institution_id"/>
+                <field name="state" decoration-success="state == 'Completed'" decoration-info="state == 'Scheduled'" decoration-muted="state == 'Cancelled'"/>
+                <field name="duration" sum="Total Duration"/>
+                <field name="consultancy_price" sum="Total Fees"/>
+                <field name="appointment_month"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Appointment Analytics Report - Search View -->
+    <record id="view_appointment_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.report.search</field>
+        <field name="model">oeh.medical.appointment.report</field>
+        <field name="arch" type="xml">
+            <search string="Appointment Analytics">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="specialty_id"/>
+                <field name="institution_id"/>
+                <field name="state"/>
+                <filter string="Scheduled" name="scheduled" domain="[('state', '=', 'Scheduled')]"/>
+                <filter string="Completed" name="completed" domain="[('state', '=', 'Completed')]"/>
+                <filter string="Cancelled" name="cancelled" domain="[('state', '=', 'Cancelled')]"/>
+                <separator/>
+                <filter string="This Month" name="this_month" domain="[('appointment_date', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year" domain="[('appointment_date', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group>
+                    <filter string="Doctor" name="group_doctor" context="{'group_by': 'doctor_id'}"/>
+                    <filter string="Specialty" name="group_specialty" context="{'group_by': 'specialty_id'}"/>
+                    <filter string="Institution" name="group_institution" context="{'group_by': 'institution_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <separator/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'appointment_date'}"/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'appointment_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'appointment_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Appointment Analytics Report - Graph View -->
+    <record id="view_appointment_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.report.graph</field>
+        <field name="model">oeh.medical.appointment.report</field>
+        <field name="arch" type="xml">
+            <graph string="Appointment Analytics" type="bar" stacked="True">
+                <field name="doctor_id"/>
+                <field name="appointment_count" type="measure"/>
+                <field name="state" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Appointment Analytics Report - Pivot View -->
+    <record id="view_appointment_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.report.pivot</field>
+        <field name="model">oeh.medical.appointment.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Appointment Analytics">
+                <field name="doctor_id" type="row"/>
+                <field name="appointment_month" type="col"/>
+                <field name="appointment_count" type="measure"/>
+                <field name="consultancy_price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Appointment Analytics Report - Action -->
+    <record id="action_appointment_report" model="ir.actions.act_window">
+        <field name="name">Appointment Analytics</field>
+        <field name="res_model">oeh.medical.appointment.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_appointment_report_search"/>
+        <field name="context">{'search_default_this_month': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No appointment data available
+            </p>
+            <p>
+                This report provides comprehensive analysis of appointments including trends, doctor performance, and status distribution.
+            </p>
+        </field>
+    </record>
+</odoo>

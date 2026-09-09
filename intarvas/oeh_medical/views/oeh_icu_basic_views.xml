@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ICU Management Views -->
+    <record id="view_icu_admission_form" model="ir.ui.view">
+        <field name="name">ICU Management Form</field>
+        <field name="model">oeh.medical.icu.admission</field>
+        <field name="arch" type="xml">
+            <form string="ICU Management">
+                <header>
+                    <button name="action_quick_assessment" string="Quick Assessment" type="object"
+                           class="btn-success" invisible="status != 'admitted'"/>
+                    <button name="action_auto_monitoring" string="Create Monitoring" type="object"
+                           class="btn-info" invisible="status != 'admitted'"/>
+                    <button name="action_discharge" string="Discharge" type="object"
+                           class="btn-primary" invisible="status != 'admitted'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="admitted,discharged"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <!-- Alert Banner -->
+                    <div class="alert alert-danger" role="alert" invisible="vital_signs_status != 'critical'">
+                        <strong>🚨 CRITICAL ALERTS:</strong>
+                        <field name="alert_messages" readonly="1" nolabel="1"/>
+                    </div>
+                    <div class="alert alert-warning" role="alert" invisible="vital_signs_status != 'warning'">
+                        <strong>⚠️ WARNING ALERTS:</strong>
+                        <field name="alert_messages" readonly="1" nolabel="1"/>
+                    </div>
+
+                    <group string="Patient &amp; Admission Details">
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="icu_unit_id"/>
+                            <field name="bed_id"/>
+                            <field name="admission_date"/>
+                        </group>
+                        <group>
+                            <field name="admission_type"/>
+                            <field name="acuity_level"/>
+                            <field name="glasgow_coma_scale"/>
+                            <field name="length_of_stay" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group string="Risk Assessment &amp; Scoring">
+                        <group>
+                            <field name="apache_ii_score" readonly="1"
+                                   decoration-danger="apache_ii_score >= 25"
+                                   decoration-warning="apache_ii_score >= 15"/>
+                            <field name="sofa_score" readonly="1"
+                                   decoration-danger="sofa_score >= 15"
+                                   decoration-warning="sofa_score >= 10"/>
+                        </group>
+                        <group>
+                            <field name="vital_signs_status" readonly="1" widget="badge"
+                                   decoration-success="vital_signs_status == 'normal'"
+                                   decoration-warning="vital_signs_status == 'warning'"
+                                   decoration-danger="vital_signs_status == 'critical'"/>
+                            <field name="age" readonly="1"/>
+                            <field name="age_numeric" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group string="Clinical Information">
+                        <field name="chief_complaint" colspan="2"/>
+                        <field name="admission_diagnosis" colspan="2"/>
+                    </group>
+
+                    <group string="Current Vital Signs &amp; Monitoring" invisible="status != 'admitted'">
+                        <group>
+                            <field name="current_temperature"/>
+                            <field name="current_heart_rate"/>
+                            <field name="current_bp_systolic"/>
+                            <field name="current_bp_diastolic"/>
+                        </group>
+                        <group>
+                            <field name="current_respiratory_rate"/>
+                            <field name="current_oxygen_saturation"/>
+                            <field name="responsible_nurse_id"/>
+                            <field name="last_monitoring_datetime" readonly="1"/>
+                        </group>
+                        <field name="current_monitoring_notes" colspan="2"/>
+                    </group>
+
+                    <group string="Discharge Information" invisible="status != 'discharged'">
+                        <group>
+                            <field name="discharge_date"/>
+                        </group>
+                        <field name="discharge_summary" colspan="2"/>
+                    </group>
+
+                    <notebook invisible="status != 'admitted'">
+                        <page string="Monitoring History">
+                            <field name="monitoring_ids" readonly="1">
+                                <list decoration-muted="auto_generated == True">
+                                    <field name="monitoring_datetime"/>
+                                    <field name="shift"/>
+                                    <field name="temperature"/>
+                                    <field name="heart_rate"/>
+                                    <field name="blood_pressure_systolic"/>
+                                    <field name="blood_pressure_diastolic"/>
+                                    <field name="oxygen_saturation"/>
+                                    <field name="responsible_nurse_id"/>
+                                    <field name="auto_generated" widget="boolean_toggle"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="APACHE II Components">
+                            <group>
+                                <group string="Physiological Variables">
+                                    <field name="worst_temperature"/>
+                                    <field name="worst_heart_rate"/>
+                                    <field name="worst_respiratory_rate"/>
+                                    <field name="worst_arterial_ph"/>
+                                </group>
+                                <group string="Laboratory Values">
+                                    <field name="worst_sodium"/>
+                                    <field name="worst_potassium"/>
+                                    <field name="worst_creatinine"/>
+                                    <field name="worst_hematocrit"/>
+                                    <field name="worst_wbc"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="chronic_health_points"/>
+                            </group>
+                        </page>
+                        <page string="SOFA Components">
+                            <group>
+                                <group string="Organ Systems">
+                                    <field name="pao2_fio2_ratio"/>
+                                    <field name="platelets"/>
+                                    <field name="bilirubin"/>
+                                    <field name="cardiovascular_support"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_icu_admission_tree" model="ir.ui.view">
+        <field name="name">ICU Management Tree</field>
+        <field name="model">oeh.medical.icu.admission</field>
+        <field name="arch" type="xml">
+            <list string="ICU Management" decoration-success="status == 'discharged'"
+                  decoration-info="status == 'admitted'" decoration-danger="vital_signs_status == 'critical'"
+                  decoration-warning="vital_signs_status == 'warning'">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="icu_unit_id"/>
+                <field name="bed_id"/>
+                <field name="admission_date"/>
+                <field name="admission_type"/>
+                <field name="acuity_level"/>
+                <field name="apache_ii_score" decoration-danger="apache_ii_score >= 25" decoration-warning="apache_ii_score >= 15"/>
+                <field name="sofa_score" decoration-danger="sofa_score >= 15" decoration-warning="sofa_score >= 10"/>
+                <field name="vital_signs_status" widget="badge"/>
+                <field name="current_temperature"/>
+                <field name="current_heart_rate"/>
+                <field name="current_oxygen_saturation"/>
+                <field name="last_monitoring_datetime"/>
+                <field name="status" widget="badge"/>
+                <field name="length_of_stay"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_icu_management" model="ir.actions.act_window">
+        <field name="name">ICU Management</field>
+        <field name="res_model">oeh.medical.icu.admission</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first ICU admission
+            </p>
+            <p>
+                Manage patient admissions, monitoring, and vital signs in the ICU.
+            </p>
+        </field>
+    </record>
+
+    <!-- Quick Assessment Wizard View -->
+    <record id="view_icu_quick_assessment_form" model="ir.ui.view">
+        <field name="name">Quick ICU Assessment</field>
+        <field name="model">oeh.medical.icu.quick.assessment</field>
+        <field name="arch" type="xml">
+            <form string="Quick ICU Assessment">
+                <sheet>
+                    <group string="Vital Signs">
+                        <group>
+                            <field name="temperature"/>
+                            <field name="heart_rate"/>
+                            <field name="bp_systolic"/>
+                            <field name="bp_diastolic"/>
+                        </group>
+                        <group>
+                            <field name="respiratory_rate"/>
+                            <field name="oxygen_saturation"/>
+                            <field name="consciousness_level"/>
+                            <field name="pain_score"/>
+                        </group>
+                    </group>
+                    <group string="Assessment Notes">
+                        <field name="assessment_notes" colspan="2" nolabel="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_save_assessment" string="Save Assessment" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_icu_management" name="ICU Management"
+              parent="oeh_medical_icu_menu" action="action_icu_management" sequence="1"/>
+
+</odoo>

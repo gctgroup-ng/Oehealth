@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="view_res_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <sheet position="before">
+                    <header>
+                        <button name="add_as_patient" type="object" string="Add into intarvas as Patient" class="oe_highlight" invisible="is_company or is_patient"/>
+                        <button name="add_as_company" type="object" string="Add into intarvas as Health Center" class="oe_highlight" invisible="is_company or is_institution"/>
+                    </header>
+                </sheet>
+                <notebook colspan="4" position="inside">
+                    <page string="intarvas" invisible="1">
+                        <group>
+                            <field name="is_insurance_company" />
+                            <field name="is_institution" />
+                            <field name="is_doctor" />
+                            <field name="is_patient" />
+                            <field name="is_person" />
+                            <field name="is_pharmacy" />
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <!-- Add Employee as Doctor -->
+        <record id="view_employee_form_inherit_add_as_physician" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit.add.as.physician</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='work_phone']" position="after">
+                    <field name="added_as_physician" invisible="1"/>
+                </xpath>
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="action_add_as_physician" confirm="Are you sure you want to add employee as physician?" string="Add Employee as Doctor" type="object" class="oe_highlight" invisible="added_as_physician"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

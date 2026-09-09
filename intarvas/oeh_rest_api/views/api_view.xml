@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- API Token Menu and Screen -->
+
+        <menuitem id="menu_intarvas_rest_api_token_view" name="intarvas REST API"
+                  parent="base.menu_administration" sequence="60"
+                  groups="base.group_system"/>
+
+        <record model="ir.ui.view" id="view_oeh_rest_api_token_form">
+            <field name="name">oeh.rest.api.token.form</field>
+            <field name="model">oeh.rest.api.token</field>
+            <field name="arch" type="xml">
+                <form string="Rest API Token" delete="false">
+                    <header>
+                        <button string="Generate Token" name="regenerate_token" invisible="TokenGenerated" type="object" class="oe_highlight"/>
+                        <button string="Regenerate Token" name="regenerate_token" invisible="not TokenGenerated" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_left" style="width: 500px;">
+                            <div class="oe_title" style="width: 390px;">
+                                <label for="Token" string="Token"/>
+                                <h1><field name="Token" class="oe_inline" readonly="1"/></h1>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="UserId" readonly="1"/>
+                                <field name="TokenGenerated" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="ExpirationDate" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_oeh_rest_api_token_tree" model="ir.ui.view">
+            <field name="name">oeh.rest.api.token.tree</field>
+            <field name="model">oeh.rest.api.token</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="Token"/>
+                    <field name="UserId"/>
+                    <field name="ExpirationDate"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_oeh_rest_api_token_config_view">
+            <field name="name">Token</field>
+            <field name="res_model">oeh.rest.api.token</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_oeh_rest_api_token_config_view"
+                  parent="menu_intarvas_rest_api_token_view"
+                  action="action_oeh_rest_api_token_config_view"/>
+
+    </data>
+</odoo>

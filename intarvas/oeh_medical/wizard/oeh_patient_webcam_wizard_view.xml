@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        
+        <!-- Patient Webcam Photo Capture Wizard -->
+        <record model="ir.ui.view" id="view_oeh_patient_webcam_wizard">
+            <field name="name">Patient Webcam Photo Capture</field>
+            <field name="model">oeh.patient.webcam.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string='Capture Patient Photo'>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Patient: <field name="patient_name" readonly="1" nolabel="1" class="oe_inline"/></h3>
+                        </div>
+                    </div>
+                    
+                    <div class="webcam_capture_container">
+                        <div class="row">
+                            <!-- Left side - Live Webcam -->
+                            <div class="col-6">
+                                <div class="webcam_section">
+                                    <h4>Live Camera View</h4>
+                                    <div class="webcam_video_container">
+                                        <video id="webcam_video" autoplay="true" width="320" height="240"></video>
+                                    </div>
+                                    <div class="webcam_controls">
+                                        <div id="capture_btn" class="webcam-control-btn webcam-btn-primary">
+                                            <i class="fa fa-camera"></i> Capture Photo
+                                        </div>
+                                        <div id="start_camera_btn" class="webcam-control-btn webcam-btn-success">
+                                            <i class="fa fa-video-camera"></i> Start Camera
+                                        </div>
+                                        <div id="stop_camera_btn" class="webcam-control-btn webcam-btn-secondary">
+                                            <i class="fa fa-stop"></i> Stop Camera
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right side - Captured Photo -->
+                            <div class="col-6">
+                                <div class="captured_section">
+                                    <h4>Captured Photo</h4>
+                                    <div class="captured_photo_container">
+                                        <canvas id="captured_canvas" width="320" height="240" style="border: 1px solid #ccc; background-color: #f8f9fa;"></canvas>
+                                        <div id="no_photo_msg" class="text-center text-muted" style="padding: 100px 0;">
+                                            <i class="fa fa-camera fa-3x" title="Camera"></i><br/><br/>
+                                            No photo captured yet
+                                        </div>
+                                    </div>
+                                    <div class="captured_controls">
+                                        <div id="retake_btn" class="webcam-control-btn webcam-btn-warning" style="display: none;">
+                                            <i class="fa fa-refresh"></i> Retake
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden fields -->
+                    <field name="patient_id" invisible="1"/>
+                    <field name="captured_image" widget="binary" invisible="1"/>
+                    <field name="captured_image_filename" invisible="1"/>
+                    
+                    <footer>
+                        <button name="save_photo" string="Save Photo" type="object"
+                            class="btn-primary" id="save_photo_btn" disabled="true"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

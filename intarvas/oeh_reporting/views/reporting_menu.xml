@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Main Reporting Menu -->
+    <menuitem id="menu_intarvas_reporting_root"
+              name="Reporting"
+              parent="oeh_medical_menu"
+              sequence="100"/>
+
+    <!-- Appointment Reports Submenu -->
+    <menuitem id="menu_appointment_reports"
+              name="Appointment Reports"
+              parent="menu_intarvas_reporting_root"
+              sequence="10"/>
+
+    <menuitem id="menu_appointment_analytics"
+              name="Appointment Analytics"
+              parent="menu_appointment_reports"
+              action="action_appointment_report"
+              sequence="10"/>
+
+    <menuitem id="menu_doctor_performance"
+              name="Doctor Performance"
+              parent="menu_appointment_reports"
+              action="action_doctor_performance_report"
+              sequence="20"/>
+
+    <menuitem id="menu_wait_time_analysis"
+              name="Wait Time &amp; Duration Analysis"
+              parent="menu_appointment_reports"
+              action="action_appointment_wait_time_report"
+              sequence="30"/>
+
+    <!-- Patient Reports Submenu -->
+    <menuitem id="menu_patient_reports"
+              name="Patient Reports"
+              parent="menu_intarvas_reporting_root"
+              sequence="20"/>
+
+    <menuitem id="menu_patient_registration"
+              name="Patient Registration Analysis"
+              parent="menu_patient_reports"
+              action="action_patient_registration_report"
+              sequence="10"/>
+
+    <menuitem id="menu_disease_prevalence"
+              name="Disease Prevalence"
+              parent="menu_patient_reports"
+              action="action_disease_prevalence_report"
+              sequence="20"/>
+
+    <!-- Inpatient Reports Submenu -->
+    <menuitem id="menu_inpatient_reports"
+              name="Inpatient Reports"
+              parent="menu_intarvas_reporting_root"
+              sequence="30"/>
+
+    <menuitem id="menu_admission_analysis"
+              name="Admission Analysis"
+              parent="menu_inpatient_reports"
+              action="action_admission_report"
+              sequence="10"/>
+
+    <menuitem id="menu_bed_occupancy"
+              name="Bed Occupancy Report"
+              parent="menu_inpatient_reports"
+              action="action_bed_occupancy_report"
+              sequence="20"/>
+
+    <!-- Financial Reports Submenu -->
+    <menuitem id="menu_financial_reports"
+              name="Financial Reports"
+              parent="menu_intarvas_reporting_root"
+              sequence="50"/>
+
+    <menuitem id="menu_revenue_analysis"
+              name="Revenue Analysis"
+              parent="menu_financial_reports"
+              action="action_revenue_report"
+              sequence="10"/>
+
+</odoo>

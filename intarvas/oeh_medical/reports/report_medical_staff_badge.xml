@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_medical_staff_badge">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="staff">
+                    <div class="col-md-6">
+                        <table style="width:243pt; height:153pt; border: 1pt solid black; border-collapse:separate; border-radius:8pt; margin:5pt">
+                            <td style="width:33%;" valign="center">
+                                <table style="width:77pt; height:150pt">
+                                    <tr style="height:20%">
+                                        <td align="center" valign="center">
+                                            <img t-if="staff.company_id.logo" t-att-src="image_data_uri(staff.company_id.logo)" style="max-height:45pt;max-width:90%" alt="Company Logo"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:80%;">
+                                        <td align="center" valign="center">
+                                            <img t-if="staff.image_1920" t-att-src="image_data_uri(staff.image_1920)" style="max-height:100%;max-width:95%" alt="Staff Image"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:67%;" valign="center">
+                                <table style="width:155pt; height:100%">
+                                    <tr t-if="staff.company_id">
+                                        <th>
+                                            <div style="font-size:12pt; margin-bottom:2pt;margin-top:1pt;"
+                                                 align="right">
+                                                <t t-esc="staff.company_id.name"/>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div style="font-size:15pt; margin-bottom:-4pt;margin-top:0pt;"
+                                                 align="center">
+                                                <t t-esc="staff.name"/>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div align="center" style="font-size:10pt;margin-bottom:-3pt;">
+                                                <t t-esc="staff.speciality.name"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <span t-foreach="staff.degree_id" t-as="o" style="font-size:10pt;margin-bottom:-3pt;" >
+                                                <t t-esc="o.name"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <img t-if="staff.barcode" t-att-src="'/report/barcode/Code128/'+staff.barcode" style="max-height:50pt;max-width:100%;" alt="Barcode"/>
+                                            <!-- <img alt="barcode" t-if="staff.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', staff.barcode, 600, 120)" style="max-height:50pt;max-width:100%;" align="center"/> -->
+                                            <span t-field="staff.barcode" style="font-size:10px;"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </table>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <record id="action_report_medical_staff_badge" model="ir.actions.report">
+        <field name="name">Medical Staff Report</field>
+        <field name="model">oeh.medical.physician</field>
+        
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">intarvas.report_medical_staff_badge</field>
+        <field name="report_file">intarvas.report_medical_staff_badge</field>
+
+    </record>
+
+</odoo>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Appointment Wait Time Report - List View -->
+    <record id="view_appointment_wait_time_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.wait.time.report.list</field>
+        <field name="model">oeh.medical.appointment.wait.time.report</field>
+        <field name="arch" type="xml">
+            <list string="Appointment Wait Time &amp; Duration" create="false" edit="false" delete="false">
+                <field name="doctor_id"/>
+                <field name="specialty_id"/>
+                <field name="institution_id"/>
+                <field name="time_of_day"/>
+                <field name="appointment_count" sum="Appointments"/>
+                <field name="avg_duration" avg="Avg Duration (Hrs)"/>
+                <field name="min_duration"/>
+                <field name="max_duration"/>
+                <field name="completed_count" sum="Completed"/>
+                <field name="efficiency_score" widget="percentage"/>
+                <field name="appointment_day_of_week"/>
+                <field name="appointment_month"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Appointment Wait Time Report - Search View -->
+    <record id="view_appointment_wait_time_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.wait.time.report.search</field>
+        <field name="model">oeh.medical.appointment.wait.time.report</field>
+        <field name="arch" type="xml">
+            <search string="Appointment Wait Time &amp; Duration">
+                <field name="doctor_id"/>
+                <field name="specialty_id"/>
+                <field name="institution_id"/>
+                <field name="time_of_day"/>
+                <separator/>
+                <filter string="Morning" name="morning" domain="[('time_of_day', '=', 'morning')]"/>
+                <filter string="Afternoon" name="afternoon" domain="[('time_of_day', '=', 'afternoon')]"/>
+                <filter string="Evening" name="evening" domain="[('time_of_day', '=', 'evening')]"/>
+                <separator/>
+                <filter string="High Efficiency (>80%)" name="high_efficiency" domain="[('efficiency_score', '&gt;=', 80)]"/>
+                <separator/>
+                <group>
+                    <filter string="Doctor" name="group_doctor" context="{'group_by': 'doctor_id'}"/>
+                    <filter string="Specialty" name="group_specialty" context="{'group_by': 'specialty_id'}"/>
+                    <filter string="Institution" name="group_institution" context="{'group_by': 'institution_id'}"/>
+                    <filter string="Time of Day" name="group_time" context="{'group_by': 'time_of_day'}"/>
+                    <filter string="Day of Week" name="group_day" context="{'group_by': 'appointment_day_of_week'}"/>
+                    <separator/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'appointment_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'appointment_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Appointment Wait Time Report - Graph View -->
+    <record id="view_appointment_wait_time_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.wait.time.report.graph</field>
+        <field name="model">oeh.medical.appointment.wait.time.report</field>
+        <field name="arch" type="xml">
+            <graph string="Appointment Wait Time &amp; Duration" type="bar">
+                <field name="time_of_day"/>
+                <field name="avg_duration" type="measure"/>
+                <field name="appointment_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Appointment Wait Time Report - Pivot View -->
+    <record id="view_appointment_wait_time_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.appointment.wait.time.report.pivot</field>
+        <field name="model">oeh.medical.appointment.wait.time.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Appointment Wait Time &amp; Duration">
+                <field name="doctor_id" type="row"/>
+                <field name="time_of_day" type="col"/>
+                <field name="appointment_count" type="measure"/>
+                <field name="avg_duration" type="measure"/>
+                <field name="efficiency_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Appointment Wait Time Report - Action -->
+    <record id="action_appointment_wait_time_report" model="ir.actions.act_window">
+        <field name="name">Wait Time &amp; Duration Analysis</field>
+        <field name="res_model">oeh.medical.appointment.wait.time.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_appointment_wait_time_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No appointment duration data available
+            </p>
+            <p>
+                This report helps improve patient experience and optimize scheduling efficiency.
+            </p>
+        </field>
+    </record>
+</odoo>

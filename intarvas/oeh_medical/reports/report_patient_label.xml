@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_patient_label">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <div class="oe_structure"/>
+                    <div class="col-md-6">
+                        <table style="width:243pt; height:153pt; border: 1pt solid black; border-collapse:separate; border-radius:8pt; margin:5pt">
+                            <td style="width:33%;" valign="center">
+                                <table style="width:77pt; height:150pt;">
+                                    <tr style="height:20%">
+                                        <td align="center" valign="center"/>
+                                    </tr>
+                                    <tr style="height:80%;">
+                                        <td align="center" valign="center">
+                                            <img t-if="o.image_1920" t-att-src="image_data_uri(o.image_1920)"
+                                                 style="max-height:85pt;max-width:90%" alt="Patient Image"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:67%">
+                                <table style="width:155pt; height:100pt ">
+                                    <tr class="mb32">
+                                        <th>
+                                            <div style="font-size:15pt;margin-top:2pt;margin-bottom:10pt; align:right;">
+                                                <strong t-field="o.name"/>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="font-size:10pt;">
+                                                <strong>Date of Birth: </strong>
+                                                <span t-field="o.dob"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size:10pt;">
+                                                <strong>Gender: </strong>
+                                                <span t-field="o.sex"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="o.national_id">
+                                        <td>
+                                            <span style="font-size:10pt;">
+                                                <strong>National ID: </strong>
+                                                <span t-field="o.national_id"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="o.blood_type">
+                                        <td>
+                                            <span style="font-size:10pt;">
+                                                <strong>Blood Group: </strong>
+                                                <span t-field="o.blood_type"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="width:155pt; height:50pt;margin-top:10pt;">
+                                    <tr>
+                                        <td align="center">
+                                            <img t-att-src="'/report/barcode/Code128/'+o.identification_code" style="max-height:50pt;max-width:100%;" alt="Barcode"/>
+                                            <!-- <img alt="barcode" t-if="o.identification_code" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.identification_code, 600, 120)" style="max-height:50pt;max-width:100%;" align="center"/> -->
+                                            <span t-field="o.identification_code" style="font-size:10px;"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </table>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>
+

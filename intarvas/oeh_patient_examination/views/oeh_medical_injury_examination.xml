@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<odoo>
+
+            <!-- Injury Examination Procedure views -->
+            <record id="view_oeh_medical_injury_examination" model="ir.ui.view">
+                <field name="name">Injury Examination Procedure Search</field>
+                <field name="model">oeh.medical.injury.examination</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Search Examinations">
+                        <separator orientation="vertical"/>
+                            <field name="name" select="1"/>
+                            <field name="patient" string="Patient" select="1"/>
+                            <field name="doctor" string="Doctor" select="1"/>
+                            <field name="institution" string="Health Center" select="1"/>
+                        <separator/>
+                        <group>
+                            <filter name="medical_patient_injury" string="Patient" context="{'group_by':'patient'}"/>
+                            <filter name="medical_doctor_injury" string="Doctor" context="{'group_by':'doctor'}"/>
+                            <filter name="medical_health_center_injury" string="Health Center" context="{'group_by':'institution'}"/>
+                            <filter name="medical_type_injury" string="Injury Types" context="{'group_by':'injury_type'}"/>
+                            <filter name="medical_type_crime_injury" string="Crime Types" context="{'group_by':'crime_type'}"/>
+                            <filter name="medical_status_injury" string="Status" context="{'group_by':'state'}"/>
+                        </group>
+                    </search>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="oeh_medical_injury_examination_view">
+                <field name="name">Injury Examination Procedures</field>
+                <field name="model">oeh.medical.injury.examination</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                <form string="Examination">
+                    <header>
+                        <button name="print_injury_examination_report" invisible="state in ['Draft,Treated and Sent Home,Admitted,Died,Dead on Arrival']" string="Print Emergency Report" type="object" groups="intarvas.group_oeh_medical_physician,intarvas.group_oeh_medical_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="Draft"/>
+                    </header>
+                    <div class="o_notification_box alert alert-dismissible alert-info" role="alert" style="background-color:#CD5C5C;color:white;" invisible="iss_score != 75">
+                        <div>
+                            <span style='font-size:30px;'>75</span> ISS score.
+                            <br/><br/>Maximum Injury Severity Score.
+                            <br/><br/>Major Trauma Detected.
+                        </div>
+                    </div>
+                    <sheet>
+                        <div class="oe_left" style="width: 500px;">
+                            <div class="oe_title" style="width: 390px;">
+                                <label class="oe_edit_only" for="name" string="Case #"/>
+                                <h1><field name="name" class="oe_inline"/></h1>
+                                <label for="patient" class="oe_edit_only"/>
+                                <field name="patient" readonly="state != 'Draft'" widget="many2one_avatar_patient"/>
+                            </div>
+                        </div>
+                        <group class="col-12">
+                            <field name="age"/>
+                        </group>
+                        <group string="Examination Details" class="col-12">
+                            <group class="col-6">
+                                <field name="date" readonly="state != 'Draft'"/>
+                                <field name="address" readonly="state != 'Draft'"/>
+                                <field name="institution" options="{'no_create': True}" readonly="state != 'Draft'"/>
+                            </group>
+                            <group class="col-6">
+                                <field name="doctor" required="1" readonly="state != 'Draft'" widget="many2one_avatar_physician"/>
+                                <field name="patient_status" readonly="state != 'Draft'"/>
+                                <field name="inpatient" invisible="state != 'Admitted'" readonly="state != 'Draft'"/>
+                            </group>
+                        </group>
+                        <group string="Injury" class="col-12">
+                            <group class="col-6">
+                                <field name="injury_type" readonly="state != 'Draft'"/>
+                                <field name="alcohol" readonly="state != 'Draft'"/>
+                                <field name="drug" readonly="state != 'Draft'"/>
+                            </group>
+                            <group invisible="injury_type == 'Unintentional / Accidental'" class="col-6">
+                                <field name="vehicle_type" invisible="injury_type != 'Vehicle Accident'" required="injury_type == 'Vehicle Accident'" readonly="state != 'Draft'"/>
+                                <field name="safety_gear" invisible="injury_type != 'Vehicle Accident'" required="injury_type == 'Vehicle Accident'" readonly="state != 'Draft'"/>
+                                <field name="violence_by" invisible="injury_type != 'Violence'" required="injury_type == 'Violence'" readonly="state != 'Draft'"/>
+                                <field name="crime_type" invisible="injury_type == 'Vehicle Accident'" required="injury_type not in ['Vehicle Accident', 'Unintentional / Accidental']" readonly="state != 'Draft'"/>
+                                <field name="crime_method" invisible="injury_type == 'Vehicle Accident'" required="injury_type not in ['Vehicle Accident', 'Unintentional / Accidental']" readonly="state != 'Draft'"/>
+                            </group>
+                        </group>
+                        <group class="col-12">
+                            <field name="injury_details" nolabel="1" colspan="2" placeholder="Enter patient's injury details" readonly="state != 'Draft'"/>
+                        </group>
+                        <notebook>
+                            <page string="Injury Severity Score (ISS)">
+                                <group>
+                                    <label for="iss_score"/>
+                                    <div>
+                                        <field name="iss_score" style="width: 4%%" invisible="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                        <field name="iss_out_of_75" nolabel="1" style="width: 20%%;font-weight:bold;"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="iss_head_neck_injury" required="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                        <field name="iss_chest_injury" required="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                        <field name="iss_extremity_injury" required="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                    </group>
+                                    <group>
+                                        <field name="iss_face_injury" required="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                        <field name="iss_abdomen_injury" required="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                        <field name="iss_external_injury" required="injury_type == 'Traumatic'" readonly="state != 'Draft'"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Examination Result">
+                                <field name="examination_details" colspan="2" nolabel="1" readonly="state != 'Draft'"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="oeh_medical_injury_examination_tree">
+                <field name="name">Injury Examination Procedure List</field>
+                <field name="model">oeh.medical.injury.examination</field>
+<!--                <field name="type">tree</field>-->
+                    <field name="arch" type="xml">
+                        <list string="Examination Details">
+                            <field name="name"/>
+                            <field name="patient" widget="many2one_avatar_patient"/>
+                            <field name="doctor" widget="many2one_avatar_physician"/>
+                            <field name="date"/>
+                            <field name="institution"/>
+                            <field name="injury_type"/>
+                            <field name="crime_type"/>
+                            <field name="iss_score"/>
+                            <field name="state"/>
+                        </list>
+                    </field>
+            </record>
+
+            <record id="oeh_medical_injury_examination_action" model="ir.actions.act_window">
+                    <field name="name">Emergency</field>
+                    <field name="res_model">oeh.medical.injury.examination</field>
+                    <field name="view_mode">list,form</field>
+                    <field name="help" type="html">
+                      <p class="o_view_nocontent_smiling_face">
+                        Click to add a new injury examination details.
+                      </p>
+                    </field>
+            </record>
+
+            <menuitem action="oeh_medical_injury_examination_action" parent="oeh_medical_menu" id="oeh_medical_injury_examination_list" sequence="35"/>
+
+</odoo>

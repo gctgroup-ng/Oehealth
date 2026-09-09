@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Medical Advice Templates Data -->
+
+        <!-- Common Cold/Flu Advice -->
+        <record id="advice_template_cold_flu" model="oeh.medical.advice.template">
+            <field name="name">Common Cold/Flu Advice</field>
+            <field name="description">Standard advice for patients with cold and flu</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="advice_template_cold_flu_line1" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_cold_flu"/>
+            <field name="advice_type">general</field>
+            <field name="advice_text">Take adequate rest and sleep for at least 8 hours daily</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_cold_flu_line2" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_cold_flu"/>
+            <field name="advice_type">diet</field>
+            <field name="advice_text">Drink plenty of warm fluids like tea, soup, and warm water. Avoid cold drinks and ice cream</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_cold_flu_line3" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_cold_flu"/>
+            <field name="advice_type">precaution</field>
+            <field name="advice_text">Use face mask and maintain distance from others to prevent spread of infection</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_cold_flu_line4" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_cold_flu"/>
+            <field name="advice_type">followup</field>
+            <field name="advice_text">Return if symptoms worsen or fever persists beyond 3 days</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">True</field>
+            <field name="follow_up_days">3</field>
+        </record>
+
+        <!-- Diabetes Management Advice -->
+        <record id="advice_template_diabetes" model="oeh.medical.advice.template">
+            <field name="name">Diabetes Management Advice</field>
+            <field name="description">Comprehensive advice for diabetic patients</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="advice_template_diabetes_line1" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_diabetes"/>
+            <field name="advice_type">diet</field>
+            <field name="advice_text">Follow diabetic diet - avoid sugar, sweets, and refined carbohydrates. Include more vegetables, whole grains, and lean proteins</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_diabetes_line2" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_diabetes"/>
+            <field name="advice_type">exercise</field>
+            <field name="advice_text">Regular exercise for 30 minutes daily - walking, swimming, or cycling. Check blood sugar before and after exercise</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_diabetes_line3" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_diabetes"/>
+            <field name="advice_type">medication</field>
+            <field name="advice_text">Take medications at the prescribed time daily. Do not skip doses</field>
+            <field name="priority">urgent</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_diabetes_line4" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_diabetes"/>
+            <field name="advice_type">followup</field>
+            <field name="advice_text">Monthly follow-up for blood sugar monitoring and medication adjustment</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">True</field>
+            <field name="follow_up_days">30</field>
+        </record>
+
+        <!-- Hypertension Management Advice -->
+        <record id="advice_template_hypertension" model="oeh.medical.advice.template">
+            <field name="name">Hypertension Management</field>
+            <field name="description">Advice for patients with high blood pressure</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="advice_template_hypertension_line1" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_hypertension"/>
+            <field name="advice_type">diet</field>
+            <field name="advice_text">Low salt diet - avoid pickles, processed foods, and adding extra salt to food. Include potassium-rich fruits like banana</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_hypertension_line2" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_hypertension"/>
+            <field name="advice_type">lifestyle</field>
+            <field name="advice_text">Stop smoking and limit alcohol consumption. Maintain healthy weight through diet and exercise</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_hypertension_line3" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_hypertension"/>
+            <field name="advice_type">exercise</field>
+            <field name="advice_text">Regular moderate exercise like brisk walking for 30 minutes, 5 days a week</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_hypertension_line4" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_hypertension"/>
+            <field name="advice_type">followup</field>
+            <field name="advice_text">Regular blood pressure monitoring at home and monthly follow-up visits</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">True</field>
+            <field name="follow_up_days">30</field>
+        </record>
+
+        <!-- General Health Maintenance Advice -->
+        <record id="advice_template_general_health" model="oeh.medical.advice.template">
+            <field name="name">General Health Maintenance</field>
+            <field name="description">General advice for maintaining good health</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="advice_template_general_line1" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_general_health"/>
+            <field name="advice_type">diet</field>
+            <field name="advice_text">Maintain a balanced diet with plenty of fruits, vegetables, whole grains, and lean proteins. Limit processed and junk foods</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_general_line2" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_general_health"/>
+            <field name="advice_type">exercise</field>
+            <field name="advice_text">Regular physical activity for at least 150 minutes per week. Include both cardio and strength training</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_general_line3" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_general_health"/>
+            <field name="advice_type">lifestyle</field>
+            <field name="advice_text">Get 7-8 hours of quality sleep daily. Manage stress through relaxation techniques or hobbies</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_general_line4" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_general_health"/>
+            <field name="advice_type">followup</field>
+            <field name="advice_text">Annual health checkup with routine blood tests and screening as per age-appropriate guidelines</field>
+            <field name="priority">low</field>
+            <field name="follow_up_required">True</field>
+            <field name="follow_up_days">365</field>
+        </record>
+
+        <!-- Post-Surgical Care Advice -->
+        <record id="advice_template_post_surgical" model="oeh.medical.advice.template">
+            <field name="name">Post-Surgical Care</field>
+            <field name="description">General advice for post-surgical care</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="advice_template_post_surgical_line1" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_post_surgical"/>
+            <field name="advice_type">precaution</field>
+            <field name="advice_text">Keep surgical site clean and dry. Change dressings as instructed. Watch for signs of infection</field>
+            <field name="priority">urgent</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_post_surgical_line2" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_post_surgical"/>
+            <field name="advice_type">medication</field>
+            <field name="advice_text">Take prescribed antibiotics and pain medications as directed. Complete full course of antibiotics</field>
+            <field name="priority">high</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_post_surgical_line3" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_post_surgical"/>
+            <field name="advice_type">general</field>
+            <field name="advice_text">Adequate rest and avoid strenuous activities for the first week. Gradual return to normal activities</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">False</field>
+        </record>
+
+        <record id="advice_template_post_surgical_line4" model="oeh.medical.advice.template.line">
+            <field name="template_id" ref="advice_template_post_surgical"/>
+            <field name="advice_type">followup</field>
+            <field name="advice_text">Follow-up visit for wound check and stitch removal as scheduled</field>
+            <field name="priority">normal</field>
+            <field name="follow_up_required">True</field>
+            <field name="follow_up_days">7</field>
+        </record>
+
+    </data>
+</odoo>

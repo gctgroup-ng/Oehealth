@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="followup_prescriptionwizard_view" model="ir.ui.view">
+        <field name="name">Follow-Up Prescription Wizard View</field>
+        <field name="model">oeh.followup.prescription.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Follow-Up Schedule">
+                <sheet>
+                    <group>
+                        <field name="schedule_followup" string="Schedule Follow-Up"/>
+                    </group>
+                    <group>
+                        <field name="name" string="Name" invisible="not schedule_followup" required="schedule_followup"/>
+                        <field name="followup_date" string="Follow-Up Date" invisible="not schedule_followup" required="schedule_followup"/>
+                        <field name="notes" string="Notes" invisible="not schedule_followup"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="save_prescription_data" string="Save" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="followup_appointment_wizard_view" model="ir.ui.view">
+        <field name="name">Follow-Up Appointment Wizard View</field>
+        <field name="model">oeh.followup.appointment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Follow-Up Schedule">
+                <sheet>
+                    <group>
+                        <field name="schedule_followup" string="Schedule Follow-Up"/>
+                    </group>
+                    <group>
+                        <field name="name" string="Name" invisible="not schedule_followup" required="schedule_followup"/>
+                        <field name="followup_date" string="Follow-Up Date" invisible="not schedule_followup" required="schedule_followup"/>
+                        <field name="notes" string="Notes" invisible="not schedule_followup"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="save_appointment_data" string="Save" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="followup_wizard_view" model="ir.ui.view">
+        <field name="name">Follow-Up Wizard View</field>
+        <field name="model">oeh.followup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Follow-Up Schedule">
+                <sheet>
+                    <group>
+                        <field name="schedule_followup" string="Schedule Follow-Up"/>
+                    </group>
+                    <group>
+                        <field name="name" string="Name" invisible="not schedule_followup" required="schedule_followup"/>
+                        <field name="followup_date" string="Follow-Up Date" invisible="not schedule_followup" required="schedule_followup"/>
+                        <field name="notes" string="Notes" invisible="not schedule_followup"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="save_followup_data" string="Save" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

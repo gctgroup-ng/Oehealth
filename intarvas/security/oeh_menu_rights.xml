@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='oeh_medical_edit_patient' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+<!--    <record id='oeh_medical_conf_insurances' model='ir.ui.menu'>-->
+<!--        <field name="groups_id"-->
+<!--               eval="[(6,0,[ref('intarvas.group_oeh_medical_physician'),ref('intarvas.group_oeh_medical_manager')])]"/>-->
+<!--    </record>-->
+
+    <record id='oeh_medical_prescription_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+<!--    <record id='oeh_medical_insurance_type_conf_list' model='ir.ui.menu'>-->
+<!--        <field name="groups_id" eval="[(6,0,[ref('intarvas.group_oeh_medical_manager')])]"/>-->
+<!--    </record>-->
+
+    <record id='oeh_medical_ethnic_groups_conf_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_genetics_conf_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_physician_degrees_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_physician_speciality_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_healthcenters_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_healthcenters_pharmacy_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_medicines_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_vaccines_listview' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_dose_unit_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_drug_route_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_drug_forms_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_dosage_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_healthcenters_building_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_healthcenters_ward_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_healthcenters_bed_list'  model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_ipd_menu' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+<!--    <record id='oeh_medical_my_physician_profile' model='ir.ui.menu'>-->
+<!--        <field name="groups_id"-->
+<!--               eval="[(6,0,[ref('intarvas.group_oeh_medical_physician'),ref('intarvas.group_oeh_medical_nurse')])]"/>-->
+<!--    </record>-->
+
+    <record id='oeh_medical_physician_list' model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record id='oeh_medical_vaccine_list'  model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <!-- Occupation -->
+    <record id='oeh_medical_occupation_conf_list'  model='ir.ui.menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <!-- Gynacology -->
+    <record model='ir.ui.menu' id='oeh_medical_gyneco_mgmt_list'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <!-- Recreational Drugs -->
+    <record model='ir.ui.menu' id='oeh_medical_recreational_drug_mgmt_list'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <!-- Patient Examination-->
+    <record model='ir.ui.menu' id='oeh_medical_injury_examination_list'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record model="ir.ui.menu" id="oeh_medical_treatment_type_listview">
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record model='ir.ui.menu' id='oeh_medical_therapists_list'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record model='ir.ui.menu' id='oeh_medical_nurses_list'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <record model='ir.ui.menu' id='oeh_medical_conf_menu'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager')])]"/>
+    </record>
+
+    <!-- ICD10 Procedures -->
+
+    <record model='ir.ui.menu' id='oeh_medical_procedure_conf_list'>
+        <field name="group_ids" eval="[Command.set([ref('intarvas.group_oeh_medical_physician'), ref('intarvas.group_oeh_medical_manager'), ref('intarvas.group_oeh_medical_nurse')])]"/>
+    </record>
+
+</odoo>

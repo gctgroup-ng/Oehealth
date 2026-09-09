@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Patient Registration Report - List View -->
+    <record id="view_patient_registration_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.patient.registration.report.list</field>
+        <field name="model">oeh.medical.patient.registration.report</field>
+        <field name="arch" type="xml">
+            <list string="Patient Registration Analysis" create="false" edit="false" delete="false">
+                <field name="patient_name"/>
+                <field name="registration_date"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="age_group"/>
+                <field name="blood_group"/>
+                <field name="marital_status"/>
+                <field name="has_insurance"/>
+                <field name="city"/>
+                <field name="state_id"/>
+                <field name="registration_month"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Patient Registration Report - Search View -->
+    <record id="view_patient_registration_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.patient.registration.report.search</field>
+        <field name="model">oeh.medical.patient.registration.report</field>
+        <field name="arch" type="xml">
+            <search string="Patient Registration Analysis">
+                <field name="patient_name"/>
+                <field name="gender"/>
+                <field name="age_group"/>
+                <field name="blood_group"/>
+                <field name="city"/>
+                <field name="state_id"/>
+                <filter string="Male" name="male" domain="[('gender', '=', 'Male')]"/>
+                <filter string="Female" name="female" domain="[('gender', '=', 'Female')]"/>
+                <separator/>
+                <filter string="Has Insurance" name="has_insurance" domain="[('has_insurance', '=', True)]"/>
+                <filter string="No Insurance" name="no_insurance" domain="[('has_insurance', '=', False)]"/>
+                <separator/>
+                <filter string="This Month" name="this_month" domain="[('registration_date', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year" domain="[('registration_date', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group>
+                    <filter string="Gender" name="group_gender" context="{'group_by': 'gender'}"/>
+                    <filter string="Age Group" name="group_age_group" context="{'group_by': 'age_group'}"/>
+                    <filter string="Blood Group" name="group_blood_group" context="{'group_by': 'blood_group'}"/>
+                    <filter string="Marital Status" name="group_marital" context="{'group_by': 'marital_status'}"/>
+                    <filter string="City" name="group_city" context="{'group_by': 'city'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state_id'}"/>
+                    <separator/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'registration_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'registration_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Patient Registration Report - Graph View -->
+    <record id="view_patient_registration_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.patient.registration.report.graph</field>
+        <field name="model">oeh.medical.patient.registration.report</field>
+        <field name="arch" type="xml">
+            <graph string="Patient Registration Analysis" type="bar">
+                <field name="registration_month"/>
+                <field name="patient_count" type="measure"/>
+                <field name="gender" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Patient Registration Report - Pivot View -->
+    <record id="view_patient_registration_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.patient.registration.report.pivot</field>
+        <field name="model">oeh.medical.patient.registration.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Patient Registration Analysis">
+                <field name="age_group" type="row"/>
+                <field name="gender" type="col"/>
+                <field name="patient_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Patient Registration Report - Action -->
+    <record id="action_patient_registration_report" model="ir.actions.act_window">
+        <field name="name">Patient Registration Analysis</field>
+        <field name="res_model">oeh.medical.patient.registration.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_patient_registration_report_search"/>
+        <field name="context">{'search_default_this_year': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No patient registration data available
+            </p>
+            <p>
+                This report provides analysis of patient registrations including demographics and trends.
+            </p>
+        </field>
+    </record>
+</odoo>

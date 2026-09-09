@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Admission Analysis Report - List View -->
+    <record id="view_admission_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.admission.report.list</field>
+        <field name="model">oeh.medical.admission.report</field>
+        <field name="arch" type="xml">
+            <list string="Admission Analysis" create="false" edit="false" delete="false">
+                <field name="admission_number"/>
+                <field name="patient_id"/>
+                <field name="admission_date"/>
+                <field name="discharge_date"/>
+                <field name="admission_type"/>
+                <field name="attending_physician_id"/>
+                <field name="ward_id"/>
+                <field name="state" decoration-success="state == 'Discharged'" decoration-info="state == 'Hospitalized'" decoration-muted="state == 'Cancelled'"/>
+                <field name="stay_duration_days" sum="Total Days"/>
+                <field name="invoice_amount" sum="Total Revenue"/>
+                <field name="payment_state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Admission Analysis Report - Search View -->
+    <record id="view_admission_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.admission.report.search</field>
+        <field name="model">oeh.medical.admission.report</field>
+        <field name="arch" type="xml">
+            <search string="Admission Analysis">
+                <field name="patient_id"/>
+                <field name="attending_physician_id"/>
+                <field name="ward_id"/>
+                <field name="institution_id"/>
+                <field name="admission_type"/>
+                <field name="state"/>
+                <filter string="Hospitalized" name="hospitalized" domain="[('state', '=', 'Hospitalized')]"/>
+                <filter string="Discharged" name="discharged" domain="[('state', '=', 'Discharged')]"/>
+                <filter string="Emergency" name="emergency" domain="[('admission_type', '=', 'Emergency')]"/>
+                <separator/>
+                <filter string="This Month" name="this_month" domain="[('admission_date', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year" domain="[('admission_date', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group>
+                    <filter string="Admission Type" name="group_admission_type" context="{'group_by': 'admission_type'}"/>
+                    <filter string="Doctor" name="group_doctor" context="{'group_by': 'attending_physician_id'}"/>
+                    <filter string="Ward" name="group_ward" context="{'group_by': 'ward_id'}"/>
+                    <filter string="Institution" name="group_institution" context="{'group_by': 'institution_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <separator/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'admission_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'admission_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Admission Analysis Report - Graph View -->
+    <record id="view_admission_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.admission.report.graph</field>
+        <field name="model">oeh.medical.admission.report</field>
+        <field name="arch" type="xml">
+            <graph string="Admission Analysis" type="bar" stacked="True">
+                <field name="admission_month"/>
+                <field name="admission_count" type="measure"/>
+                <field name="admission_type" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Admission Analysis Report - Pivot View -->
+    <record id="view_admission_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.admission.report.pivot</field>
+        <field name="model">oeh.medical.admission.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Admission Analysis">
+                <field name="ward_id" type="row"/>
+                <field name="admission_month" type="col"/>
+                <field name="admission_count" type="measure"/>
+                <field name="stay_duration_days" type="measure"/>
+                <field name="invoice_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Admission Analysis Report - Action -->
+    <record id="action_admission_report" model="ir.actions.act_window">
+        <field name="name">Admission Analysis</field>
+        <field name="res_model">oeh.medical.admission.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_admission_report_search"/>
+        <field name="context">{'search_default_this_month': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No admission data available
+            </p>
+            <p>
+                This report provides comprehensive analysis of inpatient admissions including bed occupancy and revenue metrics.
+            </p>
+        </field>
+    </record>
+</odoo>

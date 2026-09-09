@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Disease Prevalence Report - List View -->
+    <record id="view_disease_prevalence_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.disease.prevalence.report.list</field>
+        <field name="model">oeh.medical.disease.prevalence.report</field>
+        <field name="arch" type="xml">
+            <list string="Disease Prevalence" create="false" edit="false" delete="false">
+                <field name="pathology_name"/>
+                <field name="pathology_code"/>
+                <field name="category_id"/>
+                <field name="occurrence_count" sum="Total Occurrences"/>
+                <field name="patient_count" sum="Total Patients"/>
+                <field name="appointment_count" sum="Appointments"/>
+                <field name="prescription_count" sum="Prescriptions"/>
+                <field name="admission_count" sum="Admissions"/>
+                <field name="male_count" sum="Male"/>
+                <field name="female_count" sum="Female"/>
+                <field name="avg_patient_age" avg="Avg Age"/>
+                <field name="period_month"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Disease Prevalence Report - Search View -->
+    <record id="view_disease_prevalence_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.disease.prevalence.report.search</field>
+        <field name="model">oeh.medical.disease.prevalence.report</field>
+        <field name="arch" type="xml">
+            <search string="Disease Prevalence">
+                <field name="pathology_name"/>
+                <field name="pathology_code"/>
+                <field name="category_id"/>
+                <separator/>
+                <group>
+                    <filter string="Disease" name="group_disease" context="{'group_by': 'pathology_id'}"/>
+                    <filter string="Category" name="group_category" context="{'group_by': 'category_id'}"/>
+                    <separator/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'period_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'period_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Disease Prevalence Report - Graph View -->
+    <record id="view_disease_prevalence_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.disease.prevalence.report.graph</field>
+        <field name="model">oeh.medical.disease.prevalence.report</field>
+        <field name="arch" type="xml">
+            <graph string="Disease Prevalence" type="pie">
+                <field name="pathology_name"/>
+                <field name="occurrence_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Disease Prevalence Report - Pivot View -->
+    <record id="view_disease_prevalence_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.disease.prevalence.report.pivot</field>
+        <field name="model">oeh.medical.disease.prevalence.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Disease Prevalence">
+                <field name="category_id" type="row"/>
+                <field name="period_month" type="col"/>
+                <field name="occurrence_count" type="measure"/>
+                <field name="patient_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Disease Prevalence Report - Action -->
+    <record id="action_disease_prevalence_report" model="ir.actions.act_window">
+        <field name="name">Disease Prevalence</field>
+        <field name="res_model">oeh.medical.disease.prevalence.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_disease_prevalence_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No disease prevalence data available
+            </p>
+            <p>
+                This report helps identify common health issues and disease trends for better resource planning.
+            </p>
+        </field>
+    </record>
+</odoo>

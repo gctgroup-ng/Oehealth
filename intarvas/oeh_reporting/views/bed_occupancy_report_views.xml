@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Bed Occupancy Report - List View -->
+    <record id="view_bed_occupancy_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.bed.occupancy.report.list</field>
+        <field name="model">oeh.medical.bed.occupancy.report</field>
+        <field name="arch" type="xml">
+            <list string="Bed Occupancy" create="false" edit="false" delete="false">
+                <field name="institution_id"/>
+                <field name="ward_name"/>
+                <field name="building_id"/>
+                <field name="total_beds" sum="Total Beds"/>
+                <field name="occupied_beds" sum="Occupied"/>
+                <field name="free_beds" sum="Free"/>
+                <field name="reserved_beds" sum="Reserved"/>
+                <field name="occupancy_rate" widget="percentage" decoration-danger="occupancy_rate &gt;= 90" decoration-warning="occupancy_rate &gt;= 75 and occupancy_rate &lt; 90" decoration-success="occupancy_rate &lt; 75"/>
+                <field name="current_admissions" sum="Current Admissions"/>
+                <field name="avg_stay_duration" avg="Avg Stay (Days)"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Bed Occupancy Report - Search View -->
+    <record id="view_bed_occupancy_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.bed.occupancy.report.search</field>
+        <field name="model">oeh.medical.bed.occupancy.report</field>
+        <field name="arch" type="xml">
+            <search string="Bed Occupancy">
+                <field name="institution_id"/>
+                <field name="ward_name"/>
+                <field name="building_id"/>
+                <separator/>
+                <filter string="High Occupancy (>80%)" name="high_occupancy" domain="[('occupancy_rate', '&gt;=', 80)]"/>
+                <filter string="Critical Occupancy (>90%)" name="critical_occupancy" domain="[('occupancy_rate', '&gt;=', 90)]"/>
+                <separator/>
+                <group>
+                    <filter string="Institution" name="group_institution" context="{'group_by': 'institution_id'}"/>
+                    <filter string="Building" name="group_building" context="{'group_by': 'building_id'}"/>
+                    <filter string="Ward" name="group_ward" context="{'group_by': 'ward_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Bed Occupancy Report - Graph View -->
+    <record id="view_bed_occupancy_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.bed.occupancy.report.graph</field>
+        <field name="model">oeh.medical.bed.occupancy.report</field>
+        <field name="arch" type="xml">
+            <graph string="Bed Occupancy by Ward" type="bar" stacked="True">
+                <field name="ward_name" type="row"/>
+                <field name="occupied_beds" type="measure"/>
+                <field name="free_beds" type="measure"/>
+                <field name="reserved_beds" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Bed Occupancy Report - Pivot View -->
+    <record id="view_bed_occupancy_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.bed.occupancy.report.pivot</field>
+        <field name="model">oeh.medical.bed.occupancy.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Bed Occupancy">
+                <field name="institution_id" type="row"/>
+                <field name="ward_id" type="row"/>
+                <field name="total_beds" type="measure"/>
+                <field name="occupied_beds" type="measure"/>
+                <field name="occupancy_rate" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Bed Occupancy Report - Action -->
+    <record id="action_bed_occupancy_report" model="ir.actions.act_window">
+        <field name="name">Bed Occupancy Report</field>
+        <field name="res_model">oeh.medical.bed.occupancy.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_bed_occupancy_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bed occupancy data available
+            </p>
+            <p>
+                This report helps monitor bed utilization and optimize capacity planning.
+            </p>
+        </field>
+    </record>
+</odoo>

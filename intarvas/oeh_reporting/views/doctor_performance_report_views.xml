@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Doctor Performance Report - List View -->
+    <record id="view_doctor_performance_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.doctor.performance.report.list</field>
+        <field name="model">oeh.medical.doctor.performance.report</field>
+        <field name="arch" type="xml">
+            <list string="Doctor Performance" create="false" edit="false" delete="false">
+                <field name="doctor_name"/>
+                <field name="specialty_id"/>
+                <field name="institution_id"/>
+                <field name="total_appointments" sum="Total Appointments"/>
+                <field name="completed_appointments" sum="Completed"/>
+                <field name="cancelled_appointments" sum="Cancelled"/>
+                <field name="completion_rate" widget="percentage"/>
+                <field name="avg_duration"/>
+                <field name="total_consultancy_price" sum="Total Revenue"/>
+                <field name="total_prescriptions" sum="Prescriptions"/>
+                <field name="period_month"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Doctor Performance Report - Search View -->
+    <record id="view_doctor_performance_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.doctor.performance.report.search</field>
+        <field name="model">oeh.medical.doctor.performance.report</field>
+        <field name="arch" type="xml">
+            <search string="Doctor Performance">
+                <field name="doctor_name"/>
+                <field name="specialty_id"/>
+                <field name="institution_id"/>
+                <separator/>
+                <filter string="High Performers (>80% completion)" name="high_performers" domain="[('completion_rate', '&gt;=', 80)]"/>
+                <separator/>
+                <group>
+                    <filter string="Doctor" name="group_doctor" context="{'group_by': 'doctor_id'}"/>
+                    <filter string="Specialty" name="group_specialty" context="{'group_by': 'specialty_id'}"/>
+                    <filter string="Institution" name="group_institution" context="{'group_by': 'institution_id'}"/>
+                    <separator/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'period_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'period_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Doctor Performance Report - Graph View -->
+    <record id="view_doctor_performance_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.doctor.performance.report.graph</field>
+        <field name="model">oeh.medical.doctor.performance.report</field>
+        <field name="arch" type="xml">
+            <graph string="Doctor Performance" type="bar">
+                <field name="doctor_name"/>
+                <field name="total_appointments" type="measure"/>
+                <field name="completion_rate" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Doctor Performance Report - Pivot View -->
+    <record id="view_doctor_performance_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.doctor.performance.report.pivot</field>
+        <field name="model">oeh.medical.doctor.performance.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Doctor Performance">
+                <field name="doctor_id" type="row"/>
+                <field name="period_month" type="col"/>
+                <field name="total_appointments" type="measure"/>
+                <field name="completion_rate" type="measure"/>
+                <field name="total_consultancy_price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Doctor Performance Report - Action -->
+    <record id="action_doctor_performance_report" model="ir.actions.act_window">
+        <field name="name">Doctor Performance</field>
+        <field name="res_model">oeh.medical.doctor.performance.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_doctor_performance_report_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No doctor performance data available
+            </p>
+            <p>
+                This report provides insights into doctor productivity and performance metrics.
+            </p>
+        </field>
+    </record>
+</odoo>

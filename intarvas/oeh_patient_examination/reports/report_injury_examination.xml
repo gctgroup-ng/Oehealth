@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <template id="report_oeh_medical_injury_examination">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="row">
+                                <p style="font-size:24px;text-align:center;font-weight:bold;">Emergency Report
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div t-if="o.name">
+                                        <strong>Case #:</strong>
+                                        <p t-field="o.name"/>
+                                    </div>
+                                    <div t-if="o.patient">
+                                        <strong>Patient:</strong>
+                                        <p t-field="o.patient.name"/>
+                                    </div>
+                                    <div t-if="o.doctor">
+                                        <strong>Doctor:</strong>
+                                        <p t-field="o.doctor.name"/>
+                                    </div>
+                                    <div t-if="o.patient_status">
+                                        <strong>Patient status when arrived:</strong>
+                                        <p t-field="o.patient_status"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div t-if="o.address" class="mt16">
+                                        <strong>Address:</strong>
+                                        <p t-field="o.address"/>
+                                    </div>
+                                    <div t-if="o.date" class="mt16">
+                                        <strong>Date:</strong>
+                                        <p t-field="o.date"/>
+                                    </div>
+                                    <div t-if="o.institution" class="mt16">
+                                        <strong>Institution:</strong>
+                                        <p t-field="o.institution.name"/>
+                                    </div>
+                                    <div t-if="o.inpatient" class="mt16">
+                                        <strong>Inpatient Admission #:</strong>
+                                        <p t-field="o.inpatient.name"/>
+                                    </div>
+                                    <div t-if="o.state" class="mt16">
+                                        <strong>State:</strong>
+                                        <p t-field="o.state"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p style="font-size:20px;text-align:left;font-weight:bold;">Injury Details</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div t-if="o.injury_type">
+                                        <strong>Type of Injury:</strong>
+                                        <p t-field="o.injury_type"/>
+                                    </div>
+                                    <div t-if="o.alcohol">
+                                        <strong>Alcohol Taken?:</strong>
+                                        <p t-field="o.alcohol"/>
+                                    </div>
+                                    <div t-if="o.drug">
+                                        <strong>Drug Taken?:</strong>
+                                        <p t-field="o.drug"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div t-if="o.vehicle_type" class="mt16">
+                                        <strong>Vehicle:</strong>
+                                        <p t-field="o.vehicle_type"/>
+                                    </div>
+                                    <div t-if="o.safety_gear" class="mt16">
+                                        <strong>Was wearing safety gear?:</strong>
+                                        <p t-field="o.safety_gear"/>
+                                    </div>
+                                    <div t-if="o.violence_by" class="mt16">
+                                        <strong>Violence By:</strong>
+                                        <p t-field="o.violence_by"/>
+                                    </div>
+                                    <div t-if="o.crime_type" class="mt16">
+                                        <strong>Nature of Crime:</strong>
+                                        <p t-field="o.crime_type"/>
+                                    </div>
+                                    <div t-if="o.crime_method" class="mt16">
+                                        <strong>Method use in Crime:</strong>
+                                        <p t-field="o.crime_method"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" t-if="o.injury_details">
+                                <div class="col-xs-12">
+                                    <div>
+                                        <strong>Injury Details:</strong>
+                                        <p t-field="o.injury_details"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p style="font-size:20px;text-align:left;font-weight:bold;">Injury Severity Score
+                                        (ISS)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div t-if="o.iss_score">
+                                        <strong>Score:</strong>
+                                        <span t-field="o.iss_score"/>
+
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div t-if="o.iss_score==75" class="mt16">
+                                        <strong style="color:red;">Maximum Injury Severity Score</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-condensed mt32">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-left">Head and neck injury</th>
+                                        <th class="text-right" style="font-weight:normal;">
+                                            <span t-field="o.iss_head_neck_injury"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left">Face injury</th>
+                                        <th class="text-right" style="font-weight:normal;">
+                                            <span t-field="o.iss_face_injury"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left">Chest injury</th>
+                                        <th class="text-right" style="font-weight:normal;">
+                                            <span t-field="o.iss_chest_injury"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left">Abdomen injury</th>
+                                        <th class="text-right" style="font-weight:normal;">
+                                            <span t-field="o.iss_abdomen_injury"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left">Extremity (including pelvis) injury</th>
+                                        <th class="text-right" style="font-weight:normal;">
+                                            <span t-field="o.iss_extremity_injury"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left">External injury</th>
+                                        <th class="text-right" style="font-weight:normal;">
+                                            <span t-field="o.iss_external_injury"/>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="oe_structure"/>
+                            <div class="row" t-if="o.examination_details">
+                                <div class="col-xs-12">
+                                    <div>
+                                        <strong>Examination Result:</strong>
+                                        <p t-field="o.examination_details"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_structure"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_appointment_consultation_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.patient.partner_id.lang)"/>
+            
+            <div class="page">
+                <style>
+                    .page {
+                        font-family: 'Arial', 'Helvetica', sans-serif;
+                        font-size: 10pt;
+                        line-height: 1.3;
+                        color: #000;
+                        margin: 0;
+                        padding: 0;
+                        background: white;
+                    }
+                    
+                    /* Professional Header */
+                    .patient-header {
+                        padding: 8px 12px;
+                        margin-bottom: 15px;
+                        background: white;
+                    }
+                    .patient-id-line {
+                        font-weight: bold;
+                        font-size: 11pt;
+                        margin-bottom: 4px;
+                    }
+                    .consultation-date {
+                        float: right;
+                        font-weight: bold;
+                        font-size: 10pt;
+                    }
+                    .clearfix::after {
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+                    
+                    /* Section Headers */
+                    .section-title {
+                        font-weight: bold;
+                        font-size: 11pt;
+                        color: #000;
+                        margin: 15px 0 6px 0;
+                        padding: 4px 0;
+                        border-bottom: 1px solid #000;
+                        text-transform: uppercase;
+                    }
+                    
+                    /* Tables */
+                    .medical-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 8px 0 15px 0;
+                        font-size: 9pt;
+                        border: 1px solid #000;
+                    }
+                    .medical-table th {
+                        background: #f5f5f5;
+                        font-weight: bold;
+                        color: #000;
+                        padding: 6px 8px;
+                        text-align: left;
+                        border: 1px solid #000;
+                        font-size: 9pt;
+                    }
+                    .medical-table td {
+                        padding: 6px 8px;
+                        border: 1px solid #000;
+                        font-size: 9pt;
+                        vertical-align: top;
+                    }
+                    
+                    /* Content Sections */
+                    .content-box {
+                        margin: 8px 0 15px 0;
+                        padding: 8px;
+                        border: 1px solid #000;
+                        background: white;
+                        font-size: 10pt;
+                        line-height: 1.4;
+                        min-height: 20px;
+                    }
+                    
+                    /* Prescription Section */
+                    .prescription-header {
+                        font-size: 16pt;
+                        font-family: 'Times', serif;
+                        color: #000;
+                        margin: 15px 0 8px 0;
+                        font-weight: bold;
+                        border-bottom: 1px solid #000;
+                        padding-bottom: 4px;
+                    }
+                    .medicine-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 8px 0 15px 0;
+                        font-size: 9pt;
+                        border: 1px solid #000;
+                    }
+                    .medicine-table th {
+                        background: #f0f0f0;
+                        font-weight: bold;
+                        padding: 6px 8px;
+                        text-align: left;
+                        border: 1px solid #000;
+                        font-size: 9pt;
+                    }
+                    .medicine-table td {
+                        padding: 6px 8px;
+                        border: 1px solid #000;
+                        font-size: 9pt;
+                        vertical-align: top;
+                    }
+                    .medicine-number {
+                        font-weight: bold;
+                        color: #000;
+                        margin-right: 5px;
+                    }
+                    
+                    /* Advice Section */
+                    .advice-box {
+                        margin: 10px 0 15px 0;
+                        padding: 10px;
+                        border: 1px solid #000;
+                        background: white;
+                        font-size: 10pt;
+                        line-height: 1.5;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                    }
+                    
+                    /* Tests Section */
+                    .tests-box {
+                        margin: 10px 0 15px 0;
+                        padding: 10px;
+                        border: 1px solid #000;
+                        background: white;
+                        font-size: 10pt;
+                        line-height: 1.4;
+                    }
+                    
+                    /* Footer */
+                    .report-footer {
+                        margin-top: 25px;
+                        padding-top: 10px;
+                        border-top: 1px solid #000;
+                        font-size: 9pt;
+                        color: #666;
+                        text-align: center;
+                    }
+                    .appointment-ref {
+                        font-weight: bold;
+                        color: #000;
+                        margin-top: 5px;
+                        font-size: 9pt;
+                    }
+                </style>
+                
+                <!-- Patient Information Header - Two Columns -->
+                <div class="patient-header clearfix">
+                    <div class="row">
+                        <!-- Left Column: Patient Info, Appointment Number, Date -->
+                        <div class="col-8">
+                            <div class="patient-id-line">
+                                <t t-esc="doc.patient.identification_code"/> <t t-esc="doc.patient.name"/>
+                                (<t t-esc="doc.patient.age"/>, <t t-esc="doc.patient.sex"/>)
+                            </div>
+                            <div style="font-size: 10pt; margin-top: 4px;">
+                                Appointment #: <t t-esc="doc.name"/>
+                            </div>
+                            <div style="font-size: 10pt; margin-top: 2px;">
+                                Date: <t t-esc="doc.appointment_date.strftime('%d-%b-%Y')"/>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column: Doctor Information -->
+                        <div class="col-4 text-right">
+                            <div style="font-weight: bold; font-size: 11pt; color: #4A90E2;">
+                                Dr. <t t-esc="doc.doctor.name"/>
+                            </div>
+                            <div style="font-size: 9pt; color: #666; margin-top: 2px;">
+                                <t t-if="doc.doctor.degree_id">
+                                    <t t-foreach="doc.doctor.degree_id" t-as="degree">
+                                        <t t-esc="degree.name"/><t t-if="not degree_last">, </t>
+                                    </t>
+                                </t>
+                                <t t-else="">MD (Medicine), DNB, DM(Endocrinology)</t>
+                            </div>
+                            <div style="font-size: 9pt; color: #666; margin-top: 1px;">
+                                <t t-if="doc.doctor.speciality">
+                                    <t t-esc="doc.doctor.speciality.name"/>
+                                </t>
+                                <t t-else="">Consultant Diabetologist and Endocrinologist</t>
+                            </div>
+                            <div style="font-size: 9pt; color: #666; margin-top: 1px;">
+                                E-Mail: <t t-esc="doc.doctor.work_email or doc.doctor.email or 'doctor@clinic.com'"/>
+                            </div>
+                            <div style="font-size: 9pt; color: #666; margin-top: 1px;">
+                                Contact: <t t-esc="doc.doctor.work_phone or doc.doctor.phone or '9876543210'"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vitals Section -->
+                <div class="section-title">Vitals</div>
+                <table class="medical-table">
+                    <tr>
+                        <th style="width: 20%;">Height</th>
+                        <th style="width: 20%;">Weight</th>
+                        <th style="width: 20%;">BMI</th>
+                        <th style="width: 20%;">Pulse</th>
+                        <th style="width: 20%;">Temperature</th>
+                    </tr>
+                    <tr>
+                        <td><t t-esc="doc.height or '-'"/> <t t-if="doc.height">cm</t></td>
+                        <td><t t-esc="doc.weight or '-'"/> <t t-if="doc.weight">kg</t></td>
+                        <td><t t-esc="round(doc.bmi, 1) if doc.bmi and doc.bmi > 0 else '-'"/></td>
+                        <td><t t-esc="doc.bpm or '-'"/> bpm</td>
+                        <td><t t-esc="doc.temperature or '-'"/> <t t-if="doc.temperature">°C</t></td>
+                    </tr>
+                </table>
+                
+                <!-- Chief Complaints -->
+                <t t-if="doc.patient_complaint_ids">
+                    <div class="section-title">Complaints</div>
+                    <table class="medicine-table">
+                        <thead>
+                            <tr>
+                                <th>Complaint</th>
+                                <th>Frequency</th>
+                                <th>Severity</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.patient_complaint_ids" t-as="patient_complaint">
+                                <tr>
+                                    <td><t t-esc="patient_complaint.complaint_id.name"/></td>
+                                    <td><t t-esc="dict(patient_complaint._fields['frequency'].selection)[patient_complaint.frequency]"/></td>
+                                    <td><t t-esc="dict(patient_complaint._fields['severity'].selection)[patient_complaint.severity]"/></td>
+                                    <td><t t-esc="patient_complaint.days"/> <t t-esc="dict(patient_complaint._fields['duration'].selection)[patient_complaint.duration]"/><t t-if="patient_complaint.days > 1">s</t></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+                
+                <!-- Diagnosis -->
+                <t t-if="doc.disease_ids">
+                    <div class="section-title">Diagnosis</div>
+                    <div>
+                        <t t-foreach="doc.disease_ids" t-as="disease">
+                            <t t-esc="disease.name"/><t t-if="not disease_last">, </t>
+                        </t>
+                    </div>
+                </t>
+                
+                <!-- Prescription -->
+                <t t-if="doc.medicine_line">
+                    <div class="prescription-header">℞ Prescription</div>
+                    <table class="medicine-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Medicine</th>
+                                <th style="width: 30%;">Dosage</th>
+                                <th style="width: 30%;">Frequency &amp; Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.medicine_line" t-as="medicine">
+                                <tr>
+                                    <td>
+                                        <span class="medicine-number"><t t-esc="medicine_index + 1"/>)</span>
+                                        <t t-esc="medicine.name.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="medicine.dose or ''"/> 
+                                        <t t-esc="medicine.dose_unit.name or 'mg'"/>
+                                        <t t-if="medicine.qty"> - Qty: <t t-esc="medicine.qty"/></t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="medicine.common_dosage.name or ''"/>
+                                        <t t-if="medicine.duration"> - <t t-esc="medicine.duration"/> <t t-esc="medicine.duration_period or 'Days'"/></t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+                
+                <!-- Advice Section -->
+                <t t-if="doc.comments">
+                    <div class="section-title">Advice</div>
+                    <div>
+                        <t t-esc="doc.comments"/>
+                    </div>
+                </t>
+
+                <!-- Lab Tests Section -->
+                <div class="section-title">Tests Prescribed</div>
+                <div>
+                    <t t-if="doc.lab_test_request_ids">
+                        <t t-foreach="doc.lab_test_request_ids" t-as="test_type">
+                            • <t t-esc="test_type.name"/>
+                            <br/>
+                        </t>
+                    </t>
+                    
+                    <t t-if="not doc.lab_test_request_ids">
+                        No lab tests prescribed
+                    </t>
+                </div>
+
+                <!-- Footer -->
+                <div class="report-footer">
+                    <div>This is a computer generated prescription. For any queries, please contact the clinic.</div>
+                    <div class="appointment-ref">Appointment #: <t t-esc="doc.name"/></div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_appointment_consultation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="intarvas.report_appointment_consultation_document" t-lang="doc.patient.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

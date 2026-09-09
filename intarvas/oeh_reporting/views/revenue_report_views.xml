@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Revenue Analysis Report - List View -->
+    <record id="view_revenue_report_list" model="ir.ui.view">
+        <field name="name">oeh.medical.revenue.report.list</field>
+        <field name="model">oeh.medical.revenue.report</field>
+        <field name="arch" type="xml">
+            <list string="Revenue Analysis" create="false" edit="false" delete="false">
+                <field name="invoice_number"/>
+                <field name="invoice_date"/>
+                <field name="patient_id"/>
+                <field name="service_type"/>
+                <field name="amount_untaxed" sum="Untaxed Total"/>
+                <field name="amount_tax" sum="Tax Total"/>
+                <field name="amount_total" sum="Grand Total"/>
+                <field name="amount_residual" sum="Total Due"/>
+                <field name="state" decoration-success="state == 'posted'" decoration-muted="state == 'cancel'"/>
+                <field name="payment_state" decoration-success="payment_state == 'paid'" decoration-warning="payment_state == 'partial'" decoration-danger="payment_state == 'not_paid'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Revenue Analysis Report - Search View -->
+    <record id="view_revenue_report_search" model="ir.ui.view">
+        <field name="name">oeh.medical.revenue.report.search</field>
+        <field name="model">oeh.medical.revenue.report</field>
+        <field name="arch" type="xml">
+            <search string="Revenue Analysis">
+                <field name="patient_id"/>
+                <field name="service_type"/>
+                <field name="state"/>
+                <field name="payment_state"/>
+                <filter string="Posted" name="posted" domain="[('state', '=', 'posted')]"/>
+                <filter string="Paid" name="paid" domain="[('payment_state', '=', 'paid')]"/>
+                <filter string="Not Paid" name="not_paid" domain="[('payment_state', '=', 'not_paid')]"/>
+                <separator/>
+                <filter string="Appointment" name="appointment" domain="[('service_type', '=', 'Appointment')]"/>
+                <filter string="Inpatient" name="inpatient" domain="[('service_type', '=', 'Inpatient')]"/>
+                <separator/>
+                <filter string="This Month" name="this_month" domain="[('invoice_date', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year" domain="[('invoice_date', '&gt;=', (context_today() - relativedelta(month=1, day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group>
+                    <filter string="Service Type" name="group_service" context="{'group_by': 'service_type'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Payment Status" name="group_payment" context="{'group_by': 'payment_state'}"/>
+                    <separator/>
+                    <filter string="Month" name="group_month" context="{'group_by': 'invoice_month'}"/>
+                    <filter string="Year" name="group_year" context="{'group_by': 'invoice_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Revenue Analysis Report - Graph View -->
+    <record id="view_revenue_report_graph" model="ir.ui.view">
+        <field name="name">oeh.medical.revenue.report.graph</field>
+        <field name="model">oeh.medical.revenue.report</field>
+        <field name="arch" type="xml">
+            <graph string="Revenue Analysis" type="line">
+                <field name="invoice_month"/>
+                <field name="amount_total" type="measure"/>
+                <field name="service_type" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Revenue Analysis Report - Pivot View -->
+    <record id="view_revenue_report_pivot" model="ir.ui.view">
+        <field name="name">oeh.medical.revenue.report.pivot</field>
+        <field name="model">oeh.medical.revenue.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Revenue Analysis">
+                <field name="service_type" type="row"/>
+                <field name="invoice_month" type="col"/>
+                <field name="amount_total" type="measure"/>
+                <field name="amount_residual" type="measure"/>
+                <field name="invoice_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Revenue Analysis Report - Action -->
+    <record id="action_revenue_report" model="ir.actions.act_window">
+        <field name="name">Revenue Analysis</field>
+        <field name="res_model">oeh.medical.revenue.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="search_view_id" ref="view_revenue_report_search"/>
+        <field name="context">{'search_default_this_month': 1, 'search_default_posted': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No revenue data available
+            </p>
+            <p>
+                This report provides comprehensive financial analysis including revenue trends and payment status.
+            </p>
+        </field>
+    </record>
+</odoo>

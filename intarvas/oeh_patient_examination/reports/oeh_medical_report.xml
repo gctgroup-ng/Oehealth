@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_oeh_medical_report_injury_examination_result" model="ir.actions.report">
+            <field name="name">Emergency Report</field>
+            <field name="model">oeh.medical.injury.examination</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_oeh_medical_injury_examination</field>
+            <field name="report_file">intarvas.report_oeh_medical_injury_examination</field>
+        </record>
+
+    </data>
+</odoo>

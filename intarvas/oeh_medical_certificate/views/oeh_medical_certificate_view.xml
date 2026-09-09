@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+    <odoo>
+        <data>
+<!--            <record id="oeh_medical_patient_medical_certificate_patient_view" model="ir.ui.view">-->
+<!--                <field name="name">Patient</field>-->
+<!--                <field name="model">oeh.medical.patient</field>-->
+<!--                <field name="inherit_id" ref="intarvas.oeh_medical_patient_view"/>-->
+<!--                <field name="arch" type="xml">-->
+<!--                     <xpath expr="//form" position="inside">-->
+<!--                        <notebook>-->
+<!--                            <page string="Medical Certificates">-->
+<!--                                <field name="medical_cert_ids" context="{'default_patient': active_id}" readonly="deceased">-->
+<!--                                    <form string="Medical Certificates">-->
+<!--                                    <header>-->
+<!--                                        <button name="print_patient_medical_cert" string="Print Medical Certificate" type="object" class="oe_highlight"/>-->
+<!--                                    </header>-->
+<!--                                    <sheet>-->
+<!--                                        <div class="oe_left" style="width: 300px;">-->
+<!--                                            <div class="oe_title">-->
+<!--                                               <label for="name" string="MC #" class="oe_edit_only" />-->
+<!--                                                <h1>-->
+<!--                                                    <field name="name" required="1"/>-->
+<!--                                                </h1>-->
+<!--                                                <label for="patient" class="oe_edit_only"/>-->
+<!--                                                <field name="patient"/>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <group>-->
+<!--                                            <group>-->
+<!--                                                <field name="doctor"/>-->
+<!--                                                <field name="start_date"/>-->
+<!--                                                <field name="no_of_days"/>-->
+<!--                                            </group>-->
+<!--                                            <group>-->
+<!--                                                <field name="institution"/>-->
+<!--                                                <field name="end_date"/>-->
+<!--                                                <field name="issue_date"/>-->
+<!--                                            </group>-->
+<!--                                        </group>-->
+<!--                                        <notebook>-->
+<!--                                            <page string="Reason">-->
+<!--                                                <group>-->
+<!--                                                    <field name="reason" nolabel="1"/>-->
+<!--                                                </group>-->
+<!--                                            </page>-->
+<!--                                        </notebook>-->
+<!--                                    </sheet>-->
+<!--                                </form>-->
+<!--                                    <tree string="Medical Certificates">-->
+<!--                                        <field name="name"/>-->
+<!--                                        <field name="patient"/>-->
+<!--                                        <field name="doctor"/>-->
+<!--                                        <field name="institution"/>-->
+<!--                                        <field name="issue_date"/>-->
+<!--                                        <field name="start_date"/>-->
+<!--                                        <field name="end_date"/>-->
+<!--                                        <field name="no_of_days"/>-->
+<!--                                        <button name="print_patient_medical_cert" string="Print Medical Certificate" type="object" icon="fa-print"/>-->
+<!--                                </tree>-->
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                    </notebook>-->
+<!--                     </xpath>-->
+<!--                </field>-->
+<!--            </record>-->
+
+            <record id="oeh_medical_patient_medical_certificate_patient_view" model="ir.ui.view">
+                <field name="name">Patient</field>
+                <field name="model">oeh.medical.patient</field>
+                <field name="inherit_id" ref="intarvas.oeh_medical_patient_view"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//notebook[last()]" position="inside">
+<!--                     <xpath expr="//form" position="inside">-->
+<!--                        <notebook>-->
+                            <page string="Medical Certificates" name="medical_certificate">
+                                <field name="medical_cert_ids" readonly="deceased">
+                                    <form string="Medical Certificates">
+                                        <header>
+                                            <button name="print_patient_medical_cert" string="Print Medical Certificate" type="object" class="oe_highlight"/>
+                                        </header>
+                                        <sheet>
+                                            <div class="oe_left" style="width: 300px;">
+                                                <div class="oe_title">
+                                                   <label for="name" string="MC #" class="oe_edit_only" />
+                                                    <h1>
+                                                        <field name="name" required="1"/>
+                                                    </h1>
+                                                    <label for="patient" class="oe_edit_only"/>
+                                                    <field name="patient" widget="many2one_avatar_patient"/>
+                                                </div>
+                                            </div>
+                                            <group>
+                                                <group>
+                                                    <field name="doctor" widget="many2one_avatar_physician"/>
+                                                    <field name="start_date"/>
+                                                    <field name="no_of_days"/>
+                                                </group>
+                                                <group>
+                                                    <field name="institution"/>
+                                                    <field name="end_date"/>
+                                                    <field name="issue_date"/>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Reason">
+                                                    <group>
+                                                        <field name="reason" nolabel="1"/>
+                                                    </group>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                    <list string="Medical Certificates">
+                                        <field name="name"/>
+                                        <field name="patient"/>
+                                        <field name="doctor"/>
+                                        <field name="institution"/>
+                                        <field name="issue_date"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="no_of_days"/>
+                                        <button name="print_patient_medical_cert" string="Print Medical Certificate" type="object" icon="fa-print"/>
+                                    </list>
+                                </field>
+                            </page>
+<!--                        </notebook>-->
+                     </xpath>
+                </field>
+            </record>
+
+        </data>
+    </odoo>

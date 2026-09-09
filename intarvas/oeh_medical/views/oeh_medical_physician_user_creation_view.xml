@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Physician Form View to Add User Creation Buttons -->
+        <record id="oeh_medical_physician_view_form_user_creation" model="ir.ui.view">
+            <field name="name">oeh.medical.physician.form.user.creation</field>
+            <field name="model">oeh.medical.physician</field>
+            <field name="inherit_id" ref="intarvas.oeh_medical_staff_view"/>
+            <field name="arch" type="xml">
+                <!-- Add computed field for button visibility -->
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="show_create_account_button" invisible="1"/>
+                </xpath>
+
+                <!-- Add Create Account button in header -->
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="action_create_user_account"
+                                string="Create User Account"
+                                type="object"
+                                class="oe_highlight"
+                                invisible="not show_create_account_button"/>
+                    </header>
+                </xpath>
+
+                <!-- Add User Account Smart Button -->
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_open_user_account"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-user"
+                            invisible="not oeh_user_id">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">User</span>
+                            <span class="o_stat_text">Account</span>
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

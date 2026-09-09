@@ -1,0 +1,1746 @@
+.oeh_medical_vignette {
+  padding: 8px 8px;
+  min-height: 100px;
+}
+
+.oeh_medical_image, .oeh_medical_details {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.oeh_medical_image {
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  overflow: hidden;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border-collapse: separate;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.oeh_medical_picture {
+  width: 90px;
+  height: auto;
+  clip: rect(10px, 100px, 110px, 0px);
+}
+
+.oeh_medical_picture_wide {
+  height: 90px;
+  width: auto;
+  clip: rect(0px, 115px, 100px, 15px);
+}
+
+.oeh_medical_details {
+  width: 185px;
+  font-size: 13px;
+  padding: 2px 5px;
+  color: #4c4c4c;
+  min-height: 120px;
+}
+
+.oeh_medical_details h4 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.oeh_medical_details h4 a {
+  color: #4c4c4c;
+}
+
+.oeh_medical_details h4 a:hover {
+  text-decoration: underline;
+}
+
+.oeh_medical_details ul {
+  margin: 3px 0 5px;
+  padding: 0;
+  list-style: none;
+}
+
+.oeh_medical_details li {
+  margin: 2px 0;
+  padding: 0;
+}
+
+.openerp .oeh_medical_vignette .oe_followers {
+  width: auto;
+  float: none;
+}
+
+/*
+these classes is used to take the photo of patient from webcam
+*/
+
+.o_form_view.o_form_editable .o_form_field_image .o_form_image_controls
+.o_form_binary_file_web_cam
+    color: inherit;
+}
+
+.o_form_view .o_form_field_image .o_form_image_controls > .fa{
+    margin:3px;
+}
+
+.live_webcam_outer_div, .webcam_result_outer_div {
+    padding-left: 20px;
+}
+
+#webcam_result img {
+    max-width: 320px;
+    max-height: 240px;
+}
+
+#live_webcam {
+    width: 320px;
+    height: 240px;
+}
+
+.direction_icon {
+    text-align: center;
+}
+
+.active_switch {
+    border: solid 1px green;
+    width: 10%;
+    margin-top: 5px!important;
+}
+.inactive_switch {
+    border: solid 1px red;
+    width: 10%;
+    margin-top: 5px!important;
+}
+
+/* Patient Form Styling */
+.patient_form_container {
+    width: 100%;
+}
+
+.patient_name_label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.patient_name_fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.patient_name_field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.patient_name_input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.patient_id_container {
+    flex: 0 0 auto;
+    min-width: 150px;
+}
+
+.patient_id_wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.patient_id_label {
+    font-weight: bold;
+    color: #2E8B57;
+    font-size: 14px;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.patient_id_field_edit {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2E8B57;
+    background-color: #F0F8FF;
+    padding: 6px 10px;
+    border: 1px solid #2E8B57;
+    border-radius: 4px;
+    min-width: 100px;
+}
+
+.patient_id_readonly_container {
+    margin-top: 8px;
+}
+
+.patient_id_field_readonly {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2E8B57;
+    background-color: #F0F8FF;
+    padding: 4px 8px;
+    border: 1px solid #2E8B57;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .patient_name_fields {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    .patient_name_field {
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 8px;
+    }
+    
+    .patient_id_container {
+        flex: none !important;
+        width: 100% !important;
+    }
+    
+    .patient_id_wrapper {
+        justify-content: flex-start !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .patient_name_fields {
+        gap: 8px !important;
+    }
+    
+    .patient_name_input,
+    .patient_id_field_edit {
+        font-size: 16px !important;
+    }
+}
+
+/* Patient Image Styling - Only for Patient Forms */
+.o_form_view[data-resModel="oeh.medical.patient"] .oe_avatar {
+    width: 400px !important;
+    height: 400px !important;
+    border-radius: 8px;
+    border: 3px solid #e9ecef;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.o_form_view[data-resModel="oeh.medical.patient"] .oe_avatar:hover {
+    border-color: #007bff;
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.2);
+}
+
+/* Custom Patient Image Container - Wider version */
+.patient-image-wide .oe_avatar {
+    width: 150px !important;
+    height: 150px !important;
+    max-width: none !important;
+    margin-right: 25px;
+    border: 3px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.patient-image-wide .oe_avatar:hover {
+    border-color: #007bff;
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.2);
+}
+
+.patient-image-wide .oe_avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* Show default placeholder when no image */
+.patient-image-wide .oe_avatar .o_field_image_placeholder {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 48px;
+}
+
+/* Webcam Record Photo Button Styling - Only green border and icon */
+.webcam_record_btn {
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #28a745;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+    clear: both;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.webcam_record_btn i {
+    color: #28a745;
+}
+
+.webcam_record_btn:hover {
+    border-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.webcam_record_btn:hover i {
+    color: #218838;
+}
+
+/* Patient Kanban View Image Styling */
+.oe_kanban_avatar {
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Mobile Responsive for Patient Image */
+@media (max-width: 768px) {
+    .o_form_view[data-resModel="oeh.medical.patient"] .oe_avatar {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    .webcam_record_btn {
+        margin-right: 0px;
+    }
+    .patient-image-wide .oe_avatar {
+        margin-right: 0px;
+    }
+    
+    /* Ensure kanban images show on mobile */
+    .oe_kanban_avatar {
+        display: block !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .o_kanban_aside_full {
+        display: flex !important;
+        flex-shrink: 0 !important;
+        margin-right: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .o_form_view[data-resModel="oeh.medical.patient"] .oe_avatar {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    .webcam_record_btn {
+        margin-right: 0px;
+    }
+    .patient-image-wide .oe_avatar {
+        margin-right: 0px;
+    }
+}
+
+/* =====================================================
+   COMPACT PATIENT KANBAN VIEW STYLING - ODOO NATIVE
+   ===================================================== */
+
+/* Compact Patient Card */
+.oe_patient_card_compact {
+    background: #ffffff;
+    border: none !important;
+    border-radius: 6px;
+    margin: 4px !important;
+    width: 370px !important;
+    min-height: 160px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.oe_patient_card_compact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+/* Patient Header - Horizontal Layout */
+.oe_patient_header_compact {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 8px;
+    padding: 14px;
+}
+
+.oe_patient_avatar_section {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oe_patient_avatar_compact {
+    width: 85px !important;
+    height: 85px !important;
+    border-radius: 6px !important;
+    border: 1px solid #dee2e6;
+    object-fit: cover;
+    object-position: center center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    background: #f8f9fa;
+    display: block;
+}
+
+.oe_patient_card_compact:hover .oe_patient_avatar_compact {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: #007bff;
+}
+
+.oe_patient_main_info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Patient Name and ID Row */
+.oe_patient_name_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 8px;
+}
+
+.oe_patient_name_compact {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.oe_patient_name_compact a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.oe_patient_name_compact a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.oe_patient_id_compact {
+    background: #e9ecef;
+    color: #495057;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* Essential Info Row */
+.oe_patient_info_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.oe_info_item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.oe_info_item i {
+    width: 12px;
+    font-size: 11px;
+}
+
+/* Contact Info Row */
+.oe_patient_contact_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.oe_contact_item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #6c757d;
+    min-width: 0;
+    flex: 1;
+}
+
+.oe_contact_item i {
+    width: 12px;
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+.oe_contact_item a {
+    color: #007bff;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.oe_contact_item a:hover {
+    text-decoration: underline;
+}
+
+/* Blood Type Styling */
+.oe_blood_type_compact {
+    font-weight: 600;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 11px;
+}
+
+.blood_type_a\+,
+.blood_type_a {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.blood_type_a\- {
+    color: #e83e8c;
+    background: rgba(232, 62, 140, 0.1);
+}
+
+.blood_type_b\+,
+.blood_type_b {
+    color: #007bff;
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.blood_type_b\- {
+    color: #6610f2;
+    background: rgba(102, 16, 242, 0.1);
+}
+
+.blood_type_ab\+,
+.blood_type_ab {
+    color: #6c757d;
+    background: rgba(108, 117, 125, 0.1);
+}
+
+.blood_type_ab\- {
+    color: #495057;
+    background: rgba(73, 80, 87, 0.1);
+}
+
+.blood_type_o\+,
+.blood_type_o {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.blood_type_o\- {
+    color: #20c997;
+    background: rgba(32, 201, 151, 0.1);
+}
+
+/* Action Buttons */
+.oe_patient_actions_compact {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    padding-top: 8px;
+    border-top: 1px solid #f1f3f4;
+    margin-top: 8px;
+}
+
+.oe_patient_actions_compact .btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    border-radius: 3px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oe_patient_actions_compact .btn i {
+    font-size: 12px;
+}
+
+/* Empty State */
+.oe_patient_card_compact .o_field_image_placeholder {
+    width: 85px;
+    height: 85px;
+    border-radius: 6px;
+    background: #f8f9fa;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border: 1px solid #dee2e6;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.oe_patient_card_compact:hover .o_field_image_placeholder {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* Desktop Responsive Design */
+@media (max-width: 1900px) {
+    .oe_patient_card_compact {
+        width: 520px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .oe_patient_card_compact {
+        width: 480px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .oe_patient_card_compact {
+        width: 440px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .oe_patient_card_compact {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .oe_patient_card_compact {
+        width: 380px;
+        padding: 16px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .oe_patient_card_compact {
+        width: calc(100% - 16px);
+        max-width: none;
+        margin: 6px 8px;
+        padding: 0px;
+        min-height: 120px;
+    }
+    
+    /* Mobile: Keep horizontal layout with larger image on left */
+    .oe_patient_header_compact {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 6px;
+        text-align: left;
+        padding: 12px;
+    }
+    
+    .oe_patient_avatar_section {
+        order: 1;
+        flex-shrink: 0;
+    }
+    
+    .oe_patient_avatar_compact {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    
+    .oe_patient_card_compact .o_field_image_placeholder {
+        width: 90px !important;
+        height: 90px !important;
+        font-size: 32px;
+    }
+    
+    .oe_patient_main_info {
+        order: 2;
+        flex: 1;
+        min-width: 0;
+        text-align: left;
+    }
+    
+    .oe_patient_name_row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+    
+    .oe_patient_name_compact {
+        font-size: 15px;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .oe_patient_name_compact a {
+        white-space: normal;
+        text-overflow: initial;
+        overflow: visible;
+    }
+    
+    .oe_patient_id_compact {
+        font-size: 10px;
+        padding: 3px 6px;
+        align-self: flex-start;
+    }
+    
+    .oe_patient_info_row {
+        justify-content: flex-start;
+        gap: 12px;
+        font-size: 11px;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+    }
+    
+    .oe_patient_contact_row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 10px;
+        text-align: left;
+    }
+    
+    .oe_contact_item {
+        width: 100%;
+        margin-bottom: 0;
+        justify-content: flex-start;
+    }
+    
+    .oe_patient_actions_compact {
+        gap: 6px;
+        padding-top: 8px;
+        margin-top: 8px;
+        justify-content: flex-end;
+    }
+    
+    .oe_patient_actions_compact .btn {
+        padding: 6px 12px;
+        font-size: 11px;
+        min-width: 60px;
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .oe_patient_card_compact {
+        margin: 4px 6px;
+        padding: 0px;
+        min-height: 110px;
+    }
+    
+    .oe_patient_header_compact {
+        gap: 10px;
+        margin-bottom: 6px;
+        padding: 10px;
+    }
+    
+    .oe_patient_avatar_compact {
+        width: 75px !important;
+        height: 75px !important;
+    }
+    
+    .oe_patient_card_compact .o_field_image_placeholder {
+        width: 75px !important;
+        height: 75px !important;
+        font-size: 28px;
+    }
+    
+    .oe_patient_name_compact {
+        font-size: 14px;
+    }
+    
+    .oe_patient_id_compact {
+        font-size: 9px;
+        padding: 2px 5px;
+    }
+    
+    .oe_patient_info_row {
+        gap: 10px;
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+    
+    .oe_patient_contact_row {
+        gap: 3px;
+        font-size: 9px;
+    }
+    
+    .oe_patient_actions_compact {
+        gap: 4px;
+        padding-top: 8px;
+        margin-top: 8px;
+    }
+    
+    .oe_patient_actions_compact .btn {
+        padding: 6px 10px;
+        font-size: 10px;
+        min-width: 50px;
+    }
+}
+
+/* Hover effects for better UX */
+.oe_info_item:hover {
+    color: #495057;
+}
+
+.oe_contact_item:hover {
+    color: #495057;
+}
+
+/* =====================================================
+   PHYSICIAN KANBAN VIEW STYLING - SAME AS PATIENT
+   ===================================================== */
+
+/* Physician Card - Same styling as patient */
+.oe_physician_card_compact {
+    background: #ffffff;
+    border: none !important;
+    border-radius: 6px;
+    margin: 4px !important;
+    width: 370px !important;
+    min-height: 160px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.oe_physician_card_compact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+/* Physician Header - Same as patient */
+.oe_physician_header_compact {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 8px;
+    padding: 14px;
+}
+
+.oe_physician_avatar_section {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oe_physician_avatar_compact {
+    width: 85px !important;
+    height: 85px !important;
+    border-radius: 6px !important;
+    border: 1px solid #dee2e6;
+    object-fit: cover;
+    object-position: center center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    background: #f8f9fa;
+    display: block;
+}
+
+.oe_physician_card_compact:hover .oe_physician_avatar_compact {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: #007bff;
+}
+
+.oe_physician_main_info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Physician Name and ID Row */
+.oe_physician_name_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 8px;
+}
+
+.oe_physician_name_compact {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.oe_physician_name_compact a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.oe_physician_name_compact a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.oe_physician_id_compact {
+    background: #e9ecef;
+    color: #495057;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* Physician Info and Contact Rows */
+.oe_physician_info_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.oe_physician_contact_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+/* Physician Action Buttons */
+.oe_physician_actions_compact {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    padding-top: 8px;
+    border-top: 1px solid #f1f3f4;
+    margin-top: 8px;
+}
+
+.oe_physician_actions_compact .btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    border-radius: 3px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oe_physician_actions_compact .btn i {
+    font-size: 12px;
+}
+
+/* Physician Empty State */
+.oe_physician_card_compact .o_field_image_placeholder {
+    width: 85px;
+    height: 85px;
+    border-radius: 6px;
+    background: #f8f9fa;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border: 1px solid #dee2e6;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.oe_physician_card_compact:hover .o_field_image_placeholder {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* Physician Desktop Responsive Design */
+@media (max-width: 1900px) {
+    .oe_physician_card_compact {
+        width: 520px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .oe_physician_card_compact {
+        width: 480px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .oe_physician_card_compact {
+        width: 440px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .oe_physician_card_compact {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .oe_physician_card_compact {
+        width: 380px;
+        padding: 16px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .oe_physician_card_compact {
+        width: calc(100% - 16px);
+        max-width: none;
+        margin: 6px 8px;
+        padding: 0px;
+        min-height: 120px;
+    }
+    
+    /* Mobile: Keep horizontal layout with larger image on left */
+    .oe_physician_header_compact {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 6px;
+        text-align: left;
+        padding: 12px;
+    }
+    
+    .oe_physician_avatar_section {
+        order: 1;
+        flex-shrink: 0;
+    }
+    
+    .oe_physician_avatar_compact {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    
+    .oe_physician_card_compact .o_field_image_placeholder {
+        width: 90px !important;
+        height: 90px !important;
+        font-size: 32px;
+    }
+    
+    .oe_physician_main_info {
+        order: 2;
+        flex: 1;
+        min-width: 0;
+        text-align: left;
+    }
+    
+    .oe_physician_name_row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+    
+    .oe_physician_name_compact {
+        font-size: 15px;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .oe_physician_name_compact a {
+        white-space: normal;
+        text-overflow: initial;
+        overflow: visible;
+    }
+    
+    .oe_physician_id_compact {
+        font-size: 10px;
+        padding: 3px 6px;
+        align-self: flex-start;
+    }
+    
+    .oe_physician_info_row {
+        justify-content: flex-start;
+        gap: 12px;
+        font-size: 11px;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+    }
+    
+    .oe_physician_contact_row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 10px;
+        text-align: left;
+    }
+    
+    .oe_physician_actions_compact {
+        gap: 6px;
+        padding-top: 8px;
+        margin-top: 8px;
+        justify-content: flex-end;
+    }
+    
+    .oe_physician_actions_compact .btn {
+        padding: 6px 12px;
+        font-size: 11px;
+        min-width: 60px;
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .oe_physician_card_compact {
+        margin: 4px 6px;
+        padding: 0px;
+        min-height: 110px;
+    }
+    
+    .oe_physician_header_compact {
+        gap: 10px;
+        margin-bottom: 6px;
+        padding: 10px;
+    }
+    
+    .oe_physician_avatar_compact {
+        width: 75px !important;
+        height: 75px !important;
+    }
+    
+    .oe_physician_card_compact .o_field_image_placeholder {
+        width: 75px !important;
+        height: 75px !important;
+        font-size: 28px;
+    }
+    
+    .oe_physician_name_compact {
+        font-size: 14px;
+    }
+    
+    .oe_physician_id_compact {
+        font-size: 9px;
+        padding: 2px 5px;
+    }
+    
+    .oe_physician_info_row {
+        gap: 10px;
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+    
+    .oe_physician_contact_row {
+        gap: 3px;
+        font-size: 9px;
+    }
+    
+    .oe_physician_actions_compact {
+        gap: 4px;
+        padding-top: 8px;
+        margin-top: 8px;
+    }
+    
+    .oe_physician_actions_compact .btn {
+        padding: 6px 10px;
+        font-size: 10px;
+        min-width: 50px;
+    }
+}
+
+/* Bottom Avatar Styling for Both Patient and Physician */
+.oe_patient_avatar_section_bottom,
+.oe_physician_avatar_section_bottom {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10;
+}
+
+.oe_patient_avatar_bottom,
+.oe_physician_avatar_bottom {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    border: 3px solid #ffffff !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+    background: #f8f9fa !important;
+    display: block !important;
+    overflow: hidden !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure the image tag inside the avatar fills the entire circle */
+.oe_patient_avatar_bottom img,
+.oe_physician_avatar_bottom img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 50% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* Additional rules to handle all image scenarios */
+.oe_patient_avatar_section_bottom .o_field_widget,
+.oe_physician_avatar_section_bottom .o_field_widget {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    display: block !important;
+    position: relative !important;
+}
+
+.oe_patient_avatar_section_bottom .o_field_widget img,
+.oe_physician_avatar_section_bottom .o_field_widget img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 50% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* Target the specific Odoo image widget structure */
+.oe_patient_avatar_section_bottom .o_field_image,
+.oe_physician_avatar_section_bottom .o_field_image {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.oe_patient_avatar_section_bottom .o_field_image img,
+.oe_physician_avatar_section_bottom .o_field_image img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Universal rule to catch all possible image elements in avatar sections */
+.oe_patient_avatar_section_bottom *,
+.oe_physician_avatar_section_bottom * {
+    border-radius: 50% !important;
+}
+
+.oe_patient_avatar_section_bottom img,
+.oe_physician_avatar_section_bottom img {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 50% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* Handle cases where images might have aspect ratio issues */
+.oe_patient_avatar_bottom,
+.oe_physician_avatar_bottom {
+    position: relative !important;
+}
+
+.oe_patient_avatar_bottom::before,
+.oe_physician_avatar_bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    z-index: -1;
+    box-sizing: border-box;
+}
+
+.oe_patient_card_compact:hover .oe_patient_avatar_bottom,
+.oe_physician_card_compact:hover .oe_physician_avatar_bottom {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    border-color: #007bff !important;
+    transform: scale(1.05);
+}
+
+/* Override existing relative positioning - needed for bottom avatar */
+
+/* Empty State for Bottom Avatar */
+.oe_patient_avatar_section_bottom .o_field_image_placeholder,
+.oe_physician_avatar_section_bottom .o_field_image_placeholder {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    background: #f8f9fa;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.oe_patient_card_compact:hover .oe_patient_avatar_section_bottom .o_field_image_placeholder,
+.oe_physician_card_compact:hover .oe_physician_avatar_section_bottom .o_field_image_placeholder {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    border-color: #007bff !important;
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+/* Override existing card styles for bottom avatar positioning */
+.oe_patient_card_compact,
+.oe_physician_card_compact {
+    position: relative !important;
+    padding-bottom: 20px !important; /* Make room for the bigger bottom avatar */
+}
+
+/* Mobile Responsive for Bottom Avatar */
+@media (max-width: 768px) {
+    .oe_patient_avatar_bottom,
+    .oe_physician_avatar_bottom {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .oe_patient_avatar_bottom img,
+    .oe_physician_avatar_bottom img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .oe_patient_avatar_section_bottom .o_field_widget,
+    .oe_physician_avatar_section_bottom .o_field_widget {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .oe_patient_avatar_section_bottom .o_field_image_placeholder,
+    .oe_physician_avatar_section_bottom .o_field_image_placeholder {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 18px;
+    }
+    
+    .oe_patient_avatar_section_bottom,
+    .oe_physician_avatar_section_bottom {
+        bottom: 12px;
+        left: 12px;
+    }
+    
+    .oe_patient_card_compact,
+    .oe_physician_card_compact {
+        padding-bottom: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .oe_patient_avatar_bottom,
+    .oe_physician_avatar_bottom {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .oe_patient_avatar_bottom img,
+    .oe_physician_avatar_bottom img {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .oe_patient_avatar_section_bottom .o_field_widget,
+    .oe_physician_avatar_section_bottom .o_field_widget {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .oe_patient_avatar_section_bottom .o_field_image_placeholder,
+    .oe_physician_avatar_section_bottom .o_field_image_placeholder {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 16px;
+    }
+    
+    .oe_patient_avatar_section_bottom,
+    .oe_physician_avatar_section_bottom {
+        bottom: 10px;
+        left: 10px;
+    }
+    
+    .oe_patient_card_compact,
+    .oe_physician_card_compact {
+        padding-bottom: 12px !important;
+    }
+}
+
+/* Patient Portal Profile Picture Reordering - Mobile only */
+@media (max-width: 768px) {
+    .patient-form .row.g-4 {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Profile Picture Card comes first on mobile */
+    .patient-form .row.g-4 .col-md-4 {
+        order: 1;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    /* Personal Information Card comes second on mobile */
+    .patient-form .row.g-4 .col-md-8 {
+        order: 2;
+        width: 100%;
+    }
+    
+    /* Address Information Card stays last */
+    .patient-form .row.g-4 .col-md-12 {
+        order: 3;
+        width: 100%;
+    }
+}
+
+/* Desktop view - keep original order */
+@media (min-width: 769px) {
+    .patient-form .row.g-4 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .patient-form .row.g-4 .col-md-8 {
+        order: 1;
+    }
+    
+    .patient-form .row.g-4 .col-md-4 {
+        order: 2;
+    }
+    
+    .patient-form .row.g-4 .col-md-12 {
+        order: 3;
+    }
+}
+
+
+/* Patient Portal Navigation Dropdown Fix */
+.patient-navbar .navbar-user .dropdown {
+    position: relative !important;
+}
+
+.patient-navbar .navbar-user .dropdown-menu {
+    position: absolute !important;
+    z-index: 9999 !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    min-width: 200px !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,.15) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin-top: 0.125rem !important;
+    padding: 0.5rem 0 !important;
+    display: none !important;
+}
+
+.patient-navbar .navbar-user .dropdown-menu.show {
+    display: block !important;
+}
+
+.patient-navbar .navbar-user .dropdown-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.5rem 1rem !important;
+    clear: both !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    text-align: inherit !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    line-height: 1.5 !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out !important;
+}
+
+.patient-navbar .navbar-user .dropdown-item:hover,
+.patient-navbar .navbar-user .dropdown-item:focus {
+    background-color: #f8f9fa !important;
+    color: #16181b !important;
+}
+
+.patient-navbar .navbar-user .dropdown-divider {
+    height: 0 !important;
+    margin: 0.5rem 0 !important;
+    overflow: hidden !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+.patient-navbar .navbar-user .dropdown-toggle {
+    background: none !important;
+    border: none !important;
+    color: #4a5568 !important;
+    font-size: 1rem !important;
+    padding: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    cursor: pointer !important;
+}
+
+.patient-navbar .navbar-user .dropdown-toggle:after {
+    display: inline-block !important;
+    margin-left: 0.255em !important;
+    vertical-align: 0.255em !important;
+    content: "" !important;
+    border-top: 0.3em solid !important;
+    border-right: 0.3em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.3em solid transparent !important;
+}
+
+.patient-navbar .navbar-user .dropdown-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    border-radius: 0.375rem !important;
+}
+
+/* Ensure dropdown works on mobile */
+@media (max-width: 768px) {
+    .patient-navbar .navbar-user .dropdown-menu {
+        right: 0 !important;
+        left: auto !important;
+        min-width: 180px !important;
+    }
+}
+
+/* Webcam Wizard Styling */
+.webcam_capture_container {
+    margin: 20px 0;
+}
+
+.webcam_section, .captured_section {
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.webcam_section h4, .captured_section h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #495057;
+    text-align: center;
+}
+
+.webcam_video_container, .captured_photo_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#webcam_video {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #000;
+}
+
+#captured_canvas {
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    display: none;
+}
+
+.webcam_controls, .captured_controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.webcam-control-btn {
+    min-width: 100px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid;
+    text-align: center;
+    user-select: none;
+}
+
+.webcam-control-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Webcam Button Classes - DO NOT modify Odoo's default .btn classes */
+.webcam-btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.webcam-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.webcam-btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.webcam-btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.webcam-btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.webcam-btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #4e555b;
+}
+
+.webcam-btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.webcam-btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+#no_photo_msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 240px;
+    border: 2px dashed #6c757d;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Mobile Responsive for Webcam Wizard */
+@media (max-width: 768px) {
+    .webcam_capture_container .row {
+        flex-direction: column;
+    }
+    
+    .webcam_capture_container .col-6 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    #webcam_video, #captured_canvas, #no_photo_msg {
+        width: 280px;
+        height: 210px;
+    }
+    
+    .webcam_controls, .captured_controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .webcam-control-btn {
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 8px;
+    }
+}
+

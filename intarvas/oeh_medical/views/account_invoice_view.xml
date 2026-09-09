@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="patient_invoice_form" model="ir.ui.view">
+            <field name="name">account.patient.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <field name="ref" position="before">
+                    <field name="patient" readonly="1" widget="many2one_avatar_patient"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="patient_invoice_tree" model="ir.ui.view">
+            <field name="name">account.patient.invoice.tree</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="invoice_date" position="before">
+                    <field name="patient"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_patient_account_invoice_filter" model="ir.ui.view">
+            <field name="name">account.invoice.select</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" operator="child_of" position="after">
+                    <field name="patient"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

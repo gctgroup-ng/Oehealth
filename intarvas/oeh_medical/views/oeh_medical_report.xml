@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="oeh_paperformat_appointmentreceipt" model="report.paperformat">
+            <field name="name">Appointment Receipt</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">100</field>
+            <field name="page_width">100</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">3</field>
+            <field name="dpi">130</field>
+        </record>
+
+        <record id="action_report_patient_label" model="ir.actions.report">
+            <field name="name">Patient Card</field>
+            <field name="model">oeh.medical.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_patient_label</field>
+            <field name="report_file">intarvas.report_patient_label</field>
+        </record>
+
+        <record id="action_report_patient_medicine" model="ir.actions.report">
+            <field name="name">Patient Medicines Report</field>
+            <field name="model">oeh.medical.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_patientmedicine</field>
+            <field name="report_file">intarvas.report_patientmedicine</field>
+        </record>
+
+        <record id="action_report_appointment_receipt" model="ir.actions.report">
+            <field name="name">Appointment Receipt</field>
+            <field name="model">oeh.medical.appointment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_appointment_receipt</field>
+            <field name="report_file">intarvas.report_appointment_receipt</field>
+            <field name="paperformat_id" ref='oeh_paperformat_appointmentreceipt'/>
+        </record>
+
+        <record id="action_oeh_medical_report_patient_prescriptions" model="ir.actions.report">
+            <field name="name">Prescription Report</field>
+            <field name="model">oeh.medical.prescription</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_oeh_medical_patient_prescription</field>
+            <field name="report_file">intarvas.report_oeh_medical_patient_prescription</field>
+        </record>
+
+
+    </data>
+</odoo>

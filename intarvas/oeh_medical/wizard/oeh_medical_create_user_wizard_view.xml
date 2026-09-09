@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Create User Account Wizard Form View -->
+        <record id="view_oeh_medical_create_user_wizard_form" model="ir.ui.view">
+            <field name="name">oeh.medical.create.user.wizard.form</field>
+            <field name="model">oeh.medical.create.user.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Duplicate User Accounts Found">
+                    <sheet>
+                        <group>
+                            <field name="action_type" widget="radio"/>
+                        </group>
+
+                        <group string="Duplicate User Accounts" invisible="action_type != 'link'">
+                            <field name="duplicate_line_ids" nolabel="1">
+                                <list editable="bottom" limit="10" create="false" delete="false">
+                                    <field name="selected" widget="boolean"/>
+                                    <field name="name"/>
+                                    <field name="login"/>
+                                    <field name="phone"/>
+                                    <field name="company_id"/>
+                                </list>
+                            </field>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button string="Confirm" name="action_confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

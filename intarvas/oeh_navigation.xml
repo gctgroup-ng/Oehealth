@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Main Menu -->
+        <menuitem name="intarvas" id="oeh_medical_menu" web_icon="intarvas,static/description/icon.png"/>
+
+        <!-- Sub Menus -->
+        <menuitem name="OPD" id="oeh_medical_opd_menu" parent="oeh_medical_menu" sequence="10"/>
+        <menuitem name="IPD" id="oeh_medical_ipd_menu" parent="oeh_medical_menu" sequence="15"/>
+        <menuitem name="ICU" id="oeh_medical_icu_menu" parent="oeh_medical_menu" sequence="20"/>
+<!--        <menuitem name="Health Center Management" id="oeh_medical_hospital_menu" parent="oeh_medical_conf_menu"-->
+<!--                  sequence="10"/>-->
+        <menuitem name="Configuration" id="oeh_medical_conf_menu" parent="oeh_medical_menu" sequence="200"/>
+
+        <!-- Config Menus -->
+        <menuitem name="Medical Staff" id="oeh_medical_medical_staff_menu" parent="oeh_medical_conf_menu" sequence="3"/>
+        <menuitem name="Patient" id="oeh_medical_conf_patient" parent="oeh_medical_conf_menu" sequence="4"/>
+        <menuitem name="Doctor" id="oeh_medical_conf_physician" parent="oeh_medical_conf_menu" sequence="5"/>
+        <menuitem name="Pathology" id="oeh_medical_conf_pathology" parent="oeh_medical_conf_menu" sequence="7"/>
+        <menuitem name="Health Products" id="oeh_medical_conf_medicaments" parent="oeh_medical_conf_menu" sequence="8"/>
+        <menuitem name="Operational Areas" id="oeh_medical_conf_operational_areas" parent="oeh_medical_conf_menu"
+                  sequence="9"/>
+          <menuitem name="Health Center Management" id="oeh_medical_hospital_menu" parent="oeh_medical_conf_menu"
+                  sequence="10"/>
+
+        <menuitem name="TeleMedicine" id="oeh_medical_telemedicine" parent="oeh_medical_conf_menu" sequence="11"/>
+
+    </data>
+</odoo>

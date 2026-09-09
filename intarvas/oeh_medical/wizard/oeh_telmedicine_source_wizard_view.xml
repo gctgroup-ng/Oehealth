@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="oeh_telemedicine_source_wizard">
+            <field name="name">TeleMedicine Sources</field>
+            <field name="model">oeh.telemedicine.sources.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string='Telemedicine Sources' create="false" edit="false" delete="false">
+                    <group name="sources_view">
+                        <field name="sources_id" options="{'no_create': True,'no_edit': True,'no_open':True}"/>
+                        <field name="sources_name" invisible="1"/>
+                    </group>
+<!--                    <group name='skype_view' col="2" attrs="{'invisible': [('sources_name', '!=', 'Skype')]}">-->
+<!--                        <a href="https://www.skype.com/en/free-conference-call/"-->
+<!--                           style="padding:2px;color:#7c7bad;font-weight:bold;text-decoration:underline;" target="new">-->
+<!--                            <b>Click Here To Create Skype Meet</b>-->
+<!--                        </a>-->
+<!--                        <br/>-->
+<!--                        <group>-->
+<!--                            <field name="appointment_id" invisible="1"/>-->
+<!--                            <field name="skype_meeting_url"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                    <group name='jitsi_view' attrs="{'invisible': [('sources_name', '!=', 'Jitsi')]}">-->
+<!--                        <field name="appointment_id" invisible="1"/>-->
+<!--                        <field name="jitsi_meeting_url"/>-->
+<!--                    </group>-->
+                    <!--                    <group col="2" attrs="{'invisible': [('sources_name', '!=', 'Zoom')]}">-->
+                    <!--                        <group>-->
+                    <!--                            <field name="name" required="1"/>-->
+                    <!--                            <field name="appointment" invisible="1"/>-->
+                    <!--                            <field name="apw" required="1"/>-->
+                    <!--                        </group>-->
+                    <!--                    </group>-->
+                    <footer>
+                        <button name="create_meeting" string="Confirm" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="oeh_telmedicine_wizard_action" model="ir.actions.act_window">
+            <field name="name">Telemedicine Sources</field>
+            <field name="res_model">oeh.telemedicine.sources.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Chief Complaint Templates Data -->
+
+        <!-- Common Cold/Flu Template -->
+        <record id="complaint_template_cold_flu" model="oeh.medical.chief.complaint.template">
+            <field name="name">Common Cold/Flu</field>
+            <field name="description">Template for common cold and flu symptoms</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="complaint_template_cold_flu_line1" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_cold_flu"/>
+            <field name="complaint_id" ref="complaint_2"/>  <!-- Cough -->
+            <field name="frequency">daily</field>
+            <field name="severity">moderate</field>
+            <field name="days">3</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_cold_flu_line2" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_cold_flu"/>
+            <field name="complaint_id" ref="complaint_1"/>  <!-- Fever -->
+            <field name="frequency">daily</field>
+            <field name="severity">moderate</field>
+            <field name="days">2</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_cold_flu_line3" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_cold_flu"/>
+            <field name="complaint_id" ref="complaint_3"/>  <!-- Cold -->
+            <field name="frequency">daily</field>
+            <field name="severity">mild</field>
+            <field name="days">4</field>
+            <field name="duration">day</field>
+        </record>
+
+        <!-- Gastrointestinal Issues Template -->
+        <record id="complaint_template_gastro" model="oeh.medical.chief.complaint.template">
+            <field name="name">Gastrointestinal Issues</field>
+            <field name="description">Template for stomach and digestive problems</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="complaint_template_gastro_line1" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_gastro"/>
+            <field name="complaint_id" ref="complaint_6"/>  <!-- Stomach Pain -->
+            <field name="frequency">daily</field>
+            <field name="severity">moderate</field>
+            <field name="days">2</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_gastro_line2" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_gastro"/>
+            <field name="complaint_id" ref="complaint_7"/>  <!-- Vomiting -->
+            <field name="frequency">alternate_day</field>
+            <field name="severity">mild</field>
+            <field name="days">1</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_gastro_line3" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_gastro"/>
+            <field name="complaint_id" ref="complaint_37"/>  <!-- Nausea -->
+            <field name="frequency">daily</field>
+            <field name="severity">mild</field>
+            <field name="days">2</field>
+            <field name="duration">day</field>
+        </record>
+
+        <!-- Hypertension Check-up Template -->
+        <record id="complaint_template_hypertension" model="oeh.medical.chief.complaint.template">
+            <field name="name">Hypertension Check-up</field>
+            <field name="description">Template for routine hypertension monitoring</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="complaint_template_hypertension_line1" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_hypertension"/>
+            <field name="complaint_id" ref="complaint_22"/>  <!-- Hypertension Check-up -->
+            <field name="frequency">monthly</field>
+            <field name="severity">mild</field>
+            <field name="days">30</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_hypertension_line2" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_hypertension"/>
+            <field name="complaint_id" ref="complaint_4"/>  <!-- Headache -->
+            <field name="frequency">weekly</field>
+            <field name="severity">moderate</field>
+            <field name="days">7</field>
+            <field name="duration">day</field>
+        </record>
+
+        <!-- Diabetes Check-up Template -->
+        <record id="complaint_template_diabetes" model="oeh.medical.chief.complaint.template">
+            <field name="name">Diabetes Check-up</field>
+            <field name="description">Template for routine diabetes monitoring</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="complaint_template_diabetes_line1" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_diabetes"/>
+            <field name="complaint_id" ref="complaint_21"/>  <!-- Diabetes Check-up -->
+            <field name="frequency">monthly</field>
+            <field name="severity">mild</field>
+            <field name="days">30</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_diabetes_line2" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_diabetes"/>
+            <field name="complaint_id" ref="complaint_26"/>  <!-- Weakness -->
+            <field name="frequency">daily</field>
+            <field name="severity">mild</field>
+            <field name="days">7</field>
+            <field name="duration">day</field>
+        </record>
+
+        <!-- Respiratory Issues Template -->
+        <record id="complaint_template_respiratory" model="oeh.medical.chief.complaint.template">
+            <field name="name">Respiratory Issues</field>
+            <field name="description">Template for breathing and respiratory problems</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="complaint_template_respiratory_line1" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_respiratory"/>
+            <field name="complaint_id" ref="complaint_10"/>  <!-- Shortness of Breath -->
+            <field name="frequency">daily</field>
+            <field name="severity">moderate</field>
+            <field name="days">3</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_respiratory_line2" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_respiratory"/>
+            <field name="complaint_id" ref="complaint_9"/>  <!-- Chest Pain -->
+            <field name="frequency">alternate_day</field>
+            <field name="severity">moderate</field>
+            <field name="days">2</field>
+            <field name="duration">day</field>
+        </record>
+
+        <record id="complaint_template_respiratory_line3" model="oeh.medical.chief.complaint.template.line">
+            <field name="template_id" ref="complaint_template_respiratory"/>
+            <field name="complaint_id" ref="complaint_46"/>  <!-- Dry Cough -->
+            <field name="frequency">daily</field>
+            <field name="severity">mild</field>
+            <field name="days">5</field>
+            <field name="duration">day</field>
+        </record>
+
+    </data>
+</odoo>

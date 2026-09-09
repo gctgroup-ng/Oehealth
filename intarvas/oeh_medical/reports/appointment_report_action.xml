@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Report Action for Appointment Consultation -->
+        <record id="action_report_appointment_consultation" model="ir.actions.report">
+            <field name="name">Consultation Report</field>
+            <field name="model">oeh.medical.appointment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">intarvas.report_appointment_consultation</field>
+            <field name="report_file">intarvas.report_appointment_consultation</field>
+            <field name="print_report_name">'Consultation - %s - %s' % (object.patient.name, object.appointment_date.strftime('%d-%b-%Y') if object.appointment_date else 'N/A')</field>
+            <field name="binding_model_id" ref="model_oeh_medical_appointment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Server Action for Print Consultation -->
+        <record id="action_print_consultation" model="ir.actions.server">
+            <field name="name">Print Consultation</field>
+            <field name="model_id" ref="model_oeh_medical_appointment"/>
+            <field name="binding_model_id" ref="model_oeh_medical_appointment"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = env.ref('intarvas.action_report_appointment_consultation').report_action(records)
+            </field>
+        </record>
+    </data>
+</odoo>

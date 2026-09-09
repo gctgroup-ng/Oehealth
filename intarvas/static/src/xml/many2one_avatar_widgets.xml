@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Patient Avatar Widget Template -->
+    <t t-name="intarvas.Many2OneAvatarPatient">
+        <div class="d-flex align-items-center gap-1" t-att-data-tooltip="props.record.data[props.name][1]">
+            <span class="o_avatar o_m2o_avatar">
+                <span t-if="props.record.data[props.name] === false and !props.readonly" class="o_avatar_empty o_m2o_avatar_empty"></span>
+                <img t-if="props.record.data[props.name] !== false"
+                     t-att-src="avatarUrl"
+                     class="rounded"
+                     alt="Patient Avatar"
+                     style="object-fit: cover;"/>
+            </span>
+            <t t-call="web.Many2OneField"/>
+        </div>
+    </t>
+
+    <!-- Physician Avatar Widget Template -->
+    <t t-name="intarvas.Many2OneAvatarPhysician">
+        <div class="d-flex align-items-center gap-1" t-att-data-tooltip="props.record.data[props.name][1]">
+            <span class="o_avatar o_m2o_avatar">
+                <span t-if="props.record.data[props.name] === false and !props.readonly" class="o_avatar_empty o_m2o_avatar_empty"></span>
+                <img t-if="props.record.data[props.name] !== false"
+                     t-att-src="avatarUrl"
+                     class="rounded"
+                     alt="Physician Avatar"
+                     style="object-fit: cover;"/>
+            </span>
+            <t t-call="web.Many2OneField"/>
+        </div>
+    </t>
+
+    <!-- Patient Name Avatar Widget Template for List Views -->
+    <t t-name="intarvas.NameAvatarPatient">
+        <div class="d-flex align-items-center gap-2">
+            <img t-att-src="avatarUrl"
+                 class="rounded-circle"
+                 alt="Patient Avatar"
+                 style="width: 24px; height: 24px; object-fit: cover; flex-shrink: 0;"/>
+            <span t-esc="displayValue"/>
+        </div>
+    </t>
+
+    <!-- Physician Name Avatar Widget Template for List Views -->
+    <t t-name="intarvas.NameAvatarPhysician">
+        <div class="d-flex align-items-center gap-2">
+            <img t-att-src="avatarUrl"
+                 class="rounded-circle"
+                 alt="Physician Avatar"
+                 style="width: 24px; height: 24px; object-fit: cover; flex-shrink: 0;"/>
+            <span t-esc="displayValue"/>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="intarvas.Many2ManyTagsDisplayField">
+        <div class="o_field_many2many_tags_display" t-ref="container">
+            <!-- Selected Tags Display -->
+            <div class="o_tags_container" style="display: flex !important; flex-wrap: wrap !important; gap: 0.25rem !important; width: 100% !important; min-height: 40px !important; border: 1px solid #d0d7de; border-radius: 6px; padding: 8px; background-color: #ffffff;">
+                <t t-foreach="selectedRecords" t-as="selectedRecord" t-key="selectedRecord_index">
+                    <span class="o_tag_selected" style="display: inline-flex !important; align-items: center; background-color: #f6f8fa; border: 1px solid #d0d7de; border-radius: 12px; padding: 4px 8px; font-size: 12px; color: #24292f; white-space: nowrap; margin: 0; flex: 0 0 auto;">
+                        <span t-esc="getDisplayName(selectedRecord)" class="o_tag_text"/>
+                        <span class="o_tag_remove" 
+                              t-att-data-record-id="selectedRecord.data ? selectedRecord.data.id : (selectedRecord.resId || selectedRecord.id)"
+                              t-att-style="props.readonly ? 'display: none;' : ''"
+                              title="Remove"
+                              style="cursor: pointer;">×</span>
+                    </span>
+                </t>
+                
+                <!-- Show "Choose" placeholder if no selections and not readonly -->
+                <t t-if="selectedRecords.length === 0 and !props.readonly">
+                    <span class="o_tag_placeholder">Choose items</span>
+                </t>
+            </div>
+            
+            <!-- Available Options (only in edit mode) -->
+            <div class="o_available_options" style="display: flex !important; flex-wrap: wrap !important; gap: 0.25rem !important; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0f0f0;" t-if="!props.readonly">
+                <t t-if="state.loading">
+                    <span class="o_tag_loading">Loading...</span>
+                </t>
+                <t t-else="">
+                    <t t-foreach="unselectedOptions" t-as="option" t-key="option_index">
+                        <span class="o_tag_available"
+                              t-att-data-option-id="option.id"
+                              style="cursor: pointer;">
+                            <span t-esc="getDisplayName(option)"/>
+                        </span>
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,222 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+        <!-- Chief Complaint Template Views -->
+
+        <record id="oeh_medical_chief_complaint_template_form" model="ir.ui.view">
+            <field name="name">Chief Complaint Template</field>
+            <field name="model">oeh.medical.chief.complaint.template</field>
+            <field name="arch" type="xml">
+                <form string='Chief Complaint Template'>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Complaint Lines">
+                                <field name="complaint_line_ids" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="complaint_id"/>
+                                        <field name="frequency"/>
+                                        <field name="severity"/>
+                                        <field name="days"/>
+                                        <field name="duration"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="oeh_medical_chief_complaint_template_tree" model="ir.ui.view">
+            <field name="name">Chief Complaint Template</field>
+            <field name="model">oeh.medical.chief.complaint.template</field>
+            <field name="arch" type="xml">
+                <list string='Chief Complaint Templates'>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="oeh_medical_chief_complaint_template_action" model="ir.actions.act_window">
+            <field name="name">Chief Complaint Templates</field>
+            <field name="res_model">oeh.medical.chief.complaint.template</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new chief complaint template.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- Prescription Template Views -->
+
+        <record id="oeh_medical_prescription_template_form" model="ir.ui.view">
+            <field name="name">Prescription Template</field>
+            <field name="model">oeh.medical.prescription.template</field>
+            <field name="arch" type="xml">
+                <form string='Prescription Template'>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Medicine Lines">
+                                <field name="medicine_line_ids" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="medicine_id"/>
+                                        <field name="indication_id"/>
+                                        <field name="dose"/>
+                                        <field name="dose_unit_id"/>
+                                        <field name="qty"/>
+                                        <field name="common_dosage_id"/>
+                                        <field name="duration"/>
+                                        <field name="duration_period"/>
+                                        <field name="info"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="oeh_medical_prescription_template_tree" model="ir.ui.view">
+            <field name="name">Prescription Template</field>
+            <field name="model">oeh.medical.prescription.template</field>
+            <field name="arch" type="xml">
+                <list string='Prescription Templates'>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="oeh_medical_prescription_template_action" model="ir.actions.act_window">
+            <field name="name">Prescription Templates</field>
+            <field name="res_model">oeh.medical.prescription.template</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new prescription template.
+                </p>
+            </field>
+        </record>
+
+        <!-- Advice Template Views -->
+
+        <record id="oeh_medical_advice_template_form" model="ir.ui.view">
+            <field name="name">Medical Advice Template</field>
+            <field name="model">oeh.medical.advice.template</field>
+            <field name="arch" type="xml">
+                <form string='Medical Advice Template'>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Advice Lines">
+                                <field name="advice_line_ids" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="advice_type"/>
+                                        <field name="advice_text"/>
+                                        <field name="priority"/>
+                                        <field name="follow_up_required"/>
+                                        <field name="follow_up_days" invisible="not follow_up_required"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="oeh_medical_advice_template_tree" model="ir.ui.view">
+            <field name="name">Medical Advice Template</field>
+            <field name="model">oeh.medical.advice.template</field>
+            <field name="arch" type="xml">
+                <list string='Medical Advice Templates'>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="oeh_medical_advice_template_action" model="ir.actions.act_window">
+            <field name="name">Medical Advice Templates</field>
+            <field name="res_model">oeh.medical.advice.template</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Click to add a new medical advice template.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="oeh_medical_templates_menu" name="Templates" parent="oeh_medical_conf_menu" sequence="50"/>
+
+        <menuitem action="oeh_medical_chief_complaint_template_action"
+                  id="oeh_medical_chief_complaint_template_menu"
+                  parent="oeh_medical_templates_menu"
+                  sequence="1"/>
+
+
+        <menuitem action="oeh_medical_prescription_template_action"
+                  id="oeh_medical_prescription_template_menu"
+                  parent="oeh_medical_templates_menu"
+                  sequence="2"/>
+
+        <menuitem action="oeh_medical_advice_template_action"
+                  id="oeh_medical_advice_template_menu"
+                  parent="oeh_medical_templates_menu"
+                  sequence="3"/>
+
+    </data>
+</odoo>
