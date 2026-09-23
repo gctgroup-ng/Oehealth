@@ -31,19 +31,13 @@
 # DEALINGS IN THE SOFTWARE.
 
 ##############################################################################
-# -*- coding: utf-8 -*-
-from . import oeh_settings
-from . import oeh_medical
-from . import oeh_evaluation
-from . import oeh_socioeconomics
-from . import oeh_gyneco
-from . import oeh_lifestyle
-from . import oeh_patient_examination
-from . import oeh_followup
-from . import oeh_rest_api
-from . import oeh_telemedicine_sources
-from . import oeh_icd10pcs
-from . import oeh_patient_medical_history
-from . import oeh_medical_certificate
-from . import oeh_reporting
-from . import oeh_branding
+
+
+from odoo import models
+
+
+class MailBot(models.AbstractModel):
+    _inherit = 'mail.bot'
+
+    def _get_answer(self, channel, body, values, command=False):
+        return False

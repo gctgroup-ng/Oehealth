@@ -31,19 +31,21 @@
 # DEALINGS IN THE SOFTWARE.
 
 ##############################################################################
-# -*- coding: utf-8 -*-
-from . import oeh_settings
-from . import oeh_medical
-from . import oeh_evaluation
-from . import oeh_socioeconomics
-from . import oeh_gyneco
-from . import oeh_lifestyle
-from . import oeh_patient_examination
-from . import oeh_followup
-from . import oeh_rest_api
-from . import oeh_telemedicine_sources
-from . import oeh_icd10pcs
-from . import oeh_patient_medical_history
-from . import oeh_medical_certificate
-from . import oeh_reporting
-from . import oeh_branding
+
+
+from odoo.addons.web.controllers.webmanifest import WebManifest
+
+
+class IntarvasWebManifest(WebManifest):
+
+    def _get_webmanifest(self):
+        manifest = super()._get_webmanifest()
+        manifest['icons'] = [{
+            'src': '/intarvas/static/src/img/intarvas-icon-%s.png' % size,
+            'sizes': size,
+            'type': 'image/png',
+        } for size in ['192x192', '512x512']]
+        return manifest
+
+    def _icon_path(self):
+        return 'intarvas/static/src/img/intarvas-icon-192x192.png'

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="intarvas_web_layout" inherit_id="web.layout">
+        <xpath expr="//title" position="attributes">
+            <attribute name="t-esc">title or 'intarvAS'</attribute>
+        </xpath>
+        <xpath expr="//link[@rel='shortcut icon']" position="attributes">
+            <attribute name="t-att-href">x_icon or '/intarvas/static/src/img/favicon.ico'</attribute>
+        </xpath>
+    </template>
+
+    <template id="intarvas_webclient_bootstrap" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//link[@rel='apple-touch-icon']" position="attributes">
+            <attribute name="href">/intarvas/static/src/img/intarvas-icon-ios.png</attribute>
+        </xpath>
+    </template>
+
+    <template id="intarvas_brand_promotion_message" inherit_id="web.brand_promotion_message">
+        <xpath expr="//t[@t-out]" position="replace"/>
+    </template>
+
+    <template id="intarvas_brand_promotion" inherit_id="web.brand_promotion">
+        <xpath expr="//div[hasclass('o_brand_promotion')]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
+
+    <template id="intarvas_login_layout" inherit_id="web.login_layout" priority="10">
+        <xpath expr="//a[@href='https://www.odoo.com?utm_source=db&amp;utm_medium=auth']" position="replace"/>
+    </template>
+
+</odoo>

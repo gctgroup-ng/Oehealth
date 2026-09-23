@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <!-- Main Menu -->
-        <menuitem name="intarvas" id="oeh_medical_menu" web_icon="intarvas,static/description/icon.png"/>
+        <menuitem name="intarvas" id="oeh_medical_menu" web_icon="intarvas,static/description/icon.png" sequence="1"/>
 
         <!-- Sub Menus -->
         <menuitem name="OPD" id="oeh_medical_opd_menu" parent="oeh_medical_menu" sequence="10"/>

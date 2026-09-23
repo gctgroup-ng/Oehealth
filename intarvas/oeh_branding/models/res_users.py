@@ -31,19 +31,24 @@
 # DEALINGS IN THE SOFTWARE.
 
 ##############################################################################
-# -*- coding: utf-8 -*-
-from . import oeh_settings
-from . import oeh_medical
-from . import oeh_evaluation
-from . import oeh_socioeconomics
-from . import oeh_gyneco
-from . import oeh_lifestyle
-from . import oeh_patient_examination
-from . import oeh_followup
-from . import oeh_rest_api
-from . import oeh_telemedicine_sources
-from . import oeh_icd10pcs
-from . import oeh_patient_medical_history
-from . import oeh_medical_certificate
-from . import oeh_reporting
-from . import oeh_branding
+
+
+from odoo import api, models
+
+
+class ResUsers(models.Model):
+    _inherit = 'res.users'
+
+    @api.depends('create_date')
+    def _compute_tour_enabled(self):
+        self.tour_enabled = False
+
+    def _init_odoobot(self):
+        self.ensure_one()
+        self.sudo().odoobot_state = 'disabled'
+
+    @api.model
+    def _intarvas_disable_onboarding(self):
+        users = self.with_context(active_test=False).sudo().search([])
+        users.write({'tour_enabled': False})
+        users.filtered(lambda u: u.odoobot_state in (False, 'not_initialized')).write({'odoobot_state': 'disabled'})

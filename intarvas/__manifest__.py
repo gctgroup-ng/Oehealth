@@ -40,7 +40,7 @@
     'category': 'Generic Modules/Medical',
     'license': 'OPL-1',
     'summary': 'Odoo EMR & HIS based Medical, Health and Hospital Management Solutions',
-    'depends': ['web', 'base', 'account', 'product', 'uom', 'hr', 'stock', 'account_edi'],
+    'depends': ['web', 'base', 'account', 'product', 'uom', 'hr', 'stock', 'account_edi', 'mail_bot', 'web_tour'],
     'price': 550.00,
     'currency': 'EUR',
     'description': """
@@ -190,6 +190,10 @@
         'oeh_reporting/views/bed_occupancy_report_views.xml',
         'oeh_reporting/views/appointment_wait_time_report_views.xml',
         'oeh_reporting/views/reporting_menu.xml',
+
+        # BRANDING
+        'oeh_branding/views/oeh_branding_templates.xml',
+        'oeh_branding/data/oeh_branding_data.xml',
     ],
     'assets': {
         'web.assets_backend': [
@@ -203,6 +207,7 @@
             'intarvas/static/src/js/widgets/name_avatar_physician.js',
             'intarvas/static/src/xml/many2many_tags_display.xml',
             'intarvas/static/src/xml/many2one_avatar_widgets.xml',
+            'intarvas/static/src/js/user_menu_items.js',
         ],
     },
     "active": False,

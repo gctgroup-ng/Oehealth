@@ -61,7 +61,7 @@
                                         <t t-foreach="doctors" t-as="doctor">
                                             <option t-att-value="doctor.id" t-att-selected="'selected' if appointment.doctor and appointment.doctor.id == doctor.id else None">
                                                 <t t-esc="doctor.formatted_name"/>
-                                                <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality"/></t>
+                                                <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality.name"/></t>
                                             </option>
                                         </t>
                                     </select>

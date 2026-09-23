@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="base.partner_root" model="res.partner">
+        <field name="name">intarvAS Bot</field>
+        <field name="image_1920" type="base64" file="intarvas/static/src/img/intarvas_bot.png"/>
+    </record>
+
+    <function model="res.users" name="_intarvas_disable_onboarding"/>
+
+    <data noupdate="1">
+        <function model="ir.config_parameter" name="set_param" eval="['web.web_app_name', 'intarvAS']"/>
+    </data>
+
+</odoo>

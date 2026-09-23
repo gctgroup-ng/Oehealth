@@ -44,4 +44,8 @@
                 </t>
             </xpath>
         </template>
+
+        <template id="portal_record_sidebar_no_brand" name="Portal Record Sidebar Without Odoo Branding" inherit_id="portal.portal_record_sidebar">
+            <xpath expr="//a[@href='http://www.odoo.com?utm_source=db&amp;utm_medium=portal']/.." position="replace"/>
+        </template>
 </odoo>

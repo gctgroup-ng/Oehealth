@@ -526,7 +526,7 @@
                                         <t t-foreach="doctors" t-as="doctor">
                                             <option t-att-value="doctor.id">
                                                 <t t-esc="doctor.formatted_name"/>
-                                                <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality"/></t>
+                                                <t t-if="doctor.speciality"> - <t t-esc="doctor.speciality.name"/></t>
                                             </option>
                                         </t>
                                     </select>
